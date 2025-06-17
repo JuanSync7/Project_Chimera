@@ -42,7 +42,7 @@ const RoadmapSection: React.FC = () => {
                   <div>
                     <h4 className="font-semibold text-white mb-1">Key Actions:</h4>
                     <ul className="list-disc list-inside text-slate-400 space-y-1">
-                      {phase.actions.split('\\n').map(action => action.trim().substring(2).trim() && <li key={action}>{action.trim().substring(2).trim()}</li>)}
+                      {phase.actions.split('\n').map(action => action.trim().substring(2).trim() && <li key={action}>{action.trim().substring(2).trim()}</li>)}
                     </ul>
                   </div>
                   <div>

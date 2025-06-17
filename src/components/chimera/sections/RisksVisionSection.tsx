@@ -2,20 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-
-// Heroicons
-const ShieldExclamationIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622V6.25a11.959 11.959 0 01-2.598-1.036M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-  </svg>
-);
-
-const LightBulbIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.354a11.953 11.953 0 01-3.75 0M10.5 1.875a4.5 4.5 0 00-4.5 4.5v.375c0 1.181.81 2.159 1.907 2.452h3.386c1.097-.293 1.907-1.271 1.907-2.452v-.375a4.5 4.5 0 00-4.5-4.5zM12 18.75a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75h-.01a.75.75 0 01-.75-.75v-.01z" />
-  </svg>
-);
-
+import { ShieldCheck, Telescope } from 'lucide-react';
 
 const RisksVisionSection: React.FC = () => {
   return (
@@ -27,7 +14,7 @@ const RisksVisionSection: React.FC = () => {
       <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-10">
         <div className="section-card p-8 rounded-2xl flex flex-col hover:border-rose-500/50">
           <div className="flex items-center mb-4">
-            <ShieldExclamationIcon className="h-10 w-10 text-rose-400 mr-3" />
+            <ShieldCheck className="h-10 w-10 text-rose-400 mr-3" />
             <h3 className="text-2xl font-bold text-rose-400">Critical Risk Mitigation</h3>
           </div>
           <ul className="space-y-3 text-slate-400 flex-grow">
@@ -49,7 +36,7 @@ const RisksVisionSection: React.FC = () => {
         
         <div className="section-card p-8 rounded-2xl flex flex-col hover:border-violet-500/50">
           <div className="flex items-center mb-4">
-            <LightBulbIcon className="h-10 w-10 text-violet-400 mr-3" />
+            <Telescope className="h-10 w-10 text-violet-400 mr-3" />
             <h3 className="text-2xl font-bold text-violet-400">The Horizon: Pathway to AGI</h3>
           </div>
           <div className="text-slate-300 space-y-4 flex-grow">

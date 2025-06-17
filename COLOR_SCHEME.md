@@ -100,4 +100,18 @@ Styled using global CSS classes `.tab-button-active` and `.tab-button-inactive` 
 *   **Inactive Tab Hover Background**: `hsl(var(--muted))`
 *   **Inactive Tab Hover Text**: `hsl(var(--foreground))`
 
+## 6. Starry Background Effect
+
+A subtle, animated starry background is used on the main page (`src/app/page.tsx`) to enhance the visual appeal.
+
+*   **Implementation**: Managed by the `StarryBackground.tsx` component located in `src/components/chimera/StarryBackground.tsx`.
+*   **CSS Classes**:
+    *   `.star-item`: Applied to individual star elements.
+    *   Animation: `star-animation` (defined in `src/app/globals.css`).
+*   **Behavior**:
+    *   Stars are randomly positioned and sized within the viewport.
+    *   They have a gentle "twinkling" animation affecting opacity and scale.
+    *   The number of stars and their size are adjusted for mobile vs. desktop views for performance and visual balance (50 stars of 1.5-3.5px on mobile, 100 stars of 3-5px on desktop).
+    *   The background is fixed to the viewport, meaning it does not scroll with the page content.
+
 This documentation helps ensure consistency and provides a reference for future design and development work.

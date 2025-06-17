@@ -13,7 +13,7 @@ interface StarData {
 
 const Star: React.FC<Omit<StarData, 'id'>> = ({ top, left, size, animationDelay, animationDuration }) => (
   <div
-    className="absolute rounded-full bg-gray-400 star-item" 
+    className="fixed rounded-full bg-gray-400 star-item"
     style={{
       top: `${top}%`,
       left: `${left}%`,
@@ -36,7 +36,7 @@ const StarryBackground: React.FC = () => {
         id: i,
         top: Math.random() * 100,
         left: Math.random() * 100,
-        size: Math.random() * 2 + 1.5, // Star size between 1.5px and 3.5px
+        size: Math.random() * 2 + 2, // Star size between 2px and 4px
         animationDelay: `${Math.random() * 6}s`, 
         animationDuration: `${Math.random() * 3 + 4}s`, 
       });
@@ -66,3 +66,4 @@ const StarryBackground: React.FC = () => {
 };
 
 export default StarryBackground;
+

@@ -4,14 +4,14 @@ This document outlines the color scheme used throughout the Project Chimera webp
 
 ## 1. Global Theme Colors (CSS Variables in `src/app/globals.css`)
 
-These colors are defined as HSL CSS variables and form the base theme.
+These colors are defined as HSL CSS variables and form the base theme. The application `<html>` tag has the `dark` class applied, so **dark mode variables are active by default.**
 
-*   **Background**: `hsl(var(--background))` - Light Indigo (`#E6E0EB` / `278 32% 90%`)
-*   **Foreground (Default Text)**: `hsl(var(--foreground))` - Dark contrast for text (`278 100% 10%`)
-*   **Primary (Theme Accent)**: `hsl(var(--primary))` - Strong Indigo (`#4B0082` / `278 100% 25%`)
-*   **Accent (Secondary Theme Accent)**: `hsl(var(--accent))` - Blue Violet (`#8A2BE2` / `271 76% 53%`)
+*   **Background**: `hsl(var(--background))` - Dark Indigo (`278 15% 10%`)
+*   **Foreground (Default Text)**: `hsl(var(--foreground))` - Light Indigo text (`278 30% 90%`)
+*   **Primary (Theme Accent)**: `hsl(var(--primary))` - Lighter Strong Indigo (`278 100% 65%`)
+*   **Accent (Secondary Theme Accent)**: `hsl(var(--accent))` - Lighter Blue Violet (`271 76% 60%`)
 
-For dark mode, these variables have different HSL values. Refer to the `.dark { ... }` block in `src/app/globals.css`. The application `<html>` tag has the `dark` class applied, so dark mode variables are active.
+Refer to the `.dark { ... }` block in `src/app/globals.css` for all dark mode HSL values.
 
 ## 2. Gradient Text
 
@@ -51,17 +51,17 @@ For dark mode, these variables have different HSL values. Refer to the `.dark { 
 
 ## 4. SVG Diagram Colors (Architectural Blueprint)
 
-These are defined as HSL CSS variables in `src/app/globals.css` under the light and dark themes, prefixed with `--diagram-`.
+These are defined as HSL CSS variables in `src/app/globals.css` under the dark theme, prefixed with `--diagram-`.
 
-*   **Supervisor Fill**: `hsl(var(--diagram-supervisor-fill))` (Bright Yellow)
-*   **Worker Fill**: `hsl(var(--diagram-worker-fill))` (Lime Green)
-*   **MCP Server Fill**: `hsl(var(--diagram-mcp-fill))` (Dark Green)
-*   **MCP Server Stroke**: `hsl(var(--diagram-mcp-stroke))` (Lime/Light Green)
-*   **MCP Internal Component Fill**: `hsl(var(--diagram-mcp-internal-fill))` (Darker Muted Green)
-*   **Text Labels**: `hsl(var(--diagram-text-fill))`
-*   **Small Text Labels**: `hsl(var(--diagram-muted-text-fill))`
-*   **Title Text**: `hsl(var(--diagram-title-text-fill))`
-*   **Arrows**: `hsl(var(--diagram-arrow-stroke))` (Muted Lime/Green)
+*   **Supervisor Fill**: `hsl(var(--diagram-supervisor-fill))` (Bright Yellow - `50 95% 60%`)
+*   **Worker Fill**: `hsl(var(--diagram-worker-fill))` (Lime Green - `90 70% 55%`)
+*   **MCP Server Fill**: `hsl(var(--diagram-mcp-fill))` (Dark Green - `140 50% 20%`)
+*   **MCP Server Stroke**: `hsl(var(--diagram-mcp-stroke))` (Lime/Light Green - `100 60% 50%`)
+*   **MCP Internal Component Fill**: `hsl(var(--diagram-mcp-internal-fill))` (Darker Muted Green - `140 45% 28%`)
+*   **Text Labels**: `hsl(var(--diagram-text-fill))` (CSS Variable: `0 0% 95%`)
+*   **Small Text Labels**: `hsl(var(--diagram-muted-text-fill))` (CSS Variable: `0 0% 85%`)
+*   **Title Text**: `hsl(var(--diagram-title-text-fill))` (CSS Variable: `0 0% 100%`)
+*   **Arrows**: `hsl(var(--diagram-arrow-stroke))` (Muted Lime/Green - `100 50% 65%`)
 
 ## 5. Tab Buttons (Pipeline Section)
 

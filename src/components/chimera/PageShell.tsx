@@ -23,7 +23,7 @@ export default function PageShell({ children, activeSection = "" }: PageShellPro
   }, []);
 
   return (
-    <div className="relative flex flex-col min-h-screen"> {/* Added relative positioning */}
+    <div className="relative flex flex-col min-h-screen overflow-y-auto"> {/* Added overflow-y-auto */}
       <Header
         navLinks={NAV_LINKS}
         activeSection={activeSection}
@@ -43,4 +43,3 @@ export default function PageShell({ children, activeSection = "" }: PageShellPro
     </div>
   );
 }
-

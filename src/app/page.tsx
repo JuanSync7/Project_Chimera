@@ -1,7 +1,7 @@
 
 // src/app/page.tsx
 "use client";
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import PageShell from '@/components/chimera/PageShell';
 import HomeSection from '@/components/chimera/sections/HomeSection';
 import OverviewSection from '@/components/chimera/sections/OverviewSection';
@@ -41,25 +41,10 @@ const App: React.FC = () => {
       observer.observe(section);
     });
 
-    // Add scroll listener for active header state
-    const handleScroll = () => {
-        const header = document.getElementById('header');
-        if (header) {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
     return () => {
       sections.forEach(section => {
         observer.unobserve(section);
       });
-      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 

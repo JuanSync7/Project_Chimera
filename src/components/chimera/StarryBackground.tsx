@@ -31,7 +31,7 @@ const StarryBackground: React.FC = () => {
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    const numStars = 100; 
+    const numStars = isMobile ? 50 : 100; 
     const generatedStars: StarData[] = [];
     for (let i = 0; i < numStars; i++) {
       const size = isMobile 
@@ -71,3 +71,4 @@ const StarryBackground: React.FC = () => {
 };
 
 export default StarryBackground;
+

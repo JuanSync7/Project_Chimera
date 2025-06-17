@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { PIPELINE_TABS } from '@/lib/chimera/constants';
 import type { PipelineTab } from '@/lib/chimera/types';
-import DynamicIcon, { type IconName } from '@/components/icons/DynamicIcon';
+// DynamicIcon import is no longer needed here for tab buttons
 import { AlertTriangle, Workflow, Star } from 'lucide-react';
 
 const PipelineSection: React.FC = () => {
@@ -27,9 +27,7 @@ const PipelineSection: React.FC = () => {
             aria-selected={activeTab === tab.id}
             role="tab"
           >
-            {typeof tab.icon === 'string' && (
-              <DynamicIcon name={tab.icon as IconName} className="w-5 h-5 mr-2 inline-block" />
-            )}
+            {tab.icon} {/* Render the icon ReactNode directly */}
             {tab.title}
           </button>
         ))}
@@ -80,3 +78,4 @@ const PipelineSection: React.FC = () => {
 };
 
 export default PipelineSection;
+

@@ -43,6 +43,7 @@ Refer to the `.dark { ... }` block in `src/app/globals.css` for all dark mode HS
         *   Hover Background: `hover:bg-yellow-500/20`
         *   Hover Text: `hover:text-yellow-300`
         *   Hover Border: `hover:border-yellow-400`
+        *   Hover Shadow: `hover:shadow-lg hover:shadow-yellow-500/40`
         *   **Used for**: "Learn More: The Strategic Imperative &rarr;", "Explore the Architectural Blueprint &rarr;", "Deep Dive into the AI-Powered Pipeline &rarr;", "Understand Human-AI Symbiosis &rarr;", "Analyze Risks & Mitigation &rarr;", "Explore the AGI Horizon &rarr;"
 
     *   **Lime Outline Button**:
@@ -51,6 +52,7 @@ Refer to the `.dark { ... }` block in `src/app/globals.css` for all dark mode HS
         *   Hover Background: `hover:bg-lime-500/20`
         *   Hover Text: `hover:text-lime-300`
         *   Hover Border: `hover:border-lime-400`
+        *   Hover Shadow: `hover:shadow-lg hover:shadow-lime-500/40`
         *   **Used for**: "View Detailed Implementation Roadmap &rarr;"
 
 

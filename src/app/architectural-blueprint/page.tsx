@@ -21,7 +21,7 @@ export default function ArchitecturalBlueprintPage() {
       <main className="flex-grow container mx-auto px-6 py-12 pt-24 md:pt-32">
         <div className="mb-12">
           <Link href="/" passHref>
-            <Button className="bg-green-500 hover:bg-green-600 text-white">
+            <Button className="bg-green-600 hover:bg-green-700 text-white">
               &larr; Back to Project Overview
             </Button>
           </Link>

@@ -27,7 +27,14 @@ export const PIPELINE_TABS: PipelineTab[] = [
     heading: 'Stage 1: System Specification & Architecture',
     generalDescription: 'Transforming ambiguous natural language requirements into formal, optimized architectural blueprints. This stage creates a "digital thread" of intent and context that flows from initial concept to final silicon.',
     challenge: 'The initial phase of design is often hampered by ambiguous requirements expressed in natural language and the impossibly vast search space of potential high-level architectures.',
-    agenticWorkflowDetails: "SERVER_SIDE_VISIBLE_TEST_STRING", // Diagnostic plain string
+    agenticWorkflowDetails: `<strong>AI Agent(s) & Role:</strong>
+      <ul class="list-disc list-inside space-y-1 mt-1">
+        <li><strong>Spec Analyst Agent:</strong> Engages with product managers/architects. Uses RAG for data on past projects to identify ambiguities/constraints. Uses CAG for conversational context to refine requirements into a formal, machine-readable specification.</li>
+        <li><strong>Design Space Exploration (DSE) Agent:</strong> Powered by reinforcement learning, autonomously generates and evaluates thousands of high-level architectural variants (e.g., memory hierarchies, bus fabrics, core configurations).</li>
+      </ul>
+      <strong>Core AI Technique:</strong> RAG/CAG, Reinforcement Learning (RL).
+      <strong>Key Tools/Frameworks:</strong> LangGraph, Custom Python scripts for DSE, AI models for rapid PPA estimation from high-level descriptions (achieving up to 10x improvement in exploration speed).
+      <strong>Process:</strong> The Supervisor agent orchestrates this, presenting top candidate architectures to human architects for final decision.`,
     outcome: 'Reduced specification ambiguity; 10x faster Design Space Exploration; Architectures optimized for PPA from day one.',
     outcomeColor: 'text-sky-300'
   },
@@ -38,7 +45,14 @@ export const PIPELINE_TABS: PipelineTab[] = [
     heading: 'Stage 2: RTL Design & High-Level Synthesis (HLS)',
     generalDescription: 'Automating the tedious and error-prone process of HDL coding with verifiable, AI-driven generation, addressing reliability gaps of generative AI for hardware.',
     challenge: 'Manual creation of Register-Transfer Level (RTL) code (Verilog/VHDL) is time-consuming, tedious, and error-prone. LLMs can generate HDL but often produce functionally flawed code.',
-    agenticWorkflowDetails: "OTHER_TABS_CONTENT_SHOULD_NOT_MATTER_FOR_SSR", 
+    agenticWorkflowDetails: `<strong>AI Agent(s) & Role (Test-Driven Development - TDD):</strong>
+      <ul class="list-disc list-inside space-y-1 mt-1">
+        <li><strong>Testbench Generator Agent:</strong> Writes functional tests and assertions first, creating a clear, verifiable definition of "correctness".</li>
+        <li><strong>Verilog/VHDL Coder Agent:</strong> Instructed to write RTL code that passes the pre-defined tests. Iterates (generates code, Supervisor runs tests, agent analyzes failures, refactors) until all tests pass. Also capable of code conversion between HDLs.</li>
+      </ul>
+      <strong>Core AI Technique:</strong> Generative AI, Test-Driven Development (TDD).
+      <strong>Key Tools/Frameworks:</strong> Claude Code-like models, LangGraph, Simulation tools.
+      <strong>Process:</strong> Human engineer provides high-level functional description and test requirements. Supervisor confirms tests. TDD loop mitigates LLM weaknesses by grounding generation in verifiable tests. HLS will be prioritized where appropriate.`, 
     outcome: 'Vastly improved RTL quality and reliability; Reduced manual coding effort; Mitigated AI hallucination; Faster module development.',
     outcomeColor: 'text-sky-300'
   },
@@ -49,7 +63,14 @@ export const PIPELINE_TABS: PipelineTab[] = [
     heading: 'Stage 3: Verification & Validation',
     generalDescription: 'Tackling the single largest bottleneck in chip design with an AI-powered verification-in-the-loop framework, aiming for "first-time-right" silicon.',
     challenge: 'Functional verification consumes up to 70% of total project resources. Traditional simulation-based methods can miss deep, corner-case bugs leading to costly silicon respins.',
-    agenticWorkflowDetails: "OTHER_TABS_CONTENT_SHOULD_NOT_MATTER_FOR_SSR",
+    agenticWorkflowDetails: `<strong>AI Agent(s) & Role (AIvril Verification-in-the-Loop Framework):</strong>
+      <ul class="list-disc list-inside space-y-1 mt-1">
+        <li><strong>AutoReview Agent:</strong> Automated code reviewer. Uses static analysis, linting, and formal methods to check RTL for errors, style violations, non-synthesizable constructs. Provides targeted feedback to Coder Agent.</li>
+        <li><strong>AutoDV (Automatic Design Verification) Agent:</strong> Responsible for functional correctness. Uses formal verification tools (e.g., JasperGold) to mathematically prove properties and find deep bugs. Analyzes simulation coverage reports to identify untested areas and intelligently generates new, targeted test cases to close coverage holes.</li>
+      </ul>
+      <strong>Core AI Technique:</strong> Static Analysis, Formal Methods, Coverage-driven test generation.
+      <strong>Key Tools/Frameworks:</strong> AIvril-inspired framework, JasperGold, Formal verification tools.
+      <strong>Process:</strong> Verification-in-the-loop catches virtually all bugs before physical design.`,
     outcome: 'Up to 70% reduction in debug time; Higher confidence; Significant reduction in silicon respins.',
     outcomeColor: 'text-sky-300'
   },
@@ -60,7 +81,13 @@ export const PIPELINE_TABS: PipelineTab[] = [
     heading: 'Stage 4: Physical Design & PPA Optimization',
     generalDescription: 'Using Reinforcement Learning to navigate the near-infinite solution space of physical layout and push designs to the true Pareto-optimal frontier.',
     challenge: 'Physical design (floorplanning, placement, routing) involves a near-infinite solution space. Manually tuning EDA tool parameters for optimal PPA is humanly impossible to perfect.',
-    agenticWorkflowDetails: "OTHER_TABS_CONTENT_SHOULD_NOT_MATTER_FOR_SSR",
+    agenticWorkflowDetails: `<strong>AI Agent(s) & Role (Autonomous RL):</strong>
+      <ul class="list-disc list-inside space-y-1 mt-1">
+        <li><strong>PPA Optimization Agent:</strong> Based on principles of tools like Synopsys DSO.ai and Cadence Cerebrus. Uses RL to holistically and autonomously explore the PPA solution space.</li>
+      </ul>
+      <strong>Core AI Technique:</strong> Reinforcement Learning (RL).
+      <strong>Key Tools/Frameworks:</strong> Synopsys DSO.ai, Cadence Cerebrus, Physical design EDA tools.
+      <strong>Process:</strong> Agent's "actions" are adjusting tool settings, design constraints, floorplan parameters. "Reward" is a score from PPA metrics (timing, power, area, congestion) and manufacturing yield predictions. Runs thousands of automated iterations to learn complex, non-obvious optimization strategies.`,
     outcome: 'Up to 15-40% power reduction; Smaller die size; Pushing designs to the true Pareto-optimal frontier of PPA.',
     outcomeColor: 'text-sky-300'
   },
@@ -71,7 +98,15 @@ export const PIPELINE_TABS: PipelineTab[] = [
     heading: 'Stage 5: Manufacturing & Post-Silicon Validation',
     generalDescription: 'Closing the loop from digital design to physical reality with predictive analytics and automated validation.',
     challenge: 'Bridging pre-silicon design and physical reality involves predicting manufacturing yield, detecting microscopic physical defects, and validating actual hardware performance.',
-    agenticWorkflowDetails: "OTHER_TABS_CONTENT_SHOULD_NOT_MATTER_FOR_SSR",
+    agenticWorkflowDetails: `<strong>AI Agent(s) & Role:</strong>
+      <ul class="list-disc list-inside space-y-1 mt-1">
+        <li><strong>Yield Prediction Agent:</strong> Uses ML models trained on historical wafer-level data to identify design features likely to cause manufacturing problems. Feedback passed to PPA Optimization Agent.</li>
+        <li><strong>Defect Detection Agent:</strong> Leverages AI-powered visual inspection systems to analyze wafer scans, identifying and classifying defects.</li>
+        <li><strong>Post-Silicon Validation Agent:</strong> Automates prototype chip bring-up. Runs diagnostics, collects performance data, and correlates discrepancies against pre-silicon simulations.</li>
+      </ul>
+      <strong>Core AI Technique:</strong> Predictive Analytics, Anomaly Detection, Automated Correlation, Machine Learning.
+      <strong>Key Tools/Frameworks:</strong> Custom ML Models, AI-driven visual inspection systems.
+      <strong>Process:</strong> Incorporates manufacturability into PPA. Creates a final feedback loop refining models for future projects.`,
     outcome: 'Improved manufacturing yield; Reduced validation cycle time; More accurate models for all future projects.',
     outcomeColor: 'text-sky-300'
   },

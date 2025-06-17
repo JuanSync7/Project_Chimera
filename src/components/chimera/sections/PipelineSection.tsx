@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { PIPELINE_TABS } from '@/lib/chimera/constants';
 import type { PipelineTab } from '@/lib/chimera/types';
 import DynamicIcon, { type IconName } from '@/components/icons/DynamicIcon';
+import { AlertTriangle, Workflow, Star } from 'lucide-react';
 
 const PipelineSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>(PIPELINE_TABS[0].id);
@@ -48,19 +49,25 @@ const PipelineSection: React.FC = () => {
                 <p className="mb-6 text-slate-300 text-base lg:text-lg" dangerouslySetInnerHTML={{ __html: currentTabData.generalDescription }}></p>
                 <div className="space-y-6">
                   <div>
-                    <h4 className="font-semibold text-white text-lg mb-1">Key Challenge:</h4>
-                    <p className="text-slate-400" dangerouslySetInnerHTML={{ __html: currentTabData.challenge }}></p>
+                    <h4 className="font-semibold text-white text-lg mb-1 flex items-center">
+                      <AlertTriangle className="w-5 h-5 mr-2 inline-block text-yellow-400" />
+                      Key Challenge:
+                    </h4>
+                    <p className="text-slate-400 pl-7" dangerouslySetInnerHTML={{ __html: currentTabData.challenge }}></p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white text-lg mb-1">Agentic Workflow & Technologies:</h4>
-                    {/* DIAGNOSTIC CHANGE: Render as text instead of dangerouslySetInnerHTML */}
-                    <p className="text-slate-400 prose prose-sm prose-invert max-w-none">
-                      Server-side content for agenticWorkflowDetails: [{currentTabData.agenticWorkflowDetails}]
-                    </p>
+                    <h4 className="font-semibold text-white text-lg mb-1 flex items-center">
+                      <Workflow className="w-5 h-5 mr-2 inline-block text-blue-400" />
+                      Agentic Workflow & Technologies:
+                    </h4>
+                    <div className="text-slate-400 prose prose-sm prose-invert max-w-none pl-7" dangerouslySetInnerHTML={{ __html: currentTabData.agenticWorkflowDetails }}></div>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white text-lg mb-1">Primary Business Outcome:</h4>
-                    <p className={`font-semibold ${currentTabData.outcomeColor || 'text-sky-300'}`} dangerouslySetInnerHTML={{ __html: currentTabData.outcome }}></p>
+                    <h4 className="font-semibold text-white text-lg mb-1 flex items-center">
+                      <Star className="w-5 h-5 mr-2 inline-block text-green-400" />
+                      Primary Business Outcome:
+                    </h4>
+                    <p className={`font-semibold pl-7 ${currentTabData.outcomeColor || 'text-sky-300'}`} dangerouslySetInnerHTML={{ __html: currentTabData.outcome }}></p>
                   </div>
                 </div>
               </>
@@ -73,4 +80,3 @@ const PipelineSection: React.FC = () => {
 };
 
 export default PipelineSection;
-

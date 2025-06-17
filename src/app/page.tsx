@@ -12,6 +12,8 @@ import RisksVisionSection from '@/components/chimera/sections/RisksVisionSection
 import RoadmapSection from '@/components/chimera/sections/RoadmapSection';
 import Footer from '@/components/chimera/Footer';
 import { NAV_LINKS } from '@/lib/chimera/constants';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 const App: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -86,12 +88,66 @@ const App: React.FC = () => {
       />
       <main className="container mx-auto px-6">
         <HomeSection />
+        
         <OverviewSection />
+        <div className="text-center mt-[-4rem] mb-16">
+          <Link href="/strategic-imperative" passHref>
+            <Button variant="outline" size="lg" className="bg-slate-700/50 hover:bg-slate-600/70 border-slate-600 hover:border-sky-500/70 text-sky-300 hover:text-sky-200 transition-all duration-300 ease-in-out transform hover:scale-105">
+              Learn More: The Strategic Imperative &rarr;
+            </Button>
+          </Link>
+        </div>
+
         <ArchitectureSection />
+        <div className="text-center mt-[-2rem] mb-16">
+           <Link href="/architectural-blueprint" passHref>
+            <Button variant="outline" size="lg" className="bg-slate-700/50 hover:bg-slate-600/70 border-slate-600 hover:border-sky-500/70 text-sky-300 hover:text-sky-200 transition-all duration-300 ease-in-out transform hover:scale-105">
+              Explore the Architectural Blueprint &rarr;
+            </Button>
+          </Link>
+        </div>
+
         <PipelineSection />
+         <div className="text-center mt-8 mb-16">
+           <Link href="/ai-pipeline" passHref>
+            <Button variant="outline" size="lg" className="bg-slate-700/50 hover:bg-slate-600/70 border-slate-600 hover:border-sky-500/70 text-sky-300 hover:text-sky-200 transition-all duration-300 ease-in-out transform hover:scale-105">
+              Deep Dive into the AI-Powered Pipeline &rarr;
+            </Button>
+          </Link>
+        </div>
+
         <SymbiosisSection />
+        <div className="text-center mt-8 mb-16">
+           <Link href="/human-ai-symbiosis" passHref>
+            <Button variant="outline" size="lg" className="bg-slate-700/50 hover:bg-slate-600/70 border-slate-600 hover:border-sky-500/70 text-sky-300 hover:text-sky-200 transition-all duration-300 ease-in-out transform hover:scale-105">
+              Understand Human-AI Symbiosis &rarr;
+            </Button>
+          </Link>
+        </div>
+        
         <RisksVisionSection />
+        <div className="text-center mt-8 mb-16 space-y-4 md:space-y-0 md:space-x-4">
+           <Link href="/risk-mitigation" passHref>
+            <Button variant="outline" size="lg" className="bg-slate-700/50 hover:bg-slate-600/70 border-slate-600 hover:border-rose-500/70 text-rose-300 hover:text-rose-200 transition-all duration-300 ease-in-out transform hover:scale-105">
+              Analyze Risks & Mitigation &rarr;
+            </Button>
+          </Link>
+          <Link href="/agi-horizon" passHref>
+            <Button variant="outline" size="lg" className="bg-slate-700/50 hover:bg-slate-600/70 border-slate-600 hover:border-violet-500/70 text-violet-300 hover:text-violet-200 transition-all duration-300 ease-in-out transform hover:scale-105">
+              Explore the AGI Horizon &rarr;
+            </Button>
+          </Link>
+        </div>
+
         <RoadmapSection />
+        <div className="text-center mt-8 mb-16">
+           <Link href="/roadmap-details" passHref>
+            <Button variant="outline" size="lg" className="bg-slate-700/50 hover:bg-slate-600/70 border-slate-600 hover:border-fuchsia-500/70 text-fuchsia-300 hover:text-fuchsia-200 transition-all duration-300 ease-in-out transform hover:scale-105">
+              View Detailed Implementation Roadmap &rarr;
+            </Button>
+          </Link>
+        </div>
+
       </main>
       <Footer />
     </>

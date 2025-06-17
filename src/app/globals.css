@@ -134,7 +134,7 @@
     border-bottom-color: #e5e7eb; 
 }
 .gradient-text {
-    background: linear-gradient(to right, #a3e635, #22c55e, #059669); /* Updated to green/lime gradient */
+    background: linear-gradient(to right, #facc15, #a3e635, #22c55e); /* Updated to yellow, lime, green gradient */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -190,3 +190,6 @@
 .prose ul {
     padding-left: 0.5em; 
 }
+
+
+    

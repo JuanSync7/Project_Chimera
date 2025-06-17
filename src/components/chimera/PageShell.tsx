@@ -23,7 +23,7 @@ export default function PageShell({ children, activeSection = "" }: PageShellPro
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen"> {/* Ensures footer is at bottom */}
+    <div className="relative flex flex-col min-h-screen"> {/* Added relative positioning */}
       <Header
         navLinks={NAV_LINKS}
         activeSection={activeSection}
@@ -43,3 +43,4 @@ export default function PageShell({ children, activeSection = "" }: PageShellPro
     </div>
   );
 }
+

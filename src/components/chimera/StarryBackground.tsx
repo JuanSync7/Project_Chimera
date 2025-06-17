@@ -1,6 +1,7 @@
 
 "use client";
 import React, { useState, useEffect } from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface StarData {
   id: number;
@@ -27,25 +28,29 @@ const Star: React.FC<Omit<StarData, 'id'>> = ({ top, left, size, animationDelay,
 
 const StarryBackground: React.FC = () => {
   const [stars, setStars] = useState<StarData[]>([]);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const numStars = 100; 
     const generatedStars: StarData[] = [];
     for (let i = 0; i < numStars; i++) {
+      const size = isMobile 
+        ? Math.random() * 2 + 1.5 // Star size between 1.5px and 3.5px for mobile
+        : Math.random() * 2 + 3;  // Star size between 3px and 5px for desktop
       generatedStars.push({
         id: i,
         top: Math.random() * 100,
         left: Math.random() * 100,
-        size: Math.random() * 2 + 3, // Star size between 3px and 5px
+        size: size,
         animationDelay: `${Math.random() * 6}s`, 
         animationDuration: `${Math.random() * 3 + 4}s`, 
       });
     }
     setStars(generatedStars);
-  }, []); 
+  }, [isMobile]); // Re-run effect if isMobile changes
 
   
-  if (stars.length === 0) {
+  if (stars.length === 0 && typeof isMobile === 'undefined') { // Prevent rendering until isMobile is determined
     return null;
   }
 
@@ -66,6 +71,3 @@ const StarryBackground: React.FC = () => {
 };
 
 export default StarryBackground;
-
-
-

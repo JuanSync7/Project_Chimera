@@ -48,26 +48,18 @@ export const PIPELINE_TABS: PipelineTab[] = [
   {
     id: 'tab-spec',
     title: '1. Spec & Arch',
-    icon: React.createElement(PencilSquareIcon, { className: "w-5 h-5 mr-2 inline-block" }),
+    icon: "PencilSquareIcon_placeholder", // Simplified icon
     heading: 'Stage 1: System Specification & Architecture',
     generalDescription: 'Transforming ambiguous natural language requirements into formal, optimized architectural blueprints. This stage creates a "digital thread" of intent and context that flows from initial concept to final silicon.',
     challenge: 'The initial phase of design is often hampered by ambiguous requirements expressed in natural language and the impossibly vast search space of potential high-level architectures.',
-    agenticWorkflowDetails: 
-      '<strong>AI Agent(s) &amp; Role:</strong>' +
-      '<ul class="list-disc list-inside space-y-1 mt-1">' +
-        '<li><strong>Spec Analyst Agent:</strong> Engages with product managers/architects. Uses RAG for data on past projects to identify ambiguities/constraints. Uses CAG for conversational context to refine requirements into a formal, machine-readable specification.</li>' +
-        '<li><strong>Design Space Exploration (DSE) Agent:</strong> Powered by reinforcement learning, autonomously generates and evaluates thousands of high-level architectural variants (e.g., memory hierarchies, bus fabrics, core configurations).</li>' +
-      '</ul>' +
-      '<strong>Core AI Technique:</strong> RAG/CAG, Reinforcement Learning (RL).' +
-      '<strong>Key Tools/Frameworks:</strong> LangGraph, Custom Python scripts for DSE, AI models for rapid PPA estimation from high-level descriptions (achieving up to 10x improvement in exploration speed).' +
-      '<strong>Process:</strong> The Supervisor agent orchestrates this, presenting top candidate architectures to human architects for final decision.',
+    agenticWorkflowDetails: '<strong>AI Agent(s) &amp; Role:</strong><p>Test content. This is a simplified HTML string to check server rendering.</p>', // Simplified HTML
     outcome: 'Reduced specification ambiguity; 10x faster Design Space Exploration; Architectures optimized for PPA from day one.',
     outcomeColor: 'text-sky-300'
   },
   {
     id: 'tab-rtl',
     title: '2. RTL Design',
-    icon: React.createElement(CodeBracketIcon, { className: "w-5 h-5 mr-2 inline-block" }),
+    icon: "CodeBracketIcon_placeholder", // Simplified icon
     heading: 'Stage 2: RTL Design & High-Level Synthesis (HLS)',
     generalDescription: 'Automating the tedious and error-prone process of HDL coding with verifiable, AI-driven generation, addressing reliability gaps of generative AI for hardware.',
     challenge: 'Manual creation of Register-Transfer Level (RTL) code (Verilog/VHDL) is time-consuming, tedious, and error-prone. LLMs can generate HDL but often produce functionally flawed code.',
@@ -86,7 +78,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
   {
     id: 'tab-verify',
     title: '3. Verification',
-    icon: React.createElement(CheckBadgeIcon, { className: "w-5 h-5 mr-2 inline-block" }),
+    icon: "CheckBadgeIcon_placeholder", // Simplified icon
     heading: 'Stage 3: Verification & Validation',
     generalDescription: 'Tackling the single largest bottleneck in chip design with an AI-powered verification-in-the-loop framework, aiming for "first-time-right" silicon.',
     challenge: 'Functional verification consumes up to 70% of total project resources. Traditional simulation-based methods can miss deep, corner-case bugs leading to costly silicon respins.',
@@ -105,7 +97,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
   {
     id: 'tab-physical',
     title: '4. Physical Design',
-    icon: React.createElement(CpuChipIcon, { className: "w-5 h-5 mr-2 inline-block" }),
+    icon: "CpuChipIcon_placeholder", // Simplified icon
     heading: 'Stage 4: Physical Design & PPA Optimization',
     generalDescription: 'Using Reinforcement Learning to navigate the near-infinite solution space of physical layout and push designs to the true Pareto-optimal frontier.',
     challenge: 'Physical design (floorplanning, placement, routing) involves a near-infinite solution space. Manually tuning EDA tool parameters for optimal PPA is humanly impossible to perfect.',
@@ -123,7 +115,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
   {
     id: 'tab-post',
     title: '5. Post-Silicon',
-    icon: React.createElement(CogIcon, { className: "w-5 h-5 mr-2 inline-block" }),
+    icon: "CogIcon_placeholder", // Simplified icon
     heading: 'Stage 5: Manufacturing & Post-Silicon Validation',
     generalDescription: 'Closing the loop from digital design to physical reality with predictive analytics and automated validation.',
     challenge: 'Bridging pre-silicon design and physical reality involves predicting manufacturing yield, detecting microscopic physical defects, and validating actual hardware performance.',
@@ -200,3 +192,4 @@ class LogParserAgent:
 # Register with MCP Server
 mcp.register_tool("log_parser", LogParserAgent())
 `;
+    

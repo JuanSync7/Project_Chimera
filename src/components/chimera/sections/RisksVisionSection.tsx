@@ -40,7 +40,7 @@ const RisksVisionSection: React.FC = () => {
           <p className="text-sm text-slate-500 mt-4">Cultural resistance is mitigated by a narrative of augmentation, transparency, and empowerment.</p>
           <div className="mt-8 text-center">
             <Link href="/risk-mitigation" passHref>
-              <Button variant="outline" size="lg" className="bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/40">
+              <Button variant="outline" size="lg" className="bg-transparent text-rose-400 border-rose-500 hover:bg-rose-500/20 hover:text-rose-300 hover:border-rose-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-rose-500/40">
                 Analyze Risks & Mitigation &rarr;
               </Button>
             </Link>
@@ -75,7 +75,7 @@ const RisksVisionSection: React.FC = () => {
           </div>
           <div className="mt-8 text-center">
             <Link href="/agi-horizon" passHref>
-              <Button variant="outline" size="lg" className="bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/40">
+              <Button variant="outline" size="lg" className="bg-transparent text-violet-400 border-violet-500 hover:bg-violet-500/20 hover:text-violet-300 hover:border-violet-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-violet-500/40">
                 Explore the AGI Horizon &rarr;
               </Button>
             </Link>

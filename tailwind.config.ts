@@ -73,9 +73,24 @@ export default {
           ring: 'hsl(var(--sidebar-ring))',
         },
       },
-      boxShadowColor: { // Add this to enable themed shadow colors
+      boxShadowColor: { 
         primary: 'hsl(var(--primary))',
         accent: 'hsl(var(--accent))',
+        yellow: { // Assuming Tailwind's yellow-500 is close to #eab308
+          500: '#eab308', 
+        },
+        lime: { // Assuming Tailwind's lime-500 is close to #84cc16
+          500: '#84cc16',
+        },
+        green: { // Assuming Tailwind's green-600 is close to #16a34a
+            600: '#16a34a',
+        },
+        rose: { // Assuming Tailwind's rose-500 is close to #f43f5e
+            500: '#f43f5e',
+        },
+        violet: { // Assuming Tailwind's violet-500 is close to #8b5cf6
+            500: '#8b5cf6',
+        },
       },
       borderRadius: {
         lg: 'var(--radius)',

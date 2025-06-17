@@ -34,7 +34,7 @@ Refer to the `.dark { ... }` block in `src/app/globals.css` for all dark mode HS
     *   **Hover Background**: `bg-green-700` (Tailwind)
     *   **Shadow (Home page CTA only)**: `shadow-lg hover:shadow-green-600/50`
 
-### 3.2 Outlined "Learn More" Buttons (on Main Page)
+### 3.2 Outlined "Learn More" Buttons (on Main Page & Risks/Vision Section)
     *   **General Style**: `variant="outline" size="lg" className="bg-transparent transition-all duration-300 ease-in-out transform hover:scale-105"`
 
     *   **Yellow Outline Button**:
@@ -44,7 +44,7 @@ Refer to the `.dark { ... }` block in `src/app/globals.css` for all dark mode HS
         *   Hover Text: `hover:text-yellow-300`
         *   Hover Border: `hover:border-yellow-400`
         *   Hover Shadow: `hover:shadow-lg hover:shadow-yellow-500/40`
-        *   **Used for**: "Learn More: The Strategic Imperative &rarr;", "Explore the Architectural Blueprint &rarr;", "Deep Dive into the AI-Powered Pipeline &rarr;", "Understand Human-AI Symbiosis &rarr;", "Analyze Risks & Mitigation &rarr;", "Explore the AGI Horizon &rarr;"
+        *   **Used for**: "Learn More: The Strategic Imperative &rarr;", "Explore the Architectural Blueprint &rarr;", "Deep Dive into the AI-Powered Pipeline &rarr;", "Understand Human-AI Symbiosis &rarr;"
 
     *   **Lime Outline Button**:
         *   Text: `text-lime-400`
@@ -54,6 +54,24 @@ Refer to the `.dark { ... }` block in `src/app/globals.css` for all dark mode HS
         *   Hover Border: `hover:border-lime-400`
         *   Hover Shadow: `hover:shadow-lg hover:shadow-lime-500/40`
         *   **Used for**: "View Detailed Implementation Roadmap &rarr;"
+
+    *   **Rose Outline Button (Risks Section)**:
+        *   Text: `text-rose-400`
+        *   Border: `border-rose-500`
+        *   Hover Background: `hover:bg-rose-500/20`
+        *   Hover Text: `hover:text-rose-300`
+        *   Hover Border: `hover:border-rose-400`
+        *   Hover Shadow: `hover:shadow-lg hover:shadow-rose-500/40`
+        *   **Used for**: "Analyze Risks & Mitigation &rarr;" (in Risks/Vision Section)
+
+    *   **Violet Outline Button (AGI Horizon Section)**:
+        *   Text: `text-violet-400`
+        *   Border: `border-violet-500`
+        *   Hover Background: `hover:bg-violet-500/20`
+        *   Hover Text: `hover:text-violet-300`
+        *   Hover Border: `hover:border-violet-400`
+        *   Hover Shadow: `hover:shadow-lg hover:shadow-violet-500/40`
+        *   **Used for**: "Explore the AGI Horizon &rarr;" (in Risks/Vision Section)
 
 
 ## 4. SVG Diagram Colors (Architectural Blueprint)

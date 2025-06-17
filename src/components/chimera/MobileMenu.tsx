@@ -1,3 +1,4 @@
+
 "use client";
 import React from 'react';
 import type { NavLinkItem } from '@/lib/chimera/types';
@@ -28,7 +29,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ navLinks, isMobileMenuOpen, onL
   return (
     <div 
       id="mobile-menu" 
-      className="md:hidden bg-background border-b border-slate-700 sticky top-16 z-40 w-full"
+      className="md:hidden bg-background border-b border-border sticky top-16 z-40 w-full"
     >
       <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         {navLinks.map(link => (
@@ -47,3 +48,4 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ navLinks, isMobileMenuOpen, onL
 };
 
 export default MobileMenu;
+

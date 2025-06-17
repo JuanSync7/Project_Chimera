@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({ navLinks, activeSection, onMobileMenuTo
   };
 
   return (
-    <header id="header" className="glassmorphism sticky top-0 z-50">
+    <header id="header" className="bg-background border-b border-border sticky top-0 z-50">
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         <a href={isMainPage ? "#home" : "/#home"} className="text-2xl font-bold tracking-tighter">
           <span className="gradient-text">Project Chimera</span>

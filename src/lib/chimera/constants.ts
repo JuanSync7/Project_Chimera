@@ -6,7 +6,7 @@ import type { NavLinkItem, PipelineTab, RoadmapPhase } from '@/lib/chimera/types
 const PencilSquareIcon_placeholder = "Pencil"; // Simplified placeholder names
 const CodeBracketIcon_placeholder = "CodeBracket";
 const CheckBadgeIcon_placeholder = "CheckBadge";
-const CpuChipIcon_placeholder = "CpuChip";
+const CpuChipIcon_placeholder = "Cpu"; // Changed from "CpuChip"
 const CogIcon_placeholder = "Cog";
 
 
@@ -164,7 +164,7 @@ class LogParserAgent:
                 if "ERROR:" in line:
                     errors.append(line.strip())
         
-        summary = f"Found {'{'}len(errors){'}'} errors."
+        summary = f"Found {len(errors)} errors."
         return {"summary": summary, "errors": errors}
 
 # Register with MCP Server

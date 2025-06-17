@@ -20,7 +20,7 @@ const OverviewSection: React.FC = () => {
         <SectionCard
           icon={<Gauge className="h-12 w-12 text-purple-400" />}
           title="Redefining PPAP"
-          description="To Power, Performance, and Area (PPA), we add a fourth critical dimension: <strong>Productivity</strong>. AI automates tedious tasks, liberating engineers for high-value innovation, transforming them into force multipliers. This PPAP framework is key to future success."
+          description="To Power, Performance, and Area (PPA), we add a fourth critical dimension: <span class='gradient-text'>Productivity</span>. AI automates tedious tasks, liberating engineers for high-value innovation, transforming them into force multipliers. This PPA<strong>P</strong> framework is key to future success."
           className="hover:border-purple-500/50"
         />
         <SectionCard

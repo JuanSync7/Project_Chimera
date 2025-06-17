@@ -49,24 +49,23 @@ const ArchitectureSection: React.FC = () => {
                 <svg width="100%" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
                   <style>
                     {`
-                      .supervisor { fill: #38bdf8; } /* Tailwind sky-500 */
-                      .worker { fill: #818cf8; } /* Tailwind indigo-400 */
-                      .mcp { fill: #1e293b; stroke: #c084fc; stroke-width: 1.5; } /* Tailwind slate-800 fill, fuchsia-400 stroke */
-                      .mcp-internal { fill: #334155; } /* Tailwind slate-700 */
-                      .text-label { font-family: 'Inter', sans-serif; font-size: 10px; fill: #e2e8f0; } /* Adjusted from 9px */
-                      .text-label-small { font-family: 'Inter', sans-serif; font-size: 9px; fill: #cbd5e1; } /* Adjusted from 8px, Lighter for sub-labels */
-                      .text-title { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: bold; fill: white; }
-                      .arrow { stroke: #94a3b8; stroke-width: 1.5; marker-end: url(#arrowhead); } /* Tailwind slate-400 */
-                      .dashed-arrow { stroke: #94a3b8; stroke-width: 1.5; stroke-dasharray: 4 2; marker-end: url(#arrowhead-dashed); }
+                      .supervisor { fill: hsl(var(--diagram-supervisor-fill)); }
+                      .worker { fill: hsl(var(--diagram-worker-fill)); }
+                      .mcp { fill: hsl(var(--diagram-mcp-fill)); stroke: hsl(var(--diagram-mcp-stroke)); stroke-width: 1.5; }
+                      .mcp-internal { fill: hsl(var(--diagram-mcp-internal-fill)); }
+                      .text-label { font-family: var(--font-inter, 'Inter', sans-serif); font-size: 10px; fill: hsl(var(--diagram-text-fill)); }
+                      .text-label-small { font-family: var(--font-inter, 'Inter', sans-serif); font-size: 9px; fill: hsl(var(--diagram-muted-text-fill)); }
+                      .text-title { font-family: var(--font-inter, 'Inter', sans-serif); font-size: 11px; font-weight: bold; fill: hsl(var(--diagram-title-text-fill)); }
+                      .arrow { stroke: hsl(var(--diagram-arrow-stroke)); stroke-width: 1.5; marker-end: url(#arrowhead); }
+                      .dashed-arrow { stroke: hsl(var(--diagram-arrow-stroke)); stroke-width: 1.5; stroke-dasharray: 4 2; marker-end: url(#arrowhead-dashed); }
                     `}
                   </style>
                   <defs>
-                    <marker id="arrowhead" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto" markerUnits="strokeWidth"><polygon points="0 0, 7 2.5, 0 5" fill="#94a3b8" /></marker>
-                    <marker id="arrowhead-dashed" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto" markerUnits="strokeWidth"><polygon points="0 0, 7 2.5, 0 5" fill="#94a3b8" /></marker>
+                    <marker id="arrowhead" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto" markerUnits="strokeWidth"><polygon points="0 0, 7 2.5, 0 5" fill="hsl(var(--diagram-arrow-stroke))" /></marker>
+                    <marker id="arrowhead-dashed" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto" markerUnits="strokeWidth"><polygon points="0 0, 7 2.5, 0 5" fill="hsl(var(--diagram-arrow-stroke))" /></marker>
                   </defs>
 
                   {/* Supervisor Agent */}
-                  {/* "Project Manager" text moved above the Supervisor circle */}
                   <text x="200" y="10" textAnchor="middle" className="text-label" fontStyle="italic">"Project Manager"</text>
                   <circle cx="200" cy="45" r="32" className="supervisor" />
                   <text x="200" y="44" textAnchor="middle" className="text-title">Supervisor</text>

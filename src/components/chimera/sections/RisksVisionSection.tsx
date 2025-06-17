@@ -1,5 +1,8 @@
 
 import React from 'react';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+
 // Heroicons
 const ShieldExclamationIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
@@ -35,6 +38,13 @@ const RisksVisionSection: React.FC = () => {
             <li><strong>IP Security:</strong> Multi-layered, Zero-Trust security for the MCP Server. Strict data segregation, granular access control (IAM), end-to-end encryption, and immutable audit trails.</li>
           </ul>
           <p className="text-sm text-slate-500 mt-4">Cultural resistance is mitigated by a narrative of augmentation, transparency, and empowerment.</p>
+          <div className="mt-8 text-center">
+            <Link href="/risk-mitigation" passHref>
+              <Button variant="outline" size="lg" className="bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/40">
+                Analyze Risks & Mitigation &rarr;
+              </Button>
+            </Link>
+          </div>
         </div>
         
         <div className="section-card p-8 rounded-2xl flex flex-col hover:border-violet-500/50">
@@ -62,6 +72,13 @@ const RisksVisionSection: React.FC = () => {
               </li>
             </ul>
             <p>By mastering this loop, we become a central engine of the AGI revolution, designing the minds of the future and the silicon brains they run on.</p>
+          </div>
+          <div className="mt-8 text-center">
+            <Link href="/agi-horizon" passHref>
+              <Button variant="outline" size="lg" className="bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/40">
+                Explore the AGI Horizon &rarr;
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

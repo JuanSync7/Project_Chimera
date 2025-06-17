@@ -126,20 +126,7 @@ const App: React.FC = () => {
         </div>
         
         <RisksVisionSection />
-        <div className="text-center mt-8 mb-4">
-           <Link href="/risk-mitigation" passHref>
-            <Button variant="outline" size="lg" className="bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/40">
-              Analyze Risks & Mitigation &rarr;
-            </Button>
-          </Link>
-        </div>
-        <div className="text-center mt-4 mb-16">
-          <Link href="/agi-horizon" passHref>
-            <Button variant="outline" size="lg" className="bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/40">
-              Explore the AGI Horizon &rarr;
-            </Button>
-          </Link>
-        </div>
+        {/* Buttons for Risks & AGI Horizon are now inside RisksVisionSection component */}
 
         <RoadmapSection />
         <div className="text-center mt-8 mb-16">

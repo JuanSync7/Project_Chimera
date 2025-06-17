@@ -23,7 +23,7 @@ export default function StrategicImperativePage() {
       <main className="flex-grow container mx-auto px-6 py-12 pt-24 md:pt-32">
         <div className="mb-12">
           <Link href="/" passHref>
-            <Button variant="outline" className="text-sky-300 border-sky-500/50 hover:bg-sky-500/10">
+            <Button className="bg-sky-500 hover:bg-sky-600 text-white">
               &larr; Back to Project Overview
             </Button>
           </Link>

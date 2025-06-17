@@ -61,12 +61,12 @@ const SymbiosisSection: React.FC = () => {
             icon={<ChartBarSquareIcon className="h-12 w-12 text-fuchsia-400 mx-auto" />}
             title="MLOps & Observability with LangSmith"
             titleClassName="text-center"
-            description="AI agents and workflows are treated with production software rigor using a robust MLOps framework.
+            description={`<p class='max-w-2xl mx-auto text-left mb-3'>AI agents and workflows are treated with production software rigor using a robust MLOps framework.</p>
             <ul class='list-disc list-inside mt-3 space-y-2 text-slate-400 text-left max-w-2xl mx-auto'>
               <li><strong>CI/CD for LLM Applications:</strong> Automated workflows test agent changes against 'golden datasets', blocking regressions in correctness, factual groundedness, or tool-use accuracy.</li>
               <li><strong>Evaluation-Driven Development:</strong> Ensures AI systems only improve over time. Specialized AI testing agents continuously probe design agents for weaknesses and update test scripts.</li>
               <li><strong>LangSmith for Observability & Debugging:</strong> Standardized platform for LLM app development, monitoring, and debugging. Provides end-to-end tracing of agentic workflows, transforming AI from a 'black box' into a debuggable system. Engineers can visualize processes, identify failure points, and build trust. LangSmith's evaluation suite integrates with CI/CD, and its feedback tools help improve agents via expert review.</li>
-            </ul>"
+            </ul>`}
             className="hover:border-fuchsia-500/50"
           />
         </div>

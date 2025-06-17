@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Layers, Database, MessageSquare } from 'lucide-react';
 
 const ArchitectureSection: React.FC = () => {
   return (
@@ -30,15 +31,15 @@ const ArchitectureSection: React.FC = () => {
               <p className="text-slate-300 mb-6">The <strong>Multi-Agent Collaboration Protocol (MCP) Server</strong> is the stateful, intelligent hub for Tools, Knowledge, and State, acting as the brain and memory for the MAS. It's inspired by services like LangConnect.</p>
               <ul className="space-y-4">
                 <li className="flex items-start">
-                  <svg className="h-7 w-7 text-sky-400 mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" /></svg>
+                  <Layers className="h-7 w-7 text-sky-400 mr-3 mt-1 flex-shrink-0" />
                   <div><strong className="text-white">Tool Abstraction Layer:</strong> Standardized, version-controlled API for agents to access EDA software (Synopsys DSO.ai, Cadence Cerebrus, JasperGold), custom scripts, and utilities.</div>
                 </li>
                 <li className="flex items-start">
-                  <svg className="h-7 w-7 text-sky-400 mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4M4 7s0 0 0 0" /></svg>
+                  <Database className="h-7 w-7 text-sky-400 mr-3 mt-1 flex-shrink-0" />
                   <div><strong className="text-white">Knowledge Hub (RAG):</strong> Version-controlled vector database (e.g., PostgreSQL with pgvector) of all proprietary and public data (PDKs, libraries, datasheets, design history), turning history into a queryable asset for factual grounding and preventing hallucinations.</div>
                 </li>
                 <li className="flex items-start">
-                  <svg className="h-7 w-7 text-sky-400 mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2V4a2 2 0 012-2h6.172a2 2 0 011.414.586l3.828 3.828A2 2 0 0117 8z" /></svg>
+                  <MessageSquare className="h-7 w-7 text-sky-400 mr-3 mt-1 flex-shrink-0" />
                   <div><strong className="text-white">Context & State Management (CAG):</strong> Manages short-term "working memory" of ongoing tasks (conversational history, recent action results, project state) using Cache-Augmented Generation for efficient, iterative problem-solving.</div>
                 </li>
               </ul>
@@ -138,5 +139,3 @@ const ArchitectureSection: React.FC = () => {
 };
 
 export default ArchitectureSection;
-
-    

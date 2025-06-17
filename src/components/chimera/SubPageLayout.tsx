@@ -19,7 +19,7 @@ export default function SubPageLayout({
 
   return (
     <PageShell>
-      <div className="container mx-auto px-6 py-12 pt-24 md:pt-32">
+      <div className="container mx-auto px-6 py-12 pt-24 md:pt-32 flex flex-col flex-grow">
         <div className="mb-12">
           <Link href={backButtonHref} passHref>
             <Button className="bg-green-600 hover:bg-green-700 text-white">
@@ -32,3 +32,4 @@ export default function SubPageLayout({
     </PageShell>
   );
 }
+

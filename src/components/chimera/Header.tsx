@@ -1,6 +1,8 @@
 
+"use client";
 import React from 'react';
 import type { NavLinkItem } from '@/lib/chimera/types';
+import { usePathname } from 'next/navigation';
 
 interface HeaderProps {
   navLinks: NavLinkItem[];
@@ -9,17 +11,27 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ navLinks, activeSection, onMobileMenuToggle }) => {
+  const pathname = usePathname();
+  const isMainPage = pathname === '/';
+
+  const getLinkHref = (link: NavLinkItem) => {
+    if (isMainPage) {
+      return link.href; // e.g., #overview
+    }
+    return `/${link.href}`; // e.g., /overview -> /#overview
+  };
+
   return (
     <header id="header" className="glassmorphism sticky top-0 z-50">
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="#home" className="text-2xl font-bold tracking-tighter">
+        <a href={isMainPage ? "#home" : "/#home"} className="text-2xl font-bold tracking-tighter">
           <span className="gradient-text">Project Chimera</span>
         </a>
         <div className="hidden md:flex items-center space-x-8">
           {navLinks.map(link => (
             <a 
               key={link.id} 
-              href={link.href} 
+              href={getLinkHref(link)} 
               className={`nav-link ${activeSection === link.id ? 'active-nav' : ''}`}
             >
               {link.label}

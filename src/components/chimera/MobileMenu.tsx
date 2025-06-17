@@ -1,6 +1,8 @@
 
+"use client";
 import React from 'react';
 import type { NavLinkItem } from '@/lib/chimera/types';
+import { usePathname } from 'next/navigation';
 
 interface MobileMenuProps {
   navLinks: NavLinkItem[];
@@ -10,6 +12,16 @@ interface MobileMenuProps {
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ navLinks, isMobileMenuOpen, onLinkClick, activeSection }) => {
+  const pathname = usePathname();
+  const isMainPage = pathname === '/';
+
+  const getLinkHref = (link: NavLinkItem) => {
+    if (isMainPage) {
+      return link.href; // e.g., #overview
+    }
+    return `/${link.href}`; // e.g., /#overview
+  };
+
   if (!isMobileMenuOpen) {
     return null;
   }
@@ -20,7 +32,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ navLinks, isMobileMenuOpen, onL
         {navLinks.map(link => (
           <a
             key={link.id}
-            href={link.href}
+            href={getLinkHref(link)}
             onClick={onLinkClick}
             className={`block px-3 py-2 rounded-md text-base font-medium ${activeSection === link.id ? 'text-white bg-gray-700' : 'text-gray-300 hover:text-white hover:bg-gray-700'}`}
           >

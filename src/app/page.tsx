@@ -14,6 +14,7 @@ import Footer from '@/components/chimera/Footer';
 import { NAV_LINKS } from '@/lib/chimera/constants';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import StarryBackground from '@/components/chimera/StarryBackground';
 
 const App: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -74,7 +75,8 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <>
+    <div className="relative">
+      <StarryBackground />
       <Header 
         navLinks={NAV_LINKS}
         activeSection={activeSection}
@@ -139,7 +141,7 @@ const App: React.FC = () => {
 
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

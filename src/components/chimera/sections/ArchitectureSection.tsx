@@ -106,20 +106,20 @@ const ArchitectureSection: React.FC = () => {
                   {/* MCP Internal Components */}
                   <g> {/* Tool Abstraction */}
                       <rect x="40" y="225" width="100" height="55" rx="5" className="mcp-internal" />
-                      <text x="90" y="240" textAnchor="middle" className="text-label">Tool Abstraction</text> {/* Adjusted Y */}
-                      <text x="90" y="253" textAnchor="middle" className="text-label-small">(EDA, Scripts)</text> {/* Adjusted Y */}
+                      <text x="90" y="246" textAnchor="middle" className="text-label">Tool Abstraction</text>
+                      <text x="90" y="259" textAnchor="middle" className="text-label-small">(EDA, Scripts)</text>
                   </g>
                   <g> {/* Knowledge Hub */}
                       <rect x="150" y="225" width="100" height="55" rx="5" className="mcp-internal" />
-                      <text x="200" y="235" textAnchor="middle" className="text-label">Knowledge Hub</text> {/* Adjusted Y */}
-                      <text x="200" y="247" textAnchor="middle" className="text-label-small">(RAG - PDKs, IP)</text> {/* Adjusted Y */}
-                      <text x="200" y="259" textAnchor="middle" className="text-label-small">Vector DB</text> {/* Adjusted Y */}
+                      <text x="200" y="240.5" textAnchor="middle" className="text-label">Knowledge Hub</text>
+                      <text x="200" y="252.5" textAnchor="middle" className="text-label-small">(RAG - PDKs, IP)</text>
+                      <text x="200" y="264.5" textAnchor="middle" className="text-label-small">Vector DB</text>
                   </g>
                   <g> {/* Context/State */}
                       <rect x="260" y="225" width="100" height="55" rx="5" className="mcp-internal" />
-                      <text x="310" y="235" textAnchor="middle" className="text-label">Context/State</text> {/* Adjusted Y */}
-                      <text x="310" y="247" textAnchor="middle" className="text-label-small">(CAG - Working Mem)</text> {/* Adjusted Y */}
-                      <text x="310" y="259" textAnchor="middle" className="text-label-small">Cache</text> {/* Adjusted Y */}
+                      <text x="310" y="240.5" textAnchor="middle" className="text-label">Context/State</text>
+                      <text x="310" y="252.5" textAnchor="middle" className="text-label-small">(CAG - Working Mem)</text>
+                      <text x="310" y="264.5" textAnchor="middle" className="text-label-small">Cache</text>
                   </g>
 
                   {/* Connections: Workers to MCP - Curved dashed lines to top edge of MCP server */}
@@ -138,3 +138,4 @@ const ArchitectureSection: React.FC = () => {
 };
 
 export default ArchitectureSection;
+

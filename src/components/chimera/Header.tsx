@@ -8,9 +8,10 @@ interface HeaderProps {
   navLinks: NavLinkItem[];
   activeSection: string;
   onMobileMenuToggle: () => void;
+  isMobileMenuOpen: boolean; // Added this prop
 }
 
-const Header: React.FC<HeaderProps> = ({ navLinks, activeSection, onMobileMenuToggle }) => {
+const Header: React.FC<HeaderProps> = ({ navLinks, activeSection, onMobileMenuToggle, isMobileMenuOpen }) => {
   const pathname = usePathname();
   const isMainPage = pathname === '/';
 
@@ -18,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ navLinks, activeSection, onMobileMenuTo
     if (isMainPage) {
       return link.href; // e.g., #overview
     }
-    return `/${link.href}`; // e.g., /overview -> /#overview
+    return `/${link.href}`; // e.g., /#overview
   };
 
   return (
@@ -43,7 +44,7 @@ const Header: React.FC<HeaderProps> = ({ navLinks, activeSection, onMobileMenuTo
           className="md:hidden p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
           onClick={onMobileMenuToggle}
           aria-label="Toggle mobile menu"
-          aria-expanded={activeSection === 'mobile-menu-open'}
+          aria-expanded={isMobileMenuOpen} // Use the isMobileMenuOpen prop
         >
           <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -55,3 +56,4 @@ const Header: React.FC<HeaderProps> = ({ navLinks, activeSection, onMobileMenuTo
 };
 
 export default Header;
+

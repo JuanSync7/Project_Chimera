@@ -1,3 +1,4 @@
+
 // src/app/page.tsx
 "use client";
 import React, { useState, useEffect, useCallback } from 'react';
@@ -81,6 +82,7 @@ const App: React.FC = () => {
         navLinks={NAV_LINKS}
         activeSection={activeSection}
         onMobileMenuToggle={toggleMobileMenu}
+        isMobileMenuOpen={isMobileMenuOpen} 
       />
       <MobileMenu 
         navLinks={NAV_LINKS}
@@ -146,3 +148,4 @@ const App: React.FC = () => {
 };
 
 export default App;
+

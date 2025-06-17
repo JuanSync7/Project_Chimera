@@ -99,7 +99,7 @@ const App: React.FC = () => {
         </div>
 
         <ArchitectureSection />
-        <div className="text-center mt-[-2rem] mb-16">
+        <div className="text-center mt-[-4rem] mb-16">
            <Link href="/architectural-blueprint" passHref>
             <Button variant="outline" size="lg" className="bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/40">
               Explore the Architectural Blueprint &rarr;
@@ -108,7 +108,7 @@ const App: React.FC = () => {
         </div>
 
         <PipelineSection />
-         <div className="text-center mt-8 mb-16">
+         <div className="text-center mt-[-4rem] mb-16">
            <Link href="/ai-pipeline" passHref>
             <Button variant="outline" size="lg" className="bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/40">
               Deep Dive into the AI-Powered Pipeline &rarr;
@@ -117,7 +117,7 @@ const App: React.FC = () => {
         </div>
 
         <SymbiosisSection />
-        <div className="text-center mt-8 mb-16">
+        <div className="text-center mt-[-4rem] mb-16">
            <Link href="/human-ai-symbiosis" passHref>
             <Button variant="outline" size="lg" className="bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/40">
               Understand Human-AI Symbiosis &rarr;
@@ -129,7 +129,7 @@ const App: React.FC = () => {
         {/* Buttons for Risks & AGI Horizon are now inside RisksVisionSection component */}
 
         <RoadmapSection />
-        <div className="text-center mt-8 mb-16">
+        <div className="text-center mt-[-4rem] mb-16">
            <Link href="/roadmap-details" passHref>
             <Button variant="outline" size="lg" className="bg-transparent text-lime-400 border-lime-500 hover:bg-lime-500/20 hover:text-lime-300 hover:border-lime-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-lime-500/40">
               View Detailed Implementation Roadmap &rarr;

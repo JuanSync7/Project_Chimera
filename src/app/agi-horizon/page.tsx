@@ -1,4 +1,4 @@
-
+"use client";
 import React from 'react';
 import Header from '@/components/chimera/Header';
 import Footer from '@/components/chimera/Footer';
@@ -45,12 +45,12 @@ export default function AgiHorizonPage() {
           <p>Current AI is specialized. The path to AGI lies in integrating these specialized intelligences into a coherent, general framework—a cognitive architecture. Researchers have proposed various functional blocks that such an architecture would require, including modules for consciousness, memory, goal management, ethics, and reflection.</p>
           <p>Project Chimera is, in effect, a real-world implementation of such an architecture within the domain of chip design.</p>
           <ul className="list-disc pl-5 space-y-2">
-            <li>The <strong>Supervisor Agent</strong> acts as a primitive form of machine consciousness, directing the system's attention, allocating cognitive resources, and managing high-level goals.</li>
-            <li>The <strong>MCP Server</strong> serves as the system's long-term and working memory, housing both the static knowledge base (RAG) and the dynamic task context (CAG).</li>
-            <li>The <strong>AutoReview Agent</strong>, which enforces design rules and standards, functions as a domain-specific ethics block, ensuring the system's outputs adhere to a defined set of principles.</li>
+            <li>The <strong>Supervisor Agent</strong> acts as a primitive form of machine consciousness, directing the system&apos;s attention, allocating cognitive resources, and managing high-level goals.</li>
+            <li>The <strong>MCP Server</strong> serves as the system&apos;s long-term and working memory, housing both the static knowledge base (RAG) and the dynamic task context (CAG).</li>
+            <li>The <strong>AutoReview Agent</strong>, which enforces design rules and standards, functions as a domain-specific ethics block, ensuring the system&apos;s outputs adhere to a defined set of principles.</li>
             <li>The <strong>PPA Optimization Agent</strong>, which learns from trial and error, embodies a form of reinforcement learning, a key component of many AGI approaches.</li>
           </ul>
-          <p>By building and scaling this system, we are not just solving engineering problems; we are conducting invaluable research into the practical challenges of orchestrating a complex, multi-faceted artificial mind. The LangGraph framework itself can be seen as a "hardware description language for intelligence," providing a syntax for defining how different cognitive components should be connected and controlled.</p>
+          <p>By building and scaling this system, we are not just solving engineering problems; we are conducting invaluable research into the practical challenges of orchestrating a complex, multi-faceted artificial mind. The LangGraph framework itself can be seen as a &quot;hardware description language for intelligence,&quot; providing a syntax for defining how different cognitive components should be connected and controlled.</p>
 
           <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
             6.3 The Symbiotic Loop: How AGI Will Redefine Chip Design, and How New Chips Will Enable AGI

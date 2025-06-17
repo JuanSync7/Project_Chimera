@@ -1,4 +1,4 @@
-
+"use client";
 import React from 'react';
 import Header from '@/components/chimera/Header';
 import Footer from '@/components/chimera/Footer';
@@ -32,7 +32,7 @@ export default function AiPipelinePage() {
             Section 3: Full-Stack AI Integration: Agentic Workflows Across the Semiconductor Pipeline
           </h1>
           <p>The true power of the proposed multi-agent architecture is realized when it is applied holistically across the entire semiconductor design pipeline. This section details the stage-by-stage implementation of agentic workflows, transforming each phase from a series of manual, siloed tasks into an integrated, AI-driven process. For each stage, the key challenges are identified, the agentic solution is described, and the expected business outcomes are quantified.</p>
-          <p>This creates a "digital thread" of intent and context that flows from initial concept to final silicon, breaking down traditional barriers between design disciplines. In a traditional flow, critical context is often lost at handoffs between teams. The verification team receives an RTL drop, and the physical design team receives a netlist, but the underlying design intent can become fragmented. In the proposed MAS, the Supervisor agent maintains the complete state and goals for the project. When it delegates a task, it passes not just the data but the entire context managed by the MCP Server's CAG component. This shared context allows downstream agents to make more intelligent, globally-aware decisions, drastically reducing errors from miscommunication and enabling more optimal end-to-end solutions.</p>
+          <p>This creates a &quot;digital thread&quot; of intent and context that flows from initial concept to final silicon, breaking down traditional barriers between design disciplines. In a traditional flow, critical context is often lost at handoffs between teams. The verification team receives an RTL drop, and the physical design team receives a netlist, but the underlying design intent can become fragmented. In the proposed MAS, the Supervisor agent maintains the complete state and goals for the project. When it delegates a task, it passes not just the data but the entire context managed by the MCP Server&apos;s CAG component. This shared context allows downstream agents to make more intelligent, globally-aware decisions, drastically reducing errors from miscommunication and enabling more optimal end-to-end solutions.</p>
 
           <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
             3.1 Stage 1: System Specification &amp; Architecture
@@ -53,7 +53,7 @@ export default function AiPipelinePage() {
           <p>To address the reliability gap of generative AI for hardware, a rigorous TDD workflow will be implemented, inspired by best practices for agentic coding.</p>
           <ul className="list-disc pl-5 space-y-1">
             <li>The human engineer provides a high-level functional description for a design module and its test requirements.</li>
-            <li>A <strong>Testbench Generator Agent</strong> is tasked with writing the functional tests and assertions first. This creates a clear, unambiguous, and verifiable definition of "correctness".</li>
+            <li>A <strong>Testbench Generator Agent</strong> is tasked with writing the functional tests and assertions first. This creates a clear, unambiguous, and verifiable definition of &quot;correctness&quot;.</li>
             <li>The Supervisor confirms the generated tests with the engineer.</li>
             <li>A <strong>Verilog/VHDL Coder Agent</strong> is then instructed with a single, clear goal: write RTL code that makes the pre-defined tests pass. The agent enters an iterative loop: it generates code, the Supervisor invokes the simulation tools to run the tests, the agent analyzes the failures, and then refactors the code to fix the bugs. This continues until all tests pass.</li>
           </ul>
@@ -69,15 +69,15 @@ export default function AiPipelinePage() {
             <li><strong>AutoReview Agent:</strong> This agent acts as an automated code reviewer. It uses static analysis, linting tools, and formal methods to check the generated RTL for syntax errors, style guide violations, and non-synthesizable constructs. It provides precise, targeted feedback to the Coder Agent for immediate correction, creating a tight, fast feedback loop.</li>
             <li><strong>AutoDV (Automatic Design Verification) Agent:</strong> This agent is responsible for functional correctness. It uses formal verification tools to mathematically prove properties and identify deep bugs that simulation cannot find. It also analyzes simulation coverage reports to identify untested areas of the design. It then intelligently generates new, targeted test cases to close these coverage holes, creating a closed-loop system for continuous verification improvement.</li>
           </ul>
-          <p>This "verification-in-the-loop" approach is designed to catch virtually all bugs before physical design begins, moving the industry closer to the goal of "first-time-right" silicon.</p>
+          <p>This &quot;verification-in-the-loop&quot; approach is designed to catch virtually all bugs before physical design begins, moving the industry closer to the goal of &quot;first-time-right&quot; silicon.</p>
 
           <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
             3.4 Stage 4: Physical Design &amp; PPA Optimization
           </h2>
           <p><strong>Challenge:</strong> The physical design stage—including floorplanning, placement, and routing—involves a solution space with a near-infinite number of choices. Manually tuning the parameters of EDA tools to find the optimal PPA is a black art that is humanly impossible to perfect.</p>
           <p><strong>Agentic Workflow: Autonomous Reinforcement Learning (RL):</strong></p>
-          <p>An autonomous <strong>PPA Optimization Agent</strong> will be deployed, based on the principles of industry-leading tools like Synopsys DSO.ai and Cadence Cerebrus. This agent uses reinforcement learning to holistically and autonomously explore the vast PPA solution space. It treats the physical design EDA tool as its "environment."</p>
-          <p>The agent's "actions" consist of making intelligent adjustments to hundreds of tool settings, design constraints, and floorplan parameters. The "reward" it receives after each run is a score calculated from the resulting PPA metrics (timing, power, area, congestion) and manufacturing yield predictions.</p>
+          <p>An autonomous <strong>PPA Optimization Agent</strong> will be deployed, based on the principles of industry-leading tools like Synopsys DSO.ai and Cadence Cerebrus. This agent uses reinforcement learning to holistically and autonomously explore the vast PPA solution space. It treats the physical design EDA tool as its &quot;environment.&quot;</p>
+          <p>The agent&apos;s &quot;actions&quot; consist of making intelligent adjustments to hundreds of tool settings, design constraints, and floorplan parameters. The &quot;reward&quot; it receives after each run is a score calculated from the resulting PPA metrics (timing, power, area, congestion) and manufacturing yield predictions.</p>
           <p>By running thousands of these automated iterations, the RL agent learns complex, non-obvious relationships between parameters and outcomes. It discovers novel optimization strategies that outperform even seasoned human experts, pushing the design to the true Pareto-optimal frontier of PPA.</p>
 
           <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
@@ -92,49 +92,63 @@ export default function AiPipelinePage() {
           </ul>
 
           <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
-            Pipeline Summary
+            Pipeline Summary Table
           </h2>
-          <div className="space-y-4">
-            <div>
-              <h3 className="text-2xl font-medium text-sky-300">1. Spec &amp; Architecture</h3>
-              <p><strong>Key Challenge:</strong> Ambiguous requirements; vast design space</p>
-              <p><strong>AI Agent(s) &amp; Role:</strong> Spec Analyst Agent; DSE Agent</p>
-              <p><strong>Core AI Technique:</strong> RAG/CAG; Reinforcement Learning (RL)</p>
-              <p><strong>Key Tools/Frameworks:</strong> LangGraph, Custom Python</p>
-              <p><strong>Primary Business Outcome:</strong> Reduced spec ambiguity; 10x faster DSE; Architectures optimized for PPA from day one</p>
-            </div>
-            <div>
-              <h3 className="text-2xl font-medium text-sky-300">2. RTL Design &amp; HLS</h3>
-              <p><strong>Key Challenge:</strong> Slow, error-prone manual coding; unreliable GenAI output</p>
-              <p><strong>AI Agent(s) &amp; Role:</strong> Testbench Generator Agent; Verilog/VHDL Coder Agent</p>
-              <p><strong>Core AI Technique:</strong> Generative AI; Test-Driven Development (TDD)</p>
-              <p><strong>Key Tools/Frameworks:</strong> Claude Code-like models, LangGraph</p>
-              <p><strong>Primary Business Outcome:</strong> Improved RTL quality and reliability; Reduced manual coding effort; Faster module development</p>
-            </div>
-            <div>
-              <h3 className="text-2xl font-medium text-sky-300">3. Verification &amp; Validation</h3>
-              <p><strong>Key Challenge:</strong> Largest time/resource bottleneck; missed corner-case bugs</p>
-              <p><strong>AI Agent(s) &amp; Role:</strong> AutoReview Agent; AutoDV Agent</p>
-              <p><strong>Core AI Technique:</strong> Static Analysis; Formal Methods; Coverage-driven test generation</p>
-              <p><strong>Key Tools/Frameworks:</strong> AIvril-inspired framework, JasperGold</p>
-              <p><strong>Primary Business Outcome:</strong> Up to 70% reduction in debug time; Higher confidence; Fewer silicon respins</p>
-            </div>
-            <div>
-              <h3 className="text-2xl font-medium text-sky-300">4. Physical Design &amp; PPA Optimization</h3>
-              <p><strong>Key Challenge:</strong> Impossible to manually find optimal PPA in massive solution space</p>
-              <p><strong>AI Agent(s) &amp; Role:</strong> PPA Optimization Agent</p>
-              <p><strong>Core AI Technique:</strong> Reinforcement Learning (RL)</p>
-              <p><strong>Key Tools/Frameworks:</strong> Synopsys DSO.ai, Cadence Cerebrus</p>
-              <p><strong>Primary Business Outcome:</strong> Up to 15-40% power reduction; Smaller die size; Pushing the Pareto frontier</p>
-            </div>
-            <div>
-              <h3 className="text-2xl font-medium text-sky-300">5. Post-Silicon</h3>
-              <p><strong>Key Challenge:</strong> Predicting yield; detecting physical defects; correlating pre/post-silicon data</p>
-              <p><strong>AI Agent(s) &amp; Role:</strong> Yield Prediction Agent; Defect Detection Agent; Validation Agent</p>
-              <p><strong>Core AI Technique:</strong> Predictive Analytics; Anomaly Detection; Automated Correlation</p>
-              <p><strong>Key Tools/Frameworks:</strong> Custom ML Models, AI-driven visual inspection</p>
-              <p><strong>Primary Business Outcome:</strong> Improved manufacturing yield; Reduced validation cycle time; More accurate models for future projects</p>
-            </div>
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-slate-700">
+              <thead className="bg-slate-800/50">
+                <tr>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-sky-300">Design Stage</th>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-sky-300">Key Challenge</th>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-sky-300">AI Agent(s) & Role</th>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-sky-300">Core AI Technique</th>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-sky-300">Key Tools/Frameworks</th>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-sky-300">Primary Business Outcome</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-700 bg-slate-800/30">
+                <tr>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm font-medium">1. Spec & Architecture</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">Ambiguous requirements; vast design space</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">Spec Analyst Agent; DSE Agent</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">RAG/CAG; Reinforcement Learning (RL)</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">LangGraph, Custom Python</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">Reduced spec ambiguity; 10x faster DSE; Architectures optimized for PPA from day one</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm font-medium">2. RTL Design & HLS</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">Slow, error-prone manual coding; unreliable GenAI output</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">Testbench Generator Agent; Verilog/VHDL Coder Agent</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">Generative AI; Test-Driven Development (TDD)</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">Claude Code-like models, LangGraph</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">Improved RTL quality and reliability; Reduced manual coding effort; Faster module development</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm font-medium">3. Verification & Validation</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">Largest time/resource bottleneck; missed corner-case bugs</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">AutoReview Agent; AutoDV Agent</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">Static Analysis; Formal Methods; Coverage-driven test generation</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">AIvril-inspired framework, JasperGold</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">Up to 70% reduction in debug time; Higher confidence; Fewer silicon respins</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm font-medium">4. Physical Design & PPA</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">Impossible to manually find optimal PPA in massive solution space</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">PPA Optimization Agent</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">Reinforcement Learning (RL)</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">Synopsys DSO.ai, Cadence Cerebrus</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">Up to 15-40% power reduction; Smaller die size; Pushing the Pareto frontier</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm font-medium">5. Post-Silicon</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">Predicting yield; detecting physical defects; correlating pre/post-silicon data</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">Yield Prediction Agent; Defect Detection Agent; Validation Agent</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">Predictive Analytics; Anomaly Detection; Automated Correlation</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">Custom ML Models, AI-driven visual inspection</td>
+                  <td className="px-4 py-3 whitespace-nowrap text-sm">Improved manufacturing yield; Reduced validation cycle time; More accurate models for future projects</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </article>
       </main>

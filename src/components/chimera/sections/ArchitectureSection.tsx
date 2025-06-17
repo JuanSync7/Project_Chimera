@@ -123,10 +123,10 @@ const ArchitectureSection: React.FC = () => {
                   </g>
 
                   {/* Connections: Workers to MCP - Curved dashed lines to top edge of MCP server */}
-                  <path d="M 70,153 Q 80,184 90,195" className="dashed-arrow" fill="none"/> {/* RTL to MCP (Tool Abstraction) */}
-                  <path d="M 155,153 Q 172.5,184 190,195" className="dashed-arrow" fill="none"/> {/* Verify to MCP (Knowledge Hub Left) */}
-                  <path d="M 245,153 Q 227.5,184 210,195" className="dashed-arrow" fill="none"/> {/* PPA to MCP (Knowledge Hub Right) */}
-                  <path d="M 330,153 Q 320,184 310,195" className="dashed-arrow" fill="none"/> {/* Spec to MCP (Context/State) */}
+                  <path d="M 70,153 Q 80,184 90,193" className="dashed-arrow" fill="none"/> {/* RTL to MCP (Tool Abstraction) */}
+                  <path d="M 155,153 Q 172.5,184 190,193" className="dashed-arrow" fill="none"/> {/* Verify to MCP (Knowledge Hub Left) */}
+                  <path d="M 245,153 Q 227.5,184 210,193" className="dashed-arrow" fill="none"/> {/* PPA to MCP (Knowledge Hub Right) */}
+                  <path d="M 330,153 Q 320,184 310,193" className="dashed-arrow" fill="none"/> {/* Spec to MCP (Context/State) */}
                 </svg>
               </div>
             </div>
@@ -139,3 +139,4 @@ const ArchitectureSection: React.FC = () => {
 
 export default ArchitectureSection;
 
+    

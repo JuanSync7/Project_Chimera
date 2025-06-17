@@ -48,7 +48,7 @@ const PipelineSection: React.FC = () => {
                     <p className="text-slate-400" dangerouslySetInnerHTML={{ __html: currentTabData.challenge }}></p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white text-lg mb-1">Agentic Workflow &amp; Technologies:</h4>
+                    <h4 className="font-semibold text-white text-lg mb-1">Agentic Workflow & Technologies:</h4>
                     <p className="text-slate-400 prose prose-sm prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: currentTabData.agenticWorkflowDetails }}></p>
                   </div>
                   <div>

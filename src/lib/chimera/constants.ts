@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React from 'react'; // Ensure React is imported
 import type { NavLinkItem, PipelineTab, RoadmapPhase } from '@/lib/chimera/types';
 
 // Heroicons (outline style for consistency)
@@ -196,10 +196,9 @@ class LogParserAgent:
                 if "ERROR:" in line:
                     errors.append(line.strip())
         
-        summary = f"Found {len(errors)} errors."
+        summary = f"Found {'{'}len(errors){'}'} errors."
         return {"summary": summary, "errors": errors}
 
 # Register with MCP Server
 mcp.register_tool("log_parser", LogParserAgent())
 `;
-

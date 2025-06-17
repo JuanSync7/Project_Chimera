@@ -6,8 +6,8 @@ import { Toaster } from "@/components/ui/toaster"; // Import Toaster
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' }); // Configure Inter font
 
 export const metadata: Metadata = {
-  title: 'Bouton - Style Your Perfect Button',
-  description: 'An application to style buttons manually or with AI assistance.',
+  title: 'Project Chimera: AI Chip Design Strategy',
+  description: 'A comprehensive five-year strategic plan to re-architect the entire semiconductor design pipeline around a full-stack, AI-native approach.',
 };
 
 export default function RootLayout({
@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full`}>
+    <html lang="en" className={`${inter.variable} h-full scroll-smooth`}>
       <head>
         {/* Google Fonts are handled by next/font, no <link> tags needed for Inter specifically */}
       </head>

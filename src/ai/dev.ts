@@ -1,4 +1,5 @@
 import { config } from 'dotenv';
 config();
 
-import '@/ai/flows/suggest-button-style.ts';
+// Removed import for suggest-button-style.ts as Project Chimera is now the main app
+// import '@/ai/flows/suggest-button-style.ts';

@@ -1,10 +1,12 @@
 
 import React from 'react';
+import StarryBackground from '@/components/chimera/StarryBackground';
 
 const HomeSection: React.FC = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center">
-      <div className="w-full">
+    <section id="home" className="min-h-screen flex items-center relative overflow-hidden">
+      <StarryBackground />
+      <div className="w-full relative z-10"> {/* Ensure content is above stars */}
         <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-6">
           Project Chimera: The<span className="gradient-text"> Future of Silicon</span>, Designed by AI.
         </h1>
@@ -20,4 +22,3 @@ const HomeSection: React.FC = () => {
 };
 
 export default HomeSection;
-

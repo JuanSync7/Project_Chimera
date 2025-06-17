@@ -225,3 +225,23 @@
 .prose ul {
     padding-left: 0.5em; 
 }
+
+/* Starry background animation */
+@keyframes star-animation {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+.star-item {
+  opacity: 0; /* Initially hidden, animation will start it */
+  animation-name: star-animation;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards; 
+}

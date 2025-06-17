@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { PIPELINE_TABS } from '@/lib/chimera/constants';
 import type { PipelineTab } from '@/lib/chimera/types';
+import DynamicIcon, { type IconName } from '@/components/icons/DynamicIcon';
 
 const PipelineSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>(PIPELINE_TABS[0].id);
@@ -25,7 +26,10 @@ const PipelineSection: React.FC = () => {
             aria-selected={activeTab === tab.id}
             role="tab"
           >
-            {tab.icon} {tab.title}
+            {typeof tab.icon === 'string' && (
+              <DynamicIcon name={tab.icon as IconName} className="w-5 h-5 mr-2 inline-block" />
+            )}
+            {tab.title}
           </button>
         ))}
       </div>
@@ -49,7 +53,10 @@ const PipelineSection: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-white text-lg mb-1">Agentic Workflow & Technologies:</h4>
-                    <p className="text-slate-400 prose prose-sm prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: currentTabData.agenticWorkflowDetails }}></p>
+                    {/* DIAGNOSTIC CHANGE: Render as text instead of dangerouslySetInnerHTML */}
+                    <p className="text-slate-400 prose prose-sm prose-invert max-w-none">
+                      Server-side content for agenticWorkflowDetails: [{currentTabData.agenticWorkflowDetails}]
+                    </p>
                   </div>
                   <div>
                     <h4 className="font-semibold text-white text-lg mb-1">Primary Business Outcome:</h4>
@@ -66,3 +73,4 @@ const PipelineSection: React.FC = () => {
 };
 
 export default PipelineSection;
+

@@ -1,13 +1,13 @@
 
-import React from 'react'; // Ensure React is imported
+import React from 'react'; // React import might be needed if we revert icon handling later
 import type { NavLinkItem, PipelineTab, RoadmapPhase } from '@/lib/chimera/types';
 
-// Heroicons (outline style for consistency) - Using string placeholders for now
-const PencilSquareIcon_placeholder = "PencilSquareIcon_placeholder";
-const CodeBracketIcon_placeholder = "CodeBracketIcon_placeholder";
-const CheckBadgeIcon_placeholder = "CheckBadgeIcon_placeholder";
-const CpuChipIcon_placeholder = "CpuChipIcon_placeholder";
-const CogIcon_placeholder = "CogIcon_placeholder";
+// Using string placeholders for icons to simplify for debugging SSR issues
+const PencilSquareIcon_placeholder = "Pencil"; // Simplified placeholder names
+const CodeBracketIcon_placeholder = "CodeBracket";
+const CheckBadgeIcon_placeholder = "CheckBadge";
+const CpuChipIcon_placeholder = "CpuChip";
+const CogIcon_placeholder = "Cog";
 
 
 export const NAV_LINKS: NavLinkItem[] = [
@@ -27,7 +27,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     heading: 'Stage 1: System Specification & Architecture',
     generalDescription: 'Transforming ambiguous natural language requirements into formal, optimized architectural blueprints. This stage creates a "digital thread" of intent and context that flows from initial concept to final silicon.',
     challenge: 'The initial phase of design is often hampered by ambiguous requirements expressed in natural language and the impossibly vast search space of potential high-level architectures.',
-    agenticWorkflowDetails: '<p>Test</p>', // Extremely simplified HTML for the first tab
+    agenticWorkflowDetails: "SERVER_SIDE_VISIBLE_TEST_STRING", // Diagnostic plain string
     outcome: 'Reduced specification ambiguity; 10x faster Design Space Exploration; Architectures optimized for PPA from day one.',
     outcomeColor: 'text-sky-300'
   },
@@ -38,7 +38,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     heading: 'Stage 2: RTL Design & High-Level Synthesis (HLS)',
     generalDescription: 'Automating the tedious and error-prone process of HDL coding with verifiable, AI-driven generation, addressing reliability gaps of generative AI for hardware.',
     challenge: 'Manual creation of Register-Transfer Level (RTL) code (Verilog/VHDL) is time-consuming, tedious, and error-prone. LLMs can generate HDL but often produce functionally flawed code.',
-    agenticWorkflowDetails: '', // Empty string for other tabs
+    agenticWorkflowDetails: "OTHER_TABS_CONTENT_SHOULD_NOT_MATTER_FOR_SSR", 
     outcome: 'Vastly improved RTL quality and reliability; Reduced manual coding effort; Mitigated AI hallucination; Faster module development.',
     outcomeColor: 'text-sky-300'
   },
@@ -49,7 +49,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     heading: 'Stage 3: Verification & Validation',
     generalDescription: 'Tackling the single largest bottleneck in chip design with an AI-powered verification-in-the-loop framework, aiming for "first-time-right" silicon.',
     challenge: 'Functional verification consumes up to 70% of total project resources. Traditional simulation-based methods can miss deep, corner-case bugs leading to costly silicon respins.',
-    agenticWorkflowDetails: '', // Empty string
+    agenticWorkflowDetails: "OTHER_TABS_CONTENT_SHOULD_NOT_MATTER_FOR_SSR",
     outcome: 'Up to 70% reduction in debug time; Higher confidence; Significant reduction in silicon respins.',
     outcomeColor: 'text-sky-300'
   },
@@ -60,7 +60,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     heading: 'Stage 4: Physical Design & PPA Optimization',
     generalDescription: 'Using Reinforcement Learning to navigate the near-infinite solution space of physical layout and push designs to the true Pareto-optimal frontier.',
     challenge: 'Physical design (floorplanning, placement, routing) involves a near-infinite solution space. Manually tuning EDA tool parameters for optimal PPA is humanly impossible to perfect.',
-    agenticWorkflowDetails: '', // Empty string
+    agenticWorkflowDetails: "OTHER_TABS_CONTENT_SHOULD_NOT_MATTER_FOR_SSR",
     outcome: 'Up to 15-40% power reduction; Smaller die size; Pushing designs to the true Pareto-optimal frontier of PPA.',
     outcomeColor: 'text-sky-300'
   },
@@ -71,7 +71,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     heading: 'Stage 5: Manufacturing & Post-Silicon Validation',
     generalDescription: 'Closing the loop from digital design to physical reality with predictive analytics and automated validation.',
     challenge: 'Bridging pre-silicon design and physical reality involves predicting manufacturing yield, detecting microscopic physical defects, and validating actual hardware performance.',
-    agenticWorkflowDetails: '', // Empty string
+    agenticWorkflowDetails: "OTHER_TABS_CONTENT_SHOULD_NOT_MATTER_FOR_SSR",
     outcome: 'Improved manufacturing yield; Reduced validation cycle time; More accurate models for all future projects.',
     outcomeColor: 'text-sky-300'
   },
@@ -133,8 +133,6 @@ class LogParserAgent:
         return {"summary": summary, "errors": errors}
 
 # Register with MCP Server
-mcp.register_tool("log_parser", LogParserAgent())
+# mcp.register_tool("log_parser", LogParserAgent()) # Assuming mcp is defined elsewhere
 `;
-    
-
     

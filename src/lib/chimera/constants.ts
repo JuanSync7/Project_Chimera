@@ -1,5 +1,5 @@
 
-import type React from 'react';
+import React from 'react';
 import type { NavLinkItem, PipelineTab, RoadmapPhase } from '@/lib/chimera/types';
 
 // Heroicons (outline style for consistency)
@@ -202,3 +202,4 @@ class LogParserAgent:
 # Register with MCP Server
 mcp.register_tool("log_parser", LogParserAgent())
 `;
+

@@ -1,7 +1,9 @@
+
 "use client";
 import React from 'react';
 import Header from '@/components/chimera/Header';
 import Footer from '@/components/chimera/Footer';
+import MobileMenu from '@/components/chimera/MobileMenu';
 import { NAV_LINKS } from '@/lib/chimera/constants';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -10,6 +12,7 @@ export default function AiPipelinePage() {
   const activeSection = "";
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const toggleMobileMenu = React.useCallback(() => setIsMobileMenuOpen(prev => !prev), []);
+  const closeMobileMenu = React.useCallback(() => setIsMobileMenuOpen(false), []);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -17,6 +20,13 @@ export default function AiPipelinePage() {
         navLinks={NAV_LINKS}
         activeSection={activeSection}
         onMobileMenuToggle={toggleMobileMenu}
+        isMobileMenuOpen={isMobileMenuOpen}
+      />
+      <MobileMenu
+        navLinks={NAV_LINKS}
+        isMobileMenuOpen={isMobileMenuOpen}
+        onLinkClick={closeMobileMenu}
+        activeSection={activeSection}
       />
       <main className="flex-grow container mx-auto px-6 py-12 pt-24 md:pt-32">
         <div className="mb-12">

@@ -1,16 +1,18 @@
+
 "use client";
 import React from 'react';
 import Header from '@/components/chimera/Header';
 import Footer from '@/components/chimera/Footer';
+import MobileMenu from '@/components/chimera/MobileMenu';
 import { NAV_LINKS } from '@/lib/chimera/constants';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 export default function StrategicImperativePage() {
   const activeSection = ""; // No active main nav link on subpages
-
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const toggleMobileMenu = React.useCallback(() => setIsMobileMenuOpen(prev => !prev), []);
+  const closeMobileMenu = React.useCallback(() => setIsMobileMenuOpen(false), []);
   
   return (
     <div className="flex flex-col min-h-screen">
@@ -18,8 +20,14 @@ export default function StrategicImperativePage() {
         navLinks={NAV_LINKS}
         activeSection={activeSection}
         onMobileMenuToggle={toggleMobileMenu}
+        isMobileMenuOpen={isMobileMenuOpen}
       />
-      {/* MobileMenu could be conditionally rendered or Header adapted for subpages */}
+      <MobileMenu
+        navLinks={NAV_LINKS}
+        isMobileMenuOpen={isMobileMenuOpen}
+        onLinkClick={closeMobileMenu}
+        activeSection={activeSection}
+      />
       <main className="flex-grow container mx-auto px-6 py-12 pt-24 md:pt-32">
         <div className="mb-12">
           <Link href="/" passHref>
@@ -44,9 +52,9 @@ export default function StrategicImperativePage() {
           <p>This strategy proposes a move beyond the traditional model of computer-aided design, where engineers use software as a passive tool, to a new model of AI-driven design. In this model, AI transitions from being a mere instrument to a collaborative partner, actively participating in the creative and optimization processes. The value of this transition is not static; it compounds. Learnings from one AI-assisted project can be retained and applied to the next, creating a self-improving design ecosystem. Each chip designed with this system makes the system itself more knowledgeable and effective for subsequent designs. This establishes a formidable competitive moat—a proprietary, ever-growing repository of encoded institutional knowledge that becomes increasingly difficult for competitors to replicate. The first mover who aggressively pursues this path builds a cumulative advantage that can become insurmountable over time.</p>
 
           <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
-            1.2 Redefining PPA: Power, Performance, Area, and Productivity
+            1.2 Redefining PPA<span style='color: #fde047;'>P</span>: Power, Performance, Area, and Productivity
           </h2>
-          <p>The &quot;three goals of chip design&quot;—Power, Performance, and Area (PPA)—have long been the central tenets of the industry. Optimizing the trade-offs between these three variables is the core of the design process. However, the sheer complexity of sub-10nm designs and the intense pressure of shrinking market windows have elevated a fourth, equally critical dimension: Productivity.</p>
+          <p>The &quot;three goals of chip design&quot;—Power, Performance, and Area (PPA)—have long been the central tenets of the industry. Optimizing the trade-offs between these three variables is the core of the design process. However, the sheer complexity of sub-10nm designs and the intense pressure of shrinking market windows have elevated a fourth, equally critical dimension: <span class='gradient-text'>Productivity</span>.</p>
           <p>AI-driven automation directly confronts the productivity challenge. By automating repetitive, time-consuming, and often tedious tasks such as layout optimization, test case generation, and debugging, AI liberates highly skilled engineers from low-value work. This allows them to focus their expertise on true differentiation and architectural innovation, the areas where human creativity provides the greatest value. This strategy does not seek to replace engineers but to augment them, transforming them into force multipliers of their own ingenuity. Consequently, the strategic framework should be viewed not as PPA, but as PPAP, where improvements in Productivity act as a direct multiplier on the company&apos;s ability to optimize the other three factors.</p>
 
           <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">

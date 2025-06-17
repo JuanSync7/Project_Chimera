@@ -51,16 +51,16 @@
     --sidebar-border: 278 30% 80%;
     --sidebar-ring: 271 76% 53%;
 
-    /* Diagram specific colors */
-    --diagram-supervisor-fill: 50 95% 60%; /* Bright Yellow */
-    --diagram-worker-fill: 90 70% 55%; /* Lime Green */
-    --diagram-mcp-fill: 140 50% 20%; /* Dark Green */
-    --diagram-mcp-stroke: 100 60% 50%; /* Lime/Light Green */
-    --diagram-mcp-internal-fill: 140 45% 28%; /* Darker Muted Green */
-    --diagram-text-fill: 0 0% 95%; /* Light text for diagrams - E.g. #F2F2F2 */
-    --diagram-muted-text-fill: 0 0% 85%; /* Lighter muted text - E.g. #D9D9D9 */
-    --diagram-title-text-fill: 0 0% 100%; /* White for titles */
-    --diagram-arrow-stroke: 100 50% 65%; /* Muted Lime/Green for arrows */
+    /* Diagram specific colors (Light Theme - ensure these provide good contrast) */
+    --diagram-supervisor-fill: 278 100% 35%; /* Darker Primary for light theme */
+    --diagram-worker-fill: 271 76% 48%;    /* Darker Accent for light theme */
+    --diagram-mcp-fill: 278 15% 75%;       /* Lighter Secondary for light theme MCP background */
+    --diagram-mcp-stroke: 278 100% 35%;    /* Darker Primary for light theme stroke */
+    --diagram-mcp-internal-fill: 278 15% 80%; /* Lighter Muted for light theme MCP internal */
+    --diagram-text-fill: 0 0% 20%;          /* Dark text for light theme diagrams */
+    --diagram-muted-text-fill: 0 0% 35%;    /* Darker muted text for light theme */
+    --diagram-title-text-fill: 0 0% 10%;    /* Very dark/black for titles on light theme */
+    --diagram-arrow-stroke: 271 76% 48%;   /* Darker Accent for light theme arrows */
 
   }
 
@@ -110,16 +110,16 @@
     --sidebar-border: 278 15% 25%;
     --sidebar-ring: 271 76% 60%;
 
-    /* Diagram specific colors for dark theme */
-    --diagram-supervisor-fill: 50 95% 60%; /* Bright Yellow */
-    --diagram-worker-fill: 90 70% 55%; /* Lime Green */
-    --diagram-mcp-fill: 140 50% 20%; /* Dark Green for MCP background */
-    --diagram-mcp-stroke: 100 60% 50%; /* Lime/Light Green for MCP stroke */
-    --diagram-mcp-internal-fill: 140 45% 28%; /* Slightly Lighter Dark Green for MCP internal boxes */
-    --diagram-text-fill: 0 0% 95%; /* Off-white for general diagram text */
-    --diagram-muted-text-fill: 0 0% 85%; /* Lighter muted for small labels */
-    --diagram-title-text-fill: 0 0% 100%; /* White for titles */
-    --diagram-arrow-stroke: 100 50% 65%; /* Muted Lime/Green for arrows */
+    /* Diagram specific colors for dark theme (Indigo/Violet Theme) */
+    --diagram-supervisor-fill: var(--primary);       /* 278 100% 65% (Lighter Strong Indigo) */
+    --diagram-worker-fill: var(--accent);            /* 271 76% 60% (Lighter Blue Violet) */
+    --diagram-mcp-fill: var(--secondary);            /* 278 15% 20% (Darker Indigo for MCP background) */
+    --diagram-mcp-stroke: var(--primary);            /* 278 100% 65% (Lighter Strong Indigo for MCP stroke) */
+    --diagram-mcp-internal-fill: var(--muted);       /* 278 15% 23% (Slightly Lighter Dark Indigo for MCP internal boxes) */
+    --diagram-text-fill: 0 0% 95%;                   /* Off-white for general diagram text */
+    --diagram-muted-text-fill: 0 0% 85%;             /* Lighter muted for small labels */
+    --diagram-title-text-fill: 0 0% 100%;            /* White for titles */
+    --diagram-arrow-stroke: var(--accent);           /* 271 76% 60% (Lighter Blue Violet for arrows) */
   }
 }
 

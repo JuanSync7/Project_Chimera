@@ -74,19 +74,19 @@ Refer to the `.dark { ... }` block in `src/app/globals.css` for all dark mode HS
         *   **Used for**: "Explore the AGI Horizon &rarr;" (in Risks/Vision Section)
 
 
-## 4. SVG Diagram Colors (Architectural Blueprint)
+## 4. SVG Diagram Colors (Architectural Blueprint - Dark Mode)
 
-These are defined as HSL CSS variables in `src/app/globals.css` under the dark theme, prefixed with `--diagram-`.
+These are defined as HSL CSS variables in `src/app/globals.css` under the `.dark` theme, prefixed with `--diagram-`.
 
-*   **Supervisor Fill (`--diagram-supervisor-fill`)**: `50 95% 60%` (Bright Yellow)
-*   **Worker Fill (`--diagram-worker-fill`)**: `90 70% 55%` (Lime Green)
-*   **MCP Server Fill (`--diagram-mcp-fill`)**: `140 50% 20%` (Dark Green)
-*   **MCP Server Stroke (`--diagram-mcp-stroke`)**: `100 60% 50%` (Lime/Light Green)
-*   **MCP Internal Component Fill (`--diagram-mcp-internal-fill`)**: `140 45% 28%` (Darker Muted Green)
+*   **Supervisor Fill (`--diagram-supervisor-fill`)**: `var(--primary)` (Lighter Strong Indigo - `278 100% 65%`)
+*   **Worker Fill (`--diagram-worker-fill`)**: `var(--accent)` (Lighter Blue Violet - `271 76% 60%`)
+*   **MCP Server Fill (`--diagram-mcp-fill`)**: `var(--secondary)` (Darker Indigo background for MCP - `278 15% 20%`)
+*   **MCP Server Stroke (`--diagram-mcp-stroke`)**: `var(--primary)` (Lighter Strong Indigo for MCP stroke - `278 100% 65%`)
+*   **MCP Internal Component Fill (`--diagram-mcp-internal-fill`)**: `var(--muted)` (Slightly lighter dark indigo for MCP internal boxes - `278 15% 23%`)
 *   **Text Labels (`--diagram-text-fill`)**: `0 0% 95%` (Off-white)
 *   **Small Text Labels (`--diagram-muted-text-fill`)**: `0 0% 85%` (Lighter muted text)
 *   **Title Text (`--diagram-title-text-fill`)**: `0 0% 100%` (White)
-*   **Arrows (`--diagram-arrow-stroke`)**: `100 50% 65%` (Muted Lime/Green)
+*   **Arrows (`--diagram-arrow-stroke`)**: `var(--accent)` (Lighter Blue Violet for arrows - `271 76% 60%`)
 
 ## 5. Tab Buttons (Pipeline Section)
 

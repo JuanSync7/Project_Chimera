@@ -92,7 +92,7 @@ const App: React.FC = () => {
         <OverviewSection />
         <div className="text-center mt-[-4rem] mb-16">
           <Link href="/strategic-imperative" passHref>
-            <Button variant="outline" size="lg" className="bg-slate-700/50 hover:bg-slate-600/70 border-slate-600 hover:border-sky-500/70 text-sky-300 hover:text-sky-200 transition-all duration-300 ease-in-out transform hover:scale-105">
+            <Button variant="outline" size="lg" className="text-green-400 border-green-500 hover:bg-green-500/20 hover:text-green-300 hover:border-green-400 transition-all duration-300 ease-in-out transform hover:scale-105">
               Learn More: The Strategic Imperative &rarr;
             </Button>
           </Link>
@@ -101,7 +101,7 @@ const App: React.FC = () => {
         <ArchitectureSection />
         <div className="text-center mt-[-2rem] mb-16">
            <Link href="/architectural-blueprint" passHref>
-            <Button variant="outline" size="lg" className="bg-slate-700/50 hover:bg-slate-600/70 border-slate-600 hover:border-sky-500/70 text-sky-300 hover:text-sky-200 transition-all duration-300 ease-in-out transform hover:scale-105">
+            <Button variant="outline" size="lg" className="text-green-400 border-green-500 hover:bg-green-500/20 hover:text-green-300 hover:border-green-400 transition-all duration-300 ease-in-out transform hover:scale-105">
               Explore the Architectural Blueprint &rarr;
             </Button>
           </Link>
@@ -110,7 +110,7 @@ const App: React.FC = () => {
         <PipelineSection />
          <div className="text-center mt-8 mb-16">
            <Link href="/ai-pipeline" passHref>
-            <Button variant="outline" size="lg" className="bg-slate-700/50 hover:bg-slate-600/70 border-slate-600 hover:border-sky-500/70 text-sky-300 hover:text-sky-200 transition-all duration-300 ease-in-out transform hover:scale-105">
+            <Button variant="outline" size="lg" className="text-green-400 border-green-500 hover:bg-green-500/20 hover:text-green-300 hover:border-green-400 transition-all duration-300 ease-in-out transform hover:scale-105">
               Deep Dive into the AI-Powered Pipeline &rarr;
             </Button>
           </Link>
@@ -119,7 +119,7 @@ const App: React.FC = () => {
         <SymbiosisSection />
         <div className="text-center mt-8 mb-16">
            <Link href="/human-ai-symbiosis" passHref>
-            <Button variant="outline" size="lg" className="bg-slate-700/50 hover:bg-slate-600/70 border-slate-600 hover:border-sky-500/70 text-sky-300 hover:text-sky-200 transition-all duration-300 ease-in-out transform hover:scale-105">
+            <Button variant="outline" size="lg" className="text-green-400 border-green-500 hover:bg-green-500/20 hover:text-green-300 hover:border-green-400 transition-all duration-300 ease-in-out transform hover:scale-105">
               Understand Human-AI Symbiosis &rarr;
             </Button>
           </Link>
@@ -128,12 +128,12 @@ const App: React.FC = () => {
         <RisksVisionSection />
         <div className="text-center mt-8 mb-16 space-y-4 md:space-y-0 md:space-x-4">
            <Link href="/risk-mitigation" passHref>
-            <Button variant="outline" size="lg" className="bg-slate-700/50 hover:bg-slate-600/70 border-slate-600 hover:border-rose-500/70 text-rose-300 hover:text-rose-200 transition-all duration-300 ease-in-out transform hover:scale-105">
+            <Button variant="outline" size="lg" className="text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105">
               Analyze Risks & Mitigation &rarr;
             </Button>
           </Link>
           <Link href="/agi-horizon" passHref>
-            <Button variant="outline" size="lg" className="bg-slate-700/50 hover:bg-slate-600/70 border-slate-600 hover:border-violet-500/70 text-violet-300 hover:text-violet-200 transition-all duration-300 ease-in-out transform hover:scale-105">
+            <Button variant="outline" size="lg" className="text-green-400 border-green-500 hover:bg-green-500/20 hover:text-green-300 hover:border-green-400 transition-all duration-300 ease-in-out transform hover:scale-105">
               Explore the AGI Horizon &rarr;
             </Button>
           </Link>
@@ -142,7 +142,7 @@ const App: React.FC = () => {
         <RoadmapSection />
         <div className="text-center mt-8 mb-16">
            <Link href="/roadmap-details" passHref>
-            <Button variant="outline" size="lg" className="bg-slate-700/50 hover:bg-slate-600/70 border-slate-600 hover:border-fuchsia-500/70 text-fuchsia-300 hover:text-fuchsia-200 transition-all duration-300 ease-in-out transform hover:scale-105">
+            <Button variant="outline" size="lg" className="text-lime-400 border-lime-500 hover:bg-lime-500/20 hover:text-lime-300 hover:border-lime-400 transition-all duration-300 ease-in-out transform hover:scale-105">
               View Detailed Implementation Roadmap &rarr;
             </Button>
           </Link>

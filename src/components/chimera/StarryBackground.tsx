@@ -29,7 +29,7 @@ const StarryBackground: React.FC = () => {
   const [stars, setStars] = useState<StarData[]>([]);
 
   useEffect(() => {
-    const numStars = 70; 
+    const numStars = 100; 
     const generatedStars: StarData[] = [];
     for (let i = 0; i < numStars; i++) {
       generatedStars.push({
@@ -66,5 +66,6 @@ const StarryBackground: React.FC = () => {
 };
 
 export default StarryBackground;
+
 
 

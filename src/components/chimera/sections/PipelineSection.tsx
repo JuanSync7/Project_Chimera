@@ -21,7 +21,7 @@ const PipelineSection: React.FC = () => {
           <button
             key={tab.id}
             className={`tab-button-base py-2.5 px-5 rounded-full text-sm font-medium flex items-center justify-center
-                        ${activeTab === tab.id ? 'tab-button-active shadow-md shadow-sky-500/50' : 'tab-button-inactive'}`}
+                        ${activeTab === tab.id ? 'tab-button-active shadow-md shadow-primary/50' : 'tab-button-inactive'}`}
             onClick={() => setActiveTab(tab.id)}
             aria-selected={activeTab === tab.id}
             role="tab"

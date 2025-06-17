@@ -17,9 +17,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['var(--font-inter)', 'sans-serif'], // Use Inter for body
-        headline: ['var(--font-inter)', 'sans-serif'], // Use Inter for headlines
-        code: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace'], // Default monospace stack
+        body: ['var(--font-inter)', 'sans-serif'],
+        headline: ['var(--font-inter)', 'sans-serif'],
+        code: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace'],
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -72,6 +72,10 @@ export default {
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))',
         },
+      },
+      boxShadowColor: { // Add this to enable themed shadow colors
+        primary: 'hsl(var(--primary))',
+        accent: 'hsl(var(--accent))',
       },
       borderRadius: {
         lg: 'var(--radius)',

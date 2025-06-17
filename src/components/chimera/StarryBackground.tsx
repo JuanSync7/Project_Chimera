@@ -36,7 +36,7 @@ const StarryBackground: React.FC = () => {
         id: i,
         top: Math.random() * 100,
         left: Math.random() * 100,
-        size: Math.random() * 1.5 + 0.5, // Star size between 0.5px and 2px
+        size: Math.random() * 2 + 1, // Star size between 1px and 3px
         animationDelay: `${Math.random() * 6}s`, // Random delay up to 6s
         animationDuration: `${Math.random() * 3 + 4}s`, // Duration between 4s and 7s
       });

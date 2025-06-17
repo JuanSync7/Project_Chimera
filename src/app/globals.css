@@ -129,14 +129,14 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-jetbrains-mono), sans-serif;
+    font-family: var(--font-inter), sans-serif; /* Ensure body uses Inter */
     background-color: #0a0a0a; 
     color: #e2e8f0; 
     font-feature-settings: "rlig" 1, "calt" 1; /* Common OpenType features */
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-inter), sans-serif;
+    font-family: var(--font-inter), sans-serif; /* Ensure headings use Inter */
   }
 }
 

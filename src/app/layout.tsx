@@ -1,20 +1,13 @@
 
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google'; // Import Inter and JetBrains_Mono fonts
+import { Inter } from 'next/font/google'; // Import only Inter font
 import './globals.css';
-import { Toaster } from "@/components/ui/toaster"; // Import Toaster
+import { Toaster } from "@/components/ui/toaster";
 
-// Configure Inter font for headlines
+// Configure Inter font
 const inter = Inter({ 
   subsets: ['latin'], 
   variable: '--font-inter' 
-});
-
-// Configure JetBrains_Mono for body text
-const jetbrains_mono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-jetbrains-mono',
-  weight: ['400', '700'] // Specify weights if needed
 });
 
 export const metadata: Metadata = {
@@ -28,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`dark ${inter.variable} ${jetbrains_mono.variable} h-full scroll-smooth`}>
+    <html lang="en" className={`dark ${inter.variable} h-full scroll-smooth`}>
       <head>
         {/* Google Fonts are handled by next/font */}
       </head>

@@ -17,9 +17,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['var(--font-jetbrains-mono)', 'sans-serif'],
-        headline: ['var(--font-inter)', 'sans-serif'],
-        code: ['var(--font-jetbrains-mono)', 'monospace'],
+        body: ['var(--font-inter)', 'sans-serif'], // Use Inter for body
+        headline: ['var(--font-inter)', 'sans-serif'], // Use Inter for headlines
+        code: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace'], // Default monospace stack
       },
       colors: {
         background: 'hsl(var(--background))',

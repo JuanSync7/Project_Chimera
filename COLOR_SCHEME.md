@@ -11,7 +11,7 @@ These colors are defined as HSL CSS variables and form the base theme.
 *   **Primary (Theme Accent)**: `hsl(var(--primary))` - Strong Indigo (`#4B0082` / `278 100% 25%`)
 *   **Accent (Secondary Theme Accent)**: `hsl(var(--accent))` - Blue Violet (`#8A2BE2` / `271 76% 53%`)
 
-For dark mode, these variables have different HSL values. Refer to the `.dark { ... }` block in `src/app/globals.css`.
+For dark mode, these variables have different HSL values. Refer to the `.dark { ... }` block in `src/app/globals.css`. The application `<html>` tag has the `dark` class applied, so dark mode variables are active.
 
 ## 2. Gradient Text
 
@@ -30,15 +30,7 @@ For dark mode, these variables have different HSL values. Refer to the `.dark { 
 
 ### 3.2 Outlined "Learn More" Buttons (on Main Page)
     *   **General Style**: `variant="outline" size="lg"`
-    *   **Common Classes**: `transition-all duration-300 ease-in-out transform hover:scale-105`
-
-    *   **Green Outline Button**:
-        *   Text: `text-green-400`
-        *   Border: `border-green-500`
-        *   Hover Background: `hover:bg-green-500/20`
-        *   Hover Text: `hover:text-green-300`
-        *   Hover Border: `hover:border-green-400`
-        *   **Used for**: "Learn More: The Strategic Imperative &rarr;", "Explore the Architectural Blueprint &rarr;", "Deep Dive into the AI-Powered Pipeline &rarr;", "Understand Human-AI Symbiosis &rarr;", "Explore the AGI Horizon &rarr;"
+    *   **Common Classes**: `bg-transparent transition-all duration-300 ease-in-out transform hover:scale-105`
 
     *   **Yellow Outline Button**:
         *   Text: `text-yellow-400`
@@ -46,7 +38,7 @@ For dark mode, these variables have different HSL values. Refer to the `.dark { 
         *   Hover Background: `hover:bg-yellow-500/20`
         *   Hover Text: `hover:text-yellow-300`
         *   Hover Border: `hover:border-yellow-400`
-        *   **Used for**: "Analyze Risks & Mitigation &rarr;"
+        *   **Used for**: "Learn More: The Strategic Imperative &rarr;", "Explore the Architectural Blueprint &rarr;", "Deep Dive into the AI-Powered Pipeline &rarr;", "Understand Human-AI Symbiosis &rarr;", "Analyze Risks & Mitigation &rarr;", "Explore the AGI Horizon &rarr;"
 
     *   **Lime Outline Button**:
         *   Text: `text-lime-400`

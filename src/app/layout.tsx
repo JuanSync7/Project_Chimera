@@ -1,9 +1,21 @@
+
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google'; // Import Inter font
+import { Inter, JetBrains_Mono } from 'next/font/google'; // Import Inter and JetBrains_Mono fonts
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"; // Import Toaster
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' }); // Configure Inter font
+// Configure Inter font for headlines
+const inter = Inter({ 
+  subsets: ['latin'], 
+  variable: '--font-inter' 
+});
+
+// Configure JetBrains_Mono for body text
+const jetbrains_mono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-jetbrains-mono',
+  weight: ['400', '700'] // Specify weights if needed
+});
 
 export const metadata: Metadata = {
   title: 'Project Chimera: AI Chip Design Strategy',
@@ -16,9 +28,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full scroll-smooth`}>
+    <html lang="en" className={`dark ${inter.variable} ${jetbrains_mono.variable} h-full scroll-smooth`}>
       <head>
-        {/* Google Fonts are handled by next/font, no <link> tags needed for Inter specifically */}
+        {/* Google Fonts are handled by next/font */}
       </head>
       <body className="font-body antialiased h-full flex flex-col">
         {children}

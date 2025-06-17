@@ -20,7 +20,7 @@ Project Chimera leverages Multi-Agent Systems (MAS) to achieve a generational le
 *   **Styling:** Tailwind CSS
 *   **UI Components:** ShadCN UI
 *   **Icons:** Lucide React
-*   **Generative AI (Conceptual):** Genkit (though not yet implemented in detail in this version)
+*   **Generative AI (Conceptual):** Genkit (initialized in `src/ai/genkit.ts` and `src/ai/dev.ts`)
 *   **Deployment:** Configured for Firebase App Hosting (see `apphosting.yaml`)
 
 ## Getting Started
@@ -46,13 +46,14 @@ Project Chimera leverages Multi-Agent Systems (MAS) to achieve a generational le
 
 ### Environment Variables
 
-This project might use environment variables for configuration (e.g., API keys for future Genkit integration). Create a `.env.local` file in the root of the project by copying `.env.example` (if one exists) or by creating it manually.
+This project might use environment variables for configuration (e.g., API keys for Genkit integration). Create a `.env.local` file in the root of the project by copying `.env.example` (if one exists) or by creating it manually.
 
 Example `.env.local`:
 ```
-# For future Genkit/Gemini integration
-# GEMINI_API_KEY=your_api_key_here
+# For Genkit/Gemini integration
+GEMINI_API_KEY=your_api_key_here
 ```
+Currently, an empty `.env` file is provided. Ensure your `GEMINI_API_KEY` is set in `.env.local` if you intend to use Genkit features that call the Gemini API.
 
 ### Running the Development Server
 
@@ -69,12 +70,12 @@ This will typically start the development server on `http://localhost:9002` (as 
 ## Project Structure
 
 *   **`src/app/`**: Contains all the routes and pages of the application, following the Next.js App Router structure.
-    *   **`page.tsx`**: The main landing page.
+    *   **`page.tsx`**: The main landing page, using `PageShell`.
     *   **`layout.tsx`**: The root layout for the application.
     *   **`globals.css`**: Global styles and Tailwind CSS base/components/utilities.
-    *   **`[section-name]/page.tsx`**: Individual detailed pages for each major section of the strategic plan.
+    *   **`[section-name]/page.tsx`**: Individual detailed pages for major sections, using `SubPageLayout`.
 *   **`src/components/`**: Reusable UI components.
-    *   **`chimera/`**: Components specific to the Project Chimera theme and layout (e.g., `Header.tsx`, `Footer.tsx`, section components).
+    *   **`chimera/`**: Components specific to the Project Chimera theme and layout (e.g., `Header.tsx`, `Footer.tsx`, `PageShell.tsx`, `SubPageLayout.tsx`, section components).
     *   **`ui/`**: ShadCN UI components (e.g., `Button.tsx`, `Card.tsx`).
     *   **`icons/`**: Custom icon components (e.g., `DynamicIcon.tsx`).
 *   **`src/lib/`**: Utility functions, constants, and type definitions.
@@ -82,14 +83,17 @@ This will typically start the development server on `http://localhost:9002` (as 
     *   **`chimera/types.ts`**: TypeScript type definitions for the project.
     *   **`utils.ts`**: General utility functions (e.g., `cn` for class merging).
 *   **`src/hooks/`**: Custom React hooks (e.g., `use-toast.ts`, `use-mobile.ts`).
-*   **`src/ai/`**: (Primarily conceptual for this version) Intended for Genkit flows and AI-related logic.
-    *   **`genkit.ts`**: Genkit initialization.
+*   **`src/ai/`**: Contains Genkit setup and related AI logic.
+    *   **`genkit.ts`**: Genkit initialization with Google AI.
+    *   **`dev.ts`**: Development server configuration for Genkit.
 *   **`public/`**: Static assets (though this project primarily uses `next/image` or inline SVGs).
 *   **`tailwind.config.ts`**: Tailwind CSS configuration.
 *   **`next.config.ts`**: Next.js configuration.
-*   **`COLOR_SCHEME.md`**: Documentation for the project's color scheme.
-*   **`FONT_CHOICES.md`**: Documentation for the project's font choices.
-*   **`SVG_DIAGRAM_GUIDELINES.md`**: Guidelines for creating SVGs used in the project.
+*   **Documentation Files (Root Directory)**:
+    *   `COLOR_SCHEME.md`
+    *   `FONT_CHOICES.md`
+    *   `SVG_DIAGRAM_GUIDELINES.md`
+    *   `GUIDE_CREATING_PAGES.md`
 
 ## Building for Production
 
@@ -108,10 +112,17 @@ This will generate an optimized build in the `.next` directory.
 *   **Lint:** `npm run lint` or `yarn lint`
 *   **Type Check:** `npm run typecheck` or `yarn typecheck`
 
-## Further Exploration
+## Documentation & Further Exploration
 
-*   Examine the `COLOR_SCHEME.md`, `FONT_CHOICES.md`, and `SVG_DIAGRAM_GUIDELINES.md` files for deeper insights into the design system.
+This project includes several key documents and areas for deeper understanding:
+
+*   **`GUIDE_CREATING_PAGES.md`**: Step-by-step instructions on adding new main page sections and subpages.
+*   **`COLOR_SCHEME.md`**: Details the color palette, theme variables, and specific color usage.
+*   **`FONT_CHOICES.md`**: Outlines the font families used and their configuration.
+*   **`SVG_DIAGRAM_GUIDELINES.md`**: Provides best practices for creating and integrating SVG diagrams.
+
+To understand the code:
 *   Explore the individual section components in `src/components/chimera/sections/` to see how the content is structured.
-*   Review the detailed page components in `src/app/[section-name]/` to understand how navigation and content display for sub-pages are handled.
+*   Review the detailed page components in `src/app/[section-name]/` to understand how navigation and content display for sub-pages are handled using `SubPageLayout.tsx` and `PageShell.tsx`.
 
 This README provides a starting point for understanding and working with the Project Chimera web application.

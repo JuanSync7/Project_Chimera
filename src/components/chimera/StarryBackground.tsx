@@ -13,7 +13,7 @@ interface StarData {
 
 const Star: React.FC<Omit<StarData, 'id'>> = ({ top, left, size, animationDelay, animationDuration }) => (
   <div
-    className="absolute rounded-full bg-gray-400 star-item" // Light gray for stars, can be adjusted
+    className="absolute rounded-full bg-gray-400 star-item" 
     style={{
       top: `${top}%`,
       left: `${left}%`,
@@ -29,7 +29,7 @@ const StarryBackground: React.FC = () => {
   const [stars, setStars] = useState<StarData[]>([]);
 
   useEffect(() => {
-    const numStars = 70; // Adjust number of stars as needed
+    const numStars = 70; 
     const generatedStars: StarData[] = [];
     for (let i = 0; i < numStars; i++) {
       generatedStars.push({
@@ -37,20 +37,20 @@ const StarryBackground: React.FC = () => {
         top: Math.random() * 100,
         left: Math.random() * 100,
         size: Math.random() * 2 + 1.5, // Star size between 1.5px and 3.5px
-        animationDelay: `${Math.random() * 6}s`, // Random delay up to 6s
-        animationDuration: `${Math.random() * 3 + 4}s`, // Duration between 4s and 7s
+        animationDelay: `${Math.random() * 6}s`, 
+        animationDuration: `${Math.random() * 3 + 4}s`, 
       });
     }
     setStars(generatedStars);
-  }, []);
+  }, []); 
 
-  // Render nothing on SSR or if stars haven't been generated yet on client
+  
   if (stars.length === 0) {
     return null;
   }
 
   return (
-    <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+    <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
       {stars.map(star => (
         <Star
           key={star.id}
@@ -66,4 +66,3 @@ const StarryBackground: React.FC = () => {
 };
 
 export default StarryBackground;
-

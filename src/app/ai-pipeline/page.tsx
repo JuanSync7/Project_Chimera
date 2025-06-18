@@ -1,14 +1,15 @@
+
 // src/app/ai-pipeline/page.tsx
 "use client";
-import React, { useState, useEffect } from 'react'; 
+import React, { useState, useEffect } from 'react';
 import SubPageLayout from '@/components/chimera/SubPageLayout';
 import {
-  Cpu, 
-  AlertTriangle, 
-  Zap, 
-  UserRoundSearch, 
-  FileText, 
-  Network, 
+  Cpu,
+  AlertTriangle,
+  Zap,
+  UserRoundSearch,
+  FileText,
+  Network,
   Focus,
   FileCode,
   ClipboardCheck,
@@ -19,14 +20,15 @@ import {
   BarChart3,
   SlidersHorizontal,
   Cog,
-  UserCog,        // Added for Stage 3.2
-  ListOrdered,    // Added for Stage 3.2
-  BookCopy,       // Added for Stage 3.2
-  Layers3         // Added for Stage 3.2
+  UserCog,
+  ListOrdered,
+  BookCopy,
+  Layers3,
+  BrainCircuit // Added BrainCircuit
 } from 'lucide-react';
 
 export default function AiPipelinePage() {
-  const [showDigitalFall, setShowDigitalFall] = useState(true); 
+  const [showDigitalFall, setShowDigitalFall] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,19 +66,19 @@ export default function AiPipelinePage() {
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
             3.1 Stage 1: System Specification &amp; Architecture
           </h2>
-        
-          <div className="mt-6 mb-4 flex items-center"> 
+
+          <div className="mt-6 mb-4 flex items-center">
             <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
             <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
           </div>
           <p>The critical initial phase of chip design is often hampered by <strong className="text-yellow-500">ambiguous</strong>, high-level customer requirements expressed in natural language. Compounding this, designers face an <strong className="text-yellow-500">impossibly vast, multi-dimensional labyrinth</strong> of potential high-level architectures. Traditional manual exploration through this maze is painstakingly slow, inherently sub-optimal, and all too often prone to overlooking truly innovative, game-changing solutions.</p>
-          
+
           <div className="mt-8 mb-4 flex items-center">
             <Zap className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
             <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: AI-Driven Strategic Design &amp; Holistic Architecture Exploration</h3>
           </div>
           <p>Our workflow begins with <strong className="text-sky-400">precision and foresight</strong>, a symphony of specialized AI acting in concert:</p>
-          <ul className="list-none pl-0 space-y-6 !my-6"> 
+          <ul className="list-none pl-0 space-y-6 !my-6">
             <li className="flex">
               <UserRoundSearch className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
               <div>The <strong>Customer Requirements Translation Agent</strong> (a Design & Exploration Agent from Section 2.2) acts as a <strong className="text-sky-400">digital envoy</strong>, engaging directly with our product managers and system architects. Leveraging the <strong>Knowledge Hub (RAG)</strong> in the MCP Server, it rapidly retrieves and analyzes data on similar past projects, market trends, and available IP to identify potential ambiguities, technical constraints, and emerging opportunities. Using the <strong>Context & State Management (CAG)</strong>, it builds a <strong className="text-sky-400">dynamic conversational bridge</strong>, iteratively refining high-level customer needs into a preliminary, yet actionable, technical specification. This significantly accelerates the proposal generation process, arming our sales team with a decisive competitive edge.</div>
@@ -111,7 +113,7 @@ export default function AiPipelinePage() {
             <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
           </div>
           <p>Translating complex architectural blueprints into high-quality, synthesizable <strong>Register-Transfer Level (RTL)</strong> code is a notoriously time-consuming and error-prone process. Modern chip designs demand both functional correctness and optimal <strong>Power, Performance, and Area (PPA)</strong> at the RTL level. While generative AI offers promise for <strong>Hardware Description Language (HDL)</strong> creation, ensuring the reliability, synthesizability, and adherence to design standards of automatically generated code remains a significant hurdle. Furthermore, the efficient integration of <strong>High-Level Synthesis (HLS)</strong> from higher-level design abstractions is crucial for productivity.</p>
-          
+
           <div className="mt-8 mb-4 flex items-center">
             <FileCode className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
             <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Leveraging Prompt Engineering &amp; RAG for High-Quality RTL and HLS Integration</h3>
@@ -124,8 +126,9 @@ export default function AiPipelinePage() {
                 Building directly upon the detailed architectural specifications provided by the <strong>Architecture Exploration Agents</strong> (from Section 2.2), the <strong>RTL Generation & Refinement Agent</strong> (a specialized RTL Generation Agent from Section 2.2), here acting as our primary <strong>Verilog/VHDL Coder Agent</strong>, initiates the RTL creation.
               </div>
             </li>
-            <li>
-              <div> {/* Removed icon here to avoid repetition, focus on the sub-items */}
+            <li className="flex items-start"> {/* MODIFIED: Added flex and icon */}
+              <BrainCircuit className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" /> {/* ADDED ICON */}
+              <div> {/* This div contains the target paragraph */}
                 This agent intelligently synthesizes the architectural intent directly into initial RTL, making informed decisions on crucial aspects like <strong>data path structures, control logic, state machine implementations, and module interfaces</strong>. It achieves this by employing advanced <strong>prompt engineering techniques</strong> with powerful, general-purpose LLMs. This involves:
                 <div className="mt-4 space-y-3">
                   <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
@@ -137,7 +140,7 @@ export default function AiPipelinePage() {
                     <div><strong className="text-sky-300 block mb-1">In-context Learning (Few-shot Prompting):</strong> Supplying relevant examples of high-quality, functionally correct RTL code and corresponding natural language descriptions from our <strong>Knowledge Hub (RAG)</strong> in the MCP Server. This guides the LLM towards generating similar, high-quality output without requiring model fine-tuning.</div>
                   </div>
                   <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
-                    <ShieldCheck className="h-6 w-6 text-sky-400 mr-3 mt-1 flex-shrink-0" /> {/* Re-using ShieldCheck as it implies correctness/constraints */}
+                    <ShieldCheck className="h-6 w-6 text-sky-400 mr-3 mt-1 flex-shrink-0" />
                     <div><strong className="text-sky-300 block mb-1">Constraint-Based Generation:</strong> Imposing specific output constraints (e.g., format, keyword usage, module structure) to ensure the generated code adheres strictly to HDL syntax and hardware semantics.</div>
                   </div>
                 </div>
@@ -176,7 +179,7 @@ export default function AiPipelinePage() {
           </ul>
         </div>
         {/* Stage 3.3 END */}
-        
+
         {/* Stage 3.4 */}
         <div className="section-card p-6 rounded-2xl mt-12">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
@@ -213,7 +216,7 @@ export default function AiPipelinePage() {
             <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
           </div>
           <p>While the <strong>TDD loop</strong> in Stage 4 ensures that individual RTL modules pass their initial set of generated tests, achieving <strong>comprehensive functional verification</strong> across complex, integrated chip designs remains the <strong>single largest bottleneck</strong> in modern semiconductor development. Ensuring <strong>full test coverage</strong> and exercising all <strong>corner cases</strong> for complex IPs, especially those involving intricate protocols and parallel operations, is a monumental and often incomplete task with traditional methods like <strong>UVM</strong>, leading to missed bugs and costly silicon respins.</p>
-          
+
           <div className="mt-8 mb-4 flex items-center">
             <ListChecks className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
             <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Intelligent Test Generation, UVM Harnessing, and Automated Coverage Closure</h3>
@@ -321,7 +324,7 @@ export default function AiPipelinePage() {
           <p>This AI-driven debugging capability dramatically reduces the manual effort and expertise required for bug resolution, accelerating design cycles and allowing human engineers to focus on higher-level innovation.</p>
         </div>
         {/* Stage 3.7 END */}
-        
+
         {/* Stage 3.8 */}
         <div className="section-card p-6 rounded-2xl mt-12">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
@@ -388,7 +391,7 @@ export default function AiPipelinePage() {
             <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
           </div>
           <p>The <strong>physical design stage</strong>—encompassing floorplanning, placement, routing, and clock tree synthesis—involves a solution space with a <strong>near-infinite number of choices</strong> for optimal <strong>Power, Performance, and Area (PPA)</strong>. Manually tuning the hundreds of parameters within complex commercial EDA tools to find the global optimum is a <strong>&quot;black art&quot;</strong> that is humanly impossible to perfect, leading to <strong>sub-optimal designs</strong> and <strong>extended convergence times</strong>.</p>
-          
+
           <div className="mt-8 mb-4 flex items-center">
             <SlidersHorizontal className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
             <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Autonomous Reinforcement Learning (RL) for Global PPA Excellence</h3>
@@ -414,7 +417,7 @@ export default function AiPipelinePage() {
             <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
           </div>
           <p>Bridging the gap between highly optimized <strong>pre-silicon design data</strong> and the realities of <strong>physical manufacturing and silicon performance</strong> involves predicting <strong>manufacturing yield</strong>, accurately detecting <strong>microscopic physical defects</strong>, and rigorously validating the performance of the <strong>actual hardware</strong> in a timely manner. This phase is crucial for product quality and continuous improvement.</p>
-          
+
           <div className="mt-8 mb-4 flex items-center">
             <Cog className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
             <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: AI-Enhanced Quality Assurance &amp; Predictive Feedback Loop</h3>
@@ -431,4 +434,3 @@ export default function AiPipelinePage() {
     </SubPageLayout>
   );
 }
-

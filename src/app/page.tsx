@@ -1,7 +1,8 @@
+
 // src/app/page.tsx
 "use client";
 import React, { useState, useEffect, Suspense } from 'react';
-// Removed: import { useSearchParams } from 'next/navigation';
+// Ensure useSearchParams is NOT imported
 import PageShell from '@/components/chimera/PageShell';
 import HomeSection from '@/components/chimera/sections/HomeSection';
 import OverviewSection from '@/components/chimera/sections/OverviewSection';
@@ -16,7 +17,7 @@ import StarryBackground from '@/components/chimera/StarryBackground';
 
 // This component contains the actual page content and logic
 function HomePageContent() {
-  // Removed: useSearchParams(); // Call was here
+  // Ensure useSearchParams() is NOT called here
 
   const [activeSection, setActiveSection] = useState<string>('home');
 

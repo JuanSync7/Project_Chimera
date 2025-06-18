@@ -73,38 +73,38 @@ export default function StrategicImperativePage() {
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 my-8">
           <KeyStatCard
-            icon={<FastForward />}
+            icon={<FastForward className="h-8 w-8 md:h-10 md:w-10" />}
             stat="30-50%"
             description="AI-driven design automation slashes our overall chip design time by 30-50%, enabling faster delivery and market capture."
           />
           <KeyStatCard
-            icon={<Zap />}
+            icon={<Zap className="h-8 w-8 md:h-10 md:w-10" />}
             stat="Up to 40%"
             description="ML algorithms redefine efficiency, leading to power reductions of up to 40% for our customers."
           />
           <KeyStatCard
-            icon={<Minimize2 />}
+            icon={<Minimize2 className="h-8 w-8 md:h-10 md:w-10" />}
             stat="Up to 20%"
             description="RL-based layout optimization cuts chip area up to 20%, delivering smaller, cost-effective silicon."
           />
           <KeyStatCard
-            icon={<UsersRound />}
+            icon={<UsersRound className="h-8 w-8 md:h-10 md:w-10" />}
             stat="3x-5x"
             description="AI-powered EDA tools propel our design team productivity 3x-5x, freeing engineers for innovation."
           />
           <KeyStatCard
-            icon={<ClipboardCheck />}
+            icon={<ClipboardCheck className="h-8 w-8 md:h-10 md:w-10" />}
             stat="Up to 70%"
             description="AI streamlines verification, cutting our debugging time by as much as 70% for more reliable designs."
           />
           <KeyStatCard
-            icon={<SearchCode />}
+            icon={<SearchCode className="h-8 w-8 md:h-10 md:w-10" />}
             stat="Up to 10x"
             description="RL models explore design spaces up to 10x more efficiently, uncovering novel, optimized solutions that set our chips apart."
           />
         </div>
         
-        <h3 className="text-2xl font-semibold text-white !mt-12 !mb-6 text-center">
+        <h3 className="text-2xl font-semibold text-white !mt-12 !mb-6">
           Beyond Traditional EDA: Leveraging Agentic LLMs for Strategic Advantage
         </h3>
         <p>While the advancements in AI within traditional EDA tools are profound, our company is also strategically leveraging the emerging power of agentic Large Language Models (LLMs). These sophisticated AI entities go beyond mere code generation or static analysis; they are designed to understand complex objectives, reason through problems, devise multi-step plans, and even execute actions within our design environment.</p>
@@ -131,10 +131,7 @@ export default function StrategicImperativePage() {
           </li>
         </ul>
 
-        <h3 className="text-3xl font-bold gradient-text !mt-16 !mb-8 text-center">
-          The Future is AI-Driven, and We&apos;re Leading It
-        </h3>
-        <div className="relative max-w-4xl mx-auto mt-8 p-6 border-2 border-primary/30 border-dashed rounded-3xl">
+        <div className="relative max-w-4xl mx-auto mt-12 p-6 border-2 border-primary/30 border-dashed rounded-3xl">
           <Cpu
             className="absolute -top-4 -left-4 h-10 w-10 text-primary/50 opacity-70"
             strokeWidth={1.5}
@@ -144,6 +141,9 @@ export default function StrategicImperativePage() {
             strokeWidth={1.5}
           />
           <div className="bg-card/60 border border-primary/50 rounded-2xl p-8 shadow-xl shadow-primary/30">
+            <h3 className="text-3xl font-bold gradient-text !mb-8 text-center">
+              The Future is AI-Driven, and We&apos;re Leading It
+            </h3>
             <p className="text-lg text-slate-300 dark:text-slate-200 text-center leading-relaxed">
               When these compounded gains from both advanced AI in EDA and the
               strategic deployment of agentic LLMs are realized across our full

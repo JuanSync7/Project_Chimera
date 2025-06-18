@@ -14,19 +14,19 @@ const OverviewSection: React.FC = () => {
         <SectionCard
           icon={<TrendingUp className="h-12 w-12 text-sky-400" />}
           title="Beyond Moore's Law"
-          description="Physical scaling limits are near. Design complexity is the new frontier. AI offers the tools to master this, creating a self-improving design ecosystem where each project enhances the system's knowledge, building a cumulative, defensible competitive advantage."
+          description="Physical scaling limits are near. <strong>Design complexity</strong> is the new frontier. AI offers the tools to master this, creating a <strong>self-improving design ecosystem</strong> where each project enhances the system's knowledge, building a <strong>cumulative, defensible competitive advantage</strong>."
           className="hover:border-sky-500/50"
         />
         <SectionCard
           icon={<Gauge className="h-12 w-12 text-purple-400" />}
-          title="Redefining PPA<span style='color: #fde047;'>P</span>"
-          description="To Power, Performance, and Area (PPA), we add a fourth critical dimension: <span class='gradient-text'>Productivity</span>. AI automates tedious tasks, liberating engineers for high-value innovation, transforming them into force multipliers. This PPAP framework is key to future success."
+          title="Redefining PPA<span class='gradient-text'>P</span>"
+          description="To <strong>Power, Performance, and Area (PPA)</strong>, we add a fourth critical dimension: <strong class='gradient-text'>Productivity</strong>. AI automates tedious tasks, liberating engineers for high-value innovation, transforming them into <strong>force multipliers</strong>. This <strong>PPAP framework</strong> is key to future success."
           className="hover:border-purple-500/50"
         />
         <SectionCard
           icon={<Rocket className="h-12 w-12 text-fuchsia-400" />}
           title="The 10x Vision"
-          description="An AI-driven methodology is a step-function leap. Targets: 30-50% design time reduction, up to 40% power efficiency improvement, 3-5x engineering productivity boost, 70% debug time reduction, and 10x faster design exploration."
+          description="An AI-driven methodology is a <strong>step-function leap</strong>. Targets: <strong>30-50% design time reduction</strong>, up to <strong>40% power efficiency improvement</strong>, <strong>3-5x engineering productivity boost</strong>, <strong>70% debug time reduction</strong>, and <strong>10x faster design exploration</strong>."
           className="hover:border-fuchsia-500/50"
         />
       </div>
@@ -35,3 +35,4 @@ const OverviewSection: React.FC = () => {
 };
 
 export default OverviewSection;
+

@@ -24,6 +24,7 @@ Refer to the `.dark { ... }` block in `src/app/globals.css` for all dark mode HS
 *   **Class**: `.gradient-text` (defined in `src/app/globals.css`)
 *   **Palette**: Bright Yellow -> Lime Green -> Green
 *   **Implementation**: `linear-gradient(to right, #fde047 0%, #bef264 35%, #22c55e 100%)`
+*   **Usage**: Reserved for high-impact, short phrases, key acronym letters (like 'P' in PPAP), or main titles that need to stand out significantly.
 
 ## 3. Button Colors
 
@@ -114,4 +115,23 @@ A subtle, animated starry background is used on the main page (`src/app/page.tsx
     *   The number of stars and their size are adjusted for mobile vs. desktop views for performance and visual balance (50 stars of 1.5-3.5px on mobile, 100 stars of 3-5px on desktop).
     *   The background is fixed to the viewport, meaning it does not scroll with the page content.
 
+## 7. Keyword Highlighting Conventions
+
+To ensure consistency in emphasizing key terms and concepts throughout the application, the following two-tiered strategy is used:
+
+### 7.1 Primary Conceptual Keywords / Sub-Headings
+*   **Purpose**: To make major concepts, internal section titles, or primary bullet points stand out prominently.
+*   **Styling**: Wrapped in `<strong>` tags and assigned a thematic color class (e.g., `text-sky-400`, `text-primary`, `text-rose-400`, `text-violet-400`) along with `font-semibold`. The specific color class is chosen based on the section's existing visual theme or its main icon/button colors.
+    *   Example: `<strong class="text-sky-400 font-semibold">Core AI Technique:</strong>`
+    *   Example: `<strong class="text-rose-400 font-semibold">Reliability ("Hallucination"):</strong>`
+
+### 7.2 Specific Examples / Sub-Keywords / Emphasis in Paragraphs or Lists
+*   **Purpose**: To provide emphasis to important terms, examples, or specific details within the body text, making them bolder and typically brighter than the surrounding non-emphasized text.
+*   **Styling**: Wrapped in simple `<strong>` tags. The browser's default rendering for `<strong>` (bolder weight) combined with the parent text color (e.g., `text-slate-300` or `text-slate-400`) typically provides sufficient visual distinction (appearing as a brighter or white bold).
+    *   Example: "This is a <strong>key concept</strong> within the paragraph."
+    *   Example in a list item: `<li>Key feature: <strong>Example Term</strong></li>` (If list item text is `text-slate-400`, "Example Term" will appear brighter).
+
+This structured approach to highlighting helps guide the reader's attention and improves the overall readability and visual hierarchy of the content.
+
 This documentation helps ensure consistency and provides a reference for future design and development work.
+

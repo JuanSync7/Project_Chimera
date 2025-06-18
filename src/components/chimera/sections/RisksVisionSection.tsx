@@ -18,13 +18,13 @@ const RisksVisionSection: React.FC = () => {
             <h3 className="text-2xl font-bold text-rose-400">Critical Risk Mitigation</h3>
           </div>
           <ul className="space-y-3 text-slate-400 flex-grow">
-            <li><strong>Reliability ("Hallucination"):</strong> Mitigated by deterministic, TDD workflows (Sec 3.2) and AIvril-inspired verification (Sec 3.3). We don't trust, we verify.</li>
-            <li><strong>Interpretability:</strong> While full model interpretability is a research goal, LangSmith tracing provides maximum transparency into agent decision-making for correlational analysis and heuristic understanding.</li>
-            <li><strong>Data Scarcity (HDL):</strong> Create a superior, proprietary dataset from our entire design history for RAG and fine-tuning. Prioritize HLS where suitable.</li>
-            <li><strong>Coordination Complexity & Bottlenecks:</strong> Phased rollout (Sec 7) starting with simple Supervisor architecture. Rigorous testing and LangSmith monitoring. Research model criticism for agent reliability.</li>
-            <li><strong>IP Security:</strong> Multi-layered, Zero-Trust security for the MCP Server. Strict data segregation, granular access control (IAM), end-to-end encryption, and immutable audit trails.</li>
+            <li><strong className="text-rose-400 font-semibold">Reliability ("Hallucination"):</strong> Mitigated by <strong>deterministic, TDD workflows</strong> (Sec 3.2) and <strong>AIvril-inspired verification</strong> (Sec 3.3). We don't trust, we verify.</li>
+            <li><strong className="text-rose-400 font-semibold">Interpretability:</strong> While full model interpretability is a research goal, <strong>LangSmith tracing</strong> provides maximum transparency into agent decision-making for correlational analysis and heuristic understanding.</li>
+            <li><strong className="text-rose-400 font-semibold">Data Scarcity (HDL):</strong> Create a superior, <strong>proprietary dataset</strong> from our entire design history for <strong>RAG and fine-tuning</strong>. Prioritize HLS where suitable.</li>
+            <li><strong className="text-rose-400 font-semibold">Coordination Complexity & Bottlenecks:</strong> <strong>Phased rollout</strong> (Sec 7) starting with simple Supervisor architecture. Rigorous testing and <strong>LangSmith monitoring</strong>. Research model criticism for agent reliability.</li>
+            <li><strong className="text-rose-400 font-semibold">IP Security:</strong> Multi-layered, <strong>Zero-Trust security</strong> for the MCP Server. Strict data segregation, granular access control (IAM), end-to-end encryption, and immutable audit trails.</li>
           </ul>
-          <p className="text-sm text-slate-500 mt-4">Cultural resistance is mitigated by a narrative of augmentation, transparency, and empowerment.</p>
+          <p className="text-sm text-slate-500 mt-4"><strong>Cultural resistance</strong> is mitigated by a narrative of augmentation, transparency, and empowerment.</p>
           <div className="mt-8 text-center">
             <Link href="/risk-mitigation" passHref>
               <Button variant="outline" size="lg" className="bg-transparent text-rose-400 border-rose-500 hover:bg-rose-500/20 hover:text-rose-300 hover:border-rose-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-rose-500/40">
@@ -40,25 +40,25 @@ const RisksVisionSection: React.FC = () => {
             <h3 className="text-2xl font-bold text-violet-400">The Horizon: Pathway to AGI</h3>
           </div>
           <div className="text-slate-300 space-y-4 flex-grow">
-            <p>Project Chimera is more than a design system; it's a real-world prototype of a cognitive architecture, pushing towards AGI:</p>
+            <p>Project Chimera is more than a design system; it's a real-world prototype of a <strong>cognitive architecture</strong>, pushing towards AGI:</p>
             <ul className="list-disc list-inside space-y-2 text-slate-400">
-              <li><strong className="text-violet-400 font-semibold">Emergent Intelligence:</strong> MAS designed as a crucible for novel, intelligent behaviors arising from collaborative dialogue between specialized agents.</li>
+              <li><strong className="text-violet-400 font-semibold">Emergent Intelligence:</strong> MAS designed as a crucible for novel, intelligent behaviors arising from <strong>collaborative dialogue</strong> between specialized agents.</li>
               <li><strong className="text-violet-400 font-semibold">Universal Cognitive Architecture:</strong> A practical implementation of cognitive components:
                   <ul className="list-circle list-inside ml-4 space-y-1 text-slate-500">
-                      <li><strong className="text-slate-300">Supervisor Agent:</strong> Primitive machine consciousness (directing attention, managing goals).</li>
-                      <li><strong className="text-slate-300">MCP Server:</strong> Long-term & working memory (RAG/CAG).</li>
-                      <li><strong className="text-slate-300">AutoReview Agent:</strong> Domain-specific ethics block (design rule enforcement).</li>
-                      <li><strong className="text-slate-300">PPA Optimization Agent:</strong> Embodies reinforcement learning.</li>
+                      <li><strong className="text-slate-300">Supervisor Agent:</strong> Primitive <strong>machine consciousness</strong> (directing attention, managing goals).</li>
+                      <li><strong className="text-slate-300">MCP Server:</strong> <strong>Long-term & working memory</strong> (RAG/CAG).</li>
+                      <li><strong className="text-slate-300">AutoReview Agent:</strong> Domain-specific <strong>ethics block</strong> (design rule enforcement).</li>
+                      <li><strong className="text-slate-300">PPA Optimization Agent:</strong> Embodies <strong>reinforcement learning</strong>.</li>
                   </ul>
               </li>
               <li><strong className="text-violet-400 font-semibold">The Symbiotic Loop:</strong>
                   <ul className="list-circle list-inside ml-4 space-y-1 text-slate-500">
-                    <li><strong className="text-slate-300">AI → Chips:</strong> Agentic system designs novel AI accelerators (e.g., neuro-symbolic, neuromorphic).</li>
-                    <li><strong className="text-slate-300">Chips → AI:</strong> New chips provide substrate for more powerful AI, accelerating AGI progress.</li>
+                    <li><strong className="text-slate-300">AI → Chips:</strong> Agentic system designs <strong>novel AI accelerators</strong> (e.g., neuro-symbolic, neuromorphic).</li>
+                    <li><strong className="text-slate-300">Chips → AI:</strong> New chips provide substrate for <strong>more powerful AI</strong>, accelerating AGI progress.</li>
                   </ul>
               </li>
             </ul>
-            <p>By mastering this loop, we become a central engine of the AGI revolution, designing the minds of the future and the silicon brains they run on.</p>
+            <p>By mastering this loop, we become a <strong>central engine of the AGI revolution</strong>, designing the minds of the future and the silicon brains they run on.</p>
           </div>
           <div className="mt-8 text-center">
             <Link href="/agi-horizon" passHref>
@@ -74,4 +74,5 @@ const RisksVisionSection: React.FC = () => {
 };
 
 export default RisksVisionSection;
+
 

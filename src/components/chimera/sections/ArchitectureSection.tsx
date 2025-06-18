@@ -7,7 +7,7 @@ const ArchitectureSection: React.FC = () => {
     <section id="architecture" className="py-24">
       <h2 className="text-4xl font-bold text-center mb-3 text-white">Architectural Blueprint</h2>
       <p className="text-slate-400 text-center text-lg mb-12 max-w-3xl mx-auto">
-        A Multi-Agent System (MAS) for end-to-end design. This collaborative network of specialized AI agents, orchestrated by a central hub, is designed for modularity, scalability, and robustness.
+        A <strong>Multi-Agent System (MAS)</strong> for end-to-end design. This collaborative network of specialized AI agents, orchestrated by a central hub, is designed for <strong>modularity, scalability, and robustness</strong>.
       </p>
       
       <div className="space-y-12">
@@ -16,10 +16,10 @@ const ArchitectureSection: React.FC = () => {
           <h3 className="text-3xl font-bold mb-4 gradient-text">Supervisor-Worker Pattern with LangGraph</h3>
           <p className="text-slate-300 mb-4">
             We employ a <strong>Supervisor-Worker architecture</strong> for a balance of flexibility and control, implemented using <strong>LangGraph</strong>.
-            The Supervisor agent acts as a project manager, decomposing high-level goals (e.g., "Design a low-power RISC-V core") into sub-tasks and delegating them to specialized Worker agents (e.g., Spec Analyst, Verilog Coder, PPA Optimizer).
+            The <strong>Supervisor agent</strong> acts as a project manager, decomposing high-level goals (e.g., "Design a low-power RISC-V core") into sub-tasks and delegating them to specialized <strong>Worker agents</strong> (e.g., Spec Analyst, Verilog Coder, PPA Optimizer).
           </p>
           <p className="text-slate-300">
-            LangGraph models the workflow as a state machine where agents are nodes and the Supervisor controls edges, directing execution. This centralized control, via a shared persistent state object, ensures transparency and auditability, crucial for MLOps and governance.
+            <strong>LangGraph</strong> models the workflow as a <strong>state machine</strong> where agents are nodes and the Supervisor controls edges, directing execution. This centralized control, via a <strong>shared persistent state object</strong>, ensures <strong>transparency and auditability</strong>, crucial for <strong>MLOps and governance</strong>.
           </p>
         </div>
 
@@ -28,7 +28,7 @@ const ArchitectureSection: React.FC = () => {
           <div className="grid md:grid-cols-5 gap-10 items-center">
             <div className="md:col-span-2">
               <h3 className="text-3xl font-bold mb-4 gradient-text">The MCP Server: Central Nervous System</h3>
-              <p className="text-slate-300 mb-6">The <strong>Multi-Agent Collaboration Protocol (MCP) Server</strong> is the stateful, intelligent hub for Tools, Knowledge, and State, acting as the brain and memory for the MAS. It's inspired by services like LangConnect.</p>
+              <p className="text-slate-300 mb-6">The <strong>Multi-Agent Collaboration Protocol (MCP) Server</strong> is the stateful, intelligent hub for <strong>Tools, Knowledge, and State</strong>, acting as the brain and memory for the MAS. It's inspired by services like <strong>LangConnect</strong>.</p>
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <Layers className="h-7 w-7 text-sky-400 mr-3 mt-1 flex-shrink-0" />
@@ -43,7 +43,7 @@ const ArchitectureSection: React.FC = () => {
                   <div><strong className="text-white">Context & State Management (CAG):</strong> Manages short-term "working memory" of ongoing tasks (conversational history, recent action results, project state) using Cache-Augmented Generation for efficient, iterative problem-solving.</div>
                 </li>
               </ul>
-               <p className="text-slate-300 mt-6">This hybrid <strong>RAG/CAG architecture</strong> provides agents with both static, factual knowledge and dynamic, task-specific context, enabling contextual intelligence.</p>
+               <p className="text-slate-300 mt-6">This hybrid <strong>RAG/CAG architecture</strong> provides agents with both static, factual knowledge and dynamic, task-specific context, enabling <strong>contextual intelligence</strong>.</p>
             </div>
             <div className="md:col-span-3">
               <div className="glassmorphism rounded-xl p-6 border-2 border-slate-700">
@@ -139,3 +139,4 @@ const ArchitectureSection: React.FC = () => {
 };
 
 export default ArchitectureSection;
+

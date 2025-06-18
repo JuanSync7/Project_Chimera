@@ -27,7 +27,7 @@ export default function RoadmapDetailsPage() {
         </ul>
         <p><strong>Success Metrics:</strong> Successful deployment of the pilot agentic workflow; achievement of a &gt;95% functional test pass rate for the AI-generated RTL; a measurable reduction in design and verification time for the pilot IP block compared to human-only baseline.</p>
 
-        <div className="mt-16 mb-4">
+        <div className="mt-24 mb-4">
           <h2 className="text-3xl font-semibold text-purple-400 !m-0 border-b border-purple-600 pb-2">
             7.2 Phase 2 (Year 1.5 - 3): Scaling Agentic Workflows and Cultural Integration (The &quot;Walk&quot; Phase)
           </h2>
@@ -43,7 +43,7 @@ export default function RoadmapDetailsPage() {
         </ul>
         <p><strong>Success Metrics:</strong> Demonstration of &gt;15% improvement in PPA on the first projects using the PPA agent; achievement of &gt;50% reduction in verification closure time; 80% of the design engineering workforce trained and certified through the Agent Academy.</p>
 
-        <div className="mt-16 mb-4">
+        <div className="mt-24 mb-4">
           <h2 className="text-3xl font-semibold text-fuchsia-400 !m-0 border-b border-fuchsia-600 pb-2">
             7.3 Phase 3 (Year 3 - 5): Full-Stack Autonomy and Market Leadership (The &quot;Run&quot; Phase)
           </h2>
@@ -58,7 +58,7 @@ export default function RoadmapDetailsPage() {
         </ul>
         <p><strong>Success Metrics:</strong> Achievement of &gt;30% reduction in the overall design cycle time from initial specification to final tape-out; clear market leadership in PPA benchmarks for key product segments; successful tape-out of the first &quot;AI-designed AI chip&quot; prototype.</p>
         
-        <div className="mt-16 mb-4">
+        <div className="mt-24 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             Roadmap Summary Table
           </h2>
@@ -104,7 +104,7 @@ export default function RoadmapDetailsPage() {
           </table>
         </div>
 
-        <div className="mt-16 mb-4">
+        <div className="mt-24 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             Conclusion
           </h2>
@@ -115,3 +115,4 @@ export default function RoadmapDetailsPage() {
     </SubPageLayout>
   );
 }
+

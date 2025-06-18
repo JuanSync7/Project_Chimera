@@ -1,3 +1,4 @@
+
 // src/app/strategic-imperative/page.tsx
 "use client";
 import React from 'react';
@@ -37,7 +38,7 @@ export default function StrategicImperativePage() {
         </div>
         
         {/* Section 1.1 */}
-        <div className="mt-12 mb-4"> {/* Note: Section 1.1 overall H2 - keeping mt-12 as it's the first major content H2 after page title */}
+        <div className="mt-16 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             1.1 Beyond Moore&apos;s Law: AI as the New Driver of Exponential Progress
           </h2>
@@ -72,7 +73,7 @@ export default function StrategicImperativePage() {
         />
 
         {/* Section 1.2 */}
-        <div className="mt-16 mb-4"> {/* Increased top margin */}
+        <div className="mt-24 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             1.2 Redefining PPAP: Power, Performance, Area, and <span className="gradient-text">Productivity</span>
           </h2>
@@ -101,7 +102,7 @@ export default function StrategicImperativePage() {
         <p>This strategic application of AI does not seek to replace engineers but to <strong>augment</strong> them. AI transforms engineers into <strong>force multipliers</strong> of their own ingenuity. It enables them to tackle problems at a higher conceptual level, where human creativity and intuition remain paramount. Consequently, the strategic framework should now be viewed not merely as PPA, but as <strong>PPAP (Power, Performance, Area, <span className="gradient-text">Productivity</span>)</strong>. Substantial improvements in Productivity act as a direct multiplier on a company&apos;s ability to effectively optimize the other three factors, ultimately leading to faster time-to-market, reduced development costs, and a decisive competitive advantage in the fiercely competitive semiconductor landscape.</p>
         
         {/* Section 1.3 */}
-        <div className="mt-16 mb-4"> {/* Increased top margin */}
+        <div className="mt-24 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             1.3 Quantifying the Opportunity: A <span className="gradient-text">10x Vision</span> for Design Efficiency and Innovation
           </h2>
@@ -200,3 +201,4 @@ export default function StrategicImperativePage() {
     </SubPageLayout>
   );
 }
+

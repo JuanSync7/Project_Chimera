@@ -20,7 +20,7 @@ export default function AgiHorizonPage() {
         <p>A key characteristic of complex systems is emergence: the phenomenon where a system exhibits novel, intelligent, and coherent behaviors that are not explicitly programmed into its individual components but instead arise spontaneously from their interactions. Our MAS is designed to be a crucible for such emergent intelligence.</p>
         <p>A single agent, no matter how powerful, is limited by its programming and training data. However, by orchestrating a collaborative dialogue between multiple specialized agents—a Verification agent that understands formal logic, a PPA agent that has learned the physics of silicon, and an RTL agent that knows language syntax—we create the conditions for novel solutions to emerge. The optimal solution to a complex timing closure problem might not be discovered by any single agent, but may arise from the interplay of their different perspectives, leading to a design that no single human or AI would have conceived of on its own.</p>
 
-        <div className="mt-16 mb-4">
+        <div className="mt-24 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             6.2 From Specialized Agents to a Universal Cognitive Architecture
           </h2>
@@ -35,7 +35,7 @@ export default function AgiHorizonPage() {
         </ul>
         <p>By building and scaling this system, we are not just solving engineering problems; we are conducting invaluable research into the practical challenges of orchestrating a complex, multi-faceted artificial mind. The LangGraph framework itself can be seen as a &quot;hardware description language for intelligence,&quot; providing a syntax for defining how different cognitive components should be connected and controlled.</p>
 
-        <div className="mt-16 mb-4">
+        <div className="mt-24 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             6.3 The Symbiotic Loop: How AGI Will Redefine Chip Design, and How New Chips Will Enable AGI
           </h2>
@@ -50,3 +50,4 @@ export default function AgiHorizonPage() {
     </SubPageLayout>
   );
 }
+

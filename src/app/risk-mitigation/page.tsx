@@ -26,7 +26,7 @@ export default function RiskMitigationPage() {
         <p><strong>Risk: Data Scarcity for HDL.</strong> The public datasets of HDL code available for training LLMs are orders of magnitude smaller than those for software languages like Python. This results in weaker base models for hardware-specific tasks.</p>
         <p><strong>Mitigation:</strong> This is a critical risk that also represents a competitive opportunity. Our strategy is not to rely on public models but to create a superior, proprietary dataset. The MCP Server&apos;s knowledge base will be populated with our company&apos;s entire history of design projects—millions of lines of high-quality, verified Verilog/VHDL code and associated design data. This internal data will become our primary resource for RAG and for fine-tuning smaller, specialized models, turning our historical work into a powerful, defensible asset. We will also prioritize the use of High-Level Synthesis (HLS) where appropriate, as HLS languages are closer to software and require fewer tokens to express complex logic.</p>
 
-        <div className="mt-16 mb-4">
+        <div className="mt-24 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             5.2 Coordination Complexity and Performance Variability in Multi-Agent Systems
           </h2>
@@ -34,7 +34,7 @@ export default function RiskMitigationPage() {
         <p><strong>Risk: Coordination Complexity.</strong> As the number of agents in the system grows, the complexity of their interactions can increase exponentially. This can lead to unpredictable emergent behaviors, communication bottlenecks, and a system that is difficult to manage or debug. The Supervisor agent itself could become a performance bottleneck.</p>
         <p><strong>Mitigation:</strong> The implementation roadmap (Section 7) follows a phased approach. We will begin with a strict, simple Supervisor architecture to maintain tight control and manage complexity. More advanced architectures, such as a hierarchical system with a &quot;supervisor of supervisors,&quot; will only be explored once the base system is mature and stable. Rigorous, automated integration testing and performance monitoring via LangSmith will be used to proactively identify and address system bottlenecks. Furthermore, we will research and implement model criticism techniques, where agents are explicitly designed to reason about the adequacy and reliability of the models they use to predict the actions of other agents, enhancing overall system safety.</p>
 
-        <div className="mt-16 mb-4">
+        <div className="mt-24 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             5.3 Securing the Crown Jewels: A Zero-Trust Framework for AI-Driven IP Protection
           </h2>
@@ -52,3 +52,4 @@ export default function RiskMitigationPage() {
     </SubPageLayout>
   );
 }
+

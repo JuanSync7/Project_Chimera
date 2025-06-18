@@ -58,7 +58,7 @@ This guide outlines the specific formatting conventions used for article-style s
 *   **Structure**:
     ```tsx
     // ... inside <article>
-    <div className="mt-16 mb-4"> {/* Wrapper for consistent spacing. Use mt-12 for the very first H2 on a page. */}
+    <div className="mt-24 mb-4"> {/* Wrapper for consistent spacing. Use mt-16 for the very first H2 on a page. */}
       <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
         X.1 Example Main Section Title
       </h2>
@@ -67,7 +67,7 @@ This guide outlines the specific formatting conventions used for article-style s
     {/* More content like sub-headings (h3), lists, etc. */}
     ```
 *   **Styling**:
-    *   Wrapper `<div>`: `mt-16 mb-4` (For subsequent H2 sections. The very first `<h2>` on a page after the main `<h1>` block might use `mt-12 mb-4` if less initial spacing is desired).
+    *   Wrapper `<div>`: `mt-24 mb-4` (For subsequent H2 sections. The very first `<h2>` on a page after the main `<h1>` block might use `mt-16 mb-4` if less initial spacing is desired).
     *   `<h2>`: `text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2`
 
 ### `<h2>` Section Encapsulated in a Card:
@@ -75,7 +75,7 @@ This guide outlines the specific formatting conventions used for article-style s
 *   **Structure**:
     ```tsx
     // ... inside <article>
-    <div className="section-card p-6 rounded-2xl mt-16"> {/* Card wrapper for the entire H2 section. Use mt-12 for the very first H2 card. */}
+    <div className="section-card p-6 rounded-2xl mt-24"> {/* Card wrapper for the entire H2 section. Use mt-16 for the very first H2 card. */}
       <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6"> {/* Adjusted margin for inside card */}
         X.2 Another Main Section Title (Pipeline Stage Example)
       </h2>
@@ -98,7 +98,7 @@ This guide outlines the specific formatting conventions used for article-style s
     </div> {/* End of card wrapper for H2 section */}
     ```
 *   **Styling for Card-Wrapped `<h2>` Section**:
-    *   Outer `div`: `section-card p-6 rounded-2xl mt-16` (or `mt-12` if it's the first carded H2 section). The `section-card` class provides base background, border, and hover effects from `globals.css`.
+    *   Outer `div`: `section-card p-6 rounded-2xl mt-24` (or `mt-16` if it's the first carded H2 section). The `section-card` class provides base background, border, and hover effects from `globals.css`.
     *   `<h2>` within card: `text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6` (Note the `mb-6` for spacing below the title within the card).
     *   First `<h3>` wrapper div (e.g., for "Challenge:") within the card: `mt-6 mb-4 flex items-center` (Top margin adjusted from `mt-8` to `mt-6` due to card padding).
 
@@ -244,3 +244,4 @@ While the above sections detail standard prose and heading structures, certain t
 *   **Important Note**: The `description` prop of the `KeyStatCard` component supports HTML (via `dangerouslySetInnerHTML`), allowing for rich text formatting, including `<p>`, `<strong>`, `<ul>`, etc., ensuring the full narrative can be contained within the card. The `stat` prop typically holds a short, impactful title or statistic.
 
 By following these guidelines, article-style subpages will maintain a consistent and readable structure, making it easier for users to navigate and understand the detailed content.
+

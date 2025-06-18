@@ -12,14 +12,16 @@ import {
   Brain, 
   Layers, 
   Database, 
-  // MessageSquare, // Already imported via MemoryStick for CAG
+  MessageSquare,
   Network,
   Component,
   Scaling,
-  ClipboardList, // New icon for Architecture
-  Workflow,      // New icon for Implementation Framework
-  BookOpenCheck, // New icon for RAG
-  MemoryStick    // New icon for CAG (replaces MessageSquare if that was for context)
+  ClipboardList, 
+  Workflow,      
+  BookOpenCheck, 
+  MemoryStick,
+  Package,
+  Archive
 } from 'lucide-react';
 
 export default function ArchitecturalBlueprintPage() {
@@ -39,29 +41,33 @@ export default function ArchitecturalBlueprintPage() {
 
         <div className="flex items-center mt-12 mb-4">
           <Network className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
-          <h2 className="text-3xl font-semibold text-white !m-0 !border-b-slate-700 !pb-2">
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             2.1 Foundations of Multi-Agent Systems: Orchestrating Collaborative Intelligence for Chip Design
           </h2>
         </div>
         <p>A <strong>Multi-Agent System (MAS)</strong> stands as a paradigm of <strong>distributed intelligence</strong>, composed of multiple <strong>autonomous, intelligent agents</strong>, each endowed with <strong>specialized capabilities</strong> and clearly defined goals. These agents do not operate in isolation but rather interact strategically within a <strong>shared environment</strong> to collectively solve problems of immense scale and complexity – challenges far beyond the scope of any single, <strong>monolithic AI model</strong>. This architectural approach is uniquely and inherently suited to the intricate, <strong>multi-domain nature</strong> of modern semiconductor design for several pivotal reasons:</p>
-        <ul className="list-none pl-0 space-y-3">
-          <li className="flex items-start">
-            <Component className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-            <div><strong className="text-primary font-semibold">Modularity and Specialization:</strong> The entire chip design process is intrinsically divisible into distinct, highly specialized domains of expertise, such as <strong>architectural exploration, RTL generation, formal verification, and sophisticated physical design</strong> (including placement, routing, and PPA optimization). A MAS directly leverages this natural segmentation by allowing for the creation of dedicated <strong>&quot;expert&quot; agents</strong> for each specific domain. This not only dramatically improves performance, as each agent can be precisely optimized with <strong>tailored AI models</strong> for its narrow, deep task, but also significantly enhances <strong>maintainability</strong>, enabling independent development, rigorous testing, and seamless updates of individual components.</div>
-          </li>
-          <li className="flex items-start">
-            <Scaling className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-            <div><strong className="text-primary font-semibold">Scalability:</strong> As the frontiers of semiconductor technology continuously expand – driven by <strong>new process nodes, novel memory architectures, and emerging design methodologies</strong> – the MAS architecture provides unparalleled scalability. New <strong>specialized agents can be seamlessly integrated</strong> into the existing system to address these evolving requirements, without necessitating a costly and disruptive re-architecture of the entire framework. This <strong>future-proofs</strong> our design capabilities against the rapid pace of industry innovation.</div>
-          </li>
-          <li className="flex items-start">
-            <ShieldCheck className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-            <div><strong className="text-primary font-semibold">Robustness and Debuggability:</strong> The inherent <strong>separation of concerns</strong>, where each agent is responsible for a well-defined task, profoundly improves system robustness. Failures or unexpected behaviors can be localized and traced directly to the responsible agent and its specific interactions, dramatically simplifying the process of <strong>isolation, diagnosis, and resolution</strong>. Unlike debugging an opaque, monolithic AI system, the MAS's <strong>transparent, modular structure</strong> ensures a high degree of <strong>auditability and control</strong>, which is paramount in the high-stakes, capital-intensive world of chip manufacturing.</div>
-          </li>
-        </ul>
+        
+        <div className="flex items-center mt-8 mb-4">
+          <Component className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Modularity and Specialization:</h3>
+        </div>
+        <p>The entire chip design process is intrinsically divisible into distinct, highly specialized domains of expertise, such as <strong>architectural exploration, RTL generation, formal verification, and sophisticated physical design</strong> (including placement, routing, and PPA optimization). A MAS directly leverages this natural segmentation by allowing for the creation of dedicated <strong>&quot;expert&quot; agents</strong> for each specific domain. This not only dramatically improves performance, as each agent can be precisely optimized with <strong>tailored AI models</strong> for its narrow, deep task, but also significantly enhances <strong>maintainability</strong>, enabling independent development, rigorous testing, and seamless updates of individual components.</p>
+        
+        <div className="flex items-center mt-8 mb-4">
+          <Scaling className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Scalability:</h3>
+        </div>
+        <p>As the frontiers of semiconductor technology continuously expand – driven by <strong>new process nodes, novel memory architectures, and emerging design methodologies</strong> – the MAS architecture provides unparalleled scalability. New <strong>specialized agents can be seamlessly integrated</strong> into the existing system to address these evolving requirements, without necessitating a costly and disruptive re-architecture of the entire framework. This <strong>future-proofs</strong> our design capabilities against the rapid pace of industry innovation.</p>
+
+        <div className="flex items-center mt-8 mb-4">
+          <ShieldCheck className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Robustness and Debuggability:</h3>
+        </div>
+        <p>The inherent <strong>separation of concerns</strong>, where each agent is responsible for a well-defined task, profoundly improves system robustness. Failures or unexpected behaviors can be localized and traced directly to the responsible agent and its specific interactions, dramatically simplifying the process of <strong>isolation, diagnosis, and resolution</strong>. Unlike debugging an opaque, monolithic AI system, the MAS's <strong>transparent, modular structure</strong> ensures a high degree of <strong>auditability and control</strong>, which is paramount in the high-stakes, capital-intensive world of chip manufacturing.</p>
         
         <div className="flex items-center mt-12 mb-4">
-          <Cpu className="h-8 w-8 text-primary mr-3 flex-shrink-0" /> {/* Example: Could be Cpu or Network or a more generic "Components" icon */}
-          <h2 className="text-3xl font-semibold text-white !m-0 !border-b-slate-700 !pb-2"> 
+          <Cpu className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2"> 
             2.2 Core Components: The Specialized AI Agent Network
           </h2>
         </div>
@@ -112,7 +118,7 @@ export default function ArchitecturalBlueprintPage() {
 
         <div className="flex items-center mt-12 mb-4">
            <Layers className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
-           <h2 className="text-3xl font-semibold text-white !m-0 !border-b-slate-700 !pb-2">
+           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             2.3 The Supervisor-Worker Pattern: A LangGraph-based Framework for Task Delegation
           </h2>
         </div>
@@ -133,22 +139,34 @@ export default function ArchitecturalBlueprintPage() {
         
         <div className="flex items-center mt-12 mb-4">
            <Database className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
-           <h2 className="text-3xl font-semibold text-white !m-0 !border-b-slate-700 !pb-2">
+           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             2.4 The MCP Server: A Central Nervous System for Tools, Knowledge, and State
           </h2>
         </div>
         <p>The Supervisor and Worker agents require a robust infrastructure to support their operations. The cornerstone of this infrastructure is the <strong>MCP (Multi-Agent Collaboration Protocol) Server</strong>. This is not simply a tool repository; it is a <strong>stateful, intelligent hub</strong> that serves as the <strong>brain and memory</strong> for the entire multi-agent system. Its architecture is inspired by services like <strong>LangConnect</strong>, which provide a managed API for RAG applications. The MCP Server will perform three critical functions:</p>
-        <ul className="list-disc pl-5 space-y-2">
-          <li><strong className="text-primary font-semibold">Tool Abstraction Layer:</strong> It will provide a standardized, version-controlled API for agents to access all necessary tools. This includes commercial EDA software (e.g., Synopsys DSO.ai, Cadence Cerebrus, JasperGold) as well as custom-built Python scripts and internal utilities. This <strong>abstracts away the complexity</strong> of individual tool interfaces, allowing agents to invoke them with simple, standardized calls.</li>
-          <li><strong className="text-primary font-semibold">Knowledge Hub (RAG):</strong> The server will host and manage a comprehensive, <strong>version-controlled vector database</strong> that acts as the <strong>long-term memory</strong> of the organization. This knowledge base will be populated with all relevant public and proprietary data: process design kits (PDKs), standard cell libraries, datasheets, technical manuals, internal design guidelines, and, most importantly, the complete data from every previous chip design project. This turns our entire design history into a <strong>searchable, queryable asset</strong>.</li>
-          <li><strong className="text-primary font-semibold">Context & State Management (CAG):</strong> The server will manage the short-term, <strong>dynamic context</strong> of ongoing design tasks. This includes the conversational history between agents, the results of recent actions, and the current project state. It will employ caching mechanisms (<strong>Cache-Augmented Generation</strong>) to store and quickly retrieve frequently accessed information, reducing latency and computational cost.</li>
-        </ul>
+        
+        <div className="flex items-center mt-8 mb-4">
+          <Package className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Tool Abstraction Layer:</h3>
+        </div>
+        <p>It will provide a standardized, version-controlled API for agents to access all necessary tools. This includes commercial EDA software (e.g., Synopsys DSO.ai, Cadence Cerebrus, JasperGold) as well as custom-built Python scripts and internal utilities. This <strong>abstracts away the complexity</strong> of individual tool interfaces, allowing agents to invoke them with simple, standardized calls.</p>
+
+        <div className="flex items-center mt-8 mb-4">
+          <Archive className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Knowledge Hub (RAG):</h3>
+        </div>
+        <p>The server will host and manage a comprehensive, <strong>version-controlled vector database</strong> that acts as the <strong>long-term memory</strong> of the organization. This knowledge base will be populated with all relevant public and proprietary data: process design kits (PDKs), standard cell libraries, datasheets, technical manuals, internal design guidelines, and, most importantly, the complete data from every previous chip design project. This turns our entire design history into a <strong>searchable, queryable asset</strong>.</p>
+        
+        <div className="flex items-center mt-8 mb-4">
+          <MessageSquare className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Context & State Management (CAG):</h3>
+        </div>
+        <p>The server will manage the short-term, <strong>dynamic context</strong> of ongoing design tasks. This includes the conversational history between agents, the results of recent actions, and the current project state. It will employ caching mechanisms (<strong>Cache-Augmented Generation</strong>) to store and quickly retrieve frequently accessed information, reducing latency and computational cost.</p>
         <p>Over time, this <strong>MCP Server</strong> will evolve into the company&apos;s most valuable piece of intellectual property. It is the <strong>digital twin</strong> of our collective engineering expertise, a learning system that encapsulates our unique design methodologies and grows more powerful with every chip we produce.</p>
 
         <div className="flex items-center mt-12 mb-4">
-          {/* Choosing a generic Database or Layers icon for consistency, as the previous one was Database too. */}
-          <Database className="h-8 w-8 text-primary mr-3 flex-shrink-0" /> 
-           <h2 className="text-3xl font-semibold text-white !m-0 !border-b-slate-700 !pb-2">
+           <BookOpenCheck className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
+           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             2.5 Grounding Agents in Reality: A Hybrid RAG/CAG Architecture for Contextual Intelligence
           </h2>
         </div>
@@ -170,4 +188,3 @@ export default function ArchitecturalBlueprintPage() {
     </SubPageLayout>
   );
 }
-

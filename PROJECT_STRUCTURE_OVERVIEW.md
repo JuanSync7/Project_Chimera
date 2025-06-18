@@ -40,6 +40,8 @@ This directory implements the Next.js App Router. Each folder within `src/app/` 
 *   **`page.tsx`**: The entry point for the main landing page (`/`). It uses `PageShell` and aggregates various section components from `src/components/chimera/sections/`. It also manages scroll-based active section highlighting.
 *   **`globals.css`**: Contains global CSS styles, Tailwind CSS base directives (`@tailwind base; @tailwind components; @tailwind utilities;`), ShadCN UI theme variables (CSS custom properties for light and dark modes), and custom global classes (e.g., `.gradient-text`, tab button styles, roadmap styles).
 *   **`[subpage-name]/page.tsx`**: These directories (e.g., `src/app/strategic-imperative/page.tsx`, `src/app/architectural-blueprint/page.tsx`) define individual subpages. They typically use `SubPageLayout` for consistent structure.
+    *   `src/app/strategic-imperative/page.tsx`: Presents detailed content. Section 1.1, for instance, uses `KeyStatCard` components to encapsulate and present its main points with icons and summary titles.
+    *   `src/app/ai-pipeline/page.tsx`: Details the stages of the AI-Powered Design Pipeline. It features a set of shortcut buttons for quick navigation to each stage description. Each stage's content is often rendered by dedicated components from `src/components/chimera/pipeline-stages/`.
     *   Some subpages can also be nested under a parent route, for example:
         *   `src/app/architectural-blueprint/mcp-server-details/page.tsx`
         *   `src/app/architectural-blueprint/supervisor-worker-details/page.tsx`
@@ -55,12 +57,16 @@ This directory houses all reusable React components.
     *   **`PageShell.tsx`**: The primary layout component that wraps page content, including the `Header`, `MobileMenu`, and `Footer`. Manages mobile menu state.
     *   **`SubPageLayout.tsx`**: A layout component for detailed subpages, providing a "back" button and consistent structure using `PageShell`.
     *   **`sections/`**: Components for each major section displayed on the main landing page (e.g., `HomeSection.tsx`, `OverviewSection.tsx`, `PipelineSection.tsx`).
-    *   **`KeyStatCard.tsx`**: A reusable card component for displaying key statistics (used in `strategic-imperative/page.tsx`).
-    *   **`SectionCard.tsx`**: A general-purpose card for displaying titled content with an optional icon (used in overview, symbiosis sections).
+    *   **`pipeline-stages/`**: Individual components detailing each stage of the AI-Powered Design Pipeline (e.g., `Stage_3_1_SpecAndArch.tsx`). These are used within `src/app/ai-pipeline/page.tsx` and typically feature an `id` attribute on their main heading for direct in-page navigation.
+    *   **`KeyStatCard.tsx`**: A reusable card component for displaying key statistics or concepts, often with an icon, a prominent stat/title, and a detailed description. Used in `strategic-imperative/page.tsx`. The `description` prop supports HTML.
+    *   **`SectionCard.tsx`**: A general-purpose card for displaying titled content with an optional icon (used in overview, symbiosis sections). The `description` prop supports HTML.
     *   **`StarryBackground.tsx`**: Component for rendering the animated starry background effect on the main page.
+    *   *(Removed: `DigitalFallEffect.tsx`)*
 *   **`ui/`**: Contains UI components sourced from ShadCN UI (e.g., `Button.tsx`, `Card.tsx`, `Dialog.tsx`, `Input.tsx`, `Toast.tsx`, `Toaster.tsx`). These are typically imported into other components using the `@/components/ui/...` alias.
 *   **`icons/`**:
     *   **`DynamicIcon.tsx`**: A component to dynamically render Lucide icons by name. However, direct import of specific Lucide icons (e.g., `import { Home } from 'lucide-react';`) is generally preferred for tree-shaking and explicit dependency tracking.
+    *   *(Removed: `bouton/` directory and its components, as Project Chimera is now the main focus.)*
+
 
 ### `src/lib/`
 
@@ -84,7 +90,7 @@ This directory is designated for Artificial Intelligence related functionalities
 
 *   **`genkit.ts`**: Initializes and configures the Genkit instance, including plugins (e.g., `googleAI`) and default model settings.
 *   **`dev.ts`**: A TypeScript file used by `genkit start` for the Genkit development server. It typically imports flow definitions to make them available.
-*   **`flows/`**: Intended to contain Genkit flow definitions (e.g., specific AI agents or complex prompts). This directory is currently empty as `suggest-button-style.ts` was removed.
+*   **`flows/`**: Intended to contain Genkit flow definitions (e.g., specific AI agents or complex prompts). This directory is currently empty. *(Previously, `suggest-button-style.ts` was referenced here but has been removed as part of focusing on the Project Chimera application.)*
 
 ## `public/` Directory
 

@@ -218,7 +218,28 @@ This guide outlines the specific formatting conventions used for article-style s
     } from 'lucide-react';
     ```
 
+## 8. Alternative Content Block Patterns
+
+While the above sections detail standard prose and heading structures, certain types of content may benefit from alternative presentation patterns for clarity and visual impact.
+
+### 8.1 Using `KeyStatCard` for Highlighted Concepts
+
+*   **Purpose**: For presenting distinct, high-impact concepts, statistics, or main points that benefit from visual separation and emphasis with an icon and a prominent title (or "stat"). This pattern is particularly effective for introductory sections or a series of key takeaways where each point needs to stand as a self-contained block of information.
+*   **Structure**:
+    ```tsx
+    import KeyStatCard from '@/components/chimera/KeyStatCard';
+    import { YourChosenIcon } from 'lucide-react'; // Example icon import
+
+    // ... inside <article> ...
+    <KeyStatCard
+      icon={<YourChosenIcon className="h-8 w-8 md:h-10 md:w-10 text-primary" />} // Adjust icon size and color as needed
+      stat="Key Statistic or Concept Title" // This is the prominent "stat" line, can use gradient-text
+      description="<p>Detailed explanation for this key point. <strong>Strong tags</strong> can be used for emphasis and will be rendered correctly. This content replaces what might otherwise be a standard paragraph following an H2 or H3.</p><p>Additional details or multiple paragraphs can be included here.</p>"
+      className="my-8 hover:border-primary/70" // Example: provides spacing and hover effect
+    />
+    {/* Repeat KeyStatCard for other distinct points in the section */}
+    ```
+*   **Usage Context**: This pattern is notably used in `src/app/strategic-imperative/page.tsx` for presenting the main arguments in Section 1.1. Each `KeyStatCard` encapsulates a core idea, replacing a traditional sequence of `<h2>` (or `<h3>`) followed by one or more `<p>` elements.
+*   **Important Note**: The `description` prop of the `KeyStatCard` component supports HTML, allowing for rich text formatting, including `<p>`, `<strong>`, `<ul>`, etc., ensuring the full narrative can be contained within the card. The `stat` prop typically holds a short, impactful title or statistic.
+
 By following these guidelines, article-style subpages will maintain a consistent and readable structure, making it easier for users to navigate and understand the detailed content.
-
-
-

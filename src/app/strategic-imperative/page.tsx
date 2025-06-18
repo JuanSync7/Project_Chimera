@@ -19,9 +19,9 @@ import {
   Workflow,
   BrainCircuit,
   Cpu,
-  TrendingUp, // Added for diagram
+  TrendingUp,
   Layers,    // Added for diagram
-  Cog,       // Added for diagram
+  Cog,       // Added for diagram (already present, but confirming usage)
   RefreshCw, // Added for diagram
   ArrowRight // Added for diagram
 } from 'lucide-react';
@@ -35,9 +35,9 @@ const MooreToAiCycleDiagram: React.FC = () => (
           .diagram-bg { fill: hsl(var(--card)); }
           .axis-line { stroke: hsl(var(--muted-foreground)); stroke-width: 1.5; }
           .moore-line { stroke: hsl(var(--diagram-worker-fill)); stroke-width: 3; fill: none; }
-          .complexity-bar { fill: hsl(var(--diagram-mcp-internal-fill)); stroke: hsl(var(--diagram-mcp-stroke)); stroke-width: 1; }
+          .complexity-icon-group { fill: hsl(var(--diagram-mcp-internal-fill)); } /* For icon bg if needed, or use ai-node style */
           .ai-node { fill: hsl(var(--diagram-supervisor-fill)); }
-          .ai-icon { fill: hsl(var(--primary-foreground)); }
+          .ai-icon { fill: hsl(var(--primary-foreground)); } /* Icon fill for Layers, Cog */
           .cycle-arrow { stroke: hsl(var(--diagram-arrow-stroke)); stroke-width: 2; fill: none; marker-end: url(#cycleArrowHead); }
           .outcome-arrow { stroke: hsl(var(--accent)); stroke-width: 2.5; fill: none; marker-end: url(#outcomeArrowHead); }
           .text-label { font-family: var(--font-inter, 'Inter', sans-serif); font-size: 10px; fill: hsl(var(--diagram-text-fill)); text-anchor: middle; }
@@ -63,64 +63,69 @@ const MooreToAiCycleDiagram: React.FC = () => (
         <symbol id="aiCogIcon" viewBox="0 0 24 24">
           <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V19a2 2 0 01-2 2h-1.41a2 2 0 01-2-2v-.09A1.65 1.65 0 009 16.42l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2V8.59a2 2 0 012-2h.09A1.65 1.65 0 004.6 5l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2h1.41a2 2 0 012 2v.09a1.65 1.65 0 001 1.51h.09a1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2v1.41a2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z" className="ai-icon"/>
         </symbol>
+        <symbol id="layersIcon" viewBox="0 0 24 24" className="ai-icon"> {/* Added ai-icon class here */}
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polygon points="2 17 12 22 22 17"></polygon>
+          <polygon points="2 12 12 17 22 12"></polygon>
+        </symbol>
       </defs>
-
-      {/* Background (optional) */}
-      {/* <rect width="600" height="350" className="diagram-bg" rx="10"/> */}
 
       {/* Part 1: Moore's Law */}
       <g transform="translate(20, 20)">
-        <text x="100" y="15" className="text-title-small">Moore's Law / Physical Scaling</text>
-        {/* Axes */}
+        <text x="70" y="15" className="text-title-small">Moore's Law / Physical Scaling</text>
         <line x1="20" y1="280" x2="20" y2="30" className="axis-line" /> {/* Y-axis */}
-        <line x1="20" y1="280" x2="180" y2="280" className="axis-line" /> {/* X-axis */}
-        <text x="100" y="300" className="text-label">Time</text>
+        <line x1="20" y1="280" x2="140" y2="280" className="axis-line" /> {/* X-axis */}
+        <text x="70" y="300" className="text-label">Time</text>
         <text x="10" y="150" transform="rotate(-90 10 150)" className="text-label">Performance</text>
-        {/* Moore's Law Line */}
-        <path d="M30 270 Q 50 150, 90 90 Q 120 50, 170 40 L 190 38" className="moore-line" />
-        <text x="150" y="65" className="text-label-bold" fill="hsl(var(--diagram-worker-fill))">Plateauing</text>
+        <path d="M30 270 Q 40 150, 60 90 Q 80 50, 110 40 L 130 38" className="moore-line" />
+        <text x="100" y="65" className="text-label-bold" fill="hsl(var(--diagram-worker-fill))">Plateauing</text>
       </g>
 
-      {/* Transition Element (Optional Subtle Arrow) */}
-      <line x1="195" y1="150" x2="225" y2="150" stroke="hsl(var(--muted-foreground))" strokeWidth="1.5" markerEnd="url(#cycleArrowHead)" />
+      {/* Arrow from Moore's Law to Complexity */}
+      <line x1="150" y1="175" x2="180" y2="175" stroke="hsl(var(--muted-foreground))" strokeWidth="1.5" markerEnd="url(#cycleArrowHead)" />
       
       {/* Part 2: Design Complexity */}
-      <g transform="translate(230, 20)">
-        <rect x="0" y="80" width="30" height="120" className="complexity-bar" />
-        <text x="15" y="70" className="text-label-bold">Rising Design</text>
-        <text x="15" y="212" className="text-label-bold">Complexity</text>
+      <g transform="translate(220, 175)">
+        <text x="0" y="-50" className="text-title-small">Rising Design</text>
+        <text x="0" y="-38" className="text-title-small">Complexity</text>
+        <use href="#layersIcon" width="30" height="30" x="-15" y="-25" />
+        <text x="0" y="20" className="text-label-bold" fontSize="14px">x10</text>
       </g>
 
+      {/* Arrow from Complexity to AI Intervention */}
+      <line x1="250" y1="175" x2="270" y2="175" stroke="hsl(var(--muted-foreground))" strokeWidth="1.5" markerEnd="url(#cycleArrowHead)" />
+
       {/* Part 3: AI Intervention */}
-      <g transform="translate(285, 130)">
+      <g transform="translate(300, 175)">
         <circle cx="0" cy="0" r="25" className="ai-node" />
         <use href="#aiCogIcon" width="30" height="30" x="-15" y="-15" />
         <text x="0" y="40" className="text-label-bold">AI-Driven Design</text>
       </g>
 
+      {/* Arrow from AI Node to "Advanced Silicon" part of Symbiotic Cycle */}
+      <path d="M325 175 C 350 175, 380 155, 410 135" className="cycle-arrow" />
+
       {/* Part 4: Symbiotic Cycle */}
-      <g transform="translate(450, 140)">
-        <text x="0" y="-65" className="text-title-small">Self-Improving AI-Silicon Cycle</text>
-        {/* Nodes for cycle */}
-        <rect x="-60" y="-50" width="120" height="40" rx="5" className="complexity-bar" />
+      <g transform="translate(470, 175)">
+        <text x="0" y="-75" className="text-title-small">Self-Improving AI-Silicon Cycle</text>
+        {/* "Advanced Silicon" Node */}
+        <rect x="-60" y="-50" width="120" height="40" rx="5" className="complexity-icon-group" /> {/* Changed class for consistency */}
         <text x="0" y="-30" className="text-label-bold">Advanced Silicon</text>
         
-        <rect x="-60" y="40" width="120" height="40" rx="5" className="complexity-bar" />
-        <text x="0" y="60" className="text-label-bold">Enhanced AI</text>
+        {/* "Enhanced AI" Node */}
+        <rect x="-60" y="30" width="120" height="40" rx="5" className="complexity-icon-group" /> {/* Changed class for consistency */}
+        <text x="0" y="50" className="text-label-bold">Enhanced AI</text>
 
-        {/* Arrows for cycle - simplified paths */}
-        {/* AI-Driven Design to Advanced Silicon */}
-        <path d="M-145 0 C -130 -40, -90 -55, -60 -35" className="cycle-arrow" />
-        {/* Advanced Silicon to Enhanced AI */}
-        <path d="M0 -10 Q 0 5, 0 40" className="cycle-arrow" />
-        {/* Enhanced AI back to AI-Driven Design area */}
-        <path d="M-60 55 C -90 95, -130 90, -145 15" className="cycle-arrow" />
-         <text x="0" y="15" className="text-label">(Feedback Loop)</text>
+        {/* Arrow from Advanced Silicon to Enhanced AI */}
+        <path d="M0 -10 Q 0 5, 0 30" className="cycle-arrow" />
+        {/* Arrow from Enhanced AI back to (conceptual) AI-Driven Design Area (loop back towards left) */}
+        <path d="M-60 50 q -20 0 -35 -20 t 0 -40 q 15 -20 35 -20" className="cycle-arrow" /> {/* Simpler loop */}
+        <text x="-85" y="0" className="text-label">(Feedback Loop)</text>
       </g>
       
       {/* Part 5: Outcome */}
-      <g transform="translate(450, 290)">
-          <line x1="0" y1="0" x2="0" y2="-40" className="outcome-arrow" />
+      <g transform="translate(470, 310)">
+          <line x1="0" y1="0" x2="0" y2="-35" className="outcome-arrow" /> {/* Arrow from Symbiotic Cycle (bottom) */}
           <text x="0" y="25" className="text-outcome">Innovation &amp;</text>
           <text x="0" y="40" className="text-outcome">Compounding Advantage</text>
       </g>
@@ -285,3 +290,4 @@ export default function StrategicImperativePage() {
     </SubPageLayout>
   );
 }
+

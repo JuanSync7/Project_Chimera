@@ -46,21 +46,22 @@ import {
   RefreshCcw,
   ListOrdered,
   ArrowRightCircle,
-  Sitemap, // New
-  Shuffle, // New
-  Keyboard, // New
-  Filter, // New
-  Crosshair, // New
-  Binary, // New
-  Puzzle, // New
-  Scale, // New
-  BookOpenCheck, // New
-  BugPlay, // New
-  TestTube2, // New
-  ScrollText, // New
-  LineChart, // New
-  MapPin, // New
-  RotateCcw // New
+  // Sitemap was removed here
+  Shuffle, 
+  Keyboard, 
+  Filter, 
+  Crosshair, 
+  Binary, 
+  Puzzle, 
+  Scale, 
+  BookOpenCheck, 
+  BugPlay, 
+  TestTube2, 
+  ScrollText, 
+  LineChart, 
+  MapPin, 
+  RotateCcw,
+  Workflow 
 } from 'lucide-react';
 
 export default function AiPipelinePage() {
@@ -162,25 +163,25 @@ export default function AiPipelinePage() {
                 <strong className="text-primary block mb-1">Agent Role:</strong> Building directly upon the detailed architectural specifications provided by the <strong>Architecture Exploration Agents</strong>, the <strong>RTL Generation & Refinement Agent</strong>, here acting as our primary <strong>Verilog/VHDL Coder Agent</strong>, initiates the RTL creation.
               </div>
             </li>
-             <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
-              <BrainCircuit className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <div>
-                <strong className="text-primary block mb-1">Intelligent Synthesis & Prompt Engineering:</strong> This agent intelligently synthesizes the architectural intent directly into initial RTL, making informed decisions on crucial aspects like <strong>data path structures, control logic, state machine implementations, and module interfaces</strong>. It achieves this by employing advanced <strong>prompt engineering techniques</strong> with powerful, general-purpose LLMs. This involves:
-                <div className="mt-2 space-y-3">
-                  <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
-                    <ListOrdered className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
-                    <div><strong className="text-sky-300 block mb-1">Structured Prompts:</strong> Carefully crafted prompts that provide the LLM with clear context, specific design requirements, desired RTL structure, and explicit instructions on coding style and synthesizability rules.</div>
-                  </div>
-                  <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
-                    <Layers3 className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
-                    <div><strong className="text-sky-300 block mb-1">In-context Learning (Few-shot Prompting):</strong> Supplying relevant examples of high-quality, functionally correct RTL code and corresponding natural language descriptions from our <strong>Knowledge Hub (RAG)</strong> in the MCP Server. This guides the LLM towards generating similar, high-quality output without requiring model fine-tuning.</div>
-                  </div>
-                  <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
-                    <ShieldCheck className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
-                    <div><strong className="text-sky-300 block mb-1">Constraint-Based Generation:</strong> Imposing specific output constraints (e.g., format, keyword usage, module structure) to ensure the generated code adheres strictly to HDL syntax and hardware semantics.</div>
-                  </div>
+            <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
+                <BrainCircuit className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+                <div>
+                    <strong className="text-primary block mb-1">Intelligent Synthesis & Prompt Engineering:</strong> This agent intelligently synthesizes the architectural intent directly into initial RTL, making informed decisions on crucial aspects like <strong>data path structures, control logic, state machine implementations, and module interfaces</strong>. It achieves this by employing advanced <strong>prompt engineering techniques</strong> with powerful, general-purpose LLMs. This involves:
+                    <div className="mt-2 space-y-3">
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ListOrdered className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Structured Prompts:</strong> Carefully crafted prompts that provide the LLM with clear context, specific design requirements, desired RTL structure, and explicit instructions on coding style and synthesizability rules.</div>
+                      </div>
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <Layers3 className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">In-context Learning (Few-shot Prompting):</strong> Supplying relevant examples of high-quality, functionally correct RTL code and corresponding natural language descriptions from our <strong>Knowledge Hub (RAG)</strong> in the MCP Server. This guides the LLM towards generating similar, high-quality output without requiring model fine-tuning.</div>
+                      </div>
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ShieldCheck className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Constraint-Based Generation:</strong> Imposing specific output constraints (e.g., format, keyword usage, module structure) to ensure the generated code adheres strictly to HDL syntax and hardware semantics.</div>
+                      </div>
+                    </div>
                 </div>
-              </div>
             </li>
             <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
               <Layers3 className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
@@ -289,7 +290,7 @@ export default function AiPipelinePage() {
                   <strong className="text-primary block mb-1">Sophisticated Test & Stimulus Generation:</strong> The <strong>Test & Coverage Generation Agent</strong> is central to this stage. Beyond generating initial module-level tests, it now dynamically creates <strong>complex, system-level test cases, intelligent stimulus patterns, and comprehensive verification environments</strong>.
                   <div className="mt-2 space-y-3">
                       <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
-                        <Sitemap className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <Workflow className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
                         <div><strong className="text-sky-300 block mb-1">UVM Orchestration:</strong> For highly complex IPs, it orchestrates and populates <strong>Universal Verification Methodology (UVM) testbenches</strong>, intelligently configuring sequences, transactors, and scoreboards. It can parse protocol specifications from the <strong>Knowledge Hub (RAG)</strong> and generate UVM components tailored to specific interface standards (e.g., PCIe, DDR, USB), significantly reducing manual UVM development time.</div>
                       </div>
                       <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
@@ -656,4 +657,3 @@ export default function AiPipelinePage() {
   );
 }
     
-

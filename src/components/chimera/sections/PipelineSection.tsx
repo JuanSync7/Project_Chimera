@@ -65,7 +65,7 @@ const PipelineSection: React.FC = () => {
                       <Star className="w-5 h-5 mr-2 inline-block text-green-400" />
                       Primary Business Outcome:
                     </h4>
-                    <p className={`font-semibold pl-7 ${currentTabData.outcomeColor || 'text-sky-300'}`} dangerouslySetInnerHTML={{ __html: currentTabData.outcome }}></p>
+                    <div className={`font-semibold pl-7 ${currentTabData.outcomeColor || 'text-sky-300'}`} dangerouslySetInnerHTML={{ __html: currentTabData.outcome }}></div>
                   </div>
                 </div>
               </>
@@ -78,5 +78,3 @@ const PipelineSection: React.FC = () => {
 };
 
 export default PipelineSection;
-
-

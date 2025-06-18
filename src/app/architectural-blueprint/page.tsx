@@ -1,4 +1,3 @@
-
 // src/app/architectural-blueprint/page.tsx
 "use client";
 import React from 'react';
@@ -235,6 +234,13 @@ export default function ArchitecturalBlueprintPage() {
             <li><strong className="text-white font-semibold">Facilitate Collaboration:</strong> Provide a shared platform for engineers, AI developers, and verification teams to inspect agent runs, provide human feedback, and collaborate on improving prompts and agent behaviors, fostering a more agile development environment.</li>
         </ul>
         <p>By adopting the Supervisor-Worker pattern implemented with LangGraph and complemented by LangSmith, we ensure that our AI-driven design processes are not only intelligent and automated but also <strong>predictable, auditable, resilient, and continuously optimized</strong>, providing the highest degree of confidence in the integrity and success of our silicon products.</p>
+        <div className="text-center mt-8 mb-4">
+          <Link href="/architectural-blueprint/supervisor-worker-details" passHref>
+            <Button variant="outline" size="lg" className="bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/40">
+              Deep Dive into the Supervisor-Worker Pattern &rarr;
+            </Button>
+          </Link>
+        </div>
         
         <div className="mt-12 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
@@ -242,7 +248,7 @@ export default function ArchitecturalBlueprintPage() {
           </h2>
         </div>
         <p>The Supervisor and Worker agents require a robust infrastructure to support their complex, iterative operations. The cornerstone of this infrastructure is the <strong>MCP (Multi-Agent Collaboration Protocol) Server</strong>, a stateful, intelligent hub that serves as the <strong>brain, long-term memory, and dynamic workspace</strong> for the entire multi-agent system. Its architecture is inspired by services like <strong>LangConnect</strong>, which provide managed APIs for advanced RAG applications. The MCP Server will perform three critical and interconnected functions:</p>
-
+        
         <div className="mt-8 mb-4 flex items-center">
           <Layers3 className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Tool Abstraction Layer:</h3>
@@ -293,3 +299,5 @@ export default function ArchitecturalBlueprintPage() {
     </SubPageLayout>
   );
 }
+
+    

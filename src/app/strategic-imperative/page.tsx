@@ -62,48 +62,63 @@ export default function StrategicImperativePage() {
         <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
           1.3 Quantifying the Opportunity: A 10x Vision for Design Efficiency and Innovation
         </h2>
-        <p>The shift to an AI-driven methodology isn&apos;t an incremental improvement; it&apos;s a step-function leap in capability for the semiconductor industry. A review of current AI applications reveals quantifiable potential across the entire design pipeline, fundamentally redefining how chips are conceived and brought to market.</p>
+        <p>The shift to an AI-driven methodology isn&apos;t an incremental improvement; it&apos;s a step-function leap in capability for our chip design company. A review of current AI applications reveals quantifiable potential across our entire design pipeline, fundamentally redefining how we conceive and bring chips to market, and crucially, how we secure a decisive competitive advantage.</p>
         
         <h3 className="text-2xl font-semibold text-white !mt-10 !mb-6 text-center">
-          Quantifiable Impact of AI in Semiconductor Design
+          Quantifiable Impact of AI: Our Competitive Edge
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 my-8">
           <KeyStatCard
             icon={<FastForward />}
             stat="30-50%"
-            description="AI-driven design automation, leveraging automated synthesis, intelligent routing, and predictive optimization, slashes overall chip design time by a remarkable 30-50%. This rapid acceleration is a critical differentiator in today's fiercely competitive and fast-moving markets."
+            description="AI-driven design automation slashes our overall chip design time by 30-50%, enabling faster delivery and market capture."
           />
           <KeyStatCard
             icon={<Zap />}
             stat="Up to 40%"
-            description="Machine learning algorithms redefine efficiency by exploring vast design spaces for optimal transistor sizing and clock gating, leading to power reductions of up to 40%."
+            description="ML algorithms redefine efficiency, leading to power reductions of up to 40% for our customers."
           />
           <KeyStatCard
             icon={<Minimize2 />}
             stat="Up to 20%"
-            description="Concurrently, reinforcement learning-based layout optimization intelligently places and routes components to minimize interconnect length and optimize overall footprint, cutting chip area by up to 20%. This delivers unprecedentedly smaller, highly efficient, and more cost-effective silicon."
+            description="RL-based layout optimization cuts chip area up to 20%, delivering smaller, cost-effective silicon."
           />
           <KeyStatCard
             icon={<UsersRound />}
             stat="3x-5x"
-            description="The adoption of AI-powered Electronic Design Automation (EDA) tools propels design team productivity by a factor of 3x to 5x, ushering in exponential gains that multiply efficiency across the board."
+            description="AI-powered EDA tools propel our design team productivity by 3x-5x, freeing engineers for innovation."
           />
           <KeyStatCard
             icon={<ClipboardCheck />}
             stat="Up to 70%"
-            description="AI transforms verification and testing, historically the largest time sink, by generating intelligent test vectors, predicting potential bug locations, and automating root-cause analysis. This streamlines the process, cutting debugging time by as much as 70%."
+            description="AI streamlines verification, cutting our debugging time by as much as 70% for more reliable designs."
           />
           <KeyStatCard
             icon={<SearchCode />}
             stat="Up to 10x"
-            description="Reinforcement learning (RL) models don't just explore; they learn optimal design rules and adapt to complex constraints, enabling them to uncover non-intuitive, highly optimized solutions with an efficiency improvement of up to 10x compared to traditional methods."
+            description="RL models explore design spaces up to 10x more efficiently, uncovering novel, optimized solutions that set our chips apart."
           />
         </div>
         
         <h3 className="text-2xl font-semibold text-white !mt-12 !mb-6 text-center">
-          The Future is AI-Driven
+          Beyond Traditional EDA: Leveraging Agentic LLMs for Strategic Advantage
         </h3>
-        <p className="text-center max-w-2xl mx-auto">When these gains are compounded across the full design flow, the vision is not for a marginal improvement but for a transformative enhancement in overall design quality and efficiency. Looking ahead, the integration of generative AI promises even more radical advancements in automated intellectual property (IP) creation and system-level optimization, pushing the boundaries of what&apos;s possible in chip design. This isn&apos;t merely an operational improvement; it&apos;s a strategic imperative that unlocks a clear path to achieving a sustainable and decisive competitive advantage in the market.</p>
+        <p>While the advancements in AI within traditional EDA tools are profound, our company is also strategically leveraging the emerging power of agentic Large Language Models (LLMs). These sophisticated AI entities go beyond mere code generation or static analysis; they are designed to understand complex objectives, reason through problems, devise multi-step plans, and even execute actions within our design environment.</p>
+        
+        <h4 className="text-xl font-semibold text-white !mt-8 !mb-4">
+          Here&apos;s how we specifically gain from this:
+        </h4>
+        <ul className="list-disc pl-5 space-y-3">
+          <li><strong>Automated Design Specification and Code Generation:</strong> Agentic LLMs can interpret high-level design requirements from natural language inputs and autonomously generate initial RTL code, testbenches, and EDA scripts. This dramatically accelerates the initial design phase, allowing our architects to rapidly iterate on concepts and reduce the manual effort in translating ideas into functional code.</li>
+          <li><strong>Intelligent Debugging and Root Cause Analysis:</strong> When verification flags an issue, agentic LLMs can act as intelligent assistants, sifting through vast log files, historical bug databases, and design documentation. They can propose potential root causes, suggest debugging strategies, and even automatically generate fixes for common errors, drastically cutting down on human debugging time and complexity.</li>
+          <li><strong>Optimized Workflow Orchestration:</strong> Our agentic LLMs can manage and orchestrate complex, multi-tool EDA flows. They can analyze intermediate results, identify bottlenecks, and dynamically adjust parameters or re-run specific steps to achieve optimal PPA targets or faster convergence. This means our design flows become self-optimizing and more resilient to unforeseen challenges.</li>
+          <li><strong>Accelerated Learning and Knowledge Transfer:</strong> By acting as intelligent interfaces to our vast internal knowledge base of past designs, IPs, and best practices, agentic LLMs can democratize expert knowledge. New engineers can be brought up to speed faster, and seasoned veterans can leverage the agents to rapidly explore design variations or recall obscure design rules, fostering a culture of continuous learning and innovation.</li>
+        </ul>
+
+        <h3 className="text-2xl font-semibold text-white !mt-12 !mb-6 text-center">
+          The Future is AI-Driven, and We&apos;re Leading It
+        </h3>
+        <p className="text-center max-w-2xl mx-auto">When these compounded gains from both advanced AI in EDA and the strategic deployment of agentic LLMs are realized across our full design flow, the vision is not for a marginal improvement but for a transformative enhancement in our overall design quality and efficiency. By embracing this multi-faceted AI revolution, we are not just adapting to the future; we are actively shaping it, positioning ourselves to achieve a sustainable and decisive competitive advantage in the global semiconductor market.</p>
       </article>
     </SubPageLayout>
   );

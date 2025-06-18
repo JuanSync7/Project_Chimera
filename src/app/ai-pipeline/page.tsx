@@ -72,7 +72,7 @@ export default function AiPipelinePage() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="bg-slate-800/60 border-slate-700 hover:bg-slate-700/80 hover:border-primary text-slate-300 hover:text-white transition-all duration-200"
+                  className="bg-slate-800/60 border-white hover:bg-slate-700/80 hover:border-primary text-slate-300 hover:text-white transition-all duration-200"
                 >
                   {stage.shortTitle}
                 </Button>

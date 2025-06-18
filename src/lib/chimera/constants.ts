@@ -34,7 +34,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     challenge: 'Ambiguous requirements, vast architectural search space.',
     agenticWorkflowDetails: `<p><strong class="text-white font-semibold">Agents:</strong> Customer Req. Translation, Specification, Microarchitecture Opt., System Interconnect, Supervisor.</p>
       <p><strong class="text-white font-semibold">Tech:</strong> RAG, CAG, RL, Multi-objective Opt.</p>`,
-    outcome: 'Reduced ambiguity; <strong>10x faster Design Space Exploration</strong>; PPA optimized from day one.',
+    outcome: '<ul class="list-disc list-inside"><li>Reduced ambiguity</li><li><strong>10x faster Design Space Exploration</strong></li><li>PPA optimized from day one.</li></ul>',
     outcomeColor: 'text-green-400'
   },
   {
@@ -46,7 +46,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     challenge: 'Architectural translation to RTL is error-prone; LLM reliability for HDL; HLS integration.',
     agenticWorkflowDetails: `<p><strong class="text-white font-semibold">Agents:</strong> RTL Generation & Refinement (Coder) Agent.</p>
       <p><strong class="text-white font-semibold">Tech:</strong> LLMs, Prompt Engineering, RAG, HLS.</p>`,
-    outcome: 'High-quality RTL; Reduced manual coding; Reliable HLS; Faster module dev.',
+    outcome: '<ul class="list-disc list-inside"><li>High-quality RTL</li><li>Reduced manual coding</li><li>Reliable HLS</li><li>Faster module dev.</li></ul>',
     outcomeColor: 'text-green-400'
   },
   {
@@ -58,7 +58,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     challenge: 'Manual linting, optimization, and testbench creation are time-consuming and miss subtle issues.',
     agenticWorkflowDetails: `<p><strong class="text-white font-semibold">Agents:</strong> Coder Agent, Power-Aware RTL Opt. Agent, Test & Coverage Gen. Agent, Supervisor.</p>
       <p><strong class="text-white font-semibold">Tech:</strong> Automated Code Analysis, Power-Aware Opt., Automated Testbench Gen. (SVA).</p>`,
-    outcome: 'Robust RTL; Early power opt.; Comprehensive test environment; Reduced verification effort.',
+    outcome: '<ul class="list-disc list-inside"><li>Robust RTL</li><li>Early power opt.</li><li>Comprehensive test environment</li><li>Reduced verification effort.</li></ul>',
     outcomeColor: 'text-green-400' 
   },
   {
@@ -71,7 +71,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     agenticWorkflowDetails: `<p><strong class="text-white font-semibold">Agents:</strong> Supervisor, Debug & Root Cause Analysis Agent, Coder Agent.</p>
       <p><strong class="text-white font-semibold">Process:</strong> TDD loop until all tests pass and PPA estimates met.</p>
       <p><strong class="text-white font-semibold">Tech:</strong> TDD, Automated Debugging, Closed-Loop Refinement.</p>`,
-    outcome: 'Accelerated RTL convergence; High-quality, bug-free RTL; Mitigated LLM weaknesses for HDL.',
+    outcome: '<ul class="list-disc list-inside"><li>Accelerated RTL convergence</li><li>High-quality, bug-free RTL</li><li>Mitigated LLM weaknesses for HDL.</li></ul>',
     outcomeColor: 'text-green-400'
   },
   {
@@ -83,7 +83,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     challenge: 'Comprehensive verification is a bottleneck; achieving full coverage and exercising corner cases is monumental with traditional UVM.',
     agenticWorkflowDetails: `<p><strong class="text-white font-semibold">Agents:</strong> Test & Coverage Generation Agent, AutoDV Agent, Supervisor.</p>
       <p><strong class="text-white font-semibold">Tech:</strong> Intelligent Test Gen, UVM Orchestration, Automated Coverage Analysis & Closure (code, functional, assertion).</p>`,
-    outcome: 'Rigorously exercised RTL; Vast majority of functional bugs caught; Solid foundation for physical design.',
+    outcome: '<ul class="list-disc list-inside"><li>Rigorously exercised RTL</li><li>Vast majority of functional bugs caught</li><li>Solid foundation for physical design.</li></ul>',
     outcomeColor: 'text-green-400'
   },
   {
@@ -95,7 +95,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     challenge: 'Simulation misses deep, corner-case bugs, security vulnerabilities, or deadlocks. Formal verification requires specialized expertise.',
     agenticWorkflowDetails: `<p><strong class="text-white font-semibold">Agents:</strong> AutoDV Agent, AutoReview Agent, Security Verification Agent.</p>
       <p><strong class="text-white font-semibold">Tech:</strong> Automated Formal Property Gen & Proofs (Model Checking), Exhaustive Static Analysis (CDC, RDC, Linting), Security Probing (Formal, Static, Fault Injection).</p>`,
-    outcome: 'Enhanced bug detection for elusive issues; Higher confidence in design correctness; Drastically reduced risk of silicon failures.',
+    outcome: '<ul class="list-disc list-inside"><li>Enhanced bug detection for elusive issues</li><li>Higher confidence in design correctness</li><li>Drastically reduced risk of silicon failures.</li></ul>',
     outcomeColor: 'text-green-400'
   },
   {
@@ -107,7 +107,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     challenge: 'Debugging accounts for a massive portion of verification time; manual analysis of logs and waveforms is expert-intensive and slow.',
     agenticWorkflowDetails: `<p><strong class="text-white font-semibold">Agents:</strong> Debug & Root Cause Analysis Agent, RTL Generation & Refinement Agent, Supervisor, Test & Coverage Generation Agent.</p>
       <p><strong class="text-white font-semibold">Tech:</strong> Automated Failure Analysis & Localization (Logs, Waveforms), Intelligent Explanation (LLM-based), "What-If" Debugging (CAG), Regression Test Generation.</p>`,
-    outcome: 'Dramatically reduced manual debug effort; Accelerated design cycles; Engineers focus on higher-level innovation.',
+    outcome: '<ul class="list-disc list-inside"><li>Dramatically reduced manual debug effort</li><li>Accelerated design cycles</li><li>Engineers focus on higher-level innovation.</li></ul>',
     outcomeColor: 'text-green-400'
   },
   {
@@ -119,7 +119,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     challenge: 'Ensuring holistic chip quality and continuous evaluation of the AI system’s own performance and reliability.',
     agenticWorkflowDetails: `<p><strong class="text-white font-semibold">Agents:</strong> Performance Verification Agent, Power & DRC Analysis Agent, Security Verification Agent, Supervisor, Knowledge Graph Agent, Global Planning Agent.</p>
       <p><strong class="text-white font-semibold">Tech:</strong> Full-Chip Performance Sim (SystemC), Dynamic/Static Power Analysis, Holistic Security Assessment (Attack Surface, Vuln. Scan, Pen Test), LangSmith AI Eval & Guardrails, Self-Evaluation & Learning.</p>`,
-    outcome: 'Comprehensive chip quality, reliability, security; Self-improving AI design ecosystem; Accelerated design cycles.',
+    outcome: '<ul class="list-disc list-inside"><li>Comprehensive chip quality, reliability, security</li><li>Self-improving AI design ecosystem</li><li>Accelerated design cycles.</li></ul>',
     outcomeColor: 'text-green-400'
   },
   {
@@ -132,7 +132,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     agenticWorkflowDetails: `<p>Integrates AI for DFT planning, insertion, ATPG, and verification.</p>
       <p><strong class="text-white font-semibold">Agents:</strong> DFT Planning Agent, DFT Insertion Agent, ATPG Agent, DFT Verification Agent, Supervisor, Debug & Root Cause Analysis Agent.</p>
       <p><strong class="text-white font-semibold">Tech:</strong> RAG, Prompt Engineering, Automated Tool Orchestration (TestMAX, Modus), Fault Simulation.</p>`,
-    outcome: 'High manufacturability; Efficient test coverage; Reduced post-silicon debug & production costs; Optimal PPA.',
+    outcome: '<ul class="list-disc list-inside"><li>High manufacturability</li><li>Efficient test coverage</li><li>Reduced post-silicon debug & production costs</li><li>Optimal PPA.</li></ul>',
     outcomeColor: 'text-green-400'
   },
   {
@@ -145,7 +145,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     agenticWorkflowDetails: `<p><strong class="text-white font-semibold">Agents:</strong> PPA Optimization Agent (orchestrating Synthesis, Physical Implementation, Timing Closure Agents), Supervisor.</p>
       <p><strong class="text-white font-semibold">Tech:</strong> Reinforcement Learning (RL).</p>
       <p><strong class="text-white font-semibold">Tools:</strong> Synopsys DSO.ai, Cadence Cerebrus principles.</p>`,
-    outcome: 'Up to <strong>15-40% power reduction</strong>; Smaller die size; Designs at <strong>true Pareto-optimal PPA frontier</strong>.',
+    outcome: '<ul class="list-disc list-inside"><li>Up to <strong>15-40% power reduction</strong></li><li>Smaller die size</li><li>Designs at <strong>true Pareto-optimal PPA frontier</strong>.</li></ul>',
     outcomeColor: 'text-green-400'
   },
   {
@@ -157,7 +157,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     challenge: 'Predicting <strong>manufacturing yield</strong>, detecting <strong>defects</strong>, and validating <strong>actual hardware performance</strong>.',
     agenticWorkflowDetails: `<p><strong class="text-white font-semibold">Agents:</strong> Yield Prediction, Defect Detection, Post-Silicon Validation, Knowledge Graph Agent.</p>
       <p><strong class="text-white font-semibold">Tech:</strong> Predictive Analytics, Anomaly Detection, Automated Correlation, ML.</p>`,
-    outcome: 'Improved <strong>yield</strong>; Reduced <strong>validation cycle time</strong>; More <strong>accurate models for future projects</strong>.',
+    outcome: '<ul class="list-disc list-inside"><li>Improved <strong>yield</strong></li><li>Reduced <strong>validation cycle time</strong></li><li>More <strong>accurate models for future projects</strong>.</li></ul>',
     outcomeColor: 'text-green-400'
   },
 ];
@@ -225,6 +225,7 @@ class LogParserAgent:
     
 
     
+
 
 
 

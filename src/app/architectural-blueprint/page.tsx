@@ -5,7 +5,6 @@ import React from 'react';
 import SubPageLayout from '@/components/chimera/SubPageLayout';
 import { 
   DraftingCompass, 
-  Network,
   Component,
   Scaling,
   ShieldCheck,
@@ -87,7 +86,7 @@ export default function ArchitecturalBlueprintPage() {
         
         <div className="mt-8 mb-4 flex items-center">
           <ShieldCheck className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Verification Agents:</h3>
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Verification Agents: AI-Driven Validation for Flawless Silicon</h3>
         </div>
         <p>Addressing the largest bottleneck in modern design, these agents perform critical roles in ensuring design correctness and reliability.</p>
         <ul className="list-disc pl-5 space-y-2">

@@ -3,28 +3,30 @@
 "use client";
 import React from 'react';
 import SubPageLayout from '@/components/chimera/SubPageLayout';
+import DigitalFallEffect from '@/components/chimera/DigitalFallEffect'; // Import the new effect
 import {
-  Cpu, // Page Icon & 3.1 list item
-  AlertTriangle, // Challenge Icon
-  Zap, // 3.1 Workflow & 3.1 list item
-  UserRoundSearch, // 3.1 list item
-  FileText, // 3.1 list item
-  Network, // 3.1 list item
-  Focus, // 3.1 list item
-  FileCode, // 3.2 Workflow
-  ClipboardCheck, // 3.3 Workflow
-  RefreshCcw, // 3.4 Workflow
-  ListChecks, // 3.5 Workflow
-  ShieldCheck, // 3.6 Workflow
-  SearchCode, // 3.7 Workflow
-  BarChart3, // 3.8 Workflow
-  SlidersHorizontal, // 3.9 Workflow
-  Cog // 3.10 Workflow
+  Cpu, 
+  AlertTriangle, 
+  Zap, 
+  UserRoundSearch, 
+  FileText, 
+  Network, 
+  Focus,
+  FileCode,
+  ClipboardCheck,
+  RefreshCcw,
+  ListChecks,
+  ShieldCheck,
+  SearchCode,
+  BarChart3,
+  SlidersHorizontal,
+  Cog
 } from 'lucide-react';
 
 export default function AiPipelinePage() {
   return (
     <SubPageLayout>
+      <DigitalFallEffect /> {/* Add the effect component here */}
       <article className="prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6">
         <div className="flex flex-col items-center text-center mb-12">
           <Cpu className="h-16 w-16 text-primary mb-4" />
@@ -46,33 +48,33 @@ export default function AiPipelinePage() {
             <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
             <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
           </div>
-          <p>The critical initial phase of chip design is often hampered by ambiguous, high-level customer requirements expressed in natural language and the impossibly vast, multi-dimensional search space of potential high-level architectures. Traditional manual exploration is slow, sub-optimal, and prone to overlooking innovative solutions.</p>
+          <p>The critical initial phase of chip design is often shrouded in the <strong className="text-yellow-500">fog of ambiguous</strong>, high-level customer requirements expressed in natural language. Compounding this, designers face an <strong className="text-yellow-500">impossibly vast, multi-dimensional labyrinth</strong> of potential high-level architectures. Traditional manual exploration through this maze is painstakingly slow, inherently sub-optimal, and all too often prone to overlooking truly innovative, game-changing solutions.</p>
           
           <div className="mt-8 mb-4 flex items-center">
             <Zap className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
             <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: AI-Driven Strategic Design &amp; Holistic Architecture Exploration</h3>
           </div>
-          <p>Our workflow begins with precision and foresight, a symphony of specialized AI acting in concert:</p>
+          <p>Our workflow begins with <strong className="text-sky-400">precision and foresight</strong>, a symphony of specialized AI acting in concert:</p>
           <ul className="list-none pl-0 space-y-6 !my-6">
             <li className="flex">
               <UserRoundSearch className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <div>The <strong>Customer Requirements Translation Agent</strong> (a Design & Exploration Agent from Section 2.2) acts as a digital envoy, engaging directly with our product managers and system architects. Leveraging the <strong>Knowledge Hub (RAG)</strong> in the MCP Server, it rapidly retrieves and analyzes data on similar past projects, market trends, and available IP to identify potential ambiguities, technical constraints, and emerging opportunities. Using the <strong>Context & State Management (CAG)</strong>, it builds a dynamic conversational bridge, iteratively refining high-level customer needs into a preliminary, yet actionable, technical specification. This significantly accelerates the proposal generation process, arming our sales team with a decisive competitive edge.</div>
+              <div>The <strong>Customer Requirements Translation Agent</strong> (a Design & Exploration Agent from Section 2.2) acts as a <strong className="text-sky-400">digital envoy</strong>, engaging directly with our product managers and system architects. Leveraging the <strong>Knowledge Hub (RAG)</strong> in the MCP Server, it rapidly retrieves and analyzes data on similar past projects, market trends, and available IP to identify potential ambiguities, technical constraints, and emerging opportunities. Using the <strong>Context & State Management (CAG)</strong>, it builds a <strong className="text-sky-400">dynamic conversational bridge</strong>, iteratively refining high-level customer needs into a preliminary, yet actionable, technical specification. This significantly accelerates the proposal generation process, arming our sales team with a decisive competitive edge.</div>
             </li>
             <li className="flex">
               <FileText className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <div>Building on this, the <strong>Specification Agent</strong> (also a Design & Exploration Agent from Section 2.2) formalizes these high-level requirements into a precise, unambiguous, and machine-readable design specification. It employs <strong>formal verification techniques</strong> and <strong>semantic analysis</strong> to ensure unwavering consistency, completeness, and strict adherence to our established company design guidelines and critical industry standards (e.g., specific interface protocols, security certifications). This upfront rigor acts as a shield, paramount for mitigating costly ambiguities and misinterpretations that would otherwise ripple destructively through later design stages.</div>
+              <div>Building on this, the <strong>Specification Agent</strong> (also a Design & Exploration Agent from Section 2.2) acts as a <strong className="text-sky-400">meticulous architect</strong>, formalizing these high-level requirements into a precise, unambiguous, and machine-readable design specification. It employs <strong>formal verification techniques</strong> and <strong>semantic analysis</strong> to ensure unwavering consistency, completeness, and strict adherence to our established company design guidelines and critical industry standards (e.g., specific interface protocols, security certifications). This upfront rigor acts as a <strong className="text-sky-400">shield</strong>, paramount for mitigating costly ambiguities and misinterpretations that would otherwise ripple destructively through later design stages.</div>
             </li>
             <li className="flex">
               <Cpu className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <div>This formal specification then feeds into the <strong>Architecture Exploration Agents</strong> (specifically the Microarchitecture Optimization Agent and System-Level Interconnect Agent from Section 2.2). The <strong>Microarchitecture Optimization Agent</strong>, supercharged by sophisticated <strong>reinforcement learning</strong> and <strong>multi-objective optimization algorithms</strong>, autonomously blazes paths through thousands of high-level architectural variants. It explores diverse CPU core pipeline depths, intricate cache hierarchies, novel memory access patterns, and innovative custom accelerator configurations with tireless precision.</div>
+              <div>This formal specification then feeds into the <strong>Architecture Exploration Agents</strong> (specifically the Microarchitecture Optimization Agent and System-Level Interconnect Agent from Section 2.2). The <strong>Microarchitecture Optimization Agent</strong>, supercharged by sophisticated <strong>reinforcement learning</strong> and <strong>multi-objective optimization algorithms</strong>, autonomously <strong className="text-sky-400">blazes paths</strong> through thousands of high-level architectural variants. It explores diverse CPU core pipeline depths, intricate cache hierarchies, novel memory access patterns, and innovative custom accelerator configurations with tireless precision.</div>
             </li>
             <li className="flex">
               <Network className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <div>In parallel, the <strong>System-Level Interconnect Agent</strong> masterfully designs and optimizes the chip&apos;s internal communication fabric, sculpting efficient <strong>Network-on-Chip (NoC) topologies</strong> and high-bandwidth memory interfaces. Both agents leverage advanced AI models capable of rapidly and accurately estimating <strong>PPA (Power, Performance, Area)</strong> from these high-level descriptions, often achieving up to a <strong>10x improvement in exploration speed</strong> compared to traditional methods that demand time-consuming manual estimations or premature synthesis runs.</div>
+              <div>In parallel, the <strong>System-Level Interconnect Agent</strong> masterfully designs and optimizes the chip&apos;s internal communication fabric, sculpting efficient <strong>Network-on-Chip (NoC) topologies</strong> and high-bandwidth memory interfaces. Both agents leverage advanced AI models capable of rapidly and accurately estimating <strong>PPA (Power, Performance, Area)</strong> from these high-level descriptions, often achieving up to a <strong className="text-sky-400">10x improvement in exploration speed</strong> compared to traditional methods that demand time-consuming manual estimations or premature synthesis runs.</div>
             </li>
             <li className="flex">
               <Focus className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <div>The <strong>Supervisor agent</strong> (from the Central Intelligence Hub) intelligently orchestrates this entire exploration process. It continuously monitors the PPA estimations, manages the trade-offs, and ultimately presents the top 3-5 candidate architectures to our human architects and product leadership. These candidates are accompanied by comprehensive, AI-generated trade-off analyses, enabling informed, strategic decisions that directly impact the chip&apos;s market competitiveness and alignment with business objectives.</div>
+              <div>The <strong>Supervisor agent</strong> (from the Central Intelligence Hub), acting as the <strong className="text-sky-400">grand conductor</strong>, intelligently orchestrates this entire exploration process. It continuously monitors the PPA estimations, manages the trade-offs, and ultimately presents the top 3-5 candidate architectures to our human architects and product leadership. These candidates are accompanied by comprehensive, AI-generated trade-off analyses, enabling informed, strategic decisions that directly impact the chip&apos;s market competitiveness and alignment with business objectives.</div>
             </li>
           </ul>
         </div>
@@ -158,7 +160,7 @@ export default function AiPipelinePage() {
             <li>This <strong>TDD loop</strong> continues autonomously until all tests pass with <strong>100% functional coverage</strong>, and the RTL meets its initial <strong>PPA (Power, Performance, Area) estimates</strong>. This robust, closed-loop process directly mitigates the primary weakness of using LLMs for HDL generation by grounding the creative, probabilistic nature of the AI in the deterministic, verifiable world of functional tests, dramatically accelerating the path to high-quality, bug-free RTL.</li>
         </ul>
 
-        {/* Stage 3.5 - NEW CONTENT */}
+        {/* Stage 3.5 */}
         <div className="mt-12 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             3.5 Stage 5: Comprehensive Functional Verification &amp; Coverage Closure
@@ -195,7 +197,7 @@ export default function AiPipelinePage() {
         </ul>
         <p>This comprehensive, AI-driven approach to functional verification ensures that our RTL designs are rigorously exercised, catching a vast majority of functional bugs through exhaustive simulation and intelligent test generation, laying a solid foundation for subsequent physical design.</p>
 
-        {/* Stage 3.6 - NEW CONTENT */}
+        {/* Stage 3.6 */}
         <div className="mt-12 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             3.6 Stage 6: Formal Verification &amp; Static Analysis for Deep Bug Detection
@@ -236,7 +238,7 @@ export default function AiPipelinePage() {
         </ul>
         <p>This multi-faceted formal and static approach significantly enhances bug detection capabilities, especially for elusive, deeply embedded issues, providing a level of confidence in design correctness that is impossible to achieve with simulation alone, drastically reducing the risk of silicon failures.</p>
 
-        {/* Stage 3.7 - NEW CONTENT */}
+        {/* Stage 3.7 */}
         <div className="mt-12 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             3.7 Stage 7: AI-Driven Debugging &amp; Root Cause Analysis
@@ -274,7 +276,7 @@ export default function AiPipelinePage() {
         </ul>
         <p>This AI-driven debugging capability dramatically reduces the manual effort and expertise required for bug resolution, accelerating design cycles and allowing human engineers to focus on higher-level innovation.</p>
         
-        {/* Stage 3.8 - NEW CONTENT */}
+        {/* Stage 3.8 */}
         <div className="mt-12 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             3.8 Stage 8: System-Level &amp; Cross-Domain Verification, and AI System Evaluation

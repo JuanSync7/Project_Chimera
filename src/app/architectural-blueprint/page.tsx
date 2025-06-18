@@ -11,7 +11,7 @@ import {
   Cpu,
   BarChart3,
   Brain,
-  ListChecks, // Added ListChecks
+  ListChecks,
   ClipboardList,
   Workflow,
   Network,
@@ -20,7 +20,8 @@ import {
   DatabaseZap, 
   MessagesSquare, 
   FileSearch2, 
-  BrainCog
+  BrainCog,
+  SearchCode // Added SearchCode here
 } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';

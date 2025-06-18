@@ -1,8 +1,7 @@
 // src/app/ai-pipeline/page.tsx
 "use client";
-import React from 'react'; // Removed useState, useEffect
+import React, { useState, useEffect } from 'react'; // Keep useState, useEffect if scroll logic is re-added
 import SubPageLayout from '@/components/chimera/SubPageLayout';
-// Removed import for DigitalFallEffect
 import {
   Cpu, 
   AlertTriangle, 
@@ -23,12 +22,30 @@ import {
 } from 'lucide-react';
 
 export default function AiPipelinePage() {
-  // Removed showDigitalFall state and useEffect for scroll handling
+  const [showDigitalFall, setShowDigitalFall] = useState(true); // Default to true if effect is at page top
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setShowDigitalFall(false);
+      } else {
+        setShowDigitalFall(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Initial check
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
 
   return (
     <SubPageLayout>
-      {/* Removed DigitalFallEffect component instance */}
-      <article className="prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6"> {/* Removed 'relative' class if only for DigitalFallEffect */}
+      <article className="prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6 relative"> {/* Added relative for absolute positioning if effect re-added */}
         <div className="flex flex-col items-center text-center mb-12">
           <Cpu className="h-16 w-16 text-primary mb-4" />
           <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-2">
@@ -82,303 +99,312 @@ export default function AiPipelinePage() {
         {/* Stage 3.1 END */}
 
         {/* Stage 3.2 */}
-        <div className="mt-12 mb-4">
-          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
+        <div className="section-card p-6 rounded-2xl mt-12">
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
             3.2 Stage 2: Intelligent RTL Generation from Architecture
           </h2>
+          <div className="mt-6 mb-4 flex items-center">
+            <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
+            <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
+          </div>
+          <p>Translating complex architectural blueprints into high-quality, synthesizable <strong>Register-Transfer Level (RTL)</strong> code is a notoriously time-consuming and error-prone process. Modern chip designs demand both functional correctness and optimal <strong>Power, Performance, and Area (PPA)</strong> at the RTL level. While generative AI offers promise for <strong>Hardware Description Language (HDL)</strong> creation, ensuring the reliability, synthesizability, and adherence to design standards of automatically generated code remains a significant hurdle. Furthermore, the efficient integration of <strong>High-Level Synthesis (HLS)</strong> from higher-level design abstractions is crucial for productivity.</p>
+          
+          <div className="mt-8 mb-4 flex items-center">
+            <FileCode className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+            <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Leveraging Prompt Engineering &amp; RAG for High-Quality RTL and HLS Integration</h3>
+          </div>
+          <p>Our workflow for RTL generation transforms this complex stage into an intelligent, automated, and verifiable process, strategically leveraging off-the-shelf <strong>Large Language Models (LLMs)</strong> through sophisticated prompt engineering and our comprehensive knowledge base:</p>
+          <ul className="list-disc pl-5 space-y-2">
+            <li>
+              Building directly upon the detailed architectural specifications provided by the <strong>Architecture Exploration Agents</strong> (from Section 2.2), the <strong>RTL Generation & Refinement Agent</strong> (a specialized RTL Generation Agent from Section 2.2), here acting as our primary <strong>Verilog/VHDL Coder Agent</strong>, initiates the RTL creation.
+            </li>
+            <li>
+              This agent intelligently synthesizes the architectural intent directly into initial RTL, making informed decisions on crucial aspects like <strong>data path structures, control logic, state machine implementations, and module interfaces</strong>. It achieves this by employing advanced <strong>prompt engineering techniques</strong> with powerful, general-purpose LLMs. This involves:
+              <ul className="list-disc pl-5 space-y-1 mt-2">
+                <li><strong>Structured Prompts:</strong> Carefully crafted prompts that provide the LLM with clear context, specific design requirements, desired RTL structure, and explicit instructions on coding style and synthesizability rules.</li>
+                <li><strong>In-context Learning (Few-shot Prompting):</strong> Supplying relevant examples of high-quality, functionally correct RTL code and corresponding natural language descriptions from our <strong>Knowledge Hub (RAG)</strong> in the MCP Server. This guides the LLM towards generating similar, high-quality output without requiring model fine-tuning.</li>
+                <li><strong>Constraint-Based Generation:</strong> Imposing specific output constraints (e.g., format, keyword usage, module structure) to ensure the generated code adheres strictly to HDL syntax and hardware semantics.</li>
+              </ul>
+            </li>
+            <li>For modules specified at a higher level (e.g., in C/C++/SystemC), the <strong>Verilog/VHDL Coder Agent</strong> orchestrates <strong>High-Level Synthesis (HLS) tools</strong> (via the MCP Server&apos;s Tool Abstraction Layer). It intelligently guides the HLS process by applying optimal pragmas and directives, ensuring the generated RTL is highly optimized for PPA and efficient resource utilization, bridging the gap between software-oriented descriptions and hardware implementation.</li>
+          </ul>
         </div>
-        <div className="mt-8 mb-4 flex items-center">
-          <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
-        </div>
-        <p>Translating complex architectural blueprints into high-quality, synthesizable <strong>Register-Transfer Level (RTL)</strong> code is a notoriously time-consuming and error-prone process. Modern chip designs demand both functional correctness and optimal <strong>Power, Performance, and Area (PPA)</strong> at the RTL level. While generative AI offers promise for <strong>Hardware Description Language (HDL)</strong> creation, ensuring the reliability, synthesizability, and adherence to design standards of automatically generated code remains a significant hurdle. Furthermore, the efficient integration of <strong>High-Level Synthesis (HLS)</strong> from higher-level design abstractions is crucial for productivity.</p>
-        
-        <div className="mt-8 mb-4 flex items-center">
-          <FileCode className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Leveraging Prompt Engineering &amp; RAG for High-Quality RTL and HLS Integration</h3>
-        </div>
-        <p>Our workflow for RTL generation transforms this complex stage into an intelligent, automated, and verifiable process, strategically leveraging off-the-shelf <strong>Large Language Models (LLMs)</strong> through sophisticated prompt engineering and our comprehensive knowledge base:</p>
-        <ul className="list-disc pl-5 space-y-2">
-          <li>
-            Building directly upon the detailed architectural specifications provided by the <strong>Architecture Exploration Agents</strong> (from Section 2.2), the <strong>RTL Generation & Refinement Agent</strong> (a specialized RTL Generation Agent from Section 2.2), here acting as our primary <strong>Verilog/VHDL Coder Agent</strong>, initiates the RTL creation.
-          </li>
-          <li>
-            This agent intelligently synthesizes the architectural intent directly into initial RTL, making informed decisions on crucial aspects like <strong>data path structures, control logic, state machine implementations, and module interfaces</strong>. It achieves this by employing advanced <strong>prompt engineering techniques</strong> with powerful, general-purpose LLMs. This involves:
-            <ul className="list-disc pl-5 space-y-1 mt-2">
-              <li><strong>Structured Prompts:</strong> Carefully crafted prompts that provide the LLM with clear context, specific design requirements, desired RTL structure, and explicit instructions on coding style and synthesizability rules.</li>
-              <li><strong>In-context Learning (Few-shot Prompting):</strong> Supplying relevant examples of high-quality, functionally correct RTL code and corresponding natural language descriptions from our <strong>Knowledge Hub (RAG)</strong> in the MCP Server. This guides the LLM towards generating similar, high-quality output without requiring model fine-tuning.</li>
-              <li><strong>Constraint-Based Generation:</strong> Imposing specific output constraints (e.g., format, keyword usage, module structure) to ensure the generated code adheres strictly to HDL syntax and hardware semantics.</li>
-            </ul>
-          </li>
-          <li>For modules specified at a higher level (e.g., in C/C++/SystemC), the <strong>Verilog/VHDL Coder Agent</strong> orchestrates <strong>High-Level Synthesis (HLS) tools</strong> (via the MCP Server&apos;s Tool Abstraction Layer). It intelligently guides the HLS process by applying optimal pragmas and directives, ensuring the generated RTL is highly optimized for PPA and efficient resource utilization, bridging the gap between software-oriented descriptions and hardware implementation.</li>
-        </ul>
+        {/* Stage 3.2 END */}
 
         {/* Stage 3.3 */}
-        <div className="mt-12 mb-4">
-          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
+        <div className="section-card p-6 rounded-2xl mt-12">
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
             3.3 Stage 3: Proactive RTL Optimization &amp; Testbench Setup
           </h2>
-        </div>
-        <div className="mt-8 mb-4 flex items-center">
-          <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
-        </div>
-        <p>Before embarking on extensive simulation and physical design, ensuring the initial quality, synthesizability, and testability of the generated RTL is paramount. Manual linting, basic optimization, and testbench creation are time-consuming and often miss subtle issues that can lead to costly delays downstream.</p>
+          <div className="mt-6 mb-4 flex items-center">
+            <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
+            <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
+          </div>
+          <p>Before embarking on extensive simulation and physical design, ensuring the initial quality, synthesizability, and testability of the generated RTL is paramount. Manual linting, basic optimization, and testbench creation are time-consuming and often miss subtle issues that can lead to costly delays downstream.</p>
 
-        <div className="mt-8 mb-4 flex items-center">
-          <ClipboardCheck className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Automated RTL Quality Assurance and Comprehensive Test Environment Preparation</h3>
+          <div className="mt-8 mb-4 flex items-center">
+            <ClipboardCheck className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+            <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Automated RTL Quality Assurance and Comprehensive Test Environment Preparation</h3>
+          </div>
+          <p>Immediately following initial RTL generation, our agents perform vital proactive optimization and quality checks to ensure robust, high-quality RTL, and prepare a comprehensive test environment before functional verification begins:</p>
+          <ul className="list-disc pl-5 space-y-2">
+            <li>The <strong>Verilog/VHDL Coder Agent</strong> performs initial local optimizations, code linting, and <strong>design rule checking (DRC)</strong> before extensive simulation. This includes applying <strong>power-aware techniques</strong> (e.g., advanced clock gating opportunities) and structural optimizations at the RTL level, often guided by prompt-engineered rules. It also conducts quick <strong>pre-synthesis analysis</strong> to ensure the generated RTL is robust for downstream synthesis tools.</li>
+            <li>The <strong>Power-Aware RTL Optimization Agent</strong> (also an RTL Generation Agent from Section 2.2) collaborates here. It performs a deeper analysis of the design&apos;s power characteristics and autonomously suggests or implements modifications to reduce <strong>static and dynamic power consumption</strong> directly at the RTL level, using further prompt engineering to guide LLMs in identifying optimization opportunities. This early-stage optimization is critical for achieving aggressive power targets in modern low-power and mobile applications.</li>
+            <li>Simultaneously, the <strong>Test & Coverage Generation Agent</strong> (a Verification Agent from Section 2.2) takes the formalized design specification and automatically generates a comprehensive functional <strong>testbench</strong> for the module. This includes creating robust <strong>test cases, stimulus patterns, monitors, and SystemVerilog Assertions (SVA)</strong> that precisely define the expected behavior and <strong>&quot;correctness&quot;</strong> of the RTL. This crucial <strong>&quot;test-first&quot; approach</strong> establishes a clear, unambiguous, and machine-verifiable definition of desired functionality, grounding the AI-generated code in verifiable reality. The <strong>Supervisor agent</strong> then presents these autonomously generated testbenches and assertions to the human engineer for final review and confirmation, ensuring alignment with the original design intent and comprehensive test coverage goals.</li>
+          </ul>
         </div>
-        <p>Immediately following initial RTL generation, our agents perform vital proactive optimization and quality checks to ensure robust, high-quality RTL, and prepare a comprehensive test environment before functional verification begins:</p>
-        <ul className="list-disc pl-5 space-y-2">
-          <li>The <strong>Verilog/VHDL Coder Agent</strong> performs initial local optimizations, code linting, and <strong>design rule checking (DRC)</strong> before extensive simulation. This includes applying <strong>power-aware techniques</strong> (e.g., advanced clock gating opportunities) and structural optimizations at the RTL level, often guided by prompt-engineered rules. It also conducts quick <strong>pre-synthesis analysis</strong> to ensure the generated RTL is robust for downstream synthesis tools.</li>
-          <li>The <strong>Power-Aware RTL Optimization Agent</strong> (also an RTL Generation Agent from Section 2.2) collaborates here. It performs a deeper analysis of the design&apos;s power characteristics and autonomously suggests or implements modifications to reduce <strong>static and dynamic power consumption</strong> directly at the RTL level, using further prompt engineering to guide LLMs in identifying optimization opportunities. This early-stage optimization is critical for achieving aggressive power targets in modern low-power and mobile applications.</li>
-          <li>Simultaneously, the <strong>Test & Coverage Generation Agent</strong> (a Verification Agent from Section 2.2) takes the formalized design specification and automatically generates a comprehensive functional <strong>testbench</strong> for the module. This includes creating robust <strong>test cases, stimulus patterns, monitors, and SystemVerilog Assertions (SVA)</strong> that precisely define the expected behavior and <strong>&quot;correctness&quot;</strong> of the RTL. This crucial <strong>&quot;test-first&quot; approach</strong> establishes a clear, unambiguous, and machine-verifiable definition of desired functionality, grounding the AI-generated code in verifiable reality. The <strong>Supervisor agent</strong> then presents these autonomously generated testbenches and assertions to the human engineer for final review and confirmation, ensuring alignment with the original design intent and comprehensive test coverage goals.</li>
-        </ul>
+        {/* Stage 3.3 END */}
         
         {/* Stage 3.4 */}
-        <div className="mt-12 mb-4">
-          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
+        <div className="section-card p-6 rounded-2xl mt-12">
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
             3.4 Stage 4: Test-Driven Development (TDD) for Iterative RTL Refinement
           </h2>
-        </div>
-        <div className="mt-8 mb-4 flex items-center">
-          <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
-        </div>
-        <p>Even with proactive checks, the iterative process of debugging and refining RTL to meet functional correctness and performance targets is a major bottleneck. Manually identifying, diagnosing, and fixing bugs based on simulation failures is labor-intensive, time-consuming, and susceptible to human oversight, leading to extended design cycles.</p>
+          <div className="mt-6 mb-4 flex items-center">
+            <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
+            <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
+          </div>
+          <p>Even with proactive checks, the iterative process of debugging and refining RTL to meet functional correctness and performance targets is a major bottleneck. Manually identifying, diagnosing, and fixing bugs based on simulation failures is labor-intensive, time-consuming, and susceptible to human oversight, leading to extended design cycles.</p>
 
-        <div className="mt-8 mb-4 flex items-center">
-          <RefreshCcw className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Automated Debugging and Self-Correction for Rapid RTL Convergence</h3>
+          <div className="mt-8 mb-4 flex items-center">
+            <RefreshCcw className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+            <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Automated Debugging and Self-Correction for Rapid RTL Convergence</h3>
+          </div>
+          <p>Once the testbench and initial RTL are prepared, our system enters an intelligent, automated <strong>Test-Driven Development (TDD) loop</strong>, driven by the <strong>Supervisor agent&apos;s</strong> orchestration, to rapidly achieve functional correctness and PPA targets:</p>
+          <ul className="list-disc pl-5 space-y-2">
+              <li>The <strong>Supervisor</strong> invokes our advanced simulation tools (via the MCP Server&apos;s Tool Abstraction Layer) to execute the autonomously generated tests against the newly optimized RTL.</li>
+              <li>The <strong>Debug & Root Cause Analysis Agent</strong> (a dedicated Verification Agent from Section 2.2) meticulously analyzes any simulation failures or coverage gaps. It sifts through vast amounts of simulation logs, waveform data, and design collateral to pinpoint the exact functional bug or performance bottleneck with unparalleled speed.</li>
+              <li>The <strong>Debug & Root Cause Analysis Agent</strong> then provides precise, targeted, and actionable feedback directly to the <strong>Verilog/VHDL Coder Agent</strong> (our RTL Generation & Refinement Agent), often suggesting specific code modifications or architectural adjustments. This feedback is critically important and will often be translated into specific instructions or new context within the prompt for the <strong>Verilog/VHDL Coder Agent&apos;s</strong> next iteration.</li>
+              <li>The <strong>Verilog/VHDL Coder Agent</strong> intelligently leverages this precise, prompt-driven feedback to refactor, debug, and further optimize its generated code, proposing new RTL iterations.</li>
+              <li>This <strong>TDD loop</strong> continues autonomously until all tests pass with <strong>100% functional coverage</strong>, and the RTL meets its initial <strong>PPA (Power, Performance, Area) estimates</strong>. This robust, closed-loop process directly mitigates the primary weakness of using LLMs for HDL generation by grounding the creative, probabilistic nature of the AI in the deterministic, verifiable world of functional tests, dramatically accelerating the path to high-quality, bug-free RTL.</li>
+          </ul>
         </div>
-        <p>Once the testbench and initial RTL are prepared, our system enters an intelligent, automated <strong>Test-Driven Development (TDD) loop</strong>, driven by the <strong>Supervisor agent&apos;s</strong> orchestration, to rapidly achieve functional correctness and PPA targets:</p>
-        <ul className="list-disc pl-5 space-y-2">
-            <li>The <strong>Supervisor</strong> invokes our advanced simulation tools (via the MCP Server&apos;s Tool Abstraction Layer) to execute the autonomously generated tests against the newly optimized RTL.</li>
-            <li>The <strong>Debug & Root Cause Analysis Agent</strong> (a dedicated Verification Agent from Section 2.2) meticulously analyzes any simulation failures or coverage gaps. It sifts through vast amounts of simulation logs, waveform data, and design collateral to pinpoint the exact functional bug or performance bottleneck with unparalleled speed.</li>
-            <li>The <strong>Debug & Root Cause Analysis Agent</strong> then provides precise, targeted, and actionable feedback directly to the <strong>Verilog/VHDL Coder Agent</strong> (our RTL Generation & Refinement Agent), often suggesting specific code modifications or architectural adjustments. This feedback is critically important and will often be translated into specific instructions or new context within the prompt for the <strong>Verilog/VHDL Coder Agent&apos;s</strong> next iteration.</li>
-            <li>The <strong>Verilog/VHDL Coder Agent</strong> intelligently leverages this precise, prompt-driven feedback to refactor, debug, and further optimize its generated code, proposing new RTL iterations.</li>
-            <li>This <strong>TDD loop</strong> continues autonomously until all tests pass with <strong>100% functional coverage</strong>, and the RTL meets its initial <strong>PPA (Power, Performance, Area) estimates</strong>. This robust, closed-loop process directly mitigates the primary weakness of using LLMs for HDL generation by grounding the creative, probabilistic nature of the AI in the deterministic, verifiable world of functional tests, dramatically accelerating the path to high-quality, bug-free RTL.</li>
-        </ul>
+        {/* Stage 3.4 END */}
 
-        {/* Stage 3.5 - NEW */}
-        <div className="mt-12 mb-4">
-          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
+        {/* Stage 3.5 */}
+        <div className="section-card p-6 rounded-2xl mt-12">
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
             3.5 Stage 5: Comprehensive Functional Verification &amp; Coverage Closure
           </h2>
+          <div className="mt-6 mb-4 flex items-center">
+            <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
+            <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
+          </div>
+          <p>While the <strong>TDD loop</strong> in Stage 4 ensures that individual RTL modules pass their initial set of generated tests, achieving <strong>comprehensive functional verification</strong> across complex, integrated chip designs remains the <strong>single largest bottleneck</strong> in modern semiconductor development. Ensuring <strong>full test coverage</strong> and exercising all <strong>corner cases</strong> for complex IPs, especially those involving intricate protocols and parallel operations, is a monumental and often incomplete task with traditional methods like <strong>UVM</strong>, leading to missed bugs and costly silicon respins.</p>
+          
+          <div className="mt-8 mb-4 flex items-center">
+            <ListChecks className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+            <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Intelligent Test Generation, UVM Harnessing, and Automated Coverage Closure</h3>
+          </div>
+          <p>Building directly from the robust RTL delivered by the TDD loop, this stage focuses on achieving <strong>exhaustive functional verification</strong> and <strong>complete coverage closure</strong> through intelligent agent orchestration:</p>
+          <ul className="list-disc pl-5 space-y-2">
+              <li>
+                  <strong>Sophisticated Test & Stimulus Generation:</strong> The <strong>Test & Coverage Generation Agent</strong> (a Verification Agent from Section 2.2) is central to this stage. Beyond generating initial module-level tests (as in Stage 3.3), it now dynamically creates <strong>complex, system-level test cases, intelligent stimulus patterns, and comprehensive verification environments</strong>.
+                  <ul className="list-disc pl-5 space-y-1 mt-2">
+                      <li>For highly complex IPs, it orchestrates and populates <strong>Universal Verification Methodology (UVM) testbenches</strong> (via the MCP Server&apos;s Tool Abstraction Layer), intelligently configuring sequences, transactors, and scoreboards. It can parse protocol specifications from the <strong>Knowledge Hub (RAG)</strong> and generate UVM components tailored to specific interface standards (e.g., PCIe, DDR, USB), significantly reducing manual UVM development time.</li>
+                      <li>It employs <strong>constrained random test generation</strong>, guided by a deep understanding of the design&apos;s architecture and potential stress points, to explore a vast array of functional scenarios far beyond what human engineers could manually conceive.</li>
+                      <li>Using <strong>prompt engineering</strong>, the agent can translate high-level test plans and coverage goals into executable test code and assertions.</li>
+                  </ul>
+              </li>
+              <li>
+                  <strong>Automated Coverage Analysis and Closure:</strong> The <strong>AutoDV (Automatic Design Verification) Agent</strong> (a Verification Agent from Section 2.2) plays a critical role in driving coverage closure. It continuously analyzes various forms of <strong>coverage metrics</strong> (code coverage, functional coverage, assertion coverage, toggle coverage) from extensive simulation runs.
+                  <ul className="list-disc pl-5 space-y-1 mt-2">
+                      <li>Upon identifying <strong>coverage holes</strong> (untested design areas), the AutoDV Agent intelligently reasons about the root cause of the missing coverage.</li>
+                      <li>It then collaborates with the <strong>Test & Coverage Generation Agent</strong> to formulate and generate new, <strong>highly targeted test cases</strong> specifically designed to hit these uncovered areas, creating a powerful, <strong>closed-loop system</strong> for continuous coverage improvement. This iterative process drastically reduces the manual effort typically required to reach <strong>100% functional and code coverage targets</strong>.</li>
+                  </ul>
+              </li>
+              <li><strong>Simulation Orchestration and Optimization:</strong> The <strong>Supervisor agent</strong> oversees the massive simulation campaigns required at this stage. It intelligently allocates compute resources for <strong>parallel simulation runs</strong>, manages simulation regressions, and monitors key metrics. It prioritizes the execution of tests that target <strong>critical paths or known problematic areas</strong>, ensuring efficient use of verification cycles.</li>
+          </ul>
+          <p>This comprehensive, AI-driven approach to functional verification ensures that our RTL designs are rigorously exercised, catching a vast majority of functional bugs through exhaustive simulation and intelligent test generation, laying a solid foundation for subsequent physical design.</p>
         </div>
-        <div className="mt-8 mb-4 flex items-center">
-          <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
-        </div>
-        <p>While the <strong>TDD loop</strong> in Stage 4 ensures that individual RTL modules pass their initial set of generated tests, achieving <strong>comprehensive functional verification</strong> across complex, integrated chip designs remains the <strong>single largest bottleneck</strong> in modern semiconductor development. Ensuring <strong>full test coverage</strong> and exercising all <strong>corner cases</strong> for complex IPs, especially those involving intricate protocols and parallel operations, is a monumental and often incomplete task with traditional methods like <strong>UVM</strong>, leading to missed bugs and costly silicon respins.</p>
-        
-        <div className="mt-8 mb-4 flex items-center">
-          <ListChecks className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Intelligent Test Generation, UVM Harnessing, and Automated Coverage Closure</h3>
-        </div>
-        <p>Building directly from the robust RTL delivered by the TDD loop, this stage focuses on achieving <strong>exhaustive functional verification</strong> and <strong>complete coverage closure</strong> through intelligent agent orchestration:</p>
-        <ul className="list-disc pl-5 space-y-2">
-            <li>
-                <strong>Sophisticated Test & Stimulus Generation:</strong> The <strong>Test & Coverage Generation Agent</strong> (a Verification Agent from Section 2.2) is central to this stage. Beyond generating initial module-level tests (as in Stage 3.3), it now dynamically creates <strong>complex, system-level test cases, intelligent stimulus patterns, and comprehensive verification environments</strong>.
-                <ul className="list-disc pl-5 space-y-1 mt-2">
-                    <li>For highly complex IPs, it orchestrates and populates <strong>Universal Verification Methodology (UVM) testbenches</strong> (via the MCP Server&apos;s Tool Abstraction Layer), intelligently configuring sequences, transactors, and scoreboards. It can parse protocol specifications from the <strong>Knowledge Hub (RAG)</strong> and generate UVM components tailored to specific interface standards (e.g., PCIe, DDR, USB), significantly reducing manual UVM development time.</li>
-                    <li>It employs <strong>constrained random test generation</strong>, guided by a deep understanding of the design&apos;s architecture and potential stress points, to explore a vast array of functional scenarios far beyond what human engineers could manually conceive.</li>
-                    <li>Using <strong>prompt engineering</strong>, the agent can translate high-level test plans and coverage goals into executable test code and assertions.</li>
-                </ul>
-            </li>
-            <li>
-                <strong>Automated Coverage Analysis and Closure:</strong> The <strong>AutoDV (Automatic Design Verification) Agent</strong> (a Verification Agent from Section 2.2) plays a critical role in driving coverage closure. It continuously analyzes various forms of <strong>coverage metrics</strong> (code coverage, functional coverage, assertion coverage, toggle coverage) from extensive simulation runs.
-                <ul className="list-disc pl-5 space-y-1 mt-2">
-                    <li>Upon identifying <strong>coverage holes</strong> (untested design areas), the AutoDV Agent intelligently reasons about the root cause of the missing coverage.</li>
-                    <li>It then collaborates with the <strong>Test & Coverage Generation Agent</strong> to formulate and generate new, <strong>highly targeted test cases</strong> specifically designed to hit these uncovered areas, creating a powerful, <strong>closed-loop system</strong> for continuous coverage improvement. This iterative process drastically reduces the manual effort typically required to reach <strong>100% functional and code coverage targets</strong>.</li>
-                </ul>
-            </li>
-            <li><strong>Simulation Orchestration and Optimization:</strong> The <strong>Supervisor agent</strong> oversees the massive simulation campaigns required at this stage. It intelligently allocates compute resources for <strong>parallel simulation runs</strong>, manages simulation regressions, and monitors key metrics. It prioritizes the execution of tests that target <strong>critical paths or known problematic areas</strong>, ensuring efficient use of verification cycles.</li>
-        </ul>
-        <p>This comprehensive, AI-driven approach to functional verification ensures that our RTL designs are rigorously exercised, catching a vast majority of functional bugs through exhaustive simulation and intelligent test generation, laying a solid foundation for subsequent physical design.</p>
+        {/* Stage 3.5 END */}
 
-        {/* Stage 3.6 - NEW */}
-        <div className="mt-12 mb-4">
-          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
+        {/* Stage 3.6 */}
+        <div className="section-card p-6 rounded-2xl mt-12">
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
             3.6 Stage 6: Formal Verification &amp; Static Analysis for Deep Bug Detection
           </h2>
-        </div>
-        <div className="mt-8 mb-4 flex items-center">
-          <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
-        </div>
-        <p>Even with extensive simulation, certain <strong>deep, corner-case bugs, security vulnerabilities, or subtle deadlocks</strong> are extremely difficult, if not impossible, to uncover through dynamic testing alone. Traditional <strong>formal verification</strong> often requires highly specialized expertise and significant manual effort for property writing and debug, limiting its widespread application.</p>
+          <div className="mt-6 mb-4 flex items-center">
+            <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
+            <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
+          </div>
+          <p>Even with extensive simulation, certain <strong>deep, corner-case bugs, security vulnerabilities, or subtle deadlocks</strong> are extremely difficult, if not impossible, to uncover through dynamic testing alone. Traditional <strong>formal verification</strong> often requires highly specialized expertise and significant manual effort for property writing and debug, limiting its widespread application.</p>
 
-        <div className="mt-8 mb-4 flex items-center">
-          <ShieldCheck className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Automated Formal Proofs, Exhaustive Static Analysis, and Security Probing</h3>
+          <div className="mt-8 mb-4 flex items-center">
+            <ShieldCheck className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+            <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Automated Formal Proofs, Exhaustive Static Analysis, and Security Probing</h3>
+          </div>
+          <p>This stage complements simulation with mathematically rigorous <strong>formal methods</strong> and advanced <strong>static analysis</strong>, ensuring a higher degree of functional correctness and identifying critical issues that simulation cannot:</p>
+          <ul className="list-disc pl-5 space-y-2">
+              <li>
+                  <strong>Automated Formal Property Generation & Proofs:</strong> The <strong>AutoDV (Automatic Design Verification) Agent</strong> (a Verification Agent from Section 2.2) is the cornerstone of this stage. Leveraging the design specification, RTL, and the <strong>Knowledge Hub (RAG)</strong> for common property patterns, it intelligently generates and applies <strong>formal verification properties</strong> (e.g., using SystemVerilog Assertions for model checking).
+                  <ul className="list-disc pl-5 space-y-1 mt-2">
+                      <li>It orchestrates <strong>formal verification tools</strong> (via the MCP Server&apos;s Tool Abstraction Layer, e.g., Synopsys JasperGold, Cadence Jasper, Siemens Questa Formal) to <strong>mathematically prove</strong> that the design adheres to its specified behavior under all possible input conditions, identifying unreachable states, deadlocks, and protocol violations.</li>
+                      <li>For complex properties, it can intelligently decompose them or generate smaller, more tractable proofs. In cases where properties cannot be proven, the agent provides precise <strong>counter-example waveforms and traces</strong> that are critical for debugging.</li>
+                  </ul>
+              </li>
+              <li>
+                  <strong>Exhaustive Static Analysis & Linting:</strong> The <strong>AutoReview Agent</strong> (a Verification Agent from Section 2.2) continues its role from earlier stages, but now performs an <strong>exhaustive, chip-level static analysis</strong>.
+                  <ul className="list-disc pl-5 space-y-1 mt-2">
+                      <li>It rigorously checks for complex design rule violations beyond simple syntax, including potential <strong>clock domain crossing (CDC) issues, reset domain crossing (RDC) issues, coding style inconsistencies, and non-synthesizable constructs</strong> that could lead to synthesis tool errors or sub-optimal hardware.</li>
+                      <li>It leverages the <strong>Knowledge Hub (RAG)</strong> for company-specific linting rules and best practices, ensuring adherence to internal quality standards.</li>
+                  </ul>
+              </li>
+              <li>
+                  <strong>Security Verification:</strong> A specialized sub-component of the <strong>AutoDV Agent</strong> or a dedicated <strong>Security Verification Agent</strong> (a Verification Agent or Specialized Analysis Agent) begins to actively probe the design for <strong>security vulnerabilities</strong>.
+                  <ul className="list-disc pl-5 space-y-1 mt-2">
+                      <li>This includes <strong>formal verification of security properties</strong> (e.g., isolation, tamper detection, secure boot sequences), <strong>static analysis for known exploit patterns</strong>, and <strong>intelligent fault injection scenarios</strong>, crucial for applications like automotive (ISO 26262) and IoT devices.</li>
+                  </ul>
+              </li>
+          </ul>
+          <p>This multi-faceted formal and static approach significantly enhances bug detection capabilities, especially for elusive, deeply embedded issues, providing a level of confidence in design correctness that is impossible to achieve with simulation alone, drastically reducing the risk of silicon failures.</p>
         </div>
-        <p>This stage complements simulation with mathematically rigorous <strong>formal methods</strong> and advanced <strong>static analysis</strong>, ensuring a higher degree of functional correctness and identifying critical issues that simulation cannot:</p>
-        <ul className="list-disc pl-5 space-y-2">
-            <li>
-                <strong>Automated Formal Property Generation & Proofs:</strong> The <strong>AutoDV (Automatic Design Verification) Agent</strong> (a Verification Agent from Section 2.2) is the cornerstone of this stage. Leveraging the design specification, RTL, and the <strong>Knowledge Hub (RAG)</strong> for common property patterns, it intelligently generates and applies <strong>formal verification properties</strong> (e.g., using SystemVerilog Assertions for model checking).
-                <ul className="list-disc pl-5 space-y-1 mt-2">
-                    <li>It orchestrates <strong>formal verification tools</strong> (via the MCP Server&apos;s Tool Abstraction Layer, e.g., Synopsys JasperGold, Cadence Jasper, Siemens Questa Formal) to <strong>mathematically prove</strong> that the design adheres to its specified behavior under all possible input conditions, identifying unreachable states, deadlocks, and protocol violations.</li>
-                    <li>For complex properties, it can intelligently decompose them or generate smaller, more tractable proofs. In cases where properties cannot be proven, the agent provides precise <strong>counter-example waveforms and traces</strong> that are critical for debugging.</li>
-                </ul>
-            </li>
-            <li>
-                <strong>Exhaustive Static Analysis & Linting:</strong> The <strong>AutoReview Agent</strong> (a Verification Agent from Section 2.2) continues its role from earlier stages, but now performs an <strong>exhaustive, chip-level static analysis</strong>.
-                <ul className="list-disc pl-5 space-y-1 mt-2">
-                    <li>It rigorously checks for complex design rule violations beyond simple syntax, including potential <strong>clock domain crossing (CDC) issues, reset domain crossing (RDC) issues, coding style inconsistencies, and non-synthesizable constructs</strong> that could lead to synthesis tool errors or sub-optimal hardware.</li>
-                    <li>It leverages the <strong>Knowledge Hub (RAG)</strong> for company-specific linting rules and best practices, ensuring adherence to internal quality standards.</li>
-                </ul>
-            </li>
-            <li>
-                <strong>Security Verification:</strong> A specialized sub-component of the <strong>AutoDV Agent</strong> or a dedicated <strong>Security Verification Agent</strong> (a Verification Agent or Specialized Analysis Agent) begins to actively probe the design for <strong>security vulnerabilities</strong>.
-                <ul className="list-disc pl-5 space-y-1 mt-2">
-                    <li>This includes <strong>formal verification of security properties</strong> (e.g., isolation, tamper detection, secure boot sequences), <strong>static analysis for known exploit patterns</strong>, and <strong>intelligent fault injection scenarios</strong>, crucial for applications like automotive (ISO 26262) and IoT devices.</li>
-                </ul>
-            </li>
-        </ul>
-        <p>This multi-faceted formal and static approach significantly enhances bug detection capabilities, especially for elusive, deeply embedded issues, providing a level of confidence in design correctness that is impossible to achieve with simulation alone, drastically reducing the risk of silicon failures.</p>
+        {/* Stage 3.6 END */}
 
-        {/* Stage 3.7 - NEW */}
-        <div className="mt-12 mb-4">
-          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
+        {/* Stage 3.7 */}
+        <div className="section-card p-6 rounded-2xl mt-12">
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
             3.7 Stage 7: AI-Driven Debugging &amp; Root Cause Analysis
           </h2>
-        </div>
-        <div className="mt-8 mb-4 flex items-center">
-          <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
-        </div>
-        <p>Even with advanced verification, bugs will inevitably appear, and <strong>debugging them accounts for a massive portion of verification time</strong>. Sifting through vast amounts of simulation logs, waveform data, and formal counter-examples to pinpoint the <strong>root cause</strong> of a functional or performance issue is a highly manual, expert-intensive, and time-consuming process.</p>
+          <div className="mt-6 mb-4 flex items-center">
+            <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
+            <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
+          </div>
+          <p>Even with advanced verification, bugs will inevitably appear, and <strong>debugging them accounts for a massive portion of verification time</strong>. Sifting through vast amounts of simulation logs, waveform data, and formal counter-examples to pinpoint the <strong>root cause</strong> of a functional or performance issue is a highly manual, expert-intensive, and time-consuming process.</p>
 
-        <div className="mt-8 mb-4 flex items-center">
-          <SearchCode className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Intelligent Problem Localization, Automated Explanation, and Iterative Bug Resolution</h3>
+          <div className="mt-8 mb-4 flex items-center">
+            <SearchCode className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+            <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Intelligent Problem Localization, Automated Explanation, and Iterative Bug Resolution</h3>
+          </div>
+          <p>This stage is dedicated to minimizing the debugging bottleneck through intelligent automation, ensuring rapid and precise bug resolution:</p>
+          <ul className="list-disc pl-5 space-y-2">
+              <li>
+                  <strong>Automated Failure Analysis & Localization:</strong> The <strong>Debug & Root Cause Analysis Agent</strong> (a dedicated Verification Agent from Section 2.2) is the tireless problem-solver. When a simulation fails, a formal tool produces a counter-example, or a metric deviates from expectation, this agent springs into action.
+                  <ul className="list-disc pl-5 space-y-1 mt-2">
+                      <li>It intelligently parses and analyzes massive <strong>simulation logs</strong>, automatically identifying error messages, warnings, and unexpected behaviors.</li>
+                      <li>It integrates with <strong>waveform viewers</strong> (via the MCP Server&apos;s Tool Abstraction Layer) to automatically navigate and analyze critical signal traces and timing paths identified as problematic. It can filter noise, highlight key events, and correlate activity across multiple design blocks.</li>
+                      <li>Leveraging the <strong>Knowledge Hub (RAG)</strong> (which contains historical bug patterns, design specifications, and common debug strategies), it intelligently localizes the likely source of the bug down to specific RTL lines, module interfaces, or architectural components.</li>
+                  </ul>
+              </li>
+              <li>
+                  <strong>Intelligent Explanation and Suggested Fixes:</strong> Beyond just localization, the <strong>Debug & Root Cause Analysis Agent</strong> leverages LLM capabilities (through prompt engineering) to:
+                  <ul className="list-disc pl-5 space-y-1 mt-2">
+                      <li><strong>Explain the Bug:</strong> Provide clear, human-readable explanations of why a failure occurred, translating complex technical jargon into understandable insights.</li>
+                      <li><strong>Suggest Solutions:</strong> Propose specific, actionable code modifications or design adjustments to resolve the identified bug. This feedback is directed back to the <strong>RTL Generation & Refinement Agent</strong> (for code fixes) or the <strong>Supervisor Agent</strong> (for higher-level architectural adjustments or constraint modifications).</li>
+                      <li><strong>&quot;What-If&quot; Debugging:</strong> Using the <strong>Context & State Management (CAG)</strong>, the agent can track previous debug attempts and avoid repeating failed strategies, suggesting alternative approaches based on prior context.</li>
+                  </ul>
+              </li>
+              <li><strong>Feedback to Test Generation:</strong> When new bugs are found, the <strong>Debug & Root Cause Analysis Agent</strong> can automatically generate a minimized, focused <strong>regression test</strong> for that specific bug, ensuring that it doesn&apos;t reappear in future design iterations. This test is then added to the pool managed by the <strong>Test & Coverage Generation Agent</strong>.</li>
+          </ul>
+          <p>This AI-driven debugging capability dramatically reduces the manual effort and expertise required for bug resolution, accelerating design cycles and allowing human engineers to focus on higher-level innovation.</p>
         </div>
-        <p>This stage is dedicated to minimizing the debugging bottleneck through intelligent automation, ensuring rapid and precise bug resolution:</p>
-        <ul className="list-disc pl-5 space-y-2">
-            <li>
-                <strong>Automated Failure Analysis & Localization:</strong> The <strong>Debug & Root Cause Analysis Agent</strong> (a dedicated Verification Agent from Section 2.2) is the tireless problem-solver. When a simulation fails, a formal tool produces a counter-example, or a metric deviates from expectation, this agent springs into action.
-                <ul className="list-disc pl-5 space-y-1 mt-2">
-                    <li>It intelligently parses and analyzes massive <strong>simulation logs</strong>, automatically identifying error messages, warnings, and unexpected behaviors.</li>
-                    <li>It integrates with <strong>waveform viewers</strong> (via the MCP Server&apos;s Tool Abstraction Layer) to automatically navigate and analyze critical signal traces and timing paths identified as problematic. It can filter noise, highlight key events, and correlate activity across multiple design blocks.</li>
-                    <li>Leveraging the <strong>Knowledge Hub (RAG)</strong> (which contains historical bug patterns, design specifications, and common debug strategies), it intelligently localizes the likely source of the bug down to specific RTL lines, module interfaces, or architectural components.</li>
-                </ul>
-            </li>
-            <li>
-                <strong>Intelligent Explanation and Suggested Fixes:</strong> Beyond just localization, the <strong>Debug & Root Cause Analysis Agent</strong> leverages LLM capabilities (through prompt engineering) to:
-                <ul className="list-disc pl-5 space-y-1 mt-2">
-                    <li><strong>Explain the Bug:</strong> Provide clear, human-readable explanations of why a failure occurred, translating complex technical jargon into understandable insights.</li>
-                    <li><strong>Suggest Solutions:</strong> Propose specific, actionable code modifications or design adjustments to resolve the identified bug. This feedback is directed back to the <strong>RTL Generation & Refinement Agent</strong> (for code fixes) or the <strong>Supervisor Agent</strong> (for higher-level architectural adjustments or constraint modifications).</li>
-                    <li><strong>&quot;What-If&quot; Debugging:</strong> Using the <strong>Context & State Management (CAG)</strong>, the agent can track previous debug attempts and avoid repeating failed strategies, suggesting alternative approaches based on prior context.</li>
-                </ul>
-            </li>
-            <li><strong>Feedback to Test Generation:</strong> When new bugs are found, the <strong>Debug & Root Cause Analysis Agent</strong> can automatically generate a minimized, focused <strong>regression test</strong> for that specific bug, ensuring that it doesn&apos;t reappear in future design iterations. This test is then added to the pool managed by the <strong>Test & Coverage Generation Agent</strong>.</li>
-        </ul>
-        <p>This AI-driven debugging capability dramatically reduces the manual effort and expertise required for bug resolution, accelerating design cycles and allowing human engineers to focus on higher-level innovation.</p>
+        {/* Stage 3.7 END */}
         
-        {/* Stage 3.8 - NEW */}
-        <div className="mt-12 mb-4">
-          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
+        {/* Stage 3.8 */}
+        <div className="section-card p-6 rounded-2xl mt-12">
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
             3.8 Stage 8: System-Level &amp; Cross-Domain Verification, and AI System Evaluation
           </h2>
-        </div>
-        <div className="mt-8 mb-4 flex items-center">
-          <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
-        </div>
-        <p>Beyond functional correctness of individual blocks, ensuring the <strong>holistic performance, power efficiency, and security</strong> of the entire chip, especially across different abstraction levels and physical implementation, is critical. Furthermore, in an AI-driven design flow, <strong>continuous evaluation of the AI system&apos;s own performance and reliability</strong> is paramount to maintain confidence and drive ongoing improvement.</p>
+          <div className="mt-6 mb-4 flex items-center">
+            <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
+            <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
+          </div>
+          <p>Beyond functional correctness of individual blocks, ensuring the <strong>holistic performance, power efficiency, and security</strong> of the entire chip, especially across different abstraction levels and physical implementation, is critical. Furthermore, in an AI-driven design flow, <strong>continuous evaluation of the AI system&apos;s own performance and reliability</strong> is paramount to maintain confidence and drive ongoing improvement.</p>
 
-        <div className="mt-8 mb-4 flex items-center">
-          <BarChart3 className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Holistic Chip Validation and Self-Improving AI Design</h3>
+          <div className="mt-8 mb-4 flex items-center">
+            <BarChart3 className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+            <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Holistic Chip Validation and Self-Improving AI Design</h3>
+          </div>
+          <p>This final, crucial verification stage provides a comprehensive, chip-level validation, integrating performance, power, and security aspects, and importantly, includes robust mechanisms for evaluating and improving the AI design system itself:</p>
+          <ul className="list-disc pl-5 space-y-2">
+              <li>
+                  <strong>System-Level Performance Verification:</strong> A <strong>Performance Verification Agent</strong> (a Specialized Analysis Agent from Section 2.2) takes the lead here.
+                  <ul className="list-disc pl-5 space-y-1 mt-2">
+                      <li>It orchestrates <strong>full-chip performance simulations</strong> (e.g., using SystemC or transaction-level models) driven by real-world workload scenarios.</li>
+                      <li>It collects and analyzes key performance indicators (KPIs) such as throughput, latency, bandwidth utilization, and clock cycles, correlating them against the initial architectural targets.</li>
+                      <li>Discrepancies are flagged and analyzed, providing feedback to the <strong>Architecture Exploration Agents</strong> or <strong>RTL Generation Agents</strong> for iterative performance tuning.</li>
+                  </ul>
+              </li>
+              <li>
+                  <strong>Power Verification & Integrity:</strong> The <strong>Power & Design Rule Check (DRC) Analysis Agent</strong> (a Specialized Analysis Agent from Section 2.2) extends its role to comprehensive power verification.
+                  <ul className="list-disc pl-5 space-y-1 mt-2">
+                      <li>It performs <strong>dynamic power analysis</strong> by correlating workload simulations with power models, identifying power hotspots and peak power consumption.</li>
+                      <li>It conducts <strong>static power analysis</strong> to identify leakage current issues.</li>
+                      <li>It analyzes <strong>power integrity</strong> (e.g., IR drop, electromigration) using specialized tools, ensuring the power delivery network is robust across the entire chip. This analysis feeds back into the <strong>Physical Implementation Agent</strong> (Stage 9) for layout adjustments.</li>
+                  </ul>
+              </li>
+              <li>
+                  <strong>Comprehensive Security Verification:</strong> Building on earlier formal checks, the <strong>Security Verification Agent</strong> (a specialized Verification Agent or Specialized Analysis Agent) performs holistic, chip-level security assessments. This includes:
+                  <ul className="list-disc pl-5 space-y-1 mt-2">
+                      <li><strong>Attack Surface Analysis:</strong> Identifying potential entry points for attacks.</li>
+                      <li><strong>Vulnerability Scanning:</strong> Probing for known vulnerabilities in IP blocks or interfaces.</li>
+                      <li><strong>Penetration Testing (simulated):</strong> Running simulated attack scenarios against the full chip model to validate the effectiveness of security features.</li>
+                      <li><strong>Compliance Checks:</strong> Ensuring adherence to security standards (e.g., FIPS, ISO 26262 functional safety security requirements).</li>
+                  </ul>
+              </li>
+              <li>
+                  <strong>AI System Evaluation & Guardrails:</strong> This is where the overall AI design system&apos;s effectiveness is rigorously monitored and improved, utilizing the <strong>Human-in-the-Loop Interface</strong> and <strong>LangSmith</strong>:
+                  <ul className="list-disc pl-5 space-y-1 mt-2">
+                      <li><strong>Automated Evaluation:</strong> LangSmith is used to capture production traces of agent interactions, LLM prompts, and tool calls. Custom evaluators are defined to automatically assess the quality of AI-generated content (e.g., &quot;Is generated RTL synthesizable?&quot;, &quot;Are test cases effective?&quot;). This builds comprehensive datasets for continuous, objective evaluation of agent performance and output quality.</li>
+                      <li><strong>Prompt Engineering Refinement:</strong> Based on evaluation results, insights are used to refine and optimize prompt engineering strategies for all agents, improving their accuracy, efficiency, and adherence to design rules.</li>
+                      <li><strong>AI Guardrails & Anomaly Detection:</strong> The <strong>Supervisor Agent</strong> (via LangSmith monitoring) actively enforces predefined guardrails, preventing agents from pursuing irrational design paths or generating outputs that violate critical constraints. Anomaly detection algorithms monitor agent behavior for unexpected deviations, allowing for proactive intervention.</li>
+                      <li><strong>Self-Evaluation & Learning:</strong> The system can engage in meta-level self-evaluation. For instance, the <strong>Knowledge Graph Agent</strong> can analyze historical performance data of specific agents and workflows (from LangSmith traces) to identify patterns of success or failure. This feedback loop informs the <strong>Global Planning Agent</strong> on how to optimize agent selection, task decomposition, and resource allocation for future design projects.</li>
+                  </ul>
+              </li>
+          </ul>
+          <p>This multi-faceted final verification stage ensures the comprehensive quality, reliability, and security of the entire chip, while simultaneously fostering a self-improving AI design ecosystem that continually enhances its capabilities and accelerates our design cycles.</p>
         </div>
-        <p>This final, crucial verification stage provides a comprehensive, chip-level validation, integrating performance, power, and security aspects, and importantly, includes robust mechanisms for evaluating and improving the AI design system itself:</p>
-        <ul className="list-disc pl-5 space-y-2">
-            <li>
-                <strong>System-Level Performance Verification:</strong> A <strong>Performance Verification Agent</strong> (a Specialized Analysis Agent from Section 2.2) takes the lead here.
-                <ul className="list-disc pl-5 space-y-1 mt-2">
-                    <li>It orchestrates <strong>full-chip performance simulations</strong> (e.g., using SystemC or transaction-level models) driven by real-world workload scenarios.</li>
-                    <li>It collects and analyzes key performance indicators (KPIs) such as throughput, latency, bandwidth utilization, and clock cycles, correlating them against the initial architectural targets.</li>
-                    <li>Discrepancies are flagged and analyzed, providing feedback to the <strong>Architecture Exploration Agents</strong> or <strong>RTL Generation Agents</strong> for iterative performance tuning.</li>
-                </ul>
-            </li>
-            <li>
-                <strong>Power Verification & Integrity:</strong> The <strong>Power & Design Rule Check (DRC) Analysis Agent</strong> (a Specialized Analysis Agent from Section 2.2) extends its role to comprehensive power verification.
-                <ul className="list-disc pl-5 space-y-1 mt-2">
-                    <li>It performs <strong>dynamic power analysis</strong> by correlating workload simulations with power models, identifying power hotspots and peak power consumption.</li>
-                    <li>It conducts <strong>static power analysis</strong> to identify leakage current issues.</li>
-                    <li>It analyzes <strong>power integrity</strong> (e.g., IR drop, electromigration) using specialized tools, ensuring the power delivery network is robust across the entire chip. This analysis feeds back into the <strong>Physical Implementation Agent</strong> (Stage 9) for layout adjustments.</li>
-                </ul>
-            </li>
-            <li>
-                <strong>Comprehensive Security Verification:</strong> Building on earlier formal checks, the <strong>Security Verification Agent</strong> (a specialized Verification Agent or Specialized Analysis Agent) performs holistic, chip-level security assessments. This includes:
-                <ul className="list-disc pl-5 space-y-1 mt-2">
-                    <li><strong>Attack Surface Analysis:</strong> Identifying potential entry points for attacks.</li>
-                    <li><strong>Vulnerability Scanning:</strong> Probing for known vulnerabilities in IP blocks or interfaces.</li>
-                    <li><strong>Penetration Testing (simulated):</strong> Running simulated attack scenarios against the full chip model to validate the effectiveness of security features.</li>
-                    <li><strong>Compliance Checks:</strong> Ensuring adherence to security standards (e.g., FIPS, ISO 26262 functional safety security requirements).</li>
-                </ul>
-            </li>
-            <li>
-                <strong>AI System Evaluation & Guardrails:</strong> This is where the overall AI design system&apos;s effectiveness is rigorously monitored and improved, utilizing the <strong>Human-in-the-Loop Interface</strong> and <strong>LangSmith</strong>:
-                <ul className="list-disc pl-5 space-y-1 mt-2">
-                    <li><strong>Automated Evaluation:</strong> LangSmith is used to capture production traces of agent interactions, LLM prompts, and tool calls. Custom evaluators are defined to automatically assess the quality of AI-generated content (e.g., &quot;Is generated RTL synthesizable?&quot;, &quot;Are test cases effective?&quot;). This builds comprehensive datasets for continuous, objective evaluation of agent performance and output quality.</li>
-                    <li><strong>Prompt Engineering Refinement:</strong> Based on evaluation results, insights are used to refine and optimize prompt engineering strategies for all agents, improving their accuracy, efficiency, and adherence to design rules.</li>
-                    <li><strong>AI Guardrails & Anomaly Detection:</strong> The <strong>Supervisor Agent</strong> (via LangSmith monitoring) actively enforces predefined guardrails, preventing agents from pursuing irrational design paths or generating outputs that violate critical constraints. Anomaly detection algorithms monitor agent behavior for unexpected deviations, allowing for proactive intervention.</li>
-                    <li><strong>Self-Evaluation & Learning:</strong> The system can engage in meta-level self-evaluation. For instance, the <strong>Knowledge Graph Agent</strong> can analyze historical performance data of specific agents and workflows (from LangSmith traces) to identify patterns of success or failure. This feedback loop informs the <strong>Global Planning Agent</strong> on how to optimize agent selection, task decomposition, and resource allocation for future design projects.</li>
-                </ul>
-            </li>
-        </ul>
-        <p>This multi-faceted final verification stage ensures the comprehensive quality, reliability, and security of the entire chip, while simultaneously fostering a self-improving AI design ecosystem that continually enhances its capabilities and accelerates our design cycles.</p>
+        {/* Stage 3.8 END */}
 
         {/* Stage 3.9 - OLD 3.6 CONTENT (now 3.9) */}
-        <div className="mt-12 mb-4">
-          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
+        <div className="section-card p-6 rounded-2xl mt-12">
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
             3.9 Stage 9: Physical Design &amp; PPA Optimization
           </h2>
+          <div className="mt-6 mb-4 flex items-center">
+            <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
+            <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
+          </div>
+          <p>The <strong>physical design stage</strong>—encompassing floorplanning, placement, routing, and clock tree synthesis—involves a solution space with a <strong>near-infinite number of choices</strong> for optimal <strong>Power, Performance, and Area (PPA)</strong>. Manually tuning the hundreds of parameters within complex commercial EDA tools to find the global optimum is a <strong>&quot;black art&quot;</strong> that is humanly impossible to perfect, leading to <strong>sub-optimal designs</strong> and <strong>extended convergence times</strong>.</p>
+          
+          <div className="mt-8 mb-4 flex items-center">
+            <SlidersHorizontal className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+            <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Autonomous Reinforcement Learning (RL) for Global PPA Excellence</h3>
+          </div>
+          <p>To unlock unprecedented PPA optimization and design convergence speed, an autonomous <strong>PPA Optimization Agent</strong> will be deployed. This agent is the intelligent orchestrator of our <strong>Physical Design & Optimization Agents</strong> (from Section 2.2) and is based on the principles of industry-leading AI-driven tools like <strong>Synopsys DSO.ai</strong> and <strong>Cadence Cerebrus</strong>, but integrated within our comprehensive MAS:</p>
+          <ul className="list-disc pl-5 space-y-2">
+            <li>The <strong>PPA Optimization Agent</strong> uses sophisticated <strong>reinforcement learning</strong> to holistically and autonomously explore the vast PPA solution space. It treats the entire physical design EDA toolchain (orchestrating the <strong>Synthesis Agent, Physical Implementation Agent, and Timing Closure Agent</strong> from Section 2.2 via the MCP Server&apos;s Tool Abstraction Layer) as its <strong>&quot;environment.&quot;</strong></li>
+            <li>The agent&apos;s <strong>&quot;actions&quot;</strong> consist of intelligently adjusting hundreds of critical tool settings, design constraints (e.g., placement density, routing layers, clock tree balance), and floorplan parameters.</li>
+            <li>The <strong>&quot;reward&quot;</strong> it receives after each iterative run is a meticulously calculated score derived from the resulting comprehensive PPA metrics (<strong>timing closure, dynamic and static power consumption, silicon area utilization, routing congestion</strong>, and even early <strong>manufacturing yield predictions</strong> from the Yield Prediction Agent – introduced in Stage 3.10).</li>
+            <li>By running <strong>thousands of these automated iterations</strong>, facilitated by rapid, AI-accelerated estimations, the RL agent learns complex, non-obvious, and often counter-intuitive relationships between input parameters and final outcomes. It continuously discovers <strong>novel optimization strategies</strong> that consistently outperform even seasoned human experts, pushing our designs to the <strong>true Pareto-optimal frontier of PPA</strong>, delivering highly competitive and differentiated silicon.</li>
+            <li>The <strong>Supervisor agent</strong> meticulously tracks the convergence of the <strong>PPA Optimization Agent</strong>, ensuring that it remains within defined guardrails and achieves overall project goals, while the <strong>Human-in-the-Loop Interface</strong> provides transparent dashboards for human experts to monitor progress and intervene for strategic adjustments.</li>
+          </ul>
         </div>
-        <div className="mt-8 mb-4 flex items-center">
-          <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
-        </div>
-        <p>The <strong>physical design stage</strong>—encompassing floorplanning, placement, routing, and clock tree synthesis—involves a solution space with a <strong>near-infinite number of choices</strong> for optimal <strong>Power, Performance, and Area (PPA)</strong>. Manually tuning the hundreds of parameters within complex commercial EDA tools to find the global optimum is a <strong>&quot;black art&quot;</strong> that is humanly impossible to perfect, leading to <strong>sub-optimal designs</strong> and <strong>extended convergence times</strong>.</p>
-        
-        <div className="mt-8 mb-4 flex items-center">
-          <SlidersHorizontal className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Autonomous Reinforcement Learning (RL) for Global PPA Excellence</h3>
-        </div>
-        <p>To unlock unprecedented PPA optimization and design convergence speed, an autonomous <strong>PPA Optimization Agent</strong> will be deployed. This agent is the intelligent orchestrator of our <strong>Physical Design & Optimization Agents</strong> (from Section 2.2) and is based on the principles of industry-leading AI-driven tools like <strong>Synopsys DSO.ai</strong> and <strong>Cadence Cerebrus</strong>, but integrated within our comprehensive MAS:</p>
-        <ul className="list-disc pl-5 space-y-2">
-          <li>The <strong>PPA Optimization Agent</strong> uses sophisticated <strong>reinforcement learning</strong> to holistically and autonomously explore the vast PPA solution space. It treats the entire physical design EDA toolchain (orchestrating the <strong>Synthesis Agent, Physical Implementation Agent, and Timing Closure Agent</strong> from Section 2.2 via the MCP Server&apos;s Tool Abstraction Layer) as its <strong>&quot;environment.&quot;</strong></li>
-          <li>The agent&apos;s <strong>&quot;actions&quot;</strong> consist of intelligently adjusting hundreds of critical tool settings, design constraints (e.g., placement density, routing layers, clock tree balance), and floorplan parameters.</li>
-          <li>The <strong>&quot;reward&quot;</strong> it receives after each iterative run is a meticulously calculated score derived from the resulting comprehensive PPA metrics (<strong>timing closure, dynamic and static power consumption, silicon area utilization, routing congestion</strong>, and even early <strong>manufacturing yield predictions</strong> from the Yield Prediction Agent – introduced in Stage 3.10).</li>
-          <li>By running <strong>thousands of these automated iterations</strong>, facilitated by rapid, AI-accelerated estimations, the RL agent learns complex, non-obvious, and often counter-intuitive relationships between input parameters and final outcomes. It continuously discovers <strong>novel optimization strategies</strong> that consistently outperform even seasoned human experts, pushing our designs to the <strong>true Pareto-optimal frontier of PPA</strong>, delivering highly competitive and differentiated silicon.</li>
-          <li>The <strong>Supervisor agent</strong> meticulously tracks the convergence of the <strong>PPA Optimization Agent</strong>, ensuring that it remains within defined guardrails and achieves overall project goals, while the <strong>Human-in-the-Loop Interface</strong> provides transparent dashboards for human experts to monitor progress and intervene for strategic adjustments.</li>
-        </ul>
+        {/* Stage 3.9 END */}
 
         {/* Stage 3.10 - OLD 3.7 CONTENT (now 3.10) */}
-        <div className="mt-12 mb-4">
-          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
+        <div className="section-card p-6 rounded-2xl mt-12">
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
             3.10 Stage 10: Manufacturing &amp; Post-Silicon Validation
           </h2>
+          <div className="mt-6 mb-4 flex items-center">
+            <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
+            <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
+          </div>
+          <p>Bridging the gap between highly optimized <strong>pre-silicon design data</strong> and the realities of <strong>physical manufacturing and silicon performance</strong> involves predicting <strong>manufacturing yield</strong>, accurately detecting <strong>microscopic physical defects</strong>, and rigorously validating the performance of the <strong>actual hardware</strong> in a timely manner. This phase is crucial for product quality and continuous improvement.</p>
+          
+          <div className="mt-8 mb-4 flex items-center">
+            <Cog className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+            <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: AI-Enhanced Quality Assurance &amp; Predictive Feedback Loop</h3>
+          </div>
+          <p>This final stage integrates AI to ensure manufacturing quality and create a powerful feedback loop for future designs:</p>
+          <ul className="list-disc pl-5 space-y-2">
+            <li>A <strong>Yield Prediction Agent</strong> (a Specialized Analysis Agent from Section 2.2) will leverage advanced <strong>machine learning models</strong> trained on vast datasets of historical wafer-level data, process variation statistics, and test results. This agent identifies design features, layout structures, or even specific process parameters that are statistically likely to cause <strong>manufacturing problems or yield loss</strong>. This critical, proactive feedback is passed back to the <strong>PPA Optimization Agent</strong> in Stage 3.9, directly incorporating <strong>manufacturability and yield considerations</strong> into the iterative PPA equation from the earliest physical design stages.</li>
+            <li>A <strong>Defect Detection Agent</strong> (another Specialized Analysis Agent from Section 2.2), utilizing <strong>AI-powered visual inspection systems</strong> and advanced computer vision algorithms, analyzes high-resolution wafer scans and in-line process monitoring data. It identifies, classifies, and localizes <strong>microscopic physical defects</strong> (e.g., shorts, opens, particles) with a speed and accuracy far exceeding traditional human capabilities or simpler automated optical inspection systems. This dramatically accelerates <strong>quality control and root cause analysis</strong> in the fab.</li>
+            <li>A <strong>Post-Silicon Validation Agent</strong> (a distinct Specialized Analysis Agent from Section 2.2) automates the complex <strong>bring-up and characterization process</strong> for prototype chips and first silicon. It dynamically orchestrates lab equipment, runs comprehensive diagnostics, collects <strong>detailed performance data</strong> from the actual silicon (e.g., power consumption under various workloads, maximum operating frequency, signal integrity), and automatically correlates any discrepancies against the meticulously documented <strong>pre-silicon simulation results and PPA targets</strong>. This creates a final, invaluable <strong>feedback loop</strong> directly into our <strong>Knowledge Graph Agent</strong> (within the Central Intelligence Hub), continuously refining our verification models, simulation methodologies, and predictive AI models for all future chip design projects. This ensures continuous learning and improvement in our design and manufacturing processes.</li>
+          </ul>
         </div>
-        <div className="mt-8 mb-4 flex items-center">
-          <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
-        </div>
-        <p>Bridging the gap between highly optimized <strong>pre-silicon design data</strong> and the realities of <strong>physical manufacturing and silicon performance</strong> involves predicting <strong>manufacturing yield</strong>, accurately detecting <strong>microscopic physical defects</strong>, and rigorously validating the performance of the <strong>actual hardware</strong> in a timely manner. This phase is crucial for product quality and continuous improvement.</p>
-        
-        <div className="mt-8 mb-4 flex items-center">
-          <Cog className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: AI-Enhanced Quality Assurance &amp; Predictive Feedback Loop</h3>
-        </div>
-        <p>This final stage integrates AI to ensure manufacturing quality and create a powerful feedback loop for future designs:</p>
-        <ul className="list-disc pl-5 space-y-2">
-          <li>A <strong>Yield Prediction Agent</strong> (a Specialized Analysis Agent from Section 2.2) will leverage advanced <strong>machine learning models</strong> trained on vast datasets of historical wafer-level data, process variation statistics, and test results. This agent identifies design features, layout structures, or even specific process parameters that are statistically likely to cause <strong>manufacturing problems or yield loss</strong>. This critical, proactive feedback is passed back to the <strong>PPA Optimization Agent</strong> in Stage 3.9, directly incorporating <strong>manufacturability and yield considerations</strong> into the iterative PPA equation from the earliest physical design stages.</li>
-          <li>A <strong>Defect Detection Agent</strong> (another Specialized Analysis Agent from Section 2.2), utilizing <strong>AI-powered visual inspection systems</strong> and advanced computer vision algorithms, analyzes high-resolution wafer scans and in-line process monitoring data. It identifies, classifies, and localizes <strong>microscopic physical defects</strong> (e.g., shorts, opens, particles) with a speed and accuracy far exceeding traditional human capabilities or simpler automated optical inspection systems. This dramatically accelerates <strong>quality control and root cause analysis</strong> in the fab.</li>
-          <li>A <strong>Post-Silicon Validation Agent</strong> (a distinct Specialized Analysis Agent from Section 2.2) automates the complex <strong>bring-up and characterization process</strong> for prototype chips and first silicon. It dynamically orchestrates lab equipment, runs comprehensive diagnostics, collects <strong>detailed performance data</strong> from the actual silicon (e.g., power consumption under various workloads, maximum operating frequency, signal integrity), and automatically correlates any discrepancies against the meticulously documented <strong>pre-silicon simulation results and PPA targets</strong>. This creates a final, invaluable <strong>feedback loop</strong> directly into our <strong>Knowledge Graph Agent</strong> (within the Central Intelligence Hub), continuously refining our verification models, simulation methodologies, and predictive AI models for all future chip design projects. This ensures continuous learning and improvement in our design and manufacturing processes.</li>
-        </ul>
+        {/* Stage 3.10 END */}
       </article>
     </SubPageLayout>
   );

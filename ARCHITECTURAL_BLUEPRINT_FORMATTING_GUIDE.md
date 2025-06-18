@@ -52,6 +52,8 @@ This guide outlines the specific formatting conventions used for article-style s
 
 *   Each major numbered section (e.g., X.1, X.2, X.3) or significant topic starts with an `<h2>` element.
 *   These titles generally do **not** have preceding icons, unless a specific thematic icon strongly enhances a particular section (e.g., "Potential Challenges" in the MCP Server details page).
+
+### Standard `<h2>` Section Structure:
 *   **Structure**:
     ```tsx
     // ... inside <article>
@@ -61,10 +63,42 @@ This guide outlines the specific formatting conventions used for article-style s
       </h2>
     </div>
     <p>Paragraph content for the section...</p>
+    {/* More content like sub-headings (h3), lists, etc. */}
     ```
 *   **Styling**:
     *   Wrapper `<div>`: `mt-12 mb-4` (adjust top margin for the very first `<h2>` if needed).
     *   `<h2>`: `text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2`
+
+### `<h2>` Section Encapsulated in a Card:
+*   For certain pages like the "AI-Powered Design Pipeline," individual `<h2>` sections (e.g., each pipeline stage) can be visually grouped by wrapping the entire section's content (including the `<h2>` title and all its subsequent paragraphs, `<h3>`s, lists, etc.) within a `div` styled as a card.
+*   **Structure**:
+    ```tsx
+    // ... inside <article>
+    <div className="section-card p-6 rounded-2xl mt-12"> {/* Card wrapper for the entire H2 section */}
+      <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6"> {/* Adjusted margin for inside card */}
+        X.2 Another Main Section Title (Pipeline Stage Example)
+      </h2>
+      {/* "Challenge" h3 block */}
+      <div className="mt-6 mb-4 flex items-center"> {/* Note: mt-6 instead of mt-8 for first h3 inside card */}
+        {/* Icon and h3 title for "Challenge" */}
+      </div>
+      <p>Challenge description...</p>
+      
+      {/* "Agentic Workflow" h3 block */}
+      <div className="mt-8 mb-4 flex items-center">
+        {/* Icon and h3 title for "Agentic Workflow" */}
+      </div>
+      <p>Workflow intro...</p>
+      <ul className="list-disc pl-5 space-y-2">
+        {/* Workflow list items */}
+      </ul>
+      {/* ... potentially more content for this H2 section ... */}
+    </div> {/* End of card wrapper for H2 section */}
+    ```
+*   **Styling for Card-Wrapped `<h2>` Section**:
+    *   Outer `div`: `section-card p-6 rounded-2xl mt-12` (The `section-card` class provides base background, border, and hover effects from `globals.css`).
+    *   `<h2>` within card: `text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6` (Note the `mb-6` for spacing below the title within the card).
+    *   First `<h3>` wrapper div (e.g., for "Challenge:") within the card: `mt-6 mb-4 flex items-center` (Top margin adjusted from `mt-8` to `mt-6` due to card padding).
 
 ## 4. Sub-Section Category Titles (`<h3>`)
 
@@ -74,8 +108,8 @@ This guide outlines the specific formatting conventions used for article-style s
     ```tsx
     import { AnotherExampleIcon } from 'lucide-react'; // Choose a thematic icon
 
-    // ... inside <article>, after an <h2> section
-    <div className="mt-8 mb-4 flex items-center"> {/* Wrapper for icon and title */}
+    // ... inside <article>, after an <h2> section (or inside its card wrapper)
+    <div className="mt-8 mb-4 flex items-center"> {/* Wrapper for icon and title. Use mt-6 if it's the first h3 in a card-wrapped h2 section */}
       <AnotherExampleIcon className="h-7 w-7 text-primary mr-3 flex-shrink-0" /> {/* Thematic Icon */}
       <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
         Example Category Title: {/* Title Text */}
@@ -87,7 +121,7 @@ This guide outlines the specific formatting conventions used for article-style s
     </ul>
     ```
 *   **Styling**:
-    *   Wrapper `<div>`: `mt-8 mb-4 flex items-center`
+    *   Wrapper `<div>`: `mt-8 mb-4 flex items-center` (or `mt-6` if it's the first `<h3>` within a card-wrapped `<h2>` section).
     *   Icon: `h-7 w-7 text-primary mr-3 flex-shrink-0` (or other theme/accent color if appropriate for specific emphasis, e.g., `text-yellow-400` for "Challenge:" `<h3>` headings).
     *   `<h3>`: `text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0` (or other theme/accent color).
 

@@ -5,6 +5,7 @@ import React from 'react';
 import SubPageLayout from '@/components/chimera/SubPageLayout';
 import { 
   DraftingCompass, 
+  Network,
   Component,
   Scaling,
   ShieldCheck,
@@ -100,7 +101,7 @@ export default function ArchitecturalBlueprintPage() {
 
         <div className="mt-8 mb-4 flex items-center">
           <Cpu className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Physical Design & Optimization Agents:</h3>
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Physical Design & Optimization Agents: Mastering Complex EDA Workflows</h3>
         </div>
         <p>Focused on transforming the logical design into a manufacturable physical layout, these agents are masters of <strong>spatial, electrical, and timing optimization</strong>. They are specifically engineered to interface with and intelligently control highly complex commercial EDA tools (like <strong>Synopsys Fusion Compiler, PrimeTime, Cadence Innovus, and Siemens Aprisa</strong>), autonomously driving iterative refinement by making crucial decisions and modifying design parameters, scripts, or rules.</p>
         <ul className="list-disc pl-5 space-y-2">
@@ -112,9 +113,6 @@ export default function ArchitecturalBlueprintPage() {
           </li>
           <li>
             <strong className="text-white font-semibold">Timing Closure Agent:</strong> Dedicated to achieving timing sign-off, this agent is deeply integrated with industry-standard <strong>static timing analysis (STA) tools</strong> such as <strong>Synopsys PrimeTime</strong>. It proactively analyzes complex <strong>timing paths</strong>, identifies violations, and, crucially, reasons about and proposes specific modifications to <strong>RTL, synthesis scripts, physical constraints, or even back-annotated netlist changes</strong>. This agent drives iterative timing closure, collaborating with the Synthesis and Physical Implementation Agents to resolve <strong>critical path delays</strong>, ensuring our designs meet aggressive <strong>frequency targets</strong>.
-          </li>
-          <li>
-            <strong className="text-white font-semibold">Power & Design Rule Check (DRC) Analysis Agents:</strong> These specialized agents provide meticulous, continuous validation. They interact with respective analysis tools to identify <strong>power hotspots, leakage issues</strong>, and ensure strict compliance with fabrication-specific <strong>Design Rule Check (DRC) constraints</strong>. Their insights are immediately fed back, enabling other agents to autonomously modify layouts or design parameters to achieve <strong>optimal power integrity and manufacturability</strong>, minimizing costly design iterations.
           </li>
         </ul>
 

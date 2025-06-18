@@ -14,7 +14,7 @@ import {
   GraduationCap, 
   Trophy, 
   FileSearch2, 
-  ShieldCheck as ShieldCheckIcon, // Renamed to avoid conflict with component
+  ShieldCheck as ShieldCheckIcon,
   Filter, 
   FileText,
   Settings,
@@ -27,8 +27,8 @@ import {
   ClipboardCheck,
   Wrench,
   ShieldAlert, 
-  ListChecks as ListChecksIcon, // Renamed to avoid conflict
-  MessageSquare as MessageSquareIcon, // Renamed to avoid conflict
+  ListChecks as ListChecksIcon,
+  MessageSquare as MessageSquareIcon,
   GitCommitVertical, 
   PenSquare, 
   Edit,
@@ -108,24 +108,24 @@ const HumanAiSymbiosisDiagram: React.FC = () => (
       <line x1="345" y1="195" x2="375" y2="155" className="connector-arrow" />
 
       {/* 4.3 MLOps & CI/CD (Bottom Left) */}
-      <g transform="translate(30, 380)"> 
+      <g transform="translate(30, 325)"> 
         <rect x="0" y="-55" width="190" height="110" rx="10" className="ai-module-node"/>
         <use href="#symbiosisIconSettings" width="28" height="28" x="81" y="-47" />
         <text x="95" y="-5" className="text-module-title">MLOps & CI/CD</text>
         <text x="95" y="13" className="text-module-subtitle-line">CI/CD, Eval-Driven Dev,</text>
         <text x="95" y="25" className="text-module-subtitle-line">AI Testing AI, Domain Expert Input</text>
       </g>
-      <line x1="255" y1="285" x2="220" y2="380" className="connector-arrow" />
+      <line x1="255" y1="285" x2="220" y2="325" className="connector-arrow" />
       
       {/* 4.4 Observability (Bottom Right) */}
-      <g transform="translate(470, 380)"> 
+      <g transform="translate(470, 325)"> 
         <rect x="-95" y="-55" width="190" height="110" rx="10" className="ai-module-node"/>
         <use href="#symbiosisIconInspect" width="28" height="28" x="-14" y="-47" />
         <text x="0" y="-5" className="text-module-title">Observability (LangSmith)</text>
         <text x="0" y="13" className="text-module-subtitle-line">Tracing, Testing & Eval,</text>
         <text x="0" y="25" className="text-module-subtitle-line">Human Feedback, Annotation</text>
       </g>
-      <line x1="345" y1="285" x2="375" y2="380" className="connector-arrow" />
+      <line x1="345" y1="285" x2="375" y2="325" className="connector-arrow" />
     </svg>
   </div>
 );
@@ -423,4 +423,3 @@ export default function HumanAiSymbiosisPage() {
     </SubPageLayout>
   );
 }
-

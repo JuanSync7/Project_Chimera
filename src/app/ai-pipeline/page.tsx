@@ -23,8 +23,14 @@ import {
   UserCog,
   ListOrdered,
   BookCopy,
+  BrainCircuit,
   Layers3,
-  BrainCircuit // Added BrainCircuit
+  Settings2,
+  ClipboardList,
+  PlayCircle,
+  BugAnt,
+  Lightbulb,
+  Repeat2
 } from 'lucide-react';
 
 export default function AiPipelinePage() {
@@ -79,23 +85,23 @@ export default function AiPipelinePage() {
           </div>
           <p>Our workflow begins with <strong className="text-sky-400">precision and foresight</strong>, a symphony of specialized AI acting in concert:</p>
           <ul className="list-none pl-0 space-y-6 !my-6">
-            <li className="flex">
+            <li className="flex items-start">
               <UserRoundSearch className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
               <div>The <strong>Customer Requirements Translation Agent</strong> (a Design & Exploration Agent from Section 2.2) acts as a <strong className="text-sky-400">digital envoy</strong>, engaging directly with our product managers and system architects. Leveraging the <strong>Knowledge Hub (RAG)</strong> in the MCP Server, it rapidly retrieves and analyzes data on similar past projects, market trends, and available IP to identify potential ambiguities, technical constraints, and emerging opportunities. Using the <strong>Context & State Management (CAG)</strong>, it builds a <strong className="text-sky-400">dynamic conversational bridge</strong>, iteratively refining high-level customer needs into a preliminary, yet actionable, technical specification. This significantly accelerates the proposal generation process, arming our sales team with a decisive competitive edge.</div>
             </li>
-            <li className="flex">
+            <li className="flex items-start">
               <FileText className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
               <div>Building on this, the <strong>Specification Agent</strong> (also a Design & Exploration Agent from Section 2.2) acts as a <strong className="text-sky-400">meticulous architect</strong>, formalizing these high-level requirements into a precise, unambiguous, and machine-readable design specification. It employs <strong>formal verification techniques</strong> and <strong>semantic analysis</strong> to ensure unwavering consistency, completeness, and strict adherence to our established company design guidelines and critical industry standards (e.g., specific interface protocols, security certifications). This upfront rigor acts as a <strong className="text-sky-400">shield</strong>, paramount for mitigating costly ambiguities and misinterpretations that would otherwise ripple destructively through later design stages.</div>
             </li>
-            <li className="flex">
+            <li className="flex items-start">
               <Cpu className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
               <div>This formal specification then feeds into the <strong>Architecture Exploration Agents</strong> (specifically the Microarchitecture Optimization Agent and System-Level Interconnect Agent from Section 2.2). The <strong>Microarchitecture Optimization Agent</strong>, supercharged by sophisticated <strong>reinforcement learning</strong> and <strong>multi-objective optimization algorithms</strong>, autonomously <strong className="text-sky-400">blazes paths</strong> through thousands of high-level architectural variants. It explores diverse CPU core pipeline depths, intricate cache hierarchies, novel memory access patterns, and innovative custom accelerator configurations with tireless precision.</div>
             </li>
-            <li className="flex">
+            <li className="flex items-start">
               <Network className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
               <div>In parallel, the <strong>System-Level Interconnect Agent</strong> masterfully designs and optimizes the chip&apos;s internal communication fabric, sculpting efficient <strong>Network-on-Chip (NoC) topologies</strong> and high-bandwidth memory interfaces. Both agents leverage advanced AI models capable of rapidly and accurately estimating <strong>PPA (Power, Performance, Area)</strong> from these high-level descriptions, often achieving up to a <strong className="text-sky-400">10x improvement in exploration speed</strong> compared to traditional methods that demand time-consuming manual estimations or premature synthesis runs.</div>
             </li>
-            <li className="flex">
+            <li className="flex items-start">
               <Focus className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
               <div>The <strong>Supervisor agent</strong> (from the Central Intelligence Hub), acting as the <strong className="text-sky-400">grand conductor</strong>, intelligently orchestrates this entire exploration process. It continuously monitors the PPA estimations, manages the trade-offs, and ultimately presents the top 3-5 candidate architectures to our human architects and product leadership. These candidates are accompanied by comprehensive, AI-generated trade-off analyses, enabling informed, strategic decisions that directly impact the chip&apos;s market competitiveness and alignment with business objectives.</div>
             </li>
@@ -119,16 +125,16 @@ export default function AiPipelinePage() {
             <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Leveraging Prompt Engineering &amp; RAG for High-Quality RTL and HLS Integration</h3>
           </div>
           <p>Our workflow for RTL generation transforms this complex stage into an intelligent, automated, and verifiable process, strategically leveraging off-the-shelf <strong>Large Language Models (LLMs)</strong> through sophisticated prompt engineering and our comprehensive knowledge base:</p>
-          <ul className="list-disc pl-5 space-y-4"> {/* Increased space-y for main list items */}
+          <ul className="list-none pl-0 space-y-6 !my-6"> 
             <li className="flex items-start">
               <UserCog className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
               <div>
                 Building directly upon the detailed architectural specifications provided by the <strong>Architecture Exploration Agents</strong> (from Section 2.2), the <strong>RTL Generation & Refinement Agent</strong> (a specialized RTL Generation Agent from Section 2.2), here acting as our primary <strong>Verilog/VHDL Coder Agent</strong>, initiates the RTL creation.
               </div>
             </li>
-            <li className="flex items-start"> {/* MODIFIED: Added flex and icon */}
-              <BrainCircuit className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" /> {/* ADDED ICON */}
-              <div> {/* This div contains the target paragraph */}
+            <li className="flex items-start"> 
+              <BrainCircuit className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" /> 
+              <div> 
                 This agent intelligently synthesizes the architectural intent directly into initial RTL, making informed decisions on crucial aspects like <strong>data path structures, control logic, state machine implementations, and module interfaces</strong>. It achieves this by employing advanced <strong>prompt engineering techniques</strong> with powerful, general-purpose LLMs. This involves:
                 <div className="mt-4 space-y-3">
                   <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
@@ -172,10 +178,19 @@ export default function AiPipelinePage() {
             <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Automated RTL Quality Assurance and Comprehensive Test Environment Preparation</h3>
           </div>
           <p>Immediately following initial RTL generation, our agents perform vital proactive optimization and quality checks to ensure robust, high-quality RTL, and prepare a comprehensive test environment before functional verification begins:</p>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>The <strong>Verilog/VHDL Coder Agent</strong> performs initial local optimizations, code linting, and <strong>design rule checking (DRC)</strong> before extensive simulation. This includes applying <strong>power-aware techniques</strong> (e.g., advanced clock gating opportunities) and structural optimizations at the RTL level, often guided by prompt-engineered rules. It also conducts quick <strong>pre-synthesis analysis</strong> to ensure the generated RTL is robust for downstream synthesis tools.</li>
-            <li>The <strong>Power-Aware RTL Optimization Agent</strong> (also an RTL Generation Agent from Section 2.2) collaborates here. It performs a deeper analysis of the design&apos;s power characteristics and autonomously suggests or implements modifications to reduce <strong>static and dynamic power consumption</strong> directly at the RTL level, using further prompt engineering to guide LLMs in identifying optimization opportunities. This early-stage optimization is critical for achieving aggressive power targets in modern low-power and mobile applications.</li>
-            <li>Simultaneously, the <strong>Test & Coverage Generation Agent</strong> (a Verification Agent from Section 2.2) takes the formalized design specification and automatically generates a comprehensive functional <strong>testbench</strong> for the module. This includes creating robust <strong>test cases, stimulus patterns, monitors, and SystemVerilog Assertions (SVA)</strong> that precisely define the expected behavior and <strong>&quot;correctness&quot;</strong> of the RTL. This crucial <strong>&quot;test-first&quot; approach</strong> establishes a clear, unambiguous, and machine-verifiable definition of desired functionality, grounding the AI-generated code in verifiable reality. The <strong>Supervisor agent</strong> then presents these autonomously generated testbenches and assertions to the human engineer for final review and confirmation, ensuring alignment with the original design intent and comprehensive test coverage goals.</li>
+          <ul className="list-none pl-0 space-y-6 !my-6">
+            <li className="flex items-start">
+              <Settings2 className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+              <div>The <strong>Verilog/VHDL Coder Agent</strong> performs initial local optimizations, code linting, and <strong>design rule checking (DRC)</strong> before extensive simulation. This includes applying <strong>power-aware techniques</strong> (e.g., advanced clock gating opportunities) and structural optimizations at the RTL level, often guided by prompt-engineered rules. It also conducts quick <strong>pre-synthesis analysis</strong> to ensure the generated RTL is robust for downstream synthesis tools.</div>
+            </li>
+            <li className="flex items-start">
+              <Zap className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+              <div>The <strong>Power-Aware RTL Optimization Agent</strong> (also an RTL Generation Agent from Section 2.2) collaborates here. It performs a deeper analysis of the design&apos;s power characteristics and autonomously suggests or implements modifications to reduce <strong>static and dynamic power consumption</strong> directly at the RTL level, using further prompt engineering to guide LLMs in identifying optimization opportunities. This early-stage optimization is critical for achieving aggressive power targets in modern low-power and mobile applications.</div>
+            </li>
+            <li className="flex items-start">
+              <ClipboardList className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+              <div>Simultaneously, the <strong>Test & Coverage Generation Agent</strong> (a Verification Agent from Section 2.2) takes the formalized design specification and automatically generates a comprehensive functional <strong>testbench</strong> for the module. This includes creating robust <strong>test cases, stimulus patterns, monitors, and SystemVerilog Assertions (SVA)</strong> that precisely define the expected behavior and <strong>&quot;correctness&quot;</strong> of the RTL. This crucial <strong>&quot;test-first&quot; approach</strong> establishes a clear, unambiguous, and machine-verifiable definition of desired functionality, grounding the AI-generated code in verifiable reality. The <strong>Supervisor agent</strong> then presents these autonomously generated testbenches and assertions to the human engineer for final review and confirmation, ensuring alignment with the original design intent and comprehensive test coverage goals.</div>
+            </li>
           </ul>
         </div>
         {/* Stage 3.3 END */}
@@ -196,12 +211,27 @@ export default function AiPipelinePage() {
             <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Automated Debugging and Self-Correction for Rapid RTL Convergence</h3>
           </div>
           <p>Once the testbench and initial RTL are prepared, our system enters an intelligent, automated <strong>Test-Driven Development (TDD) loop</strong>, driven by the <strong>Supervisor agent&apos;s</strong> orchestration, to rapidly achieve functional correctness and PPA targets:</p>
-          <ul className="list-disc pl-5 space-y-2">
-              <li>The <strong>Supervisor</strong> invokes our advanced simulation tools (via the MCP Server&apos;s Tool Abstraction Layer) to execute the autonomously generated tests against the newly optimized RTL.</li>
-              <li>The <strong>Debug & Root Cause Analysis Agent</strong> (a dedicated Verification Agent from Section 2.2) meticulously analyzes any simulation failures or coverage gaps. It sifts through vast amounts of simulation logs, waveform data, and design collateral to pinpoint the exact functional bug or performance bottleneck with unparalleled speed.</li>
-              <li>The <strong>Debug & Root Cause Analysis Agent</strong> then provides precise, targeted, and actionable feedback directly to the <strong>Verilog/VHDL Coder Agent</strong> (our RTL Generation & Refinement Agent), often suggesting specific code modifications or architectural adjustments. This feedback is critically important and will often be translated into specific instructions or new context within the prompt for the <strong>Verilog/VHDL Coder Agent&apos;s</strong> next iteration.</li>
-              <li>The <strong>Verilog/VHDL Coder Agent</strong> intelligently leverages this precise, prompt-driven feedback to refactor, debug, and further optimize its generated code, proposing new RTL iterations.</li>
-              <li>This <strong>TDD loop</strong> continues autonomously until all tests pass with <strong>100% functional coverage</strong>, and the RTL meets its initial <strong>PPA (Power, Performance, Area) estimates</strong>. This robust, closed-loop process directly mitigates the primary weakness of using LLMs for HDL generation by grounding the creative, probabilistic nature of the AI in the deterministic, verifiable world of functional tests, dramatically accelerating the path to high-quality, bug-free RTL.</li>
+          <ul className="list-none pl-0 space-y-6 !my-6">
+              <li className="flex items-start">
+                <PlayCircle className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+                <div>The <strong>Supervisor</strong> invokes our advanced simulation tools (via the MCP Server&apos;s Tool Abstraction Layer) to execute the autonomously generated tests against the newly optimized RTL.</div>
+              </li>
+              <li className="flex items-start">
+                <BugAnt className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+                <div>The <strong>Debug & Root Cause Analysis Agent</strong> (a dedicated Verification Agent from Section 2.2) meticulously analyzes any simulation failures or coverage gaps. It sifts through vast amounts of simulation logs, waveform data, and design collateral to pinpoint the exact functional bug or performance bottleneck with unparalleled speed.</div>
+              </li>
+              <li className="flex items-start">
+                <Lightbulb className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+                <div>The <strong>Debug & Root Cause Analysis Agent</strong> then provides precise, targeted, and actionable feedback directly to the <strong>Verilog/VHDL Coder Agent</strong> (our RTL Generation & Refinement Agent), often suggesting specific code modifications or architectural adjustments. This feedback is critically important and will often be translated into specific instructions or new context within the prompt for the <strong>Verilog/VHDL Coder Agent&apos;s</strong> next iteration.</div>
+              </li>
+              <li className="flex items-start">
+                <Repeat2 className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+                <div>The <strong>Verilog/VHDL Coder Agent</strong> intelligently leverages this precise, prompt-driven feedback to refactor, debug, and further optimize its generated code, proposing new RTL iterations.</div>
+              </li>
+              <li className="flex items-start">
+                 <RefreshCcw className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+                <div>This <strong>TDD loop</strong> continues autonomously until all tests pass with <strong>100% functional coverage</strong>, and the RTL meets its initial <strong>PPA (Power, Performance, Area) estimates</strong>. This robust, closed-loop process directly mitigates the primary weakness of using LLMs for HDL generation by grounding the creative, probabilistic nature of the AI in the deterministic, verifiable world of functional tests, dramatically accelerating the path to high-quality, bug-free RTL.</div>
+              </li>
           </ul>
         </div>
         {/* Stage 3.4 END */}
@@ -434,3 +464,4 @@ export default function AiPipelinePage() {
     </SubPageLayout>
   );
 }
+

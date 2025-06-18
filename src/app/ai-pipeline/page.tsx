@@ -1,3 +1,4 @@
+
 // src/app/ai-pipeline/page.tsx
 "use client";
 import React, { useState, useEffect } from 'react';
@@ -60,9 +61,9 @@ import {
   LineChart, 
   MapPin, 
   RotateCcw,
-  Inspect, // New for 3.10
-  UsersRound, // New for 3.10
-  DatabaseZap // New for 3.10
+  Inspect,
+  UsersRound,
+  DatabaseZap
 } from 'lucide-react';
 
 export default function AiPipelinePage() {
@@ -813,4 +814,5 @@ export default function AiPipelinePage() {
     
 
     
+
 

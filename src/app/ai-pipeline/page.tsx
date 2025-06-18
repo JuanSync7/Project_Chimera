@@ -1,9 +1,8 @@
-
 // src/app/ai-pipeline/page.tsx
 "use client";
-import React, { useState, useEffect } from 'react';
+import React from 'react'; // Removed useState, useEffect
 import SubPageLayout from '@/components/chimera/SubPageLayout';
-import DigitalFallEffect from '@/components/chimera/DigitalFallEffect'; 
+// Removed import for DigitalFallEffect
 import {
   Cpu, 
   AlertTriangle, 
@@ -24,28 +23,12 @@ import {
 } from 'lucide-react';
 
 export default function AiPipelinePage() {
-  const [showDigitalFall, setShowDigitalFall] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setShowDigitalFall(false);
-      } else {
-        setShowDigitalFall(true);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  // Removed showDigitalFall state and useEffect for scroll handling
 
   return (
     <SubPageLayout>
-      {/* DigitalFallEffect is placed before the article but its positioning is now absolute to the article */}
-      <article className="prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6 relative">
-        <DigitalFallEffect isVisible={showDigitalFall} /> {/* Effect is a child of the positioned article */}
+      {/* Removed DigitalFallEffect component instance */}
+      <article className="prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6"> {/* Removed 'relative' class if only for DigitalFallEffect */}
         <div className="flex flex-col items-center text-center mb-12">
           <Cpu className="h-16 w-16 text-primary mb-4" />
           <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-2">

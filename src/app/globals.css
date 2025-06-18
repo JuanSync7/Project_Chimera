@@ -247,42 +247,4 @@
   animation-fill-mode: forwards; 
 }
 
-/* Digital Fall Effect */
-.digital-fall-container {
-  position: fixed;
-  top: 0;
-  left: 10px; /* Positioned slightly off the left edge */
-  width: 50px; /* How wide the falling area is */
-  height: 45vh; /* Confined to top 45% of viewport height, adjust as needed */
-  pointer-events: none; /* So it doesn't interfere with clicks */
-  z-index: -1; /* Behind main content */
-  overflow: hidden;
-}
-
-.digital-particle {
-  position: absolute;
-  background-color: hsl(var(--primary) / 0.5); /* Use primary theme color with some transparency */
-  border-radius: 1px; /* Sharp edges for digital look */
-  opacity: 0; /* Start invisible, animation handles fade in/out */
-  animation-name: digitalFall;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  /* animation-delay and animation-duration will be set via inline styles */
-}
-
-@keyframes digitalFall {
-  0% {
-    /* transform: translateY(-50px) is handled by initialTop in component style */
-    opacity: 0;
-  }
-  20% { /* Fade in quickly */
-    opacity: 0.7; 
-  }
-  80% { /* Stay visible */
-    opacity: 0.7;
-  }
-  100% {
-    transform: translateY(105vh); /* Fall slightly below the viewport - particles will be clipped by container */
-    opacity: 0;
-  }
-}
+/* Digital Fall Effect CSS removed */

@@ -1,3 +1,4 @@
+
 // src/app/strategic-imperative/page.tsx
 "use client";
 import React from 'react';
@@ -18,7 +19,7 @@ import {
   SearchCheck,
   Workflow,
   BrainCircuit,
-  Cpu // Added Cpu for the final section
+  Cpu
 } from 'lucide-react';
 
 export default function StrategicImperativePage() {
@@ -40,7 +41,7 @@ export default function StrategicImperativePage() {
         <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
           1.2 Redefining PPAP: Power, Performance, Area, and <span className="gradient-text">Productivity</span>
         </h2>
-        <p>The &quot;three goals of chip design&quot;—<strong>Power, Performance, and Area (PPA)</strong>—have long been the central tenets of the industry. Optimizing the intricate trade-offs between these three variables forms the core of the design process. However, the semiconductor industry has reached an inflection point. The sheer complexity of <strong>sub-10nm designs</strong>, driven by billions of transistors, the integration of diverse functionalities (like AI accelerators and heterogeneous computing), and increasingly challenging interconnects, has created a significant "productivity gap." Traditional design methodologies simply struggle to keep pace with escalating development demands and the relentless pressure of shrinking market windows. This escalating complexity, often outpacing R&amp;D productivity by as much as 4.6% annually, necessitates larger design teams and inflates development costs, posing a critical threat to innovation velocity.</p>
+        <p>The &quot;three goals of chip design&quot;—<strong>Power, Performance, and Area (PPA)</strong>—have long been the central tenets of the industry. Optimizing the intricate trade-offs between these variables forms the core of the design process. However, the semiconductor industry has reached an inflection point. The sheer complexity of <strong>sub-10nm designs</strong>, driven by billions of transistors, the integration of diverse functionalities (like AI accelerators and heterogeneous computing), and increasingly challenging interconnects, has created a significant "productivity gap." Traditional design methodologies simply struggle to keep pace with escalating development demands and the relentless pressure of shrinking market windows. This escalating complexity, often outpacing R&D productivity by as much as 4.6% annually, necessitates larger design teams and inflates development costs, posing a critical threat to innovation velocity.</p>
         <p>This intensifying pressure has elevated a fourth, equally critical dimension: <strong className="gradient-text">Productivity</strong>. This is where <strong>AI-driven automation</strong> directly confronts the challenge. By automating repetitive, time-consuming, and often tedious tasks, AI liberates highly skilled engineers from low-value work, allowing them to focus their expertise on true differentiation and architectural innovation.</p>
         <p>For instance, AI-powered Electronic Design Automation (EDA) tools, leveraging techniques like reinforcement learning and machine learning, can:</p>
         <ul className="list-none pl-0 space-y-4 my-6">
@@ -132,7 +133,7 @@ export default function StrategicImperativePage() {
         </ul>
 
         <div className="max-w-4xl mx-auto mt-12 p-8 bg-card border border-primary/30 rounded-2xl shadow-2xl shadow-primary/40">
-          <h3 className="text-4xl md:text-5xl font-bold gradient-text !mb-8 text-center leading-normal">
+          <h3 className="text-4xl md:text-5xl font-bold gradient-text !mb-8 text-center leading-loose">
             The Future is AI-Driven, and We&apos;re Leading It
           </h3>
           <p className="text-lg text-slate-300 dark:text-slate-200 text-center leading-relaxed">

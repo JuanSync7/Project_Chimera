@@ -11,8 +11,7 @@ import {
   Cpu,
   BarChart3,
   Brain,
-  ListChecks,
-  SearchCode,
+  ListChecks, // Added ListChecks
   ClipboardList,
   Workflow,
   Network,
@@ -50,19 +49,25 @@ export default function ArchitecturalBlueprintPage() {
 
         <div className="mt-8 mb-4 flex items-center">
           <Component className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Modularity and Specialization:</h3>
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            Modularity and Specialization:
+          </h3>
         </div>
         <p>The entire chip design process is intrinsically divisible into distinct, highly specialized domains of expertise, such as <strong>architectural exploration, RTL generation, formal verification, and sophisticated physical design</strong> (including placement, routing, and PPA optimization). A MAS directly leverages this natural segmentation by allowing for the creation of dedicated <strong>&quot;expert&quot; agents</strong> for each specific domain. This not only dramatically improves performance, as each agent can be precisely optimized with <strong>tailored AI models</strong> for its narrow, deep task, but also significantly enhances <strong>maintainability</strong>, enabling independent development, rigorous testing, and seamless updates of individual components.</p>
 
         <div className="mt-8 mb-4 flex items-center">
           <Scaling className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Scalability:</h3>
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            Scalability:
+          </h3>
         </div>
         <p>As the frontiers of semiconductor technology continuously expand – driven by <strong>new process nodes, novel memory architectures, and emerging design methodologies</strong> – the MAS architecture provides unparalleled scalability. New <strong>specialized agents can be seamlessly integrated</strong> into the existing system to address these evolving requirements, without necessitating a costly and disruptive re-architecture of the entire framework. This <strong>future-proofs</strong> our design capabilities against the rapid pace of industry innovation.</p>
 
         <div className="mt-8 mb-4 flex items-center">
           <ShieldCheck className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Robustness and Debuggability:</h3>
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            Robustness and Debuggability:
+          </h3>
         </div>
         <p>The inherent <strong>separation of concerns</strong>, where each agent is responsible for a well-defined task, profoundly improves system robustness. Failures or unexpected behaviors can be localized and traced directly to the responsible agent and its specific interactions, dramatically simplifying the process of <strong>isolation, diagnosis, and resolution</strong>. Unlike debugging an opaque, monolithic AI system, the MAS's <strong>transparent, modular structure</strong> ensures a high degree of <strong>auditability and control</strong>, which is paramount in the high-stakes, capital-intensive world of chip manufacturing.</p>
 
@@ -75,7 +80,9 @@ export default function ArchitecturalBlueprintPage() {
 
         <div className="mt-8 mb-4 flex items-center">
           <PenTool className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Design & Exploration Agents: Intelligent Design & Requirements Capture</h3>
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            Design & Exploration Agents: Intelligent Design & Requirements Capture
+          </h3>
         </div>
         <p>These agents are strategically positioned at the very front-end of our product lifecycle, enabling rapid innovation from initial customer engagement through foundational design. They play a pivotal role in translating <strong>market needs</strong> into <strong>actionable technical specifications</strong>, exploring <strong>vast solution spaces</strong>, and laying the <strong>robust groundwork</strong> that dictates the efficiency, performance, and market fit of the entire chip.</p>
         <ul className="list-disc pl-5 space-y-2">
@@ -89,7 +96,9 @@ export default function ArchitecturalBlueprintPage() {
 
         <div className="mt-8 mb-4 flex items-center">
           <Network className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Architecture Exploration Agents: Pioneering System-Level Innovation</h3>
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            Architecture Exploration Agents: Pioneering System-Level Innovation
+          </h3>
         </div>
         <p>These agents specialize in the <strong>abstract, high-level structural and functional design</strong> of the chip. They utilize <strong>advanced AI techniques</strong> to explore <strong>vast architectural landscapes</strong>, identify <strong>optimal configurations</strong>, and make <strong>foundational decisions</strong> that profoundly impact the final chip's <strong>performance, power, and area (PPA)</strong>.</p>
         <ul className="list-disc pl-5 space-y-2">
@@ -103,7 +112,9 @@ export default function ArchitecturalBlueprintPage() {
 
         <div className="mt-8 mb-4 flex items-center">
           <Code2 className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">RTL Generation Agents: Translating Vision into Optimized Code</h3>
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            RTL Generation Agents: Translating Vision into Optimized Code
+          </h3>
         </div>
         <p>These agents focus on the intricate task of converting <strong>architectural blueprints</strong> into <strong>executable Register-Transfer Level (RTL) code</strong>. They embody <strong>deep domain knowledge</strong> to generate <strong>high-quality, synthesizable, and optimized RTL</strong>, ensuring both <strong>functional correctness</strong> and downstream <strong>PPA targets</strong> are met.</p>
         <ul className="list-disc pl-5 space-y-2">
@@ -117,7 +128,9 @@ export default function ArchitecturalBlueprintPage() {
 
         <div className="mt-8 mb-4 flex items-center">
           <ShieldCheck className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Verification Agents: AI-Driven Validation for Flawless Silicon</h3>
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            Verification Agents: AI-Driven Validation for Flawless Silicon
+          </h3>
         </div>
         <p>Addressing the largest bottleneck in modern design, these agents perform critical roles in ensuring <strong>design correctness and reliability</strong>.</p>
         <ul className="list-disc pl-5 space-y-2">
@@ -130,8 +143,32 @@ export default function ArchitecturalBlueprintPage() {
         </ul>
 
         <div className="mt-8 mb-4 flex items-center">
+          <ListChecks className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            Design for Testability (DFT) Agents: Automated Test Infrastructure for Manufacturability
+          </h3>
+        </div>
+        <p>Crucial for ensuring efficient and comprehensive post-manufacturing testing, these agents intelligently automate the insertion and verification of test logic within the chip design, directly impacting yield and test costs.</p>
+        <ul className="list-disc pl-5 space-y-2">
+          <li>
+            <strong className="text-white font-semibold">DFT Planning Agent:</strong> This agent analyzes the RTL or netlist, leverages historical data and fault models from the Knowledge Graph Agent, and intelligently determines the optimal DFT strategy (e.g., scan architecture, BIST insertion, JTAG integration) to achieve high fault coverage while minimizing area, power, and performance overhead. It generates a detailed, optimized DFT specification.
+          </li>
+          <li>
+            <strong className="text-white font-semibold">DFT Insertion Agent:</strong> This agent autonomously orchestrates industry-standard DFT tools to modify the design by inserting the planned test structures (e.g., scan chains, memory BIST logic, boundary scan). It ensures correct implementation of test modes and proper connectivity, adapting to design constraints.
+          </li>
+          <li>
+            <strong className="text-white font-semibold">ATPG (Automatic Test Pattern Generation) Agent:</strong> This agent generates highly efficient and comprehensive test patterns for various fault models (e.g., stuck-at, transition) to achieve the required fault coverage. It optimizes pattern count to minimize manufacturing test time and cost, automatically preparing patterns in industry-standard formats.
+          </li>
+          <li>
+            <strong className="text-white font-semibold">DFT Verification Agent:</strong> This agent rigorously verifies the correctness and effectiveness of the inserted DFT logic and generated test patterns. It performs fault simulations and test mode simulations to ensure high fault coverage, proper test functionality, and that test patterns can indeed detect target faults, feeding back any issues for automated correction.
+          </li>
+        </ul>
+
+        <div className="mt-8 mb-4 flex items-center">
           <Cpu className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Physical Design & Optimization Agents: Mastering Complex EDA Workflows</h3>
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            Physical Design & Optimization Agents: Mastering Complex EDA Workflows
+          </h3>
         </div>
         <p>Focused on transforming the logical design into a <strong>manufacturable physical layout</strong>, these agents are masters of <strong>spatial, electrical, and timing optimization</strong>. They are specifically engineered to interface with and intelligently control highly complex commercial EDA tools (like <strong>Synopsys Fusion Compiler, PrimeTime, Cadence Innovus, and Siemens Aprisa</strong>), autonomously driving iterative refinement by making crucial decisions and modifying <strong>design parameters, scripts, or rules</strong>.</p>
         <ul className="list-disc pl-5 space-y-2">
@@ -148,7 +185,9 @@ export default function ArchitecturalBlueprintPage() {
 
         <div className="mt-8 mb-4 flex items-center">
            <BarChart3 className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Analysis Agents:</h3>
+           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            Analysis Agents:
+          </h3>
         </div>
         <p><strong>Specialized Analysis Agents: Ensuring Compliance and Integrity.</strong> These agents provide <strong>continuous, automated validation</strong> and <strong>critical feedback</strong> for <strong>manufacturability</strong> and <strong>power integrity</strong>, acting as <strong>meticulous guardians</strong> of <strong>design quality</strong>. They are distinct from the <strong>active optimization roles</strong> of the above agents, focusing on <strong>robust verification</strong> against <strong>stringent rulesets</strong>.</p>
         <ul className="list-disc pl-5 space-y-2">
@@ -159,7 +198,9 @@ export default function ArchitecturalBlueprintPage() {
 
         <div className="mt-8 mb-4 flex items-center">
             <Brain className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-            <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Central Intelligence Hub: The Strategic Orchestrator and Knowledge Backbone</h3>
+            <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+              Central Intelligence Hub: The Strategic Orchestrator and Knowledge Backbone
+            </h3>
         </div>
         <p>At the heart of our <strong>Multi-Agent System</strong>, the <strong>Central Intelligence Hub</strong> serves as the <strong>strategic orchestrator</strong>, the system's <strong>collective brain</strong>, and its <strong>evolving memory</strong>. For a chip design company, this hub is paramount, as it ensures <strong>seamless coordination</strong>, <strong>centralized intelligence</strong>, and <strong>effective human oversight</strong> across the entire design lifecycle. It transforms <strong>fragmented processes</strong> into a <strong>cohesive, goal-driven workflow</strong>, directly impacting our ability to <strong>innovate</strong> and deliver <strong>cutting-edge silicon</strong>.</p>
         <ul className="list-disc pl-5 space-y-2">
@@ -183,14 +224,18 @@ export default function ArchitecturalBlueprintPage() {
         
         <div className="mt-8 mb-4 flex items-center">
           <ShieldCheck className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Rationale for Supervisor-Worker: Mitigating Risk in Chip Design</h3>
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            Rationale for Supervisor-Worker: Mitigating Risk in Chip Design
+          </h3>
         </div>
         <p>A decentralized <strong>&quot;Swarm&quot;</strong> or <strong>&quot;Network&quot;</strong> architecture, where any agent can communicate directly with any other, offers theoretical maximum flexibility. However, in practice, it introduces an <strong>unacceptable degree of complexity, unpredictability, and emergent behaviors</strong> that are exceedingly difficult to <strong>control, audit, and debug</strong>. Given the <strong>capital-intensive nature, stringent quality requirements, and zero-tolerance for errors</strong> inherent in chip manufacturing, such a level of risk is <strong>fundamentally incompatible with our objectives</strong>.</p>
         <p>Therefore, this blueprint mandates a <strong>Supervisor-Worker architecture</strong>. This model provides the critical balance of <strong>flexibility and stringent control</strong> necessary for <strong>robust, verifiable, and efficient chip design workflows</strong>. It directly addresses the need for <strong>predictability, traceability, and systematic error handling</strong> — core tenets of successful semiconductor product development.</p>
        
         <div className="mt-8 mb-4 flex items-center">
           <ClipboardList className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Architecture: The Intelligent Design Project Manager</h3>
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            Architecture: The Intelligent Design Project Manager
+          </h3>
         </div>
         <p>The system is architected around a central <strong>Supervisor agent</strong>, which acts as the <strong>intelligent orchestrator</strong> and <strong>&quot;project manager&quot;</strong> for complex design tasks. This agent receives <strong>high-level design goals</strong> – often derived from directives originating from the <strong>Global Planning Agent</strong> within the Central Intelligence Hub (as discussed in Section 2.2) or direct human input (via the <strong>Human-in-the-Loop Interface</strong>). Examples include <strong>&quot;Design a low-power RISC-V core for an edge IoT device,&quot; &quot;Achieve timing closure on the display subsystem within 72 hours,&quot;</strong> or <strong>&quot;Verify the security enclave against ISO 26262 standards.&quot;</strong></p>
         <p>Crucially, the Supervisor's role goes beyond mere task delegation. It intelligently:</p>
@@ -205,7 +250,9 @@ export default function ArchitecturalBlueprintPage() {
 
         <div className="mt-8 mb-4 flex items-center">
           <Workflow className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Implementation Framework: LangGraph for Structured Workflows</h3>
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            Implementation Framework: LangGraph for Structured Workflows
+          </h3>
         </div>
         <p>This sophisticated architecture will be implemented using <strong>LangGraph</strong>, an open-source library specifically designed for building <strong>stateful, multi-agent applications</strong> as <strong>directed acyclic graphs or state machines</strong>. Within LangGraph:</p>
         <ul className="list-disc pl-5 space-y-2">
@@ -223,7 +270,9 @@ export default function ArchitecturalBlueprintPage() {
         
         <div className="mt-8 mb-4 flex items-center">
           <SearchCode className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Observability & Evaluation: Leveraging LangSmith for AI Workflow Confidence</h3>
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            Observability & Evaluation: Leveraging LangSmith for AI Workflow Confidence
+          </h3>
         </div>
         <p>To further reinforce the reliability and ensure continuous optimization of our AI-driven design processes, we will leverage <strong>LangSmith</strong> as our comprehensive <strong>observability, debugging, and evaluation platform</strong>. LangSmith, developed by the creators of LangGraph, provides deep visibility into the execution of our multi-agent workflows. It allows us to:</p>
         <ul className="list-disc pl-5 space-y-2">
@@ -251,19 +300,25 @@ export default function ArchitecturalBlueprintPage() {
         
         <div className="mt-8 mb-4 flex items-center">
           <Layers3 className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Tool Abstraction Layer:</h3>
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            Tool Abstraction Layer:
+          </h3>
         </div>
         <p>It provides a <strong>standardized, version-controlled API</strong> and integrated wrappers for agents to seamlessly access and execute all necessary design tools. This includes commercial EDA software (e.g., <strong>Synopsys DSO.ai, Cadence Cerebrus, JasperGold</strong>) as well as <strong>custom-built Python scripts</strong> and internal utilities, abstracting away the complexity of individual tool interfaces and normalizing their outputs.</p>
 
         <div className="mt-8 mb-4 flex items-center">
           <DatabaseZap className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Knowledge Hub (RAG):</h3>
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            Knowledge Hub (RAG):
+          </h3>
         </div>
         <p>The server hosts and manages a comprehensive, <strong>semantically searchable, version-controlled vector database</strong> that acts as the organization's <strong>deep institutional memory</strong>. This knowledge base is meticulously populated with all relevant public and proprietary data: <strong>process design kits (PDKs), standard cell libraries, datasheets, technical manuals, internal design guidelines</strong>, and, critically, the <strong>complete, detailed historical data</strong> from every previous chip design project. This transforms our entire design history into a grounding, queryable asset for <strong>factual accuracy</strong>.</p>
 
         <div className="mt-8 mb-4 flex items-center">
           <MessagesSquare className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Context & State Management (CAG):</h3>
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            Context & State Management (CAG):
+          </h3>
         </div>
         <p>The server dynamically manages the <strong>short-term, evolving context</strong> and <strong>persistent state</strong> of ongoing design tasks. This includes the <strong>iterative conversational history</strong> between agents, the <strong>real-time results of recent actions</strong> (e.g., PPA metrics, verification logs), and the current project's <strong>dynamic design state</strong>. It leverages efficient <strong>caching mechanisms</strong> to store and quickly retrieve frequently accessed information, significantly reducing <strong>latency and computational overhead</strong> for iterative design loops.</p>
         <p>Over time, this MCP Server will evolve into the company's <strong>most valuable piece of intellectual property</strong>. It is the <strong>digital twin of our collective engineering expertise</strong>, a continuously <strong>learning system</strong> that encapsulates our <strong>unique design methodologies</strong> and grows demonstrably <strong>more powerful and efficient</strong> with every chip we produce.</p>
@@ -284,13 +339,17 @@ export default function ArchitecturalBlueprintPage() {
 
         <div className="mt-8 mb-4 flex items-center">
           <FileSearch2 className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">RAG for Factual Grounding:</h3>
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            RAG for Factual Grounding:
+          </h3>
         </div>
         <p>Agents will use <strong>RAG</strong> to query the MCP Server's knowledge hub for <strong>external, objective information</strong>. For example, a Verification Agent might ask, &quot;What are the specific timing constraints for the PCIe Gen 6 interface on the 3nm process node?&quot; The RAG system retrieves the relevant section from the PDK documentation and provides it to the agent. This process <strong>grounds the agent's actions in verified facts</strong>, preventing <strong>factual errors or &quot;hallucinations&quot;</strong> and ensuring designs comply with the <strong>latest specifications</strong>.</p>
 
         <div className="mt-8 mb-4 flex items-center">
           <BrainCog className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">CAG for Conversational Context:</h3>
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            CAG for Conversational Context:
+          </h3>
         </div>
         <p>Agents will use <strong>CAG</strong> to maintain awareness of the <strong>current, ongoing task</strong>. This provides them with a <strong>&quot;working memory.&quot;</strong> For example, a PPA Optimization Agent might reason, &quot;Given that my last three attempts to fix the timing violation on this path by increasing drive strength have failed, what alternative strategies are available in the standard cell library?&quot; The CAG system provides the <strong>history of its recent actions</strong>, enabling it to <strong>avoid repeating mistakes</strong> and engage in <strong>more sophisticated, iterative problem-solving</strong>.</p>
         <p>This <strong>hybrid RAG/CAG system</strong> is the key to unlocking <strong>true contextual intelligence</strong>. The Supervisor agent can fluidly switch between these modes, for instance, using RAG to fetch the initial design specification and then using CAG to track the progress of its worker agents against that specification. This combination of <strong>long-term knowledge and short-term memory</strong> is what will allow our agentic system to tackle the <strong>complex, multi-step challenges</strong> of modern chip design.</p>
@@ -299,5 +358,3 @@ export default function ArchitecturalBlueprintPage() {
     </SubPageLayout>
   );
 }
-
-    

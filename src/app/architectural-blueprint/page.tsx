@@ -1,8 +1,9 @@
 
+// src/app/architectural-blueprint/page.tsx
 "use client";
 import React from 'react';
 import SubPageLayout from '@/components/chimera/SubPageLayout';
-import { DraftingCompass } from 'lucide-react'; 
+import { DraftingCompass, PenTool, ShieldCheck, Cpu, BarChart3, Brain } from 'lucide-react'; 
 
 export default function ArchitecturalBlueprintPage() {
   return (
@@ -28,33 +29,48 @@ export default function ArchitecturalBlueprintPage() {
           <li><strong className="text-primary font-semibold">Scalability:</strong> As design challenges evolve and new technologies emerge (e.g., new process nodes, new memory types), new <strong>specialized agents can be seamlessly integrated</strong> into the system to handle these new requirements without needing to re-architect the entire framework.</li>
           <li><strong className="text-primary font-semibold">Robustness and Debuggability:</strong> The inherent <strong>separation of concerns</strong> in a MAS makes it easier to trace logic, isolate failures, and resolve issues. If a verification task fails, the problem can be traced directly to the Verification Agent and its interactions, rather than attempting to debug an opaque, monolithic system.</li>
         </ul>
-
+        
         <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
           2.2 Core Components: The Specialized AI Agent Network
         </h2>
         <p>Our Multi-Agent System is architected as a network of distinct, specialized AI agents, each contributing its unique intelligence to the end-to-end design flow. These agents are broadly categorized by their function:</p>
 
-        <h3 className="text-2xl font-semibold text-primary mt-8 mb-4">Design & Exploration Agents:</h3>
+        <div className="flex items-center mt-8 mb-4">
+          <PenTool className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0">Design & Exploration Agents:</h3>
+        </div>
         <p>These agents operate in the early and iterative phases of design, translating high-level concepts into actionable design artifacts and exploring vast solution spaces.</p>
         <ul className="list-disc pl-5 space-y-2">
           <li><strong className="text-white font-semibold">Specification Agent:</strong> Crucial for bridging the gap between human intent and machine execution, this agent translates high-level design requirements from natural language or abstract functional specifications into formal, machine-readable design languages (e.g., SystemVerilog, VHDL).</li>
           <li><strong className="text-white font-semibold">Architecture & RTL Agents:</strong> These agents intelligently explore optimal microarchitectures and generate highly optimized Register-Transfer Level (RTL) code, laying the foundational logic for the chip.</li>
         </ul>
         
-        <h3 className="text-2xl font-semibold text-primary mt-8 mb-4">Verification Agent:</h3>
+        <div className="flex items-center mt-8 mb-4">
+          <ShieldCheck className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0">Verification Agent:</h3>
+        </div>
         <p>Addressing the largest bottleneck in modern design, this agent develops comprehensive test plans, generates efficient test vectors, performs formal verification, and proactively identifies and helps localize bugs.</p>
         
-        <h3 className="text-2xl font-semibold text-primary mt-8 mb-4">Physical Design & Optimization Agents:</h3>
+        <div className="flex items-center mt-8 mb-4">
+          <Cpu className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0">Physical Design & Optimization Agents:</h3>
+        </div>
         <p>Focused on transforming the logical design into a physical layout, these agents ensure the final silicon meets stringent performance, power, and area targets.</p>
         <ul className="list-disc pl-5 space-y-2">
           <li><strong className="text-white font-semibold">Synthesis Agent:</strong> Optimizes the generated logic for the target technology, performing gate-level netlist generation to ensure efficient translation to silicon.</li>
           <li><strong className="text-white font-semibold">Place & Route Agent:</strong> This critical agent optimizes the physical layout, intelligently placing and routing components to minimize chip area, power consumption, and signal delay, directly impacting final PPA outcomes.</li>
         </ul>
 
-        <h3 className="text-2xl font-semibold text-primary mt-8 mb-4">Analysis Agents:</h3>
+        <div className="flex items-center mt-8 mb-4">
+          <BarChart3 className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0">Analysis Agents:</h3>
+        </div>
         <p>Specialized for specific post-design tasks, these agents provide real-time feedback on critical metrics such as power consumption, timing closure, and compliance with Design Rule Check (DRC) constraints, feeding insights back for iterative refinement.</p>
 
-        <h3 className="text-2xl font-semibold text-primary mt-8 mb-4">Central Intelligence Hub: The Orchestrator and Knowledge Backbone:</h3>
+        <div className="flex items-center mt-8 mb-4">
+          <Brain className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0">Central Intelligence Hub: The Orchestrator and Knowledge Backbone:</h3>
+        </div>
         <p>At the heart of the MAS, this hub ensures seamless coordination, centralized intelligence, and effective human oversight.</p>
         <ul className="list-disc pl-5 space-y-2">
           <li><strong className="text-white font-semibold">Global Planning Agent:</strong> Acting as the system's <strong>"project manager,"</strong> this agent oversees the entire design flow. It receives high-level design goals, decomposes them into concrete sub-tasks, and intelligently delegates these tasks to the appropriate specialized Worker Agents, monitoring progress and ensuring holistic optimization.</li>

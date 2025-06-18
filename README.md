@@ -51,6 +51,7 @@ This project uses environment variables for configuration, primarily for Genkit 
     ```bash
     cp .env .env.local
     ```
+    An empty `.env` file is provided in the repository as a placeholder.
 2.  **Add your Gemini API key** to `.env.local`:
     ```env
     # .env.local
@@ -60,8 +61,7 @@ This project uses environment variables for configuration, primarily for Genkit 
     # Other variables can be added as needed
     ```
     *   You can obtain a Gemini API key from [Google AI Studio](https://aistudio.google.com/app/apikey).
-    *   An empty `.env` file is provided in the repository as a placeholder.
-    *   **Important:** `.env.local` is gitignored and should **not** be committed to version control.
+    *   **Important:** `.env.local` is gitignored and should **not** be committed to version control. It is intended for local development secrets. For production or shared environments, use your hosting provider's mechanism for setting environment variables.
 
 ### Running the Development Server
 
@@ -90,7 +90,7 @@ This project includes several important documents for understanding its architec
 *   **`GUIDE_CREATING_PAGES.md`**: Instructions on adding new main page sections and subpages.
 *   **`DATA_STRUCTURES.md`**: Details on the TypeScript interfaces used for dynamic content.
 *   **`INTERACTIVITY_GUIDE.md`**: Explanation of client-side interactive features.
-*   **`ARCHITECTURAL_BLUEPRINT_FORMATTING_GUIDE.md`**: Specific formatting for the main `architectural-blueprint/page.tsx`.
+*   **`ARTICLE_PAGE_FORMATTING_GUIDE.md`**: Specific formatting guidelines for article-style subpages (like Architectural Blueprint, AI Pipeline, etc.).
 *   **`MCP_SERVER_DETAILS_FORMATTING_GUIDE.md`**: Specific formatting for the `architectural-blueprint/mcp-server-details/page.tsx`.
 *   **`COLOR_SCHEME.md`**: Details the color palette and theme variables.
 *   **`FONT_CHOICES.md`**: Outlines the font families used.
@@ -126,5 +126,3 @@ This will generate an optimized build in the `.next` directory.
 *   **Type Check:** `npm run typecheck`
 
 This README provides a starting point for understanding and working with the Project Chimera web application. For more detailed information, please consult the specific documentation files listed above.
-
-    

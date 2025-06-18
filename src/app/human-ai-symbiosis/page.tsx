@@ -14,7 +14,7 @@ import {
   GraduationCap, 
   Trophy, 
   FileSearch2, 
-  ShieldCheck as ShieldCheckIcon,
+  ShieldCheck as ShieldCheckIcon, // Renamed to avoid conflict with component
   Filter, 
   FileText,
   Settings,
@@ -27,12 +27,12 @@ import {
   ClipboardCheck,
   Wrench,
   ShieldAlert, 
-  ListChecks as ListChecksIcon, 
-  MessageSquare as MessageSquareIcon, 
+  ListChecks as ListChecksIcon, // Renamed to avoid conflict
+  MessageSquare as MessageSquareIcon, // Renamed to avoid conflict
   GitCommitVertical, 
   PenSquare, 
   Edit,
-  Inspect // Added for diagram
+  Inspect
 } from 'lucide-react';
 
 // SVG Diagram Component for Section 4
@@ -70,7 +70,7 @@ const HumanAiSymbiosisDiagram: React.FC = () => (
         </symbol>
         {/* Simplified Settings Icon (Gear) */}
         <symbol id="symbiosisIconSettings" viewBox="0 0 24 24">
-          <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z" className="icon-fill"/>
+          <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12-.64l2 3.46c.12.22.39.3.61.22l2.49 1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z" className="icon-fill"/>
         </symbol>
         {/* Simplified Inspect Icon (Magnifying glass) */}
         <symbol id="symbiosisIconInspect" viewBox="0 0 24 24">
@@ -88,44 +88,44 @@ const HumanAiSymbiosisDiagram: React.FC = () => (
 
       {/* Node positions and Arrows */}
       {/* 4.1 Agent Orchestration (Top Left) */}
-      <g transform="translate(130, 100)">
+      <g transform="translate(30, 100)">
         <rect width="190" height="110" rx="10" className="ai-module-node"/>
         <use href="#symbiosisIconWorkflow" width="28" height="28" x="81" y="8" />
         <text x="95" y="50" className="text-module-title">Agent Orchestration</text>
         <text x="95" y="68" className="text-module-subtitle-line">Prompting, Workflow Design,</text>
         <text x="95" y="80" className="text-module-subtitle-line">Supervision, Knowledge Encoding</text>
       </g>
-      <line x1="255" y1="195" x2="180" y2="155" className="connector-arrow" />
+      <line x1="255" y1="195" x2="220" y2="155" className="connector-arrow" />
 
       {/* 4.2 Custom Tool Dev (Top Right) */}
-      <g transform="translate(470, 100)"> {/* Adjusted X for Top Right */}
+      <g transform="translate(470, 100)">
         <rect x="-95" y="0" width="190" height="110" rx="10" className="ai-module-node"/>
         <use href="#symbiosisIconWrench" width="28" height="28" x="-14" y="8" />
         <text x="0" y="50" className="text-module-title">Custom Tool Dev</text>
         <text x="0" y="68" className="text-module-subtitle-line">Citizen AI, Python, MCP Reg,</text>
         <text x="0" y="80" className="text-module-subtitle-line">Training, Hackathons</text>
       </g>
-      <line x1="345" y1="195" x2="420" y2="155" className="connector-arrow" />
+      <line x1="345" y1="195" x2="375" y2="155" className="connector-arrow" />
 
       {/* 4.3 MLOps & CI/CD (Bottom Left) */}
-      <g transform="translate(130, 380)"> {/* Adjusted Y for Bottom Left */}
+      <g transform="translate(30, 380)"> 
         <rect x="0" y="-55" width="190" height="110" rx="10" className="ai-module-node"/>
         <use href="#symbiosisIconSettings" width="28" height="28" x="81" y="-47" />
         <text x="95" y="-5" className="text-module-title">MLOps & CI/CD</text>
         <text x="95" y="13" className="text-module-subtitle-line">CI/CD, Eval-Driven Dev,</text>
         <text x="95" y="25" className="text-module-subtitle-line">AI Testing AI, Domain Expert Input</text>
       </g>
-      <line x1="255" y1="285" x2="180" y2="325" className="connector-arrow" />
+      <line x1="255" y1="285" x2="220" y2="380" className="connector-arrow" />
       
       {/* 4.4 Observability (Bottom Right) */}
-      <g transform="translate(470, 380)"> {/* Adjusted X and Y for Bottom Right */}
+      <g transform="translate(470, 380)"> 
         <rect x="-95" y="-55" width="190" height="110" rx="10" className="ai-module-node"/>
         <use href="#symbiosisIconInspect" width="28" height="28" x="-14" y="-47" />
         <text x="0" y="-5" className="text-module-title">Observability (LangSmith)</text>
         <text x="0" y="13" className="text-module-subtitle-line">Tracing, Testing & Eval,</text>
         <text x="0" y="25" className="text-module-subtitle-line">Human Feedback, Annotation</text>
       </g>
-      <line x1="345" y1="285" x2="420" y2="325" className="connector-arrow" />
+      <line x1="345" y1="285" x2="375" y2="380" className="connector-arrow" />
     </svg>
   </div>
 );

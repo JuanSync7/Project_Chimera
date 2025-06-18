@@ -83,7 +83,11 @@ export default function ArchitecturalBlueprintPage() {
           <ShieldCheck className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Verification Agents:</h3>
         </div>
-        <p>Addressing the largest bottleneck in modern design, Verification Agents perform two critical roles. For <strong>Test & Coverage Generation</strong>, they focus on proactively creating robust verification environments, autonomously developing comprehensive <strong>test plans</strong>, analyzing design <strong>coverage goals</strong>, and generating effective <strong>test vectors</strong> (constrained random, directed, formal assertions) by identifying critical scenarios and corner cases. For <strong>Debug & Root Cause Analysis</strong>, these agents are tireless problem-solvers, specializing in analyzing <strong>verification failures</strong>, sifting through logs and data to identify, localize, and suggest fixes for bugs, dramatically reducing <strong>manual debugging time</strong>.</p>
+        <p>Addressing the largest bottleneck in modern design, these agents perform critical roles in ensuring design correctness and reliability.</p>
+        <ul className="list-disc pl-5 space-y-2">
+          <li><strong className="text-white font-semibold">Test & Coverage Generation Agent:</strong> Focused on the proactive creation of robust verification environments, this agent autonomously develops comprehensive <strong>test plans</strong>, analyzes design <strong>coverage goals</strong>, and generates highly effective <strong>test vectors</strong> (including constrained random, directed, and formal verification assertions). Its intelligence lies in identifying critical scenarios and corner cases that effectively stress the design and ensure thorough validation.</li>
+          <li><strong className="text-white font-semibold">Debug & Root Cause Analysis Agent:</strong> Addressing what is historically the largest bottleneck in modern design, this agent is a tireless problem-solver. It specializes in analyzing <strong>verification failures</strong>, sifting through vast amounts of simulation logs, waveform data, and design collateral to proactively identify, localize, and even suggest fixes for functional and performance bugs. This agent dramatically reduces <strong>manual debugging time</strong> and accelerates error resolution.</li>
+        </ul>
 
         <div className="mt-8 mb-4 flex items-center">
           <Cpu className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
@@ -181,5 +185,3 @@ export default function ArchitecturalBlueprintPage() {
     </SubPageLayout>
   );
 }
-
-

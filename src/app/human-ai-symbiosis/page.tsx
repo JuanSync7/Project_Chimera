@@ -7,16 +7,25 @@ import {
   Workflow, 
   UserCheck, 
   BrainCircuit,
-  Rocket, // For Key Initiatives H3
-  ListTree, // For Examples H3
-  Languages, // For Universal "Glue" Language list item
-  ServerCog, // For Accessible Tool Registration list item
-  GraduationCap, // For Dedicated Training list item
-  Trophy, // For Internal Hackathons list item
-  FileSearch2, // For Personal Regression Analysis Agent list item
-  ShieldCheck, // For Custom Design Rule Check Agent list item
-  Filter, // For Test Case Reduction Agent list item
-  FileText // For Documentation Assistant Agent list item
+  Rocket, 
+  ListTree, 
+  Languages, 
+  ServerCog, 
+  GraduationCap, 
+  Trophy, 
+  FileSearch2, 
+  ShieldCheck, 
+  Filter, 
+  FileText,
+  Settings,      // New
+  UsersRound,    // New
+  GitBranchPlus, // New
+  Target,        // New
+  TestTubeDiagonal, // New
+  DatabaseZap,   // New
+  ClipboardList, // New
+  ClipboardCheck, // New
+  Wrench         // New
 } from 'lucide-react';
 
 export default function HumanAiSymbiosisPage() {
@@ -24,7 +33,6 @@ export default function HumanAiSymbiosisPage() {
     <SubPageLayout>
       <article className="prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6">
         <div className="flex flex-col items-center text-center mb-12">
-          {/* Using BrainCircuit as the main page icon, consistent with previous main title setup if one was there */}
           <BrainCircuit className="h-16 w-16 text-primary mb-4" /> 
           <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-2">
             Section 4: The Human-AI Symbiosis
@@ -94,25 +102,29 @@ export default function HumanAiSymbiosisPage() {
           <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
             <Languages className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
             <div>
-              <strong className="text-primary block mb-1">Universal &quot;Glue&quot; Language:</strong> Python will be established as the <strong>universal &quot;glue&quot; language</strong> for this ecosystem. Leveraging its powerful libraries for data analysis (e.g., Pandas) and AI development (e.g., LangChain), engineers will have a familiar and robust environment to create their custom solutions. This standardization minimizes the learning curve and maximizes interoperability within the Chimera ecosystem.
+              <strong className="text-primary block mb-1">Universal &quot;Glue&quot; Language:</strong>
+              Python will be established as the <strong>universal &quot;glue&quot; language</strong> for this ecosystem. Leveraging its powerful libraries for data analysis (e.g., Pandas) and AI development (e.g., LangChain), engineers will have a familiar and robust environment to create their custom solutions. This standardization minimizes the learning curve and maximizes interoperability within the Chimera ecosystem.
             </div>
           </li>
           <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
             <ServerCog className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
             <div>
-              <strong className="text-primary block mb-1">Accessible Tool Registration with MCP Server:</strong> Once created and validated, these custom tools and agents can be <strong>easily registered</strong> with the central MCP (Multi-Agent Collaboration Protocol) Server. This centralized registration mechanism makes individual innovations available for use by the entire organization&apos;s agent ecosystem, transforming personal efficiency gains into <strong>collective productivity multipliers</strong>.
+              <strong className="text-primary block mb-1">Accessible Tool Registration with MCP Server:</strong>
+              Once created and validated, these custom tools and agents can be <strong>easily registered</strong> with the central MCP (Multi-Agent Collaboration Protocol) Server. This centralized registration mechanism makes individual innovations available for use by the entire organization&apos;s agent ecosystem, transforming personal efficiency gains into <strong>collective productivity multipliers</strong>.
             </div>
           </li>
           <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
             <GraduationCap className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
             <div>
-              <strong className="text-primary block mb-1">Dedicated Training and Support:</strong> Beyond providing the language, we will offer <strong>targeted training programs</strong> and readily available resources (e.g., code snippets, best practices, internal forums) to guide engineers in developing their own agents. This support system will demystify AI development and equip engineers with the <strong>practical skills needed to contribute</strong>.
+              <strong className="text-primary block mb-1">Dedicated Training and Support:</strong>
+              Beyond providing the language, we will offer <strong>targeted training programs</strong> and readily available resources (e.g., code snippets, best practices, internal forums) to guide engineers in developing their own agents. This support system will demystify AI development and equip engineers with the <strong>practical skills needed to contribute</strong>.
             </div>
           </li>
           <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
             <Trophy className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
             <div>
-              <strong className="text-primary block mb-1">Internal Hackathons and Innovation Challenges:</strong> Regularly held internal hackathons and innovation challenges will actively encourage engineers to <strong>experiment with building custom agents</strong> for common pain points or unexplored optimization opportunities. These events will foster a <strong>collaborative environment</strong> and showcase successful internal innovations.
+              <strong className="text-primary block mb-1">Internal Hackathons and Innovation Challenges:</strong>
+              Regularly held internal hackathons and innovation challenges will actively encourage engineers to <strong>experiment with building custom agents</strong> for common pain points or unexplored optimization opportunities. These events will foster a <strong>collaborative environment</strong> and showcase successful internal innovations.
             </div>
           </li>
         </ul>
@@ -127,42 +139,112 @@ export default function HumanAiSymbiosisPage() {
           <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
             <FileSearch2 className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
             <div>
-              <strong className="text-primary block mb-1">Personal Regression Analysis Agent:</strong> An engineer frequently running regressions might develop a simple agent that automates their personal process for <strong>parsing specific error patterns</strong> from large log files and generating a formatted summary report. This frees up hours of manual, repetitive data extraction.
+              <strong className="text-primary block mb-1">Personal Regression Analysis Agent:</strong>
+              An engineer frequently running regressions might develop a simple agent that automates their personal process for <strong>parsing specific error patterns</strong> from large log files and generating a formatted summary report. This frees up hours of manual, repetitive data extraction.
             </div>
           </li>
           <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
             <ShieldCheck className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
             <div>
-              <strong className="text-primary block mb-1">Custom Design Rule Check (DRC) Agent:</strong> A physical design engineer could build an agent that integrates a rarely used, but highly effective, internal script for a <strong>specific custom DRC check</strong> into the automated physical design workflow. This ensures obscure but critical design rules are never missed.
+              <strong className="text-primary block mb-1">Custom Design Rule Check (DRC) Agent:</strong>
+              A physical design engineer could build an agent that integrates a rarely used, but highly effective, internal script for a <strong>specific custom DRC check</strong> into the automated physical design workflow. This ensures obscure but critical design rules are never missed.
             </div>
           </li>
           <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
             <Filter className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
             <div>
-              <strong className="text-primary block mb-1">Test Case Reduction Agent:</strong> A verification engineer might create an agent that analyzes simulation results and intelligently <strong>prunes redundant test cases</strong> from a test suite while maintaining target coverage, significantly reducing verification cycle times.
+              <strong className="text-primary block mb-1">Test Case Reduction Agent:</strong>
+              A verification engineer might create an agent that analyzes simulation results and intelligently <strong>prunes redundant test cases</strong> from a test suite while maintaining target coverage, significantly reducing verification cycle times.
             </div>
           </li>
           <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
             <FileText className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
             <div>
-              <strong className="text-primary block mb-1">Documentation Assistant Agent:</strong> An engineer could develop a lightweight agent that, given a new design block, automatically queries the MCP Server&apos;s knowledge base and generates an <strong>initial draft of the technical documentation</strong>, including relevant specifications and design guidelines.
+              <strong className="text-primary block mb-1">Documentation Assistant Agent:</strong>
+              An engineer could develop a lightweight agent that, given a new design block, automatically queries the MCP Server&apos;s knowledge base and generates an <strong>initial draft of the technical documentation</strong>, including relevant specifications and design guidelines.
             </div>
           </li>
         </ul>
         <p>By empowering engineers to extend the AI system, Project Chimera taps into the <strong>distributed intelligence</strong> of the entire engineering workforce. This <strong>bottom-up innovation</strong> complements the top-down strategic deployment of core agents, creating a dynamic and continuously improving AI-driven design environment.</p>
         {/* Section 4.2 END */}
 
+        {/* Section 4.3 START */}
         <div className="mt-12 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             4.3 A Culture of Continuous Improvement: MLOps and CI/CD for Agentic Systems
           </h2>
         </div>
-        <p>Our AI agents and workflows must be treated with the same rigor as <strong>production software</strong>. A robust <strong>MLOps (Machine Learning Operations)</strong> framework is essential for managing the lifecycle of these complex systems.</p>
-        <ul className="list-disc pl-5 space-y-2">
-          <li><strong>CI/CD for LLM Applications:</strong> A <strong>Continuous Integration/Continuous Deployment (CI/CD)</strong> pipeline will be established for all agentic systems. Whenever a change is made—to an agent&apos;s prompt, its underlying model, or one of its tools—an automated workflow will be triggered. This workflow will run the agent against a <strong>&quot;golden dataset&quot;</strong> of test cases to evaluate its performance.</li>
-          <li><strong>Evaluation-Driven Development:</strong> Changes will be automatically blocked from being deployed to production if they cause a <strong>regression in key performance metrics</strong>, such as correctness, factual groundedness, or tool-use accuracy. This evaluation-driven approach ensures that our AI systems only <strong>improve over time</strong>.</li>
-          <li><strong>Continuous Testing:</strong> We will leverage AI to test AI. Specialized AI testing agents will be deployed to continuously <strong>probe our design agents for weaknesses</strong>, identify edge-case failures, and even automatically repair and update broken test scripts, ensuring our evaluation suites remain robust and comprehensive.</li>
+        <p>Our AI agents and workflows must be treated with the same rigor as <strong>production software</strong>. A robust <strong>MLOps (Machine Learning Operations)</strong> framework is essential for managing the lifecycle of these complex systems, ensuring their reliability, continuous improvement, and the confidence of our engineering teams. This commitment extends beyond traditional software development to encompass the unique demands of AI in chip design.</p>
+
+        <div className="mt-8 mb-4 flex items-center">
+          <Settings className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            Key Pillars of Our MLOps and CI/CD Strategy:
+          </h3>
+        </div>
+        <ul className="list-none pl-0 space-y-6 !my-6">
+          <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
+            <GitBranchPlus className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+            <div>
+              <strong className="text-primary block mb-1">CI/CD for LLM Applications, Adapted for Chip Design:</strong>
+              A <strong>Continuous Integration/Continuous Deployment (CI/CD)</strong> pipeline will be established for all agentic systems. Whenever a change is made—to an agent&apos;s prompt, its underlying model, or one of its tools—an automated workflow will be triggered. This workflow will run the agent against a <strong>&quot;golden dataset&quot;</strong> of carefully curated test cases specific to semiconductor design. These <strong>&quot;golden datasets&quot;</strong> will include scenarios ranging from specific RTL module functionalities to PPA optimization targets, ensuring the AI&apos;s output is verified against known good results. This isn&apos;t just about software; it&apos;s about validating the AI&apos;s ability to produce correct and efficient hardware designs.
+            </div>
+          </li>
+          <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
+            <Target className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+            <div>
+              <strong className="text-primary block mb-1">Evaluation-Driven Development for Hardware Outcomes:</strong>
+              Changes will be automatically blocked from being deployed to production if they cause a <strong>regression in key performance metrics</strong> relevant to chip design. This includes correctness (e.g., passing formal verification checks), factual groundedness (e.g., adherence to PDK rules), and tool-use accuracy (e.g., successful execution of EDA tool commands). This evaluation-driven approach ensures that our AI systems only <strong>improve over time</strong>, directly impacting the quality and performance of our silicon. Our software team will build the infrastructure for these evaluations, while domain experts will define the critical metrics and <strong>&quot;golden datasets.&quot;</strong>
+            </div>
+          </li>
+          <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
+            <TestTubeDiagonal className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+            <div>
+              <strong className="text-primary block mb-1">Continuous Testing by AI, for AI, in a Hardware Context:</strong>
+              We will leverage AI to test AI. Specialized AI testing agents will be deployed to continuously <strong>probe our design agents for weaknesses</strong>, identify edge-case failures, and even automatically repair and update broken test scripts. This proactive testing identifies subtle issues that might only manifest in complex hardware interactions, ensuring our evaluation suites remain robust and comprehensive. For instance, an AI testing agent might generate adversarial inputs to stress the RTL Coder Agent, or simulate unexpected tool outputs to test the robustness of the PPA Optimization Agent.
+            </div>
+          </li>
         </ul>
+
+        <div className="mt-8 mb-4 flex items-center">
+          <UsersRound className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            Promoting a Culture of Domain Expert Contribution:
+          </h3>
+        </div>
+        <p>While our software team will build and maintain the core MLOps infrastructure, promoting this culture means empowering our design engineers—the domain experts—to actively contribute to the continuous improvement of the AI systems.</p>
+        <ul className="list-none pl-0 space-y-6 !my-6">
+          <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
+            <DatabaseZap className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+            <div>
+              <strong className="text-primary block mb-1">Defining &quot;Golden Datasets&quot;:</strong>
+              Design engineers are uniquely positioned to define and expand the <strong>&quot;golden datasets&quot;</strong> used for evaluating agents. They understand the critical corner cases, the complex interactions between design blocks, and the real-world performance metrics that matter most for our chips. They will be actively involved in curating these datasets, ensuring the AI is tested against scenarios that reflect actual design challenges.
+            </div>
+          </li>
+          <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
+            <ClipboardList className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+            <div>
+              <strong className="text-primary block mb-1">Interpreting Evaluation Results and Providing Feedback:</strong>
+              Engineers will be trained to interpret the evaluation reports generated by the CI/CD pipelines and LangSmith. Their insights into why an AI agent failed a particular hardware design test, or why a PPA optimization was suboptimal, are invaluable. This feedback will be systematically collected and used to refine prompts, retrain models, or improve agent logic.
+            </div>
+          </li>
+          <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
+            <ClipboardCheck className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+            <div>
+              <strong className="text-primary block mb-1">Contributing to &quot;Test-Driven Development for Agents&quot;:</strong>
+              Just as agents use TDD for RTL, engineers will apply a similar mindset to agent development. They will help define the desired behavior of an agent through test cases derived from their domain expertise, guiding the AI&apos;s development in a verifiable manner.
+            </div>
+          </li>
+          <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
+            <Wrench className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+            <div>
+              <strong className="text-primary block mb-1">Empowering &quot;Repair Agents&quot;:</strong>
+              For our <strong>&quot;AI testing AI&quot;</strong> initiative, domain experts will collaborate with the software team to define the parameters for <strong>&quot;repair agents.&quot;</strong> For example, an engineer might specify what constitutes a <strong>&quot;broken test script&quot;</strong> in the context of an analog circuit simulation, allowing the AI to automatically adapt and fix tests.
+            </div>
+          </li>
+        </ul>
+        <p>By integrating the deep domain knowledge of our chip design engineers into every stage of the MLOps and CI/CD lifecycle, we ensure that our AI systems are not just technically sound, but also practically effective and continuously optimized for the unique challenges of semiconductor design. This shared responsibility builds trust and accelerates the path to full-stack AI dominance.</p>
+        {/* Section 4.3 END */}
 
         <div className="mt-12 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
@@ -180,4 +262,3 @@ export default function HumanAiSymbiosisPage() {
     </SubPageLayout>
   );
 }
-

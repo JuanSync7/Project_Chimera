@@ -1,4 +1,5 @@
 
+// src/app/architectural-blueprint/mcp-server-details/page.tsx
 "use client";
 import React from 'react';
 import SubPageLayout from '@/components/chimera/SubPageLayout';
@@ -19,15 +20,7 @@ import {
   Users,
   Share2,
   UserSquare2,
-  KeyRound,
-  Archive,
-  Component,
-  ListTree,
-  SearchCode,
-  Puzzle,
-  Layers3,
-  FileSearch2,
-  BrainCog
+  KeyRound
 } from 'lucide-react';
 
 export default function McpServerDetailsPage() {
@@ -69,8 +62,8 @@ export default function McpServerDetailsPage() {
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Example for an EDA Tool (e.g., Synopsys Fusion Compiler):</h3>
         </div>
         <ul className="list-disc pl-5 space-y-2">
-            <li><strong className="text-white font-semibold">Agent Request:</strong> <code className="language-json bg-slate-700 p-1 rounded text-sm">MCP_Server.execute_tool("Synthesis", {"design_file": "my_design.v", "target_library": "3nm_lib", "constraints_file": "timing.sdc"})</code></li>
-            <li><strong className="text-white font-semibold">Wrapper Action:</strong> The Synthesis tool wrapper on the MCP Server receives this. It then constructs the actual <code className="language-bash bg-slate-700 p-1 rounded text-sm">fusion_compiler -mode synthesis -input my_design.v -lib 3nm_lib -constraints timing.sdc</code> command, sets up the correct environment (e.g., license server variables), and executes the tool.</li>
+            <li><strong className="text-white font-semibold">Agent Request:</strong> <code className="language-json bg-slate-700 p-1 rounded text-sm">{`MCP_Server.execute_tool("Synthesis", {"design_file": "my_design.v", "target_library": "3nm_lib", "constraints_file": "timing.sdc"})`}</code></li>
+            <li><strong className="text-white font-semibold">Wrapper Action:</strong> The Synthesis tool wrapper on the MCP Server receives this. It then constructs the actual <code className="language-bash bg-slate-700 p-1 rounded text-sm">{`fusion_compiler -mode synthesis -input my_design.v -lib 3nm_lib -constraints timing.sdc`}</code> command, sets up the correct environment (e.g., license server variables), and executes the tool.</li>
         </ul>
         <p><strong className="text-white font-semibold">Result Parsing and Normalization:</strong> After tool execution, the wrapper also handles parsing the tool's output (log files, reports, generated design files). It extracts relevant metrics (e.g., PPA numbers, timing violations, DRC errors), status (success/failure), and output artifacts, and normalizes them into a structured format that the agents can easily consume.</p>
         <p><strong className="text-white font-semibold">Version Control & Dependency Management:</strong> The TAL would also manage versions of integrated tools and their dependencies (e.g., PDK versions, specific library files). When an agent requests a tool, it can specify the version, or the MCP Server can use default/recommended versions, ensuring reproducible results.</p>
@@ -81,10 +74,10 @@ export default function McpServerDetailsPage() {
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Benefits of the TAL:</h3>
         </div>
         <ul className="list-disc pl-5 space-y-2">
-          <li>Simplifies <strong>Agent Development</strong>: Agents don't need to be aware of tool-specific intricacies.</li>
-          <li>Enhances <strong>Robustness</strong>: Changes to tool versions or interfaces only require updating the wrapper, not every agent.</li>
-          <li>Enables <strong>Dynamic Tool Selection</strong>: The Supervisor can dynamically choose the best tool for a task based on the current state and available options.</li>
-          <li>Facilitates <strong>Auditability</strong>: All tool invocations and their parameters are routed through a central point.</li>
+          <li>Simplifies <strong className="text-white font-semibold">Agent Development</strong>: Agents don't need to be aware of tool-specific intricacies.</li>
+          <li>Enhances <strong className="text-white font-semibold">Robustness</strong>: Changes to tool versions or interfaces only require updating the wrapper, not every agent.</li>
+          <li>Enables <strong className="text-white font-semibold">Dynamic Tool Selection</strong>: The Supervisor can dynamically choose the best tool for a task based on the current state and available options.</li>
+          <li>Facilitates <strong className="text-white font-semibold">Auditability</strong>: All tool invocations and their parameters are routed through a central point.</li>
         </ul>
 
         {/* Section 2: Knowledge Hub (RAG) */}
@@ -133,11 +126,11 @@ export default function McpServerDetailsPage() {
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Key Components and Mechanisms:</h3>
         </div>
         <ul className="list-disc pl-5 space-y-2">
-          <li><strong className="text-white font-semibold">Shared, Persistent State Object:</strong> Central repository for current design project's dynamic state (Design Parameters, Intermediate Results, Decision Logs, Agent Interaction History).</li>
-          <li><strong className="text-white font-semibold">Cache-Augmented Generation (CAG):</strong> Efficiently stores and retrieves frequently accessed or recently generated information (In-Memory Caching, Persistent Caching, Semantic Caching).</li>
-          <li><strong className="text-white font-semibold">Event-Driven Updates:</strong> Agents publish updates to the shared state, triggering other agents or the Supervisor.</li>
-          <li><strong className="text-white font-semibold">Concurrency Control:</strong> Robust mechanisms (locking, optimistic concurrency) to prevent data corruption.</li>
-          <li><strong className="text-white font-semibold">Versioning of State:</strong> Snapshotting or versioning for "undo," checkpoints, and alternative path exploration.</li>
+          <li><strong className="text-white font-semibold">Shared, Persistent State Object:</strong> This is the central repository for the current design project's dynamic state. It includes: Design Parameters, Intermediate Results, Decision Logs, Agent Interaction History.</li>
+          <li><strong className="text-white font-semibold">Cache-Augmented Generation (CAG):</strong> This mechanism focuses on efficiently storing and retrieving frequently accessed or recently generated information to reduce latency and recomputation. This includes In-Memory Caching, Persistent Caching, and Semantic Caching.</li>
+          <li><strong className="text-white font-semibold">Event-Driven Updates:</strong> As agents complete tasks or generate new information, they publish updates to the shared state object, triggering other agents or the Supervisor as needed.</li>
+          <li><strong className="text-white font-semibold">Concurrency Control:</strong> Given multiple agents operating simultaneously, robust concurrency control mechanisms (e.g., locking, optimistic concurrency) are essential to prevent data corruption and ensure consistency of the shared state.</li>
+          <li><strong className="text-white font-semibold">Versioning of State:</strong> The ability to snapshot or version the project state at critical junctures allows for "undo" capabilities, design checkpoints, and exploration of alternative design paths from a specific point.</li>
         </ul>
 
         <div className="mt-8 mb-4 flex items-center">
@@ -145,10 +138,10 @@ export default function McpServerDetailsPage() {
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Benefits of CAG:</h3>
         </div>
         <ul className="list-disc pl-5 space-y-2">
-          <li><strong>Continuity and Coherence:</strong> Agents maintain context across multiple steps.</li>
-          <li><strong>Efficiency:</strong> Reduces redundant computation via cached results.</li>
-          <li><strong>Sophisticated Problem-Solving:</strong> Enables agents to learn from past failures.</li>
-          <li><strong>Traceability:</strong> Provides a comprehensive "digital thread."</li>
+          <li><strong>Continuity and Coherence:</strong> Agents can maintain context across multiple steps and iterations.</li>
+          <li><strong>Efficiency:</strong> Reduces redundant computation by leveraging cached results.</li>
+          <li><strong>Sophisticated Problem-Solving:</strong> Enables agents to learn from past failures and adapt strategies (e.g., trying a different optimization technique if the previous one failed).</li>
+          <li><strong>Traceability:</strong> Provides a comprehensive "digital thread" of the design process.</li>
         </ul>
 
         {/* Section 4: Potential Challenges */}
@@ -288,3 +281,5 @@ export default function McpServerDetailsPage() {
     </SubPageLayout>
   );
 }
+
+    

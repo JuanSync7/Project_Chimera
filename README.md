@@ -8,7 +8,7 @@ This is a Next.js web application built to showcase "Project Chimera," a compreh
 Project Chimera leverages Multi-Agent Systems (MAS) to achieve a generational leap in efficiency, performance, and innovation in semiconductor design. This web application details:
 
 *   **The Strategic Imperative:** Why an AI-first future is critical for leadership in the semiconductor industry.
-*   **Architectural Blueprint:** The Multi-Agent System architecture, including the Supervisor-Worker pattern.
+*   **Architectural Blueprint:** The Multi-Agent System architecture, including the Supervisor-Worker pattern and the MCP Server.
 *   **AI-Powered Pipeline:** How agentic workflows are applied across each stage of chip design.
 *   **Human-AI Symbiosis:** The evolving role of engineers and the tools to empower them.
 *   **Critical Analysis & AGI Horizon:** Risk mitigation strategies and the long-term vision towards AGI.
@@ -28,8 +28,8 @@ Project Chimera leverages Multi-Agent Systems (MAS) to achieve a generational le
 
 ### Prerequisites
 
-*   Node.js (version specified in `package.json` engines field or latest LTS, e.g., 20.x)
-*   npm (compatible version with Node.js, e.g., 10.x)
+*   Node.js (version specified in `package.json` engines field or latest LTS, e.g., 20.x). Ensure `node -v` shows a compatible version.
+*   npm (comes with Node.js, e.g., 10.x). Ensure `npm -v` shows a compatible version.
 
 ### Installation
 
@@ -47,9 +47,13 @@ Project Chimera leverages Multi-Agent Systems (MAS) to achieve a generational le
 
 This project uses environment variables for configuration, primarily for Genkit integration with Google AI services.
 
-1.  **Create a `.env.local` file** in the root of the project. You can copy `.env` if it exists and serves as a template, or create it manually.
+1.  **Create a `.env.local` file** in the root of the project. You can copy the existing `.env` file (if it serves as a template) or create it manually.
+    ```bash
+    cp .env .env.local
+    ```
 2.  **Add your Gemini API key** to `.env.local`:
     ```env
+    # .env.local
     # For Genkit/Gemini integration
     GEMINI_API_KEY=your_google_ai_studio_api_key_here
 
@@ -69,7 +73,7 @@ npm run dev
 
 This will typically start the development server on `http://localhost:9002` (as configured in `package.json`).
 
-If you are using Genkit features that require the Genkit development server (e.g., for flow inspection via the Genkit Developer UI), you might also run:
+If you are using Genkit features that require the Genkit development server (e.g., for flow inspection via the Genkit Developer UI), you might also run in a separate terminal:
 ```bash
 npm run genkit:dev
 # or for watching changes
@@ -86,7 +90,8 @@ This project includes several important documents for understanding its architec
 *   **`GUIDE_CREATING_PAGES.md`**: Instructions on adding new main page sections and subpages.
 *   **`DATA_STRUCTURES.md`**: Details on the TypeScript interfaces used for dynamic content.
 *   **`INTERACTIVITY_GUIDE.md`**: Explanation of client-side interactive features.
-*   **`ARCHITECTURAL_BLUEPRINT_FORMATTING_GUIDE.md`**: Specific formatting for the detailed `architectural-blueprint/page.tsx`.
+*   **`ARCHITECTURAL_BLUEPRINT_FORMATTING_GUIDE.md`**: Specific formatting for the main `architectural-blueprint/page.tsx`.
+*   **`MCP_SERVER_DETAILS_FORMATTING_GUIDE.md`**: Specific formatting for the `architectural-blueprint/mcp-server-details/page.tsx`.
 *   **`COLOR_SCHEME.md`**: Details the color palette and theme variables.
 *   **`FONT_CHOICES.md`**: Outlines the font families used.
 *   **`SVG_DIAGRAM_GUIDELINES.md`**: Best practices for creating and integrating SVG diagrams.
@@ -121,3 +126,5 @@ This will generate an optimized build in the `.next` directory.
 *   **Type Check:** `npm run typecheck`
 
 This README provides a starting point for understanding and working with the Project Chimera web application. For more detailed information, please consult the specific documentation files listed above.
+
+    

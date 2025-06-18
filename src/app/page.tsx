@@ -21,10 +21,10 @@ interface HomePageProps {
 
 // Renamed from App to HomePage for clarity as it's the page component
 export default function HomePage({ params: initialParams, searchParams: initialSearchParams }: HomePageProps) {
-  // Create plain shallow copies of params and searchParams
-  // This might help if external tools try to enumerate them before they are fully "materialized" by Next.js
-  const params = initialParams ? { ...initialParams } : {};
-  const searchParams = initialSearchParams ? { ...initialSearchParams } : {};
+  // The component doesn't use initialParams or initialSearchParams for its own logic.
+  // Removed lines that copied these props using spread operator, as that caused the enumeration warning.
+  // const params = initialParams ? { ...initialParams } : {}; // Removed
+  // const searchParams = initialSearchParams ? { ...initialSearchParams } : {}; // Removed
 
   const [activeSection, setActiveSection] = useState<string>('home');
 
@@ -58,10 +58,6 @@ export default function HomePage({ params: initialParams, searchParams: initialS
       });
     };
   }, []);
-
-  // If you needed to use params or searchParams in this component's logic,
-  // you would now use the `params` and `searchParams` constants defined above.
-  // For example: console.log(params, searchParams);
 
   return (
     <div className="relative">

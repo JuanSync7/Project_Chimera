@@ -25,7 +25,7 @@ const OverviewSection: React.FC = () => {
         />
         <SectionCard
           icon={<Rocket className="h-12 w-12 text-fuchsia-400" />}
-          title="The 10x Vision"
+          title="The <span class='gradient-text'>10x</span> Vision"
           description="An AI-driven methodology is a <strong>step-function leap</strong>. Targets: <strong>30-50% design time reduction</strong>, up to <strong>40% power efficiency improvement</strong>, <strong>3-5x engineering productivity boost</strong>, <strong>70% debug time reduction</strong>, and <strong>10x faster design exploration</strong>."
           className="hover:border-fuchsia-500/50"
         />

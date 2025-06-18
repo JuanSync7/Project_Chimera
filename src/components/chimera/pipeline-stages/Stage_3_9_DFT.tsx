@@ -3,7 +3,7 @@ import React from 'react';
 import { PrimaryWorkflowItemCard, NestedDetailCard } from './WorkflowCardHelpers';
 import {
   AlertTriangle, Wrench, ClipboardList, BrainCircuit, Scale, Keyboard, Puzzle, Cog, BarChart3, FileCode, ListChecks,
-  Crosshair, ShieldCheck, PlayCircle, TestTube2, Bug, RefreshCcw // Added RefreshCcw here
+  Crosshair, ShieldCheck, PlayCircle, TestTube2, Bug, RefreshCcw
 } from 'lucide-react';
 
 const Stage_3_9_DFT: React.FC = () => {
@@ -116,7 +116,7 @@ const Stage_3_9_DFT: React.FC = () => {
 
   return (
     <div className="section-card p-6 rounded-2xl mt-12">
-      <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
+      <h2 id="stage-3-9" className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
         3.9 Stage 9: Design for Testability (DFT) Insertion &amp; Test Pattern Generation
       </h2>
       <div className="mt-6 mb-4 flex items-center">

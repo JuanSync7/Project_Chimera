@@ -69,7 +69,7 @@ const Stage_3_7_AIDebugging: React.FC = () => {
 
   return (
     <div className="section-card p-6 rounded-2xl mt-12">
-      <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
+      <h2 id="stage-3-7" className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
         3.7 Stage 7: AI-Driven Debugging &amp; Root Cause Analysis
       </h2>
       <div className="mt-6 mb-4 flex items-center">

@@ -47,7 +47,7 @@ const Stage_3_2_RTLGeneration: React.FC = () => {
 
   return (
     <div className="section-card p-6 rounded-2xl mt-12">
-      <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
+      <h2 id="stage-3-2" className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
         3.2 Stage 2: Intelligent RTL Generation from Architecture
       </h2>
       <div className="mt-6 mb-4 flex items-center">

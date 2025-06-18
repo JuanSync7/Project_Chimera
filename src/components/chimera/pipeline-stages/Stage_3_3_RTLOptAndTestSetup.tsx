@@ -27,7 +27,7 @@ const Stage_3_3_RTLOptAndTestSetup: React.FC = () => {
 
   return (
     <div className="section-card p-6 rounded-2xl mt-12">
-      <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
+      <h2 id="stage-3-3" className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
         3.3 Stage 3: Proactive RTL Optimization &amp; Testbench Setup
       </h2>
       <div className="mt-6 mb-4 flex items-center">

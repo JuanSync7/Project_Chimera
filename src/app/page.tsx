@@ -1,4 +1,3 @@
-
 // src/app/page.tsx
 "use client";
 import React, { useState, useEffect } from 'react';
@@ -14,7 +13,15 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import StarryBackground from '@/components/chimera/StarryBackground';
 
-const App: React.FC = () => {
+// Define props for the page component
+interface HomePageProps {
+  // For static pages, params is an empty object.
+  params?: Record<string, string>; // Or Record<string, never>
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
+
+// Renamed from App to HomePage for clarity as it's the page component
+export default function HomePage({ params, searchParams }: HomePageProps) {
   const [activeSection, setActiveSection] = useState<string>('home');
 
   useEffect(() => {
@@ -107,5 +114,3 @@ const App: React.FC = () => {
     </div>
   );
 };
-
-export default App;

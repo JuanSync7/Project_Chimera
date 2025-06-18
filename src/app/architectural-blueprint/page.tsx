@@ -235,32 +235,32 @@ export default function ArchitecturalBlueprintPage() {
             <li><strong className="text-white font-semibold">Facilitate Collaboration:</strong> Provide a shared platform for engineers, AI developers, and verification teams to inspect agent runs, provide human feedback, and collaborate on improving prompts and agent behaviors, fostering a more agile development environment.</li>
         </ul>
         <p>By adopting the Supervisor-Worker pattern implemented with LangGraph and complemented by LangSmith, we ensure that our AI-driven design processes are not only intelligent and automated but also <strong>predictable, auditable, resilient, and continuously optimized</strong>, providing the highest degree of confidence in the integrity and success of our silicon products.</p>
-
+        
         <div className="mt-12 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             2.4 The MCP Server: A Central Nervous System for Tools, Knowledge, and State
           </h2>
         </div>
-        <p>The Supervisor and Worker agents require a robust infrastructure to support their operations. The cornerstone of this infrastructure is the <strong>MCP (Multi-Agent Collaboration Protocol) Server</strong>. This is not simply a tool repository; it is a <strong>stateful, intelligent hub</strong> that serves as the <strong>brain and memory</strong> for the entire multi-agent system. Its architecture is inspired by services like <strong>LangConnect</strong>, which provide a managed API for RAG applications. The MCP Server will perform three critical functions:</p>
+        <p>The Supervisor and Worker agents require a robust infrastructure to support their complex, iterative operations. The cornerstone of this infrastructure is the <strong>MCP (Multi-Agent Collaboration Protocol) Server</strong>, a stateful, intelligent hub that serves as the <strong>brain, long-term memory, and dynamic workspace</strong> for the entire multi-agent system. Its architecture is inspired by services like <strong>LangConnect</strong>, which provide managed APIs for advanced RAG applications. The MCP Server will perform three critical and interconnected functions:</p>
 
         <div className="mt-8 mb-4 flex items-center">
           <Layers3 className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Tool Abstraction Layer:</h3>
         </div>
-        <p>It will provide a <strong>standardized, version-controlled API</strong> for agents to access all necessary tools. This includes commercial EDA software (e.g., <strong>Synopsys DSO.ai, Cadence Cerebrus, JasperGold</strong>) as well as <strong>custom-built Python scripts</strong> and internal utilities. This abstracts away the complexity of individual tool interfaces, allowing agents to invoke them with <strong>simple, standardized calls</strong>.</p>
+        <p>It provides a <strong>standardized, version-controlled API</strong> and integrated wrappers for agents to seamlessly access and execute all necessary design tools. This includes commercial EDA software (e.g., <strong>Synopsys DSO.ai, Cadence Cerebrus, JasperGold</strong>) as well as <strong>custom-built Python scripts</strong> and internal utilities, abstracting away the complexity of individual tool interfaces and normalizing their outputs.</p>
 
         <div className="mt-8 mb-4 flex items-center">
           <DatabaseZap className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Knowledge Hub (RAG):</h3>
         </div>
-        <p>The server will host and manage a <strong>comprehensive, version-controlled vector database</strong> that acts as the <strong>long-term memory</strong> of the organization. This knowledge base will be populated with all relevant public and proprietary data: <strong>process design kits (PDKs), standard cell libraries, datasheets, technical manuals, internal design guidelines</strong>, and, most importantly, the <strong>complete data from every previous chip design project</strong>. This turns our entire design history into a <strong>searchable, queryable asset</strong>.</p>
+        <p>The server hosts and manages a comprehensive, <strong>semantically searchable, version-controlled vector database</strong> that acts as the organization's <strong>deep institutional memory</strong>. This knowledge base is meticulously populated with all relevant public and proprietary data: <strong>process design kits (PDKs), standard cell libraries, datasheets, technical manuals, internal design guidelines</strong>, and, critically, the <strong>complete, detailed historical data</strong> from every previous chip design project. This transforms our entire design history into a grounding, queryable asset for <strong>factual accuracy</strong>.</p>
 
         <div className="mt-8 mb-4 flex items-center">
           <MessagesSquare className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Context & State Management (CAG):</h3>
         </div>
-        <p>The server will manage the <strong>short-term, dynamic context</strong> of ongoing design tasks. This includes the <strong>conversational history between agents</strong>, the <strong>results of recent actions</strong>, and the <strong>current project state</strong>. It will employ caching mechanisms (<strong>Cache-Augmented Generation</strong>) to store and quickly retrieve frequently accessed information, <strong>reducing latency and computational cost</strong>.</p>
-        <p>Over time, this MCP Server will evolve into the company's <strong>most valuable piece of intellectual property</strong>. It is the <strong>digital twin of our collective engineering expertise</strong>, a learning system that encapsulates our <strong>unique design methodologies</strong> and grows more powerful with every chip we produce.</p>
+        <p>The server dynamically manages the <strong>short-term, evolving context</strong> and <strong>persistent state</strong> of ongoing design tasks. This includes the <strong>iterative conversational history</strong> between agents, the <strong>real-time results of recent actions</strong> (e.g., PPA metrics, verification logs), and the current project's <strong>dynamic design state</strong>. It leverages efficient <strong>caching mechanisms</strong> to store and quickly retrieve frequently accessed information, significantly reducing <strong>latency and computational overhead</strong> for iterative design loops.</p>
+        <p>Over time, this MCP Server will evolve into the company's <strong>most valuable piece of intellectual property</strong>. It is the <strong>digital twin of our collective engineering expertise</strong>, a continuously <strong>learning system</strong> that encapsulates our <strong>unique design methodologies</strong> and grows demonstrably <strong>more powerful and efficient</strong> with every chip we produce.</p>
         <div className="text-center mt-8 mb-4">
           <Link href="/architectural-blueprint/mcp-server-details" passHref>
             <Button variant="outline" size="lg" className="bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/40">

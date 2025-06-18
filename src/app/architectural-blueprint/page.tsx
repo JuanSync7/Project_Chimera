@@ -20,6 +20,16 @@ export default function ArchitecturalBlueprintPage() {
         <p>Therefore, the core of our solution is a sophisticated <strong>Multi-Agent System (MAS)</strong>. This is not simply a collection of AI tools, but a <strong>collaborative, intelligent ecosystem</strong> of specialized, <strong>autonomous AI agents</strong>, meticulously orchestrated by a <strong>central intelligence hub</strong>. This section will unveil the <strong>detailed technical blueprint</strong> for this transformative system, outlining its <strong>core components</strong>, the <strong>intelligent communication protocols</strong> that enable seamless collaboration, and the <strong>strategic rationale</strong> underpinning this powerful, distributed, yet harmonized, design approach.</p>
 
         <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
+          2.1 Foundations of Multi-Agent Systems: Orchestrating Collaborative Intelligence
+        </h2>
+        <p>A <strong>Multi-Agent System</strong> is composed of multiple <strong>autonomous, intelligent agents</strong>, each with specialized capabilities and goals, that interact within a shared environment to solve problems far too complex for any single agent. This architectural paradigm is uniquely suited to the challenges of semiconductor design for several key reasons:</p>
+        <ul className="list-disc pl-5 space-y-2">
+          <li><strong className="text-primary font-semibold">Modularity and Specialization:</strong> The chip design process is naturally divisible into distinct domains of expertise (e.g., RTL generation, formal verification, physical design, PPA optimization). A MAS allows for the creation of dedicated <strong>&quot;expert&quot; agents</strong> for each domain. This modularity improves performance, as each agent can be optimized for its specific task, and enhances maintainability, as components can be developed, tested, and updated independently.</li>
+          <li><strong className="text-primary font-semibold">Scalability:</strong> As design challenges evolve and new technologies emerge (e.g., new process nodes, new memory types), new <strong>specialized agents can be seamlessly integrated</strong> into the system to handle these new requirements without needing to re-architect the entire framework.</li>
+          <li><strong className="text-primary font-semibold">Robustness and Debuggability:</strong> The inherent <strong>separation of concerns</strong> in a MAS makes it easier to trace logic, isolate failures, and resolve issues. If a verification task fails, the problem can be traced directly to the Verification Agent and its interactions, rather than attempting to debug an opaque, monolithic system.</li>
+        </ul>
+
+        <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
           2.2 Core Components: The Specialized AI Agent Network
         </h2>
         <p>Our Multi-Agent System is architected as a network of distinct, specialized AI agents, each contributing its unique intelligence to the end-to-end design flow. These agents are broadly categorized by their function:</p>
@@ -53,17 +63,7 @@ export default function ArchitecturalBlueprintPage() {
         </ul>
 
         <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
-          2.3 Foundations of Multi-Agent Systems: Orchestrating Collaborative Intelligence
-        </h2>
-        <p>A <strong>Multi-Agent System</strong> is composed of multiple <strong>autonomous, intelligent agents</strong>, each with specialized capabilities and goals, that interact within a shared environment to solve problems far too complex for any single agent. This architectural paradigm is uniquely suited to the challenges of semiconductor design for several key reasons:</p>
-        <ul className="list-disc pl-5 space-y-2">
-          <li><strong className="text-primary font-semibold">Modularity and Specialization:</strong> The chip design process is naturally divisible into distinct domains of expertise (e.g., RTL generation, formal verification, physical design, PPA optimization). A MAS allows for the creation of dedicated <strong>&quot;expert&quot; agents</strong> for each domain. This modularity improves performance, as each agent can be optimized for its specific task, and enhances maintainability, as components can be developed, tested, and updated independently.</li>
-          <li><strong className="text-primary font-semibold">Scalability:</strong> As design challenges evolve and new technologies emerge (e.g., new process nodes, new memory types), new <strong>specialized agents can be seamlessly integrated</strong> into the system to handle these new requirements without needing to re-architect the entire framework.</li>
-          <li><strong className="text-primary font-semibold">Robustness and Debuggability:</strong> The inherent <strong>separation of concerns</strong> in a MAS makes it easier to trace logic, isolate failures, and resolve issues. If a verification task fails, the problem can be traced directly to the Verification Agent and its interactions, rather than attempting to debug an opaque, monolithic system.</li>
-        </ul>
-
-        <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
-          2.4 The Supervisor-Worker Pattern: A LangGraph-based Framework for Task Delegation
+          2.3 The Supervisor-Worker Pattern: A LangGraph-based Framework for Task Delegation
         </h2>
         <p>While several MAS architectures exist, the choice of architecture is a critical strategic decision. A decentralized <strong>&quot;Swarm&quot;</strong> or <strong>&quot;Network&quot;</strong> architecture, where any agent can communicate with any other, offers maximum flexibility but introduces a high degree of complexity and unpredictability. The emergent behaviors in such systems are difficult to control, audit, and debug—a level of risk that is unacceptable in the capital-intensive, high-stakes world of semiconductor design.</p>
         <p>Therefore, this plan advocates for a <strong>Supervisor-Worker architecture</strong>. This model provides the necessary balance of flexibility and control.</p>
@@ -71,18 +71,18 @@ export default function ArchitecturalBlueprintPage() {
         <p><strong className="text-white font-semibold">Implementation Framework:</strong> This architecture will be implemented using <strong>LangGraph</strong>, an open-source library designed for building stateful, multi-agent applications. In LangGraph, the entire workflow is modeled as a <strong>state machine or graph</strong>. The agents are the <strong>&quot;nodes&quot;</strong> of the graph, and the Supervisor agent controls the <strong>&quot;edges,&quot;</strong> directing the flow of execution from one node to the next based on the current state of the project. Communication and state are managed via a <strong>shared, persistent state object</strong> that is passed between agents. This <strong>centralized control flow</strong> is not merely a technical choice; it is a strategic one. It provides a single point of observation, making the entire system <strong>transparent and auditable</strong>. This is critical for <strong>MLOps, governance, and debugging</strong>, aligning perfectly with the risk-averse nature of the semiconductor industry.</p>
         
         <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
-          2.5 The MCP Server: A Central Nervous System for Tools, Knowledge, and State
+          2.4 The MCP Server: A Central Nervous System for Tools, Knowledge, and State
         </h2>
         <p>The Supervisor and Worker agents require a robust infrastructure to support their operations. The cornerstone of this infrastructure is the <strong>MCP (Multi-Agent Collaboration Protocol) Server</strong>. This is not simply a tool repository; it is a <strong>stateful, intelligent hub</strong> that serves as the <strong>brain and memory</strong> for the entire multi-agent system. Its architecture is inspired by services like <strong>LangConnect</strong>, which provide a managed API for RAG applications. The MCP Server will perform three critical functions:</p>
         <ul className="list-disc pl-5 space-y-2">
           <li><strong className="text-primary font-semibold">Tool Abstraction Layer:</strong> It will provide a standardized, version-controlled API for agents to access all necessary tools. This includes commercial EDA software (e.g., Synopsys DSO.ai, Cadence Cerebrus, JasperGold) as well as custom-built Python scripts and internal utilities. This <strong>abstracts away the complexity</strong> of individual tool interfaces, allowing agents to invoke them with simple, standardized calls.</li>
           <li><strong className="text-primary font-semibold">Knowledge Hub (RAG):</strong> The server will host and manage a comprehensive, <strong>version-controlled vector database</strong> that acts as the <strong>long-term memory</strong> of the organization. This knowledge base will be populated with all relevant public and proprietary data: process design kits (PDKs), standard cell libraries, datasheets, technical manuals, internal design guidelines, and, most importantly, the complete data from every previous chip design project. This turns our entire design history into a <strong>searchable, queryable asset</strong>.</li>
-          <li><strong className="text-primary font-semibold">Context &amp; State Management (CAG):</strong> The server will manage the short-term, <strong>dynamic context</strong> of ongoing design tasks. This includes the conversational history between agents, the results of recent actions, and the current project state. It will employ caching mechanisms (<strong>Cache-Augmented Generation</strong>) to store and quickly retrieve frequently accessed information, reducing latency and computational cost.</li>
+          <li><strong className="text-primary font-semibold">Context & State Management (CAG):</strong> The server will manage the short-term, <strong>dynamic context</strong> of ongoing design tasks. This includes the conversational history between agents, the results of recent actions, and the current project state. It will employ caching mechanisms (<strong>Cache-Augmented Generation</strong>) to store and quickly retrieve frequently accessed information, reducing latency and computational cost.</li>
         </ul>
         <p>Over time, this <strong>MCP Server</strong> will evolve into the company&apos;s most valuable piece of intellectual property. It is the <strong>digital twin</strong> of our collective engineering expertise, a learning system that encapsulates our unique design methodologies and grows more powerful with every chip we produce.</p>
 
         <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
-          2.6 Grounding Agents in Reality: A Hybrid RAG/CAG Architecture for Contextual Intelligence
+          2.5 Grounding Agents in Reality: A Hybrid RAG/CAG Architecture for Contextual Intelligence
         </h2>
         <p>To perform complex reasoning, agents need access to two types of information: <strong>static, factual knowledge</strong> and <strong>dynamic, task-specific context</strong>. The MCP Server is designed to provide both through a hybrid architecture that seamlessly blends <strong>Retrieval-Augmented Generation (RAG)</strong> and <strong>Context-Augmented Generation (CAG)</strong>.</p>
         <p><strong className="text-white font-semibold">RAG for Factual Grounding:</strong> Agents will use RAG to query the MCP Server&apos;s knowledge hub for external, objective information. For example, a Verification Agent might ask, &quot;What are the specific timing constraints for the PCIe Gen 6 interface on the 3nm process node?&quot; The RAG system retrieves the relevant section from the PDK documentation and provides it to the agent. This process <strong>grounds the agent&apos;s actions in verified facts</strong>, preventing factual errors or <strong>&quot;hallucinations&quot;</strong> and ensuring designs comply with the latest specifications.</p>
@@ -92,4 +92,3 @@ export default function ArchitecturalBlueprintPage() {
     </SubPageLayout>
   );
 }
-

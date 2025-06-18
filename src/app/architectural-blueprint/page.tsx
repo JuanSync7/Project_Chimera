@@ -1,3 +1,4 @@
+
 // src/app/architectural-blueprint/page.tsx
 "use client";
 import React from 'react';
@@ -21,7 +22,7 @@ import {
   MessagesSquare, 
   FileSearch2, 
   BrainCog,
-  SearchCode
+  SearchCode // Keep this import as it might be used elsewhere on the page or was recently added
 } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -117,35 +118,35 @@ export default function ArchitecturalBlueprintPage() {
             RTL Generation Agents: Translating Vision into Optimized Code
           </h3>
         </div>
-        <p>These agents focus on the intricate task of converting <strong>architectural blueprints</strong> into <strong>executable Register-Transfer Level (RTL) code</strong>. They embody <strong>deep domain knowledge</strong> to generate <strong>high-quality, synthesizable, and optimized RTL</strong>, ensuring both <strong>functional correctness</strong> and downstream <strong>PPA targets</strong> are met.</p>
+        <p>These agents focus on the intricate task of converting <strong>architectural blueprints</strong> into <strong>executable, synthesizable Register-Transfer Level (RTL) code</strong>. They embody <strong>deep domain knowledge</strong> and leverage <strong>advanced AI techniques</strong> to generate <strong>high-quality, optimized RTL</strong>, ensuring both <strong>functional correctness</strong> and downstream <strong>PPA targets</strong> are met, even <strong>without model fine-tuning</strong>.</p>
         <ul className="list-disc pl-5 space-y-2">
           <li>
-            <strong className="text-white font-semibold">RTL Generation & Refinement Agent:</strong> This agent translates the <strong>detailed architectural specifications</strong> from the Architecture Exploration Agents (or even high-level design descriptions) directly into <strong>clean, synthesizable RTL code (Verilog, VHDL)</strong>. It leverages <strong>generative AI models</strong> trained on vast codebases and design patterns to autonomously write <strong>complex modules, state machines, and data paths</strong>. Beyond initial generation, it performs <strong>initial local optimizations, code linting, and design rule checking</strong>, significantly reducing <strong>manual coding effort</strong> and potential <strong>human errors</strong> while adhering to <strong>company coding standards</strong>.
+            <strong className="text-white font-semibold">RTL Generation & Refinement Agent:</strong> This agent translates <strong>detailed architectural specifications</strong> (from the Architecture Exploration Agents or high-level design descriptions, including C/C++/SystemC) directly into <strong>clean, synthesizable, and functionally correct RTL code (Verilog, VHDL)</strong>. It achieves this by employing <strong>advanced prompt engineering techniques</strong> with powerful, <strong>general-purpose LLMs</strong>, guiding their output using <strong>structured prompts, in-context learning (via RAG on our Knowledge Hub), and constraint-based generation</strong>. It can also intelligently orchestrate <strong>High-Level Synthesis (HLS) tools</strong> by applying <strong>optimal pragmas and directives</strong>. Beyond initial generation, it performs <strong>proactive local optimizations, code linting, and design rule checking</strong>. In the <strong>Test-Driven Development (TDD) loop</strong>, it iteratively <strong>refines and debugs</strong> its generated code based on <strong>precise feedback</strong> from verification agents, significantly reducing <strong>manual coding effort</strong> and potential <strong>human errors</strong> while adhering to <strong>company coding standards</strong>.
           </li>
           <li>
-            <strong className="text-white font-semibold">Power-Aware RTL Optimization Agent:</strong> Specializing in <strong>energy efficiency</strong>, this agent focuses on applying <strong>advanced power optimization techniques</strong> directly at the <strong>RTL level</strong>. It analyzes the design's <strong>power characteristics</strong>, identifies <strong>static and dynamic power hot-spots</strong>, and autonomously modifies RTL code to implement techniques like <strong>advanced clock gating, power gating, multi-voltage domain partitioning, and intelligent activity-based power reduction strategies</strong>. This proactive, AI-driven power optimization at the RTL stage is critical for achieving <strong>aggressive power targets</strong> in modern <strong>low-power and mobile applications</strong>.
+            <strong className="text-white font-semibold">Power-Aware RTL Optimization Agent:</strong> Specializing in <strong>energy efficiency</strong>, this agent focuses on applying <strong>advanced power optimization techniques</strong> directly at the <strong>RTL level</strong>. It analyzes the design's <strong>power characteristics</strong>, identifies <strong>static and dynamic power hot-spots</strong>, and autonomously <strong>modifies RTL code</strong> to implement techniques like <strong>advanced clock gating, power gating, multi-voltage domain partitioning, and intelligent activity-based power reduction strategies</strong>. This proactive, AI-driven power optimization at the RTL stage is critical for achieving <strong>aggressive power targets</strong> in modern <strong>low-power and mobile applications</strong>, often guided by <strong>prompt-engineered rules</strong>.
           </li>
         </ul>
-
+        
         <div className="mt-8 mb-4 flex items-center">
           <ShieldCheck className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
             Verification Agents: AI-Driven Validation for Flawless Silicon
           </h3>
         </div>
-        <p>Addressing the largest bottleneck in modern design, these agents perform critical roles in ensuring <strong>design correctness, functional completeness, and reliability</strong> across various abstraction levels and methodologies.</p>
+        <p>Addressing the <strong>largest bottleneck</strong> in modern design, these agents perform critical roles in ensuring <strong>design correctness, functional completeness, and reliability</strong> across various abstraction levels and methodologies.</p>
         <ul className="list-disc pl-5 space-y-2">
           <li>
-            <strong className="text-white font-semibold">Test & Coverage Generation Agent:</strong> Focused on the proactive creation of <strong>robust verification environments</strong> and <strong>comprehensive test scenarios</strong>, this agent autonomously develops intricate <strong>test plans</strong>, analyzes complex design <strong>coverage goals</strong>, and generates highly effective <strong>test vectors</strong>. This includes constrained random, directed, and formal verification assertions, as well as orchestrating and populating complex <strong>UVM (Universal Verification Methodology) testbenches</strong>. Its intelligence lies in identifying <strong>critical scenarios, corner cases, and coverage holes</strong>, and then generating targeted stimuli to ensure <strong>thorough validation and coverage closure</strong> for both module and system-level functionality.
+            <strong className="text-white font-semibold">Test & Coverage Generation Agent:</strong> Focused on the proactive creation of <strong>robust verification environments</strong> and <strong>comprehensive test scenarios</strong>, this agent autonomously develops intricate <strong>test plans</strong>, analyzes complex design <strong>coverage goals</strong>, and generates highly effective <strong>test vectors</strong>. This includes <strong>constrained random, directed, and formal verification assertions</strong>, as well as orchestrating and populating complex <strong>UVM (Universal Verification Methodology) testbenches</strong>. Its intelligence lies in identifying <strong>critical scenarios, corner cases, and coverage holes</strong>, and then generating <strong>targeted stimuli</strong> to ensure <strong>thorough validation and coverage closure</strong> for both module and system-level functionality.
           </li>
           <li>
-            <strong className="text-white font-semibold">AutoReview Agent:</strong> This specialized agent acts as an automated, tireless <strong>code reviewer and static analysis expert</strong>. It leverages static analysis, sophisticated linting tools, and early-stage formal methods to meticulously check generated RTL for <strong>syntax errors, company-specific style guide violations, non-synthesizable constructs, and potential design pitfalls</strong> (e.g., clock/reset domain crossing issues). It provides precise, targeted, and actionable feedback for immediate automated correction, creating a fast feedback loop for RTL refinement.
+            <strong className="text-white font-semibold">AutoReview Agent:</strong> This specialized agent acts as an <strong>automated, tireless code reviewer and static analysis expert</strong>. It leverages <strong>static analysis, sophisticated linting tools, and early-stage formal methods</strong> to meticulously check generated RTL for <strong>syntax errors, company-specific style guide violations, non-synthesizable constructs, and potential design pitfalls</strong> (e.g., clock/reset domain crossing issues). It provides <strong>precise, targeted, and actionable feedback</strong> for immediate automated correction, creating a <strong>fast feedback loop</strong> for RTL refinement.
           </li>
           <li>
-            <strong className="text-white font-semibold">AutoDV (Automatic Design Verification) Agent:</strong> This powerful agent is responsible for driving <strong>comprehensive functional correctness</strong> and achieving <strong>complete coverage</strong>. It intelligently orchestrates formal verification tools to <strong>mathematically prove design properties</strong> and identify deep, elusive bugs that simulation often misses, providing detailed counter-examples. Concurrently, it continuously analyzes <strong>simulation coverage reports</strong> (code, functional, assertion) and intelligently generates new, <strong>highly targeted test cases</strong> to close coverage holes, ensuring the design is rigorously exercised under all conditions.
+            <strong className="text-white font-semibold">AutoDV (Automatic Design Verification) Agent:</strong> This powerful agent is responsible for driving <strong>comprehensive functional correctness</strong> and achieving <strong>complete coverage</strong>. It intelligently orchestrates <strong>formal verification tools</strong> to <strong>mathematically prove design properties</strong> and identify <strong>deep, elusive bugs</strong> that simulation often misses, providing detailed <strong>counter-examples</strong>. Concurrently, it continuously analyzes <strong>simulation coverage reports (code, functional, assertion)</strong> and intelligently generates <strong>new, highly targeted test cases</strong> to close coverage holes, ensuring the design is <strong>rigorously exercised</strong> under all conditions.
           </li>
           <li>
-            <strong className="text-white font-semibold">Debug & Root Cause Analysis Agent:</strong> Addressing what is historically the <strong>largest bottleneck</strong> in modern design, this agent is a tireless, AI-powered problem-solver. It specializes in analyzing <strong>verification failures</strong> across all methodologies (simulation logs, waveform data, formal counter-examples). It sifts through vast amounts of design collateral to proactively <strong>identify, localize (down to specific RTL lines or design blocks), and even suggest precise fixes</strong> for functional, performance, and integrity bugs. This agent dramatically reduces <strong>manual debugging time</strong> and accelerates <strong>error resolution</strong> through intelligent diagnostics and feedback.
+            <strong className="text-white font-semibold">Debug & Root Cause Analysis Agent:</strong> Addressing what is historically the <strong>largest bottleneck</strong> in modern design, this agent is a <strong>tireless, AI-powered problem-solver</strong>. It specializes in analyzing <strong>verification failures</strong> across all methodologies (simulation logs, waveform data, formal counter-examples). It sifts through vast amounts of design collateral to proactively <strong>identify, localize (down to specific RTL lines or design blocks), and even suggest precise fixes</strong> for functional, performance, and integrity bugs. This agent dramatically reduces <strong>manual debugging time</strong> and accelerates <strong>error resolution</strong> through intelligent diagnostics and feedback.
           </li>
         </ul>
 
@@ -155,19 +156,19 @@ export default function ArchitecturalBlueprintPage() {
             Design for Testability (DFT) Agents: Automated Test Infrastructure for Manufacturability
           </h3>
         </div>
-        <p>Crucial for ensuring efficient and comprehensive post-manufacturing testing, these agents intelligently automate the insertion and verification of test logic within the chip design, directly impacting yield and test costs.</p>
+        <p>Crucial for ensuring <strong>efficient and comprehensive post-manufacturing testing</strong>, these agents intelligently automate the <strong>insertion and verification of test logic</strong> within the chip design, directly impacting <strong>yield and test costs</strong>.</p>
         <ul className="list-disc pl-5 space-y-2">
           <li>
-            <strong className="text-white font-semibold">DFT Planning Agent:</strong> This agent analyzes the RTL or netlist, leverages historical data and fault models from the Knowledge Graph Agent, and intelligently determines the optimal DFT strategy (e.g., scan architecture, BIST insertion, JTAG integration) to achieve high fault coverage while minimizing area, power, and performance overhead. It generates a detailed, optimized DFT specification.
+            <strong className="text-white font-semibold">DFT Planning Agent:</strong> This agent analyzes the <strong>RTL or netlist</strong>, leverages <strong>historical data and fault models</strong> from the Knowledge Graph Agent, and intelligently determines the <strong>optimal DFT strategy</strong> (e.g., scan architecture, BIST insertion, JTAG integration) to achieve <strong>high fault coverage</strong> while minimizing <strong>area, power, and performance overhead</strong>. It generates a <strong>detailed, optimized DFT specification</strong>.
           </li>
           <li>
-            <strong className="text-white font-semibold">DFT Insertion Agent:</strong> This agent autonomously orchestrates industry-standard DFT tools to modify the design by inserting the planned test structures (e.g., scan chains, memory BIST logic, boundary scan). It ensures correct implementation of test modes and proper connectivity, adapting to design constraints.
+            <strong className="text-white font-semibold">DFT Insertion Agent:</strong> This agent autonomously orchestrates <strong>industry-standard DFT tools</strong> to modify the design by inserting the <strong>planned test structures</strong> (e.g., scan chains, memory BIST logic, boundary scan). It ensures <strong>correct implementation of test modes</strong> and <strong>proper connectivity</strong>, adapting to design constraints.
           </li>
           <li>
-            <strong className="text-white font-semibold">ATPG (Automatic Test Pattern Generation) Agent:</strong> This agent generates highly efficient and comprehensive test patterns for various fault models (e.g., stuck-at, transition) to achieve the required fault coverage. It optimizes pattern count to minimize manufacturing test time and cost, automatically preparing patterns in industry-standard formats.
+            <strong className="text-white font-semibold">ATPG (Automatic Test Pattern Generation) Agent:</strong> This agent generates <strong>highly efficient and comprehensive test patterns</strong> for various <strong>fault models</strong> (e.g., stuck-at, transition) to achieve the <strong>required fault coverage</strong>. It <strong>optimizes pattern count</strong> to minimize <strong>manufacturing test time and cost</strong>, automatically preparing patterns in <strong>industry-standard formats</strong>.
           </li>
           <li>
-            <strong className="text-white font-semibold">DFT Verification Agent:</strong> This agent rigorously verifies the correctness and effectiveness of the inserted DFT logic and generated test patterns. It performs fault simulations and test mode simulations to ensure high fault coverage, proper test functionality, and that test patterns can indeed detect target faults, feeding back any issues for automated correction.
+            <strong className="text-white font-semibold">DFT Verification Agent:</strong> This agent rigorously verifies the <strong>correctness and effectiveness</strong> of the inserted <strong>DFT logic and generated test patterns</strong>. It performs <strong>fault simulations and test mode simulations</strong> to ensure <strong>high fault coverage, proper test functionality</strong>, and that test patterns can indeed <strong>detect target faults</strong>, feeding back any issues for <strong>automated correction</strong>.
           </li>
         </ul>
         
@@ -367,3 +368,4 @@ export default function ArchitecturalBlueprintPage() {
 }
 
     
+

@@ -16,8 +16,13 @@ import {
   SearchCode,
   ClipboardList,
   Workflow,
-  Network, // Added Network
-  Code2    // Added Code2
+  Network,
+  Code2,
+  Layers3, // For Tool Abstraction Layer
+  DatabaseZap, // For Knowledge Hub (RAG)
+  MessagesSquare, // For Context & State Management (CAG) and CAG for Conversational Context
+  FileSearch2, // For RAG for Factual Grounding
+  BrainCog // For CAG for Conversational Context
 } from 'lucide-react';
 
 export default function ArchitecturalBlueprintPage() {
@@ -174,16 +179,14 @@ export default function ArchitecturalBlueprintPage() {
           </h2>
         </div>
         <p>While various <strong>Multi-Agent System (MAS) architectures</strong> exist, the strategic choice of a particular model is paramount, especially within the <strong>high-stakes domain of semiconductor design</strong>.</p>
-
-        {/* SVG Diagram was here, ensuring it is removed */}
-
+        
         <div className="mt-8 mb-4 flex items-center">
           <ShieldCheck className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Rationale for Supervisor-Worker: Mitigating Risk in Chip Design</h3>
         </div>
         <p>A decentralized <strong>&quot;Swarm&quot;</strong> or <strong>&quot;Network&quot;</strong> architecture, where any agent can communicate directly with any other, offers theoretical maximum flexibility. However, in practice, it introduces an <strong>unacceptable degree of complexity, unpredictability, and emergent behaviors</strong> that are exceedingly difficult to <strong>control, audit, and debug</strong>. Given the <strong>capital-intensive nature, stringent quality requirements, and zero-tolerance for errors</strong> inherent in chip manufacturing, such a level of risk is <strong>fundamentally incompatible with our objectives</strong>.</p>
         <p>Therefore, this blueprint mandates a <strong>Supervisor-Worker architecture</strong>. This model provides the critical balance of <strong>flexibility and stringent control</strong> necessary for <strong>robust, verifiable, and efficient chip design workflows</strong>. It directly addresses the need for <strong>predictability, traceability, and systematic error handling</strong> — core tenets of successful semiconductor product development.</p>
-
+       
         <div className="mt-8 mb-4 flex items-center">
           <ClipboardList className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Architecture: The Intelligent Design Project Manager</h3>
@@ -192,7 +195,7 @@ export default function ArchitecturalBlueprintPage() {
         <p>Crucially, the Supervisor's role goes beyond mere task delegation. It intelligently:</p>
         <ul className="list-disc pl-5 space-y-2">
           <li><strong className="text-white font-semibold">Decomposes complex goals:</strong> Breaking them down into a precise sequence of concrete, manageable sub-tasks.</li>
-          <li><strong className="text-white font-semibold">Selects optimal Worker agents:</strong> Leveraging the <strong>Knowledge Graph Agent</strong> and <strong>Context & State Management</strong> (from Section 2.4 and 2.5) to identify the most suitable specialized <strong>Worker agents</strong> (e.g., a <strong>Specification Agent</strong> for requirements formalization, an <strong>RTL Generation & Refinement Agent</strong> for code synthesis, a <strong>Physical Implementation Agent</strong> for layout, or a <strong>Timing Closure Agent</strong> for critical path analysis).</li>
+          <li><strong className="text-white font-semibold">Selects optimal Worker agents:</strong> Leveraging the Knowledge Graph Agent and Context & State Management (from Section 2.4 and 2.5) to identify the most suitable specialized <strong>Worker agents</strong> (e.g., a <strong>Specification Agent</strong> for requirements formalization, an <strong>RTL Generation & Refinement Agent</strong> for code synthesis, a <strong>Physical Implementation Agent</strong> for layout, or a <strong>Timing Closure Agent</strong> for critical path analysis).</li>
           <li><strong className="text-white font-semibold">Manages dependencies and priorities:</strong> Understanding the intricate interdependencies between design stages and dynamically re-prioritizing tasks based on <strong>real-time feedback, PPA metrics, and convergence progress</strong>.</li>
           <li><strong className="text-white font-semibold">Monitors progress and performance:</strong> Continuously evaluating the output of Worker agents against <strong>defined metrics and constraints</strong>.</li>
           <li><strong className="text-white font-semibold">Facilitates iterative refinement:</strong> When a Worker identifies an issue or cannot meet a target, control returns to the Supervisor, which then intelligently reasons about next steps, potentially initiating a different Worker, modifying constraints, or escalating to <strong>human intervention</strong>.</li>
@@ -230,11 +233,56 @@ export default function ArchitecturalBlueprintPage() {
             <li><strong className="text-white font-semibold">Facilitate Collaboration:</strong> Provide a shared platform for engineers, AI developers, and verification teams to inspect agent runs, provide human feedback, and collaborate on improving prompts and agent behaviors, fostering a more agile development environment.</li>
         </ul>
         <p>By adopting the Supervisor-Worker pattern implemented with LangGraph and complemented by LangSmith, we ensure that our AI-driven design processes are not only intelligent and automated but also <strong>predictable, auditable, resilient, and continuously optimized</strong>, providing the highest degree of confidence in the integrity and success of our silicon products.</p>
+
+        {/* NEW SECTION 2.4 */}
+        <div className="mt-12 mb-4">
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
+            2.4 The MCP Server: A Central Nervous System for Tools, Knowledge, and State
+          </h2>
+        </div>
+        <p>The Supervisor and Worker agents require a robust infrastructure to support their operations. The cornerstone of this infrastructure is the <strong>MCP (Multi-Agent Collaboration Protocol) Server</strong>. This is not simply a tool repository; it is a <strong>stateful, intelligent hub</strong> that serves as the <strong>brain and memory</strong> for the entire multi-agent system. Its architecture is inspired by services like <strong>LangConnect</strong>, which provide a managed API for RAG applications. The MCP Server will perform three critical functions:</p>
+
+        <div className="mt-8 mb-4 flex items-center">
+          <Layers3 className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Tool Abstraction Layer:</h3>
+        </div>
+        <p>It will provide a <strong>standardized, version-controlled API</strong> for agents to access all necessary tools. This includes commercial EDA software (e.g., <strong>Synopsys DSO.ai, Cadence Cerebrus, JasperGold</strong>) as well as <strong>custom-built Python scripts</strong> and internal utilities. This abstracts away the complexity of individual tool interfaces, allowing agents to invoke them with <strong>simple, standardized calls</strong>.</p>
+
+        <div className="mt-8 mb-4 flex items-center">
+          <DatabaseZap className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Knowledge Hub (RAG):</h3>
+        </div>
+        <p>The server will host and manage a <strong>comprehensive, version-controlled vector database</strong> that acts as the <strong>long-term memory</strong> of the organization. This knowledge base will be populated with all relevant public and proprietary data: <strong>process design kits (PDKs), standard cell libraries, datasheets, technical manuals, internal design guidelines</strong>, and, most importantly, the <strong>complete data from every previous chip design project</strong>. This turns our entire design history into a <strong>searchable, queryable asset</strong>.</p>
+
+        <div className="mt-8 mb-4 flex items-center">
+          <MessagesSquare className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Context & State Management (CAG):</h3>
+        </div>
+        <p>The server will manage the <strong>short-term, dynamic context</strong> of ongoing design tasks. This includes the <strong>conversational history between agents</strong>, the <strong>results of recent actions</strong>, and the <strong>current project state</strong>. It will employ caching mechanisms (<strong>Cache-Augmented Generation</strong>) to store and quickly retrieve frequently accessed information, <strong>reducing latency and computational cost</strong>.</p>
+        <p>Over time, this MCP Server will evolve into the company's <strong>most valuable piece of intellectual property</strong>. It is the <strong>digital twin of our collective engineering expertise</strong>, a learning system that encapsulates our <strong>unique design methodologies</strong> and grows more powerful with every chip we produce.</p>
+
+        {/* NEW SECTION 2.5 */}
+        <div className="mt-12 mb-4">
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
+            2.5 Grounding Agents in Reality: A Hybrid RAG/CAG Architecture for Contextual Intelligence
+          </h2>
+        </div>
+        <p>To perform complex reasoning, agents need access to two types of information: <strong>static, factual knowledge</strong> and <strong>dynamic, task-specific context</strong>. The MCP Server is designed to provide both through a <strong>hybrid architecture</strong> that seamlessly blends <strong>Retrieval-Augmented Generation (RAG)</strong> and <strong>Context-Augmented Generation (CAG)</strong>.</p>
+
+        <div className="mt-8 mb-4 flex items-center">
+          <FileSearch2 className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">RAG for Factual Grounding:</h3>
+        </div>
+        <p>Agents will use <strong>RAG</strong> to query the MCP Server's knowledge hub for <strong>external, objective information</strong>. For example, a Verification Agent might ask, &quot;What are the specific timing constraints for the PCIe Gen 6 interface on the 3nm process node?&quot; The RAG system retrieves the relevant section from the PDK documentation and provides it to the agent. This process <strong>grounds the agent's actions in verified facts</strong>, preventing <strong>factual errors or &quot;hallucinations&quot;</strong> and ensuring designs comply with the <strong>latest specifications</strong>.</p>
+
+        <div className="mt-8 mb-4 flex items-center">
+          <BrainCog className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">CAG for Conversational Context:</h3>
+        </div>
+        <p>Agents will use <strong>CAG</strong> to maintain awareness of the <strong>current, ongoing task</strong>. This provides them with a <strong>&quot;working memory.&quot;</strong> For example, a PPA Optimization Agent might reason, &quot;Given that my last three attempts to fix the timing violation on this path by increasing drive strength have failed, what alternative strategies are available in the standard cell library?&quot; The CAG system provides the <strong>history of its recent actions</strong>, enabling it to <strong>avoid repeating mistakes</strong> and engage in <strong>more sophisticated, iterative problem-solving</strong>.</p>
+        <p>This <strong>hybrid RAG/CAG system</strong> is the key to unlocking <strong>true contextual intelligence</strong>. The Supervisor agent can fluidly switch between these modes, for instance, using RAG to fetch the initial design specification and then using CAG to track the progress of its worker agents against that specification. This combination of <strong>long-term knowledge and short-term memory</strong> is what will allow our agentic system to tackle the <strong>complex, multi-step challenges</strong> of modern chip design.</p>
+
       </article>
     </SubPageLayout>
   );
 }
-
-    
-
-    

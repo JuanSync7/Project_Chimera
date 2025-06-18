@@ -1,16 +1,20 @@
-
+// src/app/ai-pipeline/page.tsx
 "use client";
 import React from 'react';
 import SubPageLayout from '@/components/chimera/SubPageLayout';
-import { 
-  AlertTriangle, 
+import {
+  Cpu as PageIcon, // Renamed to avoid conflict
+  AlertTriangle,
   Workflow,
   Zap,
-  FileCode,
+  FileText,
   ShieldCheck,
   SlidersHorizontal,
   ClipboardCheck,
-  Cpu
+  UserRoundSearch, // New icon
+  Network,         // New icon
+  Cpu,             // New icon (already imported for PageIcon, but good to list here)
+  Focus            // New icon
 } from 'lucide-react';
 
 export default function AiPipelinePage() {
@@ -18,7 +22,7 @@ export default function AiPipelinePage() {
     <SubPageLayout>
       <article className="prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6">
         <div className="flex flex-col items-center text-center mb-12">
-          <Cpu className="h-16 w-16 text-primary mb-4" /> 
+          <PageIcon className="h-16 w-16 text-primary mb-4" />
           <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-2">
             Section 3: Full-Stack AI Integration: Agentic Workflows Across the Semiconductor Pipeline
           </h1>
@@ -38,28 +42,158 @@ export default function AiPipelinePage() {
           <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
         </div>
-        <p>The dawn of any chip design journey faces twin titans: the fog of <strong>ambiguous customer requirements</strong> cloaked in natural language, and the labyrinthine expanse of a <strong>multi-dimensional architectural search space</strong>. Traditional manual pathfinding through this is not just <strong>slow and sub-optimal</strong>; it often misses the glint of <strong>truly innovative solutions</strong> hidden within.</p>
+        <p>The critical initial phase of chip design is often hampered by the <strong>fog</strong> of ambiguous, high-level customer requirements expressed in natural language and the <strong>labyrinthine</strong>, multi-dimensional search space of potential high-level architectures. Traditional manual exploration is slow, sub-optimal, and prone to overlooking innovative solutions.</p>
         
         <div className="mt-8 mb-4 flex items-center">
           <Zap className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: AI-Driven Strategic Design &amp; Holistic Architecture Exploration</h3>
         </div>
-        <p>Our agentic workflow confronts these challenges head-on, transforming ambiguity into actionable insight and exploration from a crawl to a sprint. It&apos;s a symphony of specialized AI, beginning with precision and foresight:</p>
-        <ul className="list-disc pl-5 space-y-2">
-          <li>
-            First, our <strong>Customer Requirements Translation Agent</strong> (a Design & Exploration specialist from Section 2.2) acts as a digital envoy, engaging directly with product managers and system architects. It doesn&apos;t just listen; it dives deep into the <strong>Knowledge Hub (RAG)</strong> of the MCP Server, unearthing insights from <strong>similar past projects, market trends, and available IP</strong>. This rapid analysis flags potential ambiguities, constraints, and fresh opportunities. Simultaneously, through <strong>Context & State Management (CAG)</strong>, it builds a dynamic conversational bridge, iteratively sculpting vague customer needs into a preliminary, yet robust, technical specification. The result? A dramatically accelerated <strong>proposal generation process</strong>, arming our sales team with a decisive competitive edge.
+        <p>Our workflow begins with precision and foresight, a <strong>symphony of specialized AI</strong>:</p>
+        <ul className="space-y-4">
+          <li className="flex">
+            <UserRoundSearch className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+            <div>
+              The <strong className="text-white font-semibold">Customer Requirements Translation Agent</strong> (a Design & Exploration
+              specialist from Section 2.2) acts as a digital envoy, engaging
+              directly with product managers and system architects. It doesn&apos;t
+              just listen; it dives deep into the{' '}
+              <strong className="text-white font-semibold">
+                Knowledge Hub (RAG)
+              </strong>{' '}
+              of the MCP Server, unearthing insights from{' '}
+              <strong className="text-white font-semibold">
+                similar past projects, market trends, and available IP
+              </strong>
+              . This rapid analysis flags potential ambiguities, constraints, and
+              fresh opportunities. Simultaneously, through{' '}
+              <strong className="text-white font-semibold">
+                Context & State Management (CAG)
+              </strong>
+              , it builds a dynamic conversational bridge, iteratively sculpting
+              vague customer needs into a preliminary, yet robust, technical
+              specification. The result? A dramatically accelerated{' '}
+              <strong className="text-white font-semibold">
+                proposal generation process
+              </strong>
+              , arming our sales team with a decisive competitive edge.
+            </div>
           </li>
-          <li>
-            Next, the baton passes to the <strong>Specification Agent</strong>. This meticulous architect (also a Design & Exploration Agent from Section 2.2) translates the refined high-level needs into a <strong>precise, unambiguous, and machine-readable design specification</strong>. It&apos;s not just about documentation; it&apos;s about foundational integrity. Employing <strong>formal verification techniques</strong> and sharp <strong>semantic analysis</strong>, it guarantees <strong>consistency, completeness, and unwavering adherence</strong> to our company&apos;s <strong>design guidelines</strong> and crucial <strong>industry standards</strong> (like specific interface protocols or security certifications). This unwavering upfront rigor acts as a shield, deflecting <strong>costly ambiguities and misinterpretations</strong> that could otherwise plague later design stages.
+          <li className="flex">
+            <FileText className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+            <div>
+              Building on this, the{' '}
+              <strong className="text-white font-semibold">
+                Specification Agent
+              </strong>
+              . This meticulous architect (also a Design & Exploration Agent from
+              Section 2.2) translates the refined high-level needs into a{' '}
+              <strong className="text-white font-semibold">
+                precise, unambiguous, and machine-readable design specification
+              </strong>
+              . It&apos;s not just about documentation; it&apos;s about
+              foundational integrity. Employing{' '}
+              <strong className="text-white font-semibold">
+                formal verification techniques
+              </strong>{' '}
+              and sharp{' '}
+              <strong className="text-white font-semibold">semantic analysis</strong>
+              , it guarantees{' '}
+              <strong className="text-white font-semibold">
+                consistency, completeness, and unwavering adherence
+              </strong>{' '}
+              to our company&apos;s{' '}
+              <strong className="text-white font-semibold">
+                design guidelines
+              </strong>{' '}
+              and crucial{' '}
+              <strong className="text-white font-semibold">
+                industry standards
+              </strong>{' '}
+              (like specific interface protocols or security certifications). This
+              unwavering upfront rigor acts as a shield, deflecting{' '}
+              <strong className="text-white font-semibold">
+                costly ambiguities and misinterpretations
+              </strong>{' '}
+              that could otherwise plague later design stages.
+            </div>
           </li>
-          <li>
-            With a rock-solid specification in hand, the stage is set for true architectural innovation. The formal blueprint flows to our <strong>Architecture Exploration Agents</strong>. Leading the charge is the <strong>Microarchitecture Optimization Agent</strong> (detailed in Section 2.2), a digital Da Vinci powered by sophisticated <strong>reinforcement learning</strong> and <strong>multi-objective optimization algorithms</strong>. It doesn&apos;t just follow paths; it blazes them, autonomously generating and rigorously evaluating thousands of high-level architectural variants – think different CPU core pipeline depths, intricate cache hierarchies, novel memory access patterns, or bespoke custom accelerator configurations.
+          <li className="flex">
+            <Cpu className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+            <div>
+              This formal specification then feeds into our{' '}
+              <strong className="text-white font-semibold">
+                Architecture Exploration Agents
+              </strong>
+              . Leading the charge is the{' '}
+              <strong className="text-white font-semibold">
+                Microarchitecture Optimization Agent
+              </strong>{' '}
+              (detailed in Section 2.2), a digital Da Vinci powered by
+              sophisticated{' '}
+              <strong className="text-white font-semibold">
+                reinforcement learning
+              </strong>{' '}
+              and{' '}
+              <strong className="text-white font-semibold">
+                multi-objective optimization algorithms
+              </strong>
+              . It doesn&apos;t just follow paths; it blazes them, autonomously
+              generating and rigorously evaluating thousands of high-level
+              architectural variants – think different CPU core pipeline depths,
+              intricate cache hierarchies, novel memory access patterns, or
+              bespoke custom accelerator configurations.
+            </div>
           </li>
-          <li>
-            Simultaneously, its counterpart, the <strong>System-Level Interconnect Agent</strong> (also from Section 2.2), masterfully designs and optimizes the chip&apos;s vital <strong>internal communication fabric</strong> – the NoCs (Network-on-Chip topologies) and memory interfaces that form the chip&apos;s data highways. These twin explorers don&apos;t guess; they leverage advanced AI models to rapidly and accurately estimate <strong>PPA (Power, Performance, Area)</strong> from these high-level concepts. This synergy often unlocks up to a <strong>10x surge in exploration speed</strong> compared to the painstaking manual estimations or premature synthesis runs of yesteryear.
+          <li className="flex">
+            <Network className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+            <div>
+              Simultaneously, its counterpart, the{' '}
+              <strong className="text-white font-semibold">
+                System-Level Interconnect Agent
+              </strong>{' '}
+              (also from Section 2.2), masterfully designs and optimizes the
+              chip&apos;s vital{' '}
+              <strong className="text-white font-semibold">
+                internal communication fabric
+              </strong>{' '}
+              – the NoCs (Network-on-Chip topologies) and memory interfaces that
+              form the chip&apos;s data highways. These twin explorers don&apos;t
+              guess; they leverage advanced AI models to rapidly and accurately
+              estimate{' '}
+              <strong className="text-white font-semibold">
+                PPA (Power, Performance, Area)
+              </strong>{' '}
+              from these high-level concepts. This synergy often unlocks up to a{' '}
+              <strong className="text-white font-semibold">
+                10x surge in exploration speed
+              </strong>{' '}
+              compared to the painstaking manual estimations or premature
+              synthesis runs of yesteryear.
+            </div>
           </li>
-          <li>
-            Guiding this intricate dance is the <strong>Supervisor agent</strong> (the linchpin of our Central Intelligence Hub). It’s the grand conductor, intelligently orchestrating the entire exploration. With unwavering focus, it continuously monitors the PPA estimations, artfully manages complex trade-offs, and distills the vast exploration into the <strong>top 3-5 candidate architectures</strong>. These aren&apos;t just options; they are AI-vetted strategic choices, presented to our human architects and product leaders complete with comprehensive, AI-generated <strong>trade-off analyses</strong>. This empowers them to make informed, strategic decisions that resonate directly with the chip&apos;s market competitiveness and core business objectives.
+          <li className="flex">
+            <Focus className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+            <div>
+              Guiding this intricate dance is the{' '}
+              <strong className="text-white font-semibold">Supervisor agent</strong>{' '}
+              (the linchpin of our Central Intelligence Hub). It’s the grand
+              conductor, intelligently orchestrating the entire exploration. With
+              unwavering focus, it continuously monitors the PPA estimations,
+              artfully manages complex trade-offs, and distills the vast
+              exploration into the{' '}
+              <strong className="text-white font-semibold">
+                top 3-5 candidate architectures
+              </strong>
+              . These aren&apos;t just options; they are AI-vetted strategic
+              choices, presented to our human architects and product leaders
+              complete with comprehensive, AI-generated{' '}
+              <strong className="text-white font-semibold">
+                trade-off analyses
+              </strong>
+              . This empowers them to make informed, strategic decisions that
+              resonate directly with the chip&apos;s market competitiveness and
+              core business objectives.
+            </div>
           </li>
         </ul>
 

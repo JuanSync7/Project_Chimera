@@ -5,7 +5,6 @@ import React from 'react';
 import SubPageLayout from '@/components/chimera/SubPageLayout';
 import { 
   DraftingCompass, 
-  Network,
   Component,
   Scaling,
   ShieldCheck,
@@ -13,6 +12,8 @@ import {
   Cpu,
   BarChart3,
   Brain,
+  ListChecks,
+  SearchCode,
   ClipboardList,
   Workflow,
   Package,
@@ -75,8 +76,12 @@ export default function ArchitecturalBlueprintPage() {
         </div>
         <p>These agents operate in the early and iterative phases of design, translating high-level concepts into actionable design artifacts and exploring vast solution spaces.</p>
         <ul className="list-disc pl-5 space-y-2">
-          <li><strong className="text-white font-semibold">Specification Agent:</strong> Crucial for bridging the gap between <strong>human intent</strong> and <strong>machine execution</strong>, this agent leverages advanced <strong>Natural Language Understanding (NLU)</strong> to interpret high-level design requirements from natural language inputs or abstract functional specifications. It then autonomously translates these into formal, <strong>machine-readable design languages</strong> (e.g., SystemVerilog, VHDL), drastically accelerating the initial <strong>concept-to-code phase</strong> and ensuring <strong>unambiguous starting points</strong>.</li>
-          <li><strong className="text-white font-semibold">Architecture & RTL Agents:</strong> These agents are the architects of the digital logic. Employing sophisticated <strong>reinforcement learning</strong> and <strong>generative AI techniques</strong>, they intelligently explore optimal <strong>microarchitectures</strong>, evaluate diverse design choices against <strong>PPA targets</strong>, and generate highly optimized, clean <strong>Register-Transfer Level (RTL) code</strong>. Their intelligence lies in discerning patterns and predicting outcomes across <strong>complex design alternatives</strong>.</li>
+          <li>
+            <strong className="text-white font-semibold">Specification Agent:</strong> Crucial for bridging the gap between <strong>human intent</strong> and <strong>machine execution</strong>, this agent leverages advanced <strong>Natural Language Understanding (NLU)</strong> to interpret high-level design requirements from natural language inputs or abstract functional specifications. It then autonomously translates these into formal, <strong>machine-readable design languages</strong> (e.g., SystemVerilog, VHDL), drastically accelerating the initial <strong>concept-to-code phase</strong> and ensuring <strong>unambiguous starting points</strong>.
+          </li>
+          <li>
+            <strong className="text-white font-semibold">Architecture & RTL Agents:</strong> These agents are the architects of the digital logic. Employing sophisticated <strong>reinforcement learning</strong> and <strong>generative AI techniques</strong>, they intelligently explore optimal <strong>microarchitectures</strong>, evaluate diverse design choices against <strong>PPA targets</strong>, and generate highly optimized, clean <strong>Register-Transfer Level (RTL) code</strong>. Their intelligence lies in discerning patterns and predicting outcomes across <strong>complex design alternatives</strong>.
+          </li>
         </ul>
         
         <div className="mt-8 mb-4 flex items-center">
@@ -85,18 +90,32 @@ export default function ArchitecturalBlueprintPage() {
         </div>
         <p>Addressing the largest bottleneck in modern design, these agents perform critical roles in ensuring design correctness and reliability.</p>
         <ul className="list-disc pl-5 space-y-2">
-          <li><strong className="text-white font-semibold">Test & Coverage Generation Agent:</strong> Focused on the proactive creation of robust verification environments, this agent autonomously develops comprehensive <strong>test plans</strong>, analyzes design <strong>coverage goals</strong>, and generates highly effective <strong>test vectors</strong> (including constrained random, directed, and formal verification assertions). Its intelligence lies in identifying critical scenarios and corner cases that effectively stress the design and ensure thorough validation.</li>
-          <li><strong className="text-white font-semibold">Debug & Root Cause Analysis Agent:</strong> Addressing what is historically the largest bottleneck in modern design, this agent is a tireless problem-solver. It specializes in analyzing <strong>verification failures</strong>, sifting through vast amounts of simulation logs, waveform data, and design collateral to proactively identify, localize, and even suggest fixes for functional and performance bugs. This agent dramatically reduces <strong>manual debugging time</strong> and accelerates error resolution.</li>
+          <li>
+            <strong className="text-white font-semibold">Test & Coverage Generation Agent:</strong> Focused on the proactive creation of robust verification environments, this agent autonomously develops comprehensive <strong>test plans</strong>, analyzes design <strong>coverage goals</strong>, and generates highly effective <strong>test vectors</strong> (including constrained random, directed, and formal verification assertions). Its intelligence lies in identifying critical scenarios and corner cases that effectively stress the design and ensure thorough validation.
+          </li>
+          <li>
+            <strong className="text-white font-semibold">Debug & Root Cause Analysis Agent:</strong> Addressing what is historically the largest bottleneck in modern design, this agent is a tireless problem-solver. It specializes in analyzing <strong>verification failures</strong>, sifting through vast amounts of simulation logs, waveform data, and design collateral to proactively identify, localize, and even suggest fixes for functional and performance bugs. This agent dramatically reduces <strong>manual debugging time</strong> and accelerates error resolution.
+          </li>
         </ul>
 
         <div className="mt-8 mb-4 flex items-center">
           <Cpu className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Physical Design & Optimization Agents:</h3>
         </div>
-        <p>Focused on transforming the logical design into a physical layout, these agents ensure the final silicon meets stringent <strong>performance, power, and area targets</strong>.</p>
+        <p>Focused on transforming the logical design into a manufacturable physical layout, these agents are masters of <strong>spatial, electrical, and timing optimization</strong>. They are specifically engineered to interface with and intelligently control highly complex commercial EDA tools (like <strong>Synopsys Fusion Compiler, PrimeTime, Cadence Innovus, and Siemens Aprisa</strong>), autonomously driving iterative refinement by making crucial decisions and modifying design parameters, scripts, or rules.</p>
         <ul className="list-disc pl-5 space-y-2">
-          <li><strong className="text-white font-semibold">Synthesis Agent:</strong> Optimizes the generated logic for the target technology, performing <strong>gate-level netlist generation</strong> to ensure efficient translation to silicon.</li>
-          <li><strong className="text-white font-semibold">Place & Route Agent:</strong> This critical agent optimizes the <strong>physical layout</strong>, intelligently placing and routing components to minimize <strong>chip area, power consumption, and signal delay</strong>, directly impacting final PPA outcomes.</li>
+          <li>
+            <strong className="text-white font-semibold">Synthesis Agent:</strong> This agent acts as an expert compiler, translating high-level RTL into a <strong>gate-level netlist</strong> optimized for specific process technologies (e.g., <strong>3nm, 5nm</strong>). Its intelligence lies in generating and dynamically modifying <strong>synthesis scripts, constraint files, and library selections</strong> to guide tools like Synopsys Fusion Compiler&apos;s synthesis engine. It performs iterative optimization to balance <strong>area, power, and initial timing goals</strong>, adapting to feedback from subsequent stages.
+          </li>
+          <li>
+            <strong className="text-white font-semibold">Physical Implementation Agent:</strong> This agent is the core of our chip&apos;s physical realization. Beyond merely running placement and routing tools, it intelligently orchestrates tools like <strong>Fusion Compiler (for integrated P&R) or Cadence Innovus</strong>. It assesses intermediate results to make critical decisions on <strong>floorplanning, power grid design, cell placement strategies, routing congestion relief, and clock tree synthesis</strong>. This agent autonomously modifies <strong>physical design scripts, directives, and rules</strong> through iterative loops, ensuring the most optimized silicon area, minimal power consumption, and efficient signal propagation.
+          </li>
+          <li>
+            <strong className="text-white font-semibold">Timing Closure Agent:</strong> Dedicated to achieving timing sign-off, this agent is deeply integrated with industry-standard <strong>static timing analysis (STA) tools</strong> such as Synopsys PrimeTime. It proactively analyzes complex <strong>timing paths</strong>, identifies violations, and, crucially, reasons about and proposes specific modifications to <strong>RTL, synthesis scripts, physical constraints, or even back-annotated netlist changes</strong>. This agent drives iterative timing closure, collaborating with the Synthesis and Physical Implementation Agents to resolve <strong>critical path delays</strong>, ensuring our designs meet aggressive <strong>frequency targets</strong>.
+          </li>
+          <li>
+            <strong className="text-white font-semibold">Power & Design Rule Check (DRC) Analysis Agents:</strong> These specialized agents provide meticulous, continuous validation. They interact with respective analysis tools to identify <strong>power hotspots, leakage issues</strong>, and ensure strict compliance with fabrication-specific <strong>Design Rule Check (DRC) constraints</strong>. Their insights are immediately fed back, enabling other agents to autonomously modify layouts or design parameters to achieve <strong>optimal power integrity and manufacturability</strong>, minimizing costly design iterations.
+          </li>
         </ul>
 
         <div className="mt-8 mb-4 flex items-center">
@@ -111,9 +130,9 @@ export default function ArchitecturalBlueprintPage() {
         </div>
         <p>At the heart of the MAS, this hub ensures seamless coordination, centralized intelligence, and effective human oversight.</p>
         <ul className="list-disc pl-5 space-y-2">
-          <li><strong className="text-white font-semibold">Global Planning Agent:</strong> Acting as the system's <strong>&quot;project manager,&quot;</strong> this agent oversees the entire design flow. It receives high-level design goals, decomposes them into concrete sub-tasks, and intelligently delegates these tasks to the appropriate specialized <strong>Worker Agents</strong>, monitoring progress and ensuring holistic optimization.</li>
-          <li><strong className="text-white font-semibold">Knowledge Graph Agent:</strong> This serves as the organization's <strong>central, dynamic memory</strong>. It maintains a comprehensive repository of design data, intellectual property (IP), historical design performance, process design kits (PDKs), standard cell libraries, and internal guidelines, making our entire design history a <strong>searchable and queryable asset</strong> accessible to all agents.</li>
-          <li><strong className="text-white font-semibold">Human-in-the-Loop Interface:</strong> This vital agent manages interaction with human designers. It facilitates <strong>critical decision points</strong>, allows for the setting of high-level constraints, enables <strong>human overrides</strong>, and provides transparent insights into the AI's reasoning and progress, blending AI efficiency with invaluable <strong>human intuition and oversight</strong>.</li>
+          <li><strong className="text-white font-semibold">Global Planning Agent:</strong> Acting as the system&apos;s <strong>&quot;project manager,&quot;</strong> this agent oversees the entire design flow. It receives high-level design goals, decomposes them into concrete sub-tasks, and intelligently delegates these tasks to the appropriate specialized <strong>Worker Agents</strong>, monitoring progress and ensuring holistic optimization.</li>
+          <li><strong className="text-white font-semibold">Knowledge Graph Agent:</strong> This serves as the organization&apos;s <strong>central, dynamic memory</strong>. It maintains a comprehensive repository of design data, intellectual property (IP), historical design performance, process design kits (PDKs), standard cell libraries, and internal guidelines, making our entire design history a <strong>searchable and queryable asset</strong> accessible to all agents.</li>
+          <li><strong className="text-white font-semibold">Human-in-the-Loop Interface:</strong> This vital agent manages interaction with human designers. It facilitates <strong>critical decision points</strong>, allows for the setting of high-level constraints, enables <strong>human overrides</strong>, and provides transparent insights into the AI&apos;s reasoning and progress, blending AI efficiency with invaluable <strong>human intuition and oversight</strong>.</li>
         </ul>
 
         <div className="mt-12 mb-4">

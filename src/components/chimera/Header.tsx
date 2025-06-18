@@ -3,6 +3,7 @@
 import React from 'react';
 import type { NavLinkItem } from '@/lib/chimera/types';
 import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 interface HeaderProps {
   navLinks: NavLinkItem[];
@@ -22,8 +23,15 @@ const Header: React.FC<HeaderProps> = ({ navLinks, activeSection, onMobileMenuTo
     return `/${link.href}`; // e.g., /#overview
   };
 
+  const headerClasses = cn(
+    "bg-background border-b border-border top-0 z-50",
+    {
+      "sticky": !isMainPage // Apply sticky only if not the main page
+    }
+  );
+
   return (
-    <header id="header" className="bg-background border-b border-border sticky top-0 z-50">
+    <header id="header" className={headerClasses}>
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         <a href={isMainPage ? "#home" : "/#home"} className="text-2xl font-bold tracking-tighter">
           <span className="gradient-text">Project Chimera</span>
@@ -56,4 +64,3 @@ const Header: React.FC<HeaderProps> = ({ navLinks, activeSection, onMobileMenuTo
 };
 
 export default Header;
-

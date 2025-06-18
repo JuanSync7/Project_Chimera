@@ -18,7 +18,7 @@ import {
   Settings2,
   ClipboardList,
   PlayCircle,
-  BugAnt, // Changed from Bug to BugAnt
+  Bug, // Corrected from BugAnt
   Lightbulb,
   Repeat2,
   ListChecks,
@@ -44,7 +44,7 @@ import {
   ScanSearch,
   CheckCircle2,
   RefreshCcw,
-  ListOrdered // Added missing import
+  ListOrdered
 } from 'lucide-react';
 
 export default function AiPipelinePage() {
@@ -188,7 +188,7 @@ export default function AiPipelinePage() {
           <p>Before embarking on extensive simulation and physical design, ensuring the initial quality, synthesizability, and testability of the generated RTL is paramount. Manual linting, basic optimization, and testbench creation are time-consuming and often miss subtle issues that can lead to costly delays downstream.</p>
 
           <div className="mt-8 mb-4 flex items-center">
-            <FileCode className="h-7 w-7 text-primary mr-3 flex-shrink-0" /> {/* Changed from ClipboardCheck to FileCode based on main title icon */}
+            <FileCode className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
             <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Automated RTL Quality Assurance and Comprehensive Test Environment Preparation</h3>
           </div>
           <p>Immediately following initial RTL generation, our agents perform vital proactive optimization and quality checks to ensure robust, high-quality RTL, and prepare a comprehensive test environment before functional verification begins:</p>
@@ -231,7 +231,7 @@ export default function AiPipelinePage() {
                 <div>The <strong>Supervisor</strong> invokes our advanced simulation tools (via the MCP Server&apos;s Tool Abstraction Layer) to execute the autonomously generated tests against the newly optimized RTL.</div>
               </li>
               <li className="flex items-start">
-                <BugAnt className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+                <Bug className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
                 <div>The <strong>Debug & Root Cause Analysis Agent</strong> (a dedicated Verification Agent from Section 2.2) meticulously analyzes any simulation failures or coverage gaps. It sifts through vast amounts of simulation logs, waveform data, and design collateral to pinpoint the exact functional bug or performance bottleneck with unparalleled speed.</div>
               </li>
               <li className="flex items-start">
@@ -403,7 +403,7 @@ export default function AiPipelinePage() {
           </h2>
           <div className="mt-6 mb-4 flex items-center">
             <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
-            <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Challenge:</h3>
+            <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
           </div>
           <p>Beyond functional correctness of individual blocks, ensuring the <strong>holistic performance, power efficiency, and security</strong> of the entire chip, especially across different abstraction levels and physical implementation, is critical. Furthermore, in an AI-driven design flow, <strong>continuous evaluation of the AI system&apos;s own performance and reliability</strong> is paramount to maintain confidence and drive ongoing improvement.</p>
 
@@ -512,7 +512,7 @@ export default function AiPipelinePage() {
           </h2>
           <div className="mt-6 mb-4 flex items-center">
             <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
-            <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Challenge:</h3>
+            <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
           </div>
           <p>Bridging the gap between highly optimized <strong>pre-silicon design data</strong> and the realities of <strong>physical manufacturing and silicon performance</strong> involves predicting <strong>manufacturing yield</strong>, accurately detecting <strong>microscopic physical defects</strong>, and rigorously validating the performance of the <strong>actual hardware</strong> in a timely manner. This phase is crucial for product quality and continuous improvement.</p>
 
@@ -541,7 +541,5 @@ export default function AiPipelinePage() {
     </SubPageLayout>
   );
 }
-
     
 
-    

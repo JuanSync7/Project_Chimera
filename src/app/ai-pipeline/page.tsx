@@ -1,4 +1,3 @@
-
 // src/app/ai-pipeline/page.tsx
 "use client";
 import React, { useState, useEffect } from 'react';
@@ -128,7 +127,7 @@ export default function AiPipelinePage() {
             </li>
             <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
               <Cpu className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <div><strong className="text-primary block mb-1">The Architecture Exploration Agents</strong> (specifically the Microarchitecture Optimization Agent and System-Level Interconnect Agent). The <strong>Microarchitecture Optimization Agent</strong>, supercharged by sophisticated <strong>reinforcement learning</strong> and <strong>multi-objective optimization algorithms</strong>, autonomously <strong className="text-sky-400">blazes paths</strong> through thousands of high-level architectural variants. It explores diverse CPU core pipeline depths, intricate cache hierarchies, novel memory access patterns, and innovative custom accelerator configurations with tireless precision.</div>
+              <div><strong className="text-primary block mb-1">The Microarchitecture Optimization Agent</strong>, as a key part of our architecture exploration strategy, is supercharged by sophisticated <strong>reinforcement learning</strong> and <strong>multi-objective optimization algorithms</strong>. It autonomously <strong className="text-sky-400">blazes paths</strong> through thousands of high-level architectural variants, exploring diverse CPU core pipeline depths, intricate cache hierarchies, novel memory access patterns, and innovative custom accelerator configurations with tireless precision.</div>
             </li>
             <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
               <Network className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
@@ -814,5 +813,6 @@ export default function AiPipelinePage() {
     
 
     
+
 
 

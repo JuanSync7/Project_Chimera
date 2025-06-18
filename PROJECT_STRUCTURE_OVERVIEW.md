@@ -16,12 +16,13 @@ The root directory contains configuration files, main documentation, and the `sr
 *   **`tailwind.config.ts`**: Configuration file for Tailwind CSS, including theme extensions (colors, fonts, custom utility classes).
 *   **`tsconfig.json`**: TypeScript configuration for the project.
 *   **Markdown Documentation Files**:
-    *   `ARCHITECTURAL_BLUEPRINT_FORMATTING_GUIDE.md`
+    *   `ARTICLE_PAGE_FORMATTING_GUIDE.md`
     *   `COLOR_SCHEME.md`
     *   `DATA_STRUCTURES.md`
     *   `FONT_CHOICES.md`
     *   `GUIDE_CREATING_PAGES.md`
     *   `INTERACTIVITY_GUIDE.md`
+    *   `MCP_SERVER_DETAILS_FORMATTING_GUIDE.md`
     *   `PROJECT_STRUCTURE_OVERVIEW.md` (this file)
     *   `STYLING_OVERVIEW.md`
     *   `SVG_DIAGRAM_GUIDELINES.md`
@@ -39,6 +40,9 @@ This directory implements the Next.js App Router. Each folder within `src/app/` 
 *   **`page.tsx`**: The entry point for the main landing page (`/`). It uses `PageShell` and aggregates various section components from `src/components/chimera/sections/`. It also manages scroll-based active section highlighting.
 *   **`globals.css`**: Contains global CSS styles, Tailwind CSS base directives (`@tailwind base; @tailwind components; @tailwind utilities;`), ShadCN UI theme variables (CSS custom properties for light and dark modes), and custom global classes (e.g., `.gradient-text`, tab button styles, roadmap styles).
 *   **`[subpage-name]/page.tsx`**: These directories (e.g., `src/app/strategic-imperative/page.tsx`, `src/app/architectural-blueprint/page.tsx`) define individual subpages. They typically use `SubPageLayout` for consistent structure.
+    *   Some subpages can also be nested under a parent route, for example:
+        *   `src/app/architectural-blueprint/mcp-server-details/page.tsx`
+        *   `src/app/architectural-blueprint/supervisor-worker-details/page.tsx`
     *   Refer to `GUIDE_CREATING_PAGES.md` for creating new pages.
 
 ### `src/components/`

@@ -46,7 +46,7 @@ import {
   RefreshCcw,
   ListOrdered,
   ArrowRightCircle,
-  // Sitemap was removed here
+  Workflow, // Replaced Sitemap
   Shuffle, 
   Keyboard, 
   Filter, 
@@ -60,8 +60,7 @@ import {
   ScrollText, 
   LineChart, 
   MapPin, 
-  RotateCcw,
-  Workflow 
+  RotateCcw 
 } from 'lucide-react';
 
 export default function AiPipelinePage() {
@@ -205,7 +204,7 @@ export default function AiPipelinePage() {
           <p>Before embarking on extensive simulation and physical design, ensuring the initial quality, synthesizability, and testability of the generated RTL is paramount. Manual linting, basic optimization, and testbench creation are time-consuming and often miss subtle issues that can lead to costly delays downstream.</p>
 
           <div className="mt-8 mb-4 flex items-center">
-            <FileCode className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+            <FileCode className="h-7 w-7 text-primary mr-3 flex-shrink-0" /> {/* Changed from FileCode to maintain consistency with h3, but used FileCode as per user's visual cue preference in this context */}
             <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Automated RTL Quality Assurance and Comprehensive Test Environment Preparation</h3>
           </div>
           <p>Immediately following initial RTL generation, our agents perform vital proactive optimization and quality checks to ensure robust, high-quality RTL, and prepare a comprehensive test environment before functional verification begins:</p>
@@ -347,7 +346,7 @@ export default function AiPipelinePage() {
           <p>This stage complements simulation with mathematically rigorous <strong>formal methods</strong> and advanced <strong>static analysis</strong>, ensuring a higher degree of functional correctness and identifying critical issues that simulation cannot:</p>
           <ul className="list-none pl-0 space-y-6 !my-6">
               <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
-                <LockKeyhole className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+                <ShieldCheck className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" /> 
                 <div>
                   <strong className="text-primary block mb-1">Automated Formal Property Generation & Proofs:</strong> The <strong>AutoDV (Automatic Design Verification) Agent</strong> is the cornerstone of this stage. Leveraging the design specification, RTL, and the <strong>Knowledge Hub (RAG)</strong> for common property patterns, it intelligently generates and applies <strong>formal verification properties</strong>.
                   <div className="mt-2 space-y-3">
@@ -656,4 +655,6 @@ export default function AiPipelinePage() {
     </SubPageLayout>
   );
 }
+    
+
     

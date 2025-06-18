@@ -18,12 +18,14 @@ import {
   Workflow,
   Network,
   Code2,
-  Layers3, // For Tool Abstraction Layer
-  DatabaseZap, // For Knowledge Hub (RAG)
-  MessagesSquare, // For Context & State Management (CAG) and CAG for Conversational Context
-  FileSearch2, // For RAG for Factual Grounding
-  BrainCog // For CAG for Conversational Context
+  Layers3, 
+  DatabaseZap, 
+  MessagesSquare, 
+  FileSearch2, 
+  BrainCog
 } from 'lucide-react';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 export default function ArchitecturalBlueprintPage() {
   return (
@@ -172,7 +174,7 @@ export default function ArchitecturalBlueprintPage() {
             <strong className="text-white font-semibold">Human-in-the-Loop Interface:</strong> This vital agent manages the critical <strong>symbiosis between AI automation and invaluable human expertise</strong>. It provides an <strong>intuitive and transparent &quot;cockpit&quot;</strong> for human designers and architects, facilitating <strong>clear communication</strong> for <strong>critical decision points</strong> that require <strong>human intuition, strategic insights, or ethical considerations</strong> (e.g., novel architecture choices, fundamental PPA trade-offs, or complex design constraint overrides). It presents <strong>progress, potential issues, and AI&apos;s proposed solutions</strong> in an <strong>interpretable format</strong>, allowing human designers to <strong>actively guide the design flow</strong>, provide <strong>real-time corrections</strong>, and <strong>inject creativity</strong>. This ensures that while AI automates the complex and tedious, <strong>human strategic vision remains central</strong> to our innovation process.
           </li>
         </ul>
-
+       
         <div className="mt-12 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             2.3 The Supervisor-Worker Pattern: Precision Orchestration for Semiconductor Design
@@ -234,7 +236,6 @@ export default function ArchitecturalBlueprintPage() {
         </ul>
         <p>By adopting the Supervisor-Worker pattern implemented with LangGraph and complemented by LangSmith, we ensure that our AI-driven design processes are not only intelligent and automated but also <strong>predictable, auditable, resilient, and continuously optimized</strong>, providing the highest degree of confidence in the integrity and success of our silicon products.</p>
 
-        {/* NEW SECTION 2.4 */}
         <div className="mt-12 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             2.4 The MCP Server: A Central Nervous System for Tools, Knowledge, and State
@@ -260,8 +261,14 @@ export default function ArchitecturalBlueprintPage() {
         </div>
         <p>The server will manage the <strong>short-term, dynamic context</strong> of ongoing design tasks. This includes the <strong>conversational history between agents</strong>, the <strong>results of recent actions</strong>, and the <strong>current project state</strong>. It will employ caching mechanisms (<strong>Cache-Augmented Generation</strong>) to store and quickly retrieve frequently accessed information, <strong>reducing latency and computational cost</strong>.</p>
         <p>Over time, this MCP Server will evolve into the company's <strong>most valuable piece of intellectual property</strong>. It is the <strong>digital twin of our collective engineering expertise</strong>, a learning system that encapsulates our <strong>unique design methodologies</strong> and grows more powerful with every chip we produce.</p>
+        <div className="text-center mt-8 mb-4">
+          <Link href="/architectural-blueprint/mcp-server-details" passHref>
+            <Button variant="outline" size="lg" className="bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/40">
+              Deep Dive into the MCP Server &rarr;
+            </Button>
+          </Link>
+        </div>
 
-        {/* NEW SECTION 2.5 */}
         <div className="mt-12 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             2.5 Grounding Agents in Reality: A Hybrid RAG/CAG Architecture for Contextual Intelligence

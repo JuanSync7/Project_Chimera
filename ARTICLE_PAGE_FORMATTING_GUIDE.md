@@ -36,7 +36,7 @@ This guide outlines the specific formatting conventions used for article-style s
     // ... inside <article>
     <div className="flex flex-col items-center text-center mb-12">
       <ExampleIcon className="h-16 w-16 text-primary mb-4" /> {/* Thematic Icon */}
-      <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-2">
+      <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-2 md:leading-tight">
         Section X: Example Page Title {/* Title Text */}
       </h1>
       {/* Optional: Subtitle paragraph */}
@@ -45,7 +45,8 @@ This guide outlines the specific formatting conventions used for article-style s
     ```
 *   **Styling**:
     *   Icon: `h-16 w-16 text-primary mb-4`
-    *   `<h1>`: `text-4xl md:text-5xl font-bold gradient-text !mb-2`
+    *   `<h1>`: `text-4xl md:text-5xl font-bold gradient-text !mb-2 md:leading-tight`
+        *   The `md:leading-tight` class (or a similar `leading-*` utility) is crucial for larger responsive font sizes (like `md:text-5xl`) to ensure character descenders (e.g., 'g', 'p', 'y') are not clipped.
     *   Subtitle `<p>`: `text-2xl text-slate-400`
 
 ## 3. Main Section Titles (`<h2>`)
@@ -224,7 +225,7 @@ While the above sections detail standard prose and heading structures, certain t
 
 ### 8.1 Using `KeyStatCard` for Highlighted Concepts
 
-*   **Purpose**: For presenting distinct, high-impact concepts, statistics, or main points that benefit from visual separation and emphasis with an icon and a prominent title (or "stat"). This pattern is particularly effective for introductory sections or a series of key takeaways where each point needs to stand as a self-contained block of information.
+*   **Purpose**: For presenting distinct, high-impact concepts, statistics, or main points that benefit from visual separation and emphasis with an icon and a prominent title (or "stat"). This pattern is particularly effective for introductory sections or a series of key takeaways where each point needs to stand as a self-contained block of information. The `KeyStatCard` component internally handles styling for its "stat" (title) including responsive font sizes and line heights to prevent descender clipping.
 *   **Structure**:
     ```tsx
     import KeyStatCard from '@/components/chimera/KeyStatCard';
@@ -240,6 +241,6 @@ While the above sections detail standard prose and heading structures, certain t
     {/* Repeat KeyStatCard for other distinct points in the section */}
     ```
 *   **Usage Context**: This pattern is notably used in `src/app/strategic-imperative/page.tsx` for presenting the main arguments in Section 1.1. Each `KeyStatCard` encapsulates a core idea, replacing a traditional sequence of `<h2>` (or `<h3>`) followed by one or more `<p>` elements.
-*   **Important Note**: The `description` prop of the `KeyStatCard` component supports HTML, allowing for rich text formatting, including `<p>`, `<strong>`, `<ul>`, etc., ensuring the full narrative can be contained within the card. The `stat` prop typically holds a short, impactful title or statistic.
+*   **Important Note**: The `description` prop of the `KeyStatCard` component supports HTML (via `dangerouslySetInnerHTML`), allowing for rich text formatting, including `<p>`, `<strong>`, `<ul>`, etc., ensuring the full narrative can be contained within the card. The `stat` prop typically holds a short, impactful title or statistic.
 
 By following these guidelines, article-style subpages will maintain a consistent and readable structure, making it easier for users to navigate and understand the detailed content.

@@ -41,16 +41,17 @@ This guide outlines the specific formatting conventions for the "Deep Dive: The 
     // ... inside <article>
     <div className="flex flex-col items-center text-center mb-12">
       <ServerCog className="h-16 w-16 text-primary mb-4" /> {/* Icon */}
-      <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-2">
+      <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-2 md:leading-tight">
         Deep Dive: The MCP Server {/* Title Text */}
       </h1>
       {/* Subtitle paragraph */}
       <p className="text-2xl text-slate-400">Tools, Knowledge, and State Management</p>
     </div>
     ```
-*   **Styling**: (Inherits from global and `ARCHITECTURAL_BLUEPRINT_FORMATTING_GUIDE.md` conventions)
+*   **Styling**: (Inherits from global and `ARTICLE_PAGE_FORMATTING_GUIDE.md` conventions)
     *   Icon: `h-16 w-16 text-primary mb-4`
-    *   `<h1>`: `text-4xl md:text-5xl font-bold gradient-text !mb-2`
+    *   `<h1>`: `text-4xl md:text-5xl font-bold gradient-text !mb-2 md:leading-tight`
+        *   The `md:leading-tight` class is crucial for larger responsive font sizes (like `md:text-5xl`) to ensure character descenders (e.g., 'g', 'p', 'y') are not clipped.
     *   Subtitle `<p>`: `text-2xl text-slate-400`
 
 ## 3. Main Section Titles (`<h2>`)

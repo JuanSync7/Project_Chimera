@@ -18,10 +18,10 @@ const RisksVisionSection: React.FC = () => {
             <h3 className="text-2xl font-bold text-rose-400">Critical Risk Mitigation</h3>
           </div>
           <ul className="space-y-3 text-slate-400 flex-grow">
-            <li><strong className="text-rose-400 font-semibold">Reliability ("Hallucination"):</strong> Mitigated by <strong>deterministic, TDD workflows</strong> (Sec 3.2) and <strong>AIvril-inspired verification</strong> (Sec 3.3). We don't trust, we verify.</li>
+            <li><strong className="text-rose-400 font-semibold">Reliability ("Hallucination"):</strong> Mitigated by <strong>deterministic, TDD workflows</strong> and <strong>AIvril-inspired verification</strong> (Sec 3.3). We don't trust, we verify.</li>
             <li><strong className="text-rose-400 font-semibold">Interpretability:</strong> While full model interpretability is a research goal, <strong>LangSmith tracing</strong> provides maximum transparency into agent decision-making for correlational analysis and heuristic understanding.</li>
             <li><strong className="text-rose-400 font-semibold">Data Scarcity (HDL):</strong> Create a superior, <strong>proprietary dataset</strong> from our entire design history for <strong>RAG and fine-tuning</strong>. Prioritize HLS where suitable.</li>
-            <li><strong className="text-rose-400 font-semibold">Coordination Complexity & Bottlenecks:</strong> <strong>Phased rollout</strong> (Sec 7) starting with simple Supervisor architecture. Rigorous testing and <strong>LangSmith monitoring</strong>. Research model criticism for agent reliability.</li>
+            <li><strong className="text-rose-400 font-semibold">Coordination Complexity & Bottlenecks:</strong> <strong>Phased rollout</strong> starting with simple Supervisor architecture. Rigorous testing and <strong>LangSmith monitoring</strong>. Research model criticism for agent reliability.</li>
             <li><strong className="text-rose-400 font-semibold">IP Security:</strong> Multi-layered, <strong>Zero-Trust security</strong> for the MCP Server. Strict data segregation, granular access control (IAM), end-to-end encryption, and immutable audit trails.</li>
           </ul>
           <p className="text-sm text-slate-500 mt-4"><strong>Cultural resistance</strong> is mitigated by a narrative of augmentation, transparency, and empowerment.</p>

@@ -2,6 +2,7 @@
 "use client";
 import React from 'react';
 import SubPageLayout from '@/components/chimera/SubPageLayout';
+import { Lightbulb, Workflow, UserCheck, BrainCircuit } from 'lucide-react';
 
 export default function HumanAiSymbiosisPage() {
   return (
@@ -15,14 +16,41 @@ export default function HumanAiSymbiosisPage() {
         <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
           4.1 From Tool User to Agent Orchestrator: The Evolving Role of the Design Engineer
         </h2>
-        <p>The introduction of a multi-agent system will fundamentally shift the day-to-day responsibilities of a design engineer. The focus of their work will elevate from performing low-level, repetitive implementation tasks to a more strategic, supervisory role. The engineer of the future will be an agent orchestrator.</p>
+        <p>The introduction of a multi-agent system will fundamentally shift the day-to-day responsibilities of a design engineer. The focus of their work will elevate from performing low-level, repetitive implementation tasks to a more strategic, supervisory role. The engineer of the future will be an agent orchestrator. This evolution empowers engineers to manage multiple, complex design explorations in parallel, effectively multiplying their creative output and allowing them to focus on the architectural innovations that drive true market differentiation.</p>
         <p>Their core responsibilities will include:</p>
-        <ul className="list-disc pl-5 space-y-2">
-          <li><strong>High-Level Design and Prompting:</strong> Defining the strategic goals and constraints for a design project and translating them into effective prompts for the Supervisor agent.</li>
-          <li><strong>Workflow Curation:</strong> Designing, customizing, and managing the agentic workflows within frameworks like LangGraph to suit the specific needs of their project.</li>
-          <li><strong>Human-in-the-Loop Supervision:</strong> Acting as the ultimate decision-maker, guiding the AI&apos;s strategic choices, approving key milestones, and intervening to resolve complex, ambiguous, or novel problems that the agents cannot handle on their own.</li>
+        
+        <ul className="list-none pl-0 space-y-6 !my-6">
+          <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
+            <Lightbulb className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+            <div>
+              <strong className="text-primary block mb-1">High-Level Design and Prompting:</strong>
+              Engineers will define the strategic goals and constraints for a design project, translating complex requirements into effective prompts for the Supervisor agent. For instance, an engineer might prompt the Supervisor: &quot;Design a low-power RISC-V core for an edge IoT device, prioritizing efficiency over raw performance, while adhering to the 3nm process node&apos;s specific timing constraints.&quot; This shifts their focus from manual code generation to strategic problem definition.
+            </div>
+          </li>
+          <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
+            <Workflow className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+            <div>
+              <strong className="text-primary block mb-1">Workflow Curation and Customization:</strong>
+              Rather than executing every step, engineers will design, customize, and manage the agentic workflows within frameworks like LangGraph to suit the specific needs of their project. They might, for example, adapt a standard verification workflow to include a new formal verification tool, or configure the PPA Optimization Agent to prioritize a novel power-saving technique they&apos;ve envisioned. This fosters a sense of ownership and allows for deep customization.
+            </div>
+          </li>
+          <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
+            <UserCheck className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+            <div>
+              <strong className="text-primary block mb-1">Human-in-the-Loop Supervision and Strategic Guidance:</strong>
+              Engineers will act as the ultimate decision-makers, guiding the AI&apos;s strategic choices, approving key milestones, and intervening to resolve complex, ambiguous, or novel problems that the agents cannot handle on their own. For instance, if the PPA Optimization Agent identifies a highly unconventional layout solution, the engineer evaluates its true viability and potential manufacturing implications, providing human intuition where AI might lack it. They provide critical &quot;sign-offs&quot; at various stages, ensuring the AI&apos;s output aligns with overall project goals and real-world feasibility.
+            </div>
+          </li>
+          <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
+            <BrainCircuit className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+            <div>
+              <strong className="text-primary block mb-1">Insight Generation and Knowledge Encoding:</strong>
+              As agents perform tasks and explore design spaces, engineers will analyze the AI&apos;s outputs and reasoning traces (via tools like LangSmith ). This allows them to uncover novel insights into design optimization and system behavior that might be missed through traditional methods. They will also play a crucial role in curating and refining the knowledge base within the MCP Server , ensuring that valuable human expertise and successful design patterns are continuously encoded and made available to the AI agents for future projects. This transforms individual knowledge into collective, persistent intelligence.
+            </div>
+          </li>
         </ul>
-        <p>This evolution empowers engineers to manage multiple, complex design explorations in parallel, effectively multiplying their creative output and allowing them to focus on the architectural innovations that drive true market differentiation.</p>
+
+        <p>This transformed role moves engineers from being mere &quot;tool users&quot; to &quot;agent orchestrators&quot; and strategic innovators. They are no longer bogged down by repetitive tasks but are instead empowered to amplify their creativity, tackle more complex challenges, and significantly increase their impact on product innovation and market differentiation.</p>
 
         <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
           4.2 Building Custom Tools: Automating EDA Workflows with Python and AI Agents

@@ -3,7 +3,7 @@ import React from 'react';
 import { PrimaryWorkflowItemCard, NestedDetailCard } from './WorkflowCardHelpers';
 import {
   AlertTriangle, Wrench, ClipboardList, BrainCircuit, Scale, Keyboard, Puzzle, Cog, BarChart3, FileCode, ListChecks,
-  Crosshair, ShieldCheck, PlayCircle, TestTube2, Bug
+  Crosshair, ShieldCheck, PlayCircle, TestTube2, Bug, RefreshCcw // Added RefreshCcw here
 } from 'lucide-react';
 
 const Stage_3_9_DFT: React.FC = () => {

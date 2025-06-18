@@ -7,14 +7,16 @@ export default function RiskMitigationPage() {
   return (
     <SubPageLayout>
       <article className="prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6">
-        <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-10">
+        <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-10 md:leading-tight">
           Section 5: Critical Analysis and Strategic Risk Mitigation
         </h1>
         <p>Any strategy of this scope carries significant risks. Acknowledging and proactively mitigating these challenges is crucial for success. This section provides a contrarian analysis of the primary technical and strategic risks inherent in Project Chimera and outlines a multi-layered mitigation plan.</p>
 
-        <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
-          5.1 The &quot;Black Box&quot; Problem: Addressing Reliability, Interpretability, and Data Scarcity
-        </h2>
+        <div className="mt-16 mb-4">
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
+            5.1 The &quot;Black Box&quot; Problem: Addressing Reliability, Interpretability, and Data Scarcity
+          </h2>
+        </div>
         <p><strong>Risk: Reliability.</strong> LLMs are probabilistic systems, not deterministic ones. They can &quot;hallucinate&quot; facts or generate code that is syntactically correct but functionally wrong, a catastrophic failure mode in hardware design.</p>
         <p><strong>Mitigation:</strong> The agentic workflows are explicitly designed to combat this risk. The TDD workflow for RTL generation (Section 3.2) and the AIvril-inspired verification-in-the-loop framework (Section 3.3) do not blindly trust the LLM&apos;s output. Instead, they subject it to a gauntlet of deterministic checks, including functional tests, static analysis, and formal verification, ensuring that only validated code proceeds to the next stage.</p>
         
@@ -24,15 +26,19 @@ export default function RiskMitigationPage() {
         <p><strong>Risk: Data Scarcity for HDL.</strong> The public datasets of HDL code available for training LLMs are orders of magnitude smaller than those for software languages like Python. This results in weaker base models for hardware-specific tasks.</p>
         <p><strong>Mitigation:</strong> This is a critical risk that also represents a competitive opportunity. Our strategy is not to rely on public models but to create a superior, proprietary dataset. The MCP Server&apos;s knowledge base will be populated with our company&apos;s entire history of design projects—millions of lines of high-quality, verified Verilog/VHDL code and associated design data. This internal data will become our primary resource for RAG and for fine-tuning smaller, specialized models, turning our historical work into a powerful, defensible asset. We will also prioritize the use of High-Level Synthesis (HLS) where appropriate, as HLS languages are closer to software and require fewer tokens to express complex logic.</p>
 
-        <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
-          5.2 Coordination Complexity and Performance Variability in Multi-Agent Systems
-        </h2>
+        <div className="mt-16 mb-4">
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
+            5.2 Coordination Complexity and Performance Variability in Multi-Agent Systems
+          </h2>
+        </div>
         <p><strong>Risk: Coordination Complexity.</strong> As the number of agents in the system grows, the complexity of their interactions can increase exponentially. This can lead to unpredictable emergent behaviors, communication bottlenecks, and a system that is difficult to manage or debug. The Supervisor agent itself could become a performance bottleneck.</p>
         <p><strong>Mitigation:</strong> The implementation roadmap (Section 7) follows a phased approach. We will begin with a strict, simple Supervisor architecture to maintain tight control and manage complexity. More advanced architectures, such as a hierarchical system with a &quot;supervisor of supervisors,&quot; will only be explored once the base system is mature and stable. Rigorous, automated integration testing and performance monitoring via LangSmith will be used to proactively identify and address system bottlenecks. Furthermore, we will research and implement model criticism techniques, where agents are explicitly designed to reason about the adequacy and reliability of the models they use to predict the actions of other agents, enhancing overall system safety.</p>
 
-        <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
-          5.3 Securing the Crown Jewels: A Zero-Trust Framework for AI-Driven IP Protection
-        </h2>
+        <div className="mt-16 mb-4">
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
+            5.3 Securing the Crown Jewels: A Zero-Trust Framework for AI-Driven IP Protection
+          </h2>
+        </div>
         <p><strong>Risk: Intellectual Property Theft.</strong> The MCP Server, by centralizing all of our company&apos;s most sensitive design IP, methodologies, and historical data, creates an unparalleled asset. It also creates an incredibly valuable target for sophisticated cyberattacks. A breach of this system would be an existential threat to the business.</p>
         <p><strong>Mitigation:</strong> A multi-layered, defense-in-depth security posture will be implemented from day one, centered on a Zero-Trust philosophy.</p>
         <ul className="list-disc pl-5 space-y-2">

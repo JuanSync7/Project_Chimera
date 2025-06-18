@@ -7,14 +7,16 @@ export default function RoadmapDetailsPage() {
   return (
     <SubPageLayout>
       <article className="prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6">
-        <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-10">
+        <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-10 md:leading-tight">
           Section 7: A Phased Roadmap for Implementation (2025-2030)
         </h1>
         <p>This ambitious vision will be realized through a pragmatic, phased, five-year implementation plan. The strategy is divided into three distinct phases—Crawl, Walk, and Run—each with clear objectives, actions, and measurable success metrics. This approach allows for iterative development, risk management, and the progressive scaling of both technology and cultural adoption.</p>
 
-        <h2 className="text-3xl font-semibold text-sky-400 !mt-12 !mb-6 border-b border-sky-600 pb-2">
-          7.1 Phase 1 (Year 1 - 1.5): Foundational Infrastructure and Pilot Projects (The &quot;Crawl&quot; Phase)
-        </h2>
+        <div className="mt-16 mb-4">
+          <h2 className="text-3xl font-semibold text-sky-400 !m-0 border-b border-sky-600 pb-2">
+            7.1 Phase 1 (Year 1 - 1.5): Foundational Infrastructure and Pilot Projects (The &quot;Crawl&quot; Phase)
+          </h2>
+        </div>
         <p><strong>Timeline:</strong> Q3 2025 - Q4 2026</p>
         <p><strong>Objectives:</strong> The primary goal of this initial phase is to build the core technical infrastructure and demonstrate the viability of the agentic approach on a limited, high-impact pilot project.</p>
         <p><strong>Actions:</strong></p>
@@ -25,9 +27,11 @@ export default function RoadmapDetailsPage() {
         </ul>
         <p><strong>Success Metrics:</strong> Successful deployment of the pilot agentic workflow; achievement of a &gt;95% functional test pass rate for the AI-generated RTL; a measurable reduction in design and verification time for the pilot IP block compared to human-only baseline.</p>
 
-        <h2 className="text-3xl font-semibold text-purple-400 !mt-12 !mb-6 border-b border-purple-600 pb-2">
-          7.2 Phase 2 (Year 1.5 - 3): Scaling Agentic Workflows and Cultural Integration (The &quot;Walk&quot; Phase)
-        </h2>
+        <div className="mt-16 mb-4">
+          <h2 className="text-3xl font-semibold text-purple-400 !m-0 border-b border-purple-600 pb-2">
+            7.2 Phase 2 (Year 1.5 - 3): Scaling Agentic Workflows and Cultural Integration (The &quot;Walk&quot; Phase)
+          </h2>
+        </div>
         <p><strong>Timeline:</strong> Q1 2027 - Q4 2028</p>
         <p><strong>Objectives:</strong> Expand the application of agentic workflows to cover more of the design pipeline, integrate them into mainstream project flows, and drive cultural adoption across the engineering organization.</p>
         <p><strong>Actions:</strong></p>
@@ -39,9 +43,11 @@ export default function RoadmapDetailsPage() {
         </ul>
         <p><strong>Success Metrics:</strong> Demonstration of &gt;15% improvement in PPA on the first projects using the PPA agent; achievement of &gt;50% reduction in verification closure time; 80% of the design engineering workforce trained and certified through the Agent Academy.</p>
 
-        <h2 className="text-3xl font-semibold text-fuchsia-400 !mt-12 !mb-6 border-b border-fuchsia-600 pb-2">
-          7.3 Phase 3 (Year 3 - 5): Full-Stack Autonomy and Market Leadership (The &quot;Run&quot; Phase)
-        </h2>
+        <div className="mt-16 mb-4">
+          <h2 className="text-3xl font-semibold text-fuchsia-400 !m-0 border-b border-fuchsia-600 pb-2">
+            7.3 Phase 3 (Year 3 - 5): Full-Stack Autonomy and Market Leadership (The &quot;Run&quot; Phase)
+          </h2>
+        </div>
         <p><strong>Timeline:</strong> Q1 2029 - Q4 2030</p>
         <p><strong>Objectives:</strong> Achieve a fully integrated, end-to-end agentic design system that operates with a high degree of autonomy, and leverage this unique capability to establish undisputed market leadership.</p>
         <p><strong>Actions:</strong></p>
@@ -52,9 +58,11 @@ export default function RoadmapDetailsPage() {
         </ul>
         <p><strong>Success Metrics:</strong> Achievement of &gt;30% reduction in the overall design cycle time from initial specification to final tape-out; clear market leadership in PPA benchmarks for key product segments; successful tape-out of the first &quot;AI-designed AI chip&quot; prototype.</p>
         
-        <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
-          Roadmap Summary Table
-        </h2>
+        <div className="mt-16 mb-4">
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
+            Roadmap Summary Table
+          </h2>
+        </div>
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-slate-700">
             <thead className="bg-slate-800/50">
@@ -96,9 +104,11 @@ export default function RoadmapDetailsPage() {
           </table>
         </div>
 
-        <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
-          Conclusion
-        </h2>
+        <div className="mt-16 mb-4">
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
+            Conclusion
+          </h2>
+        </div>
         <p>The strategy detailed in Project Chimera represents a paradigm shift. It is a calculated departure from the incremental improvements of the past and a bold stride into an AI-native future. This is not an investment in a single tool or a marginal process optimization; it is the comprehensive re-architecting of our company&apos;s most fundamental competency: the art and science of semiconductor design. By embracing the power of multi-agent systems, we will not only solve the immediate challenges of post-Moore&apos;s Law complexity but also build a sustainable, compounding advantage that will be nearly impossible for competitors to replicate.</p>
         <p>The path is ambitious and fraught with challenges, both technical and cultural. It requires significant investment, unwavering executive commitment, and a willingness to transform how we work. However, the alternative—clinging to traditional methodologies in an era of exponential technological change—is a far greater risk. Project Chimera provides the blueprint to navigate this transformation successfully. By executing this plan, we will not only secure our position as the world&apos;s preeminent designer of semiconductor chips but also become the architects of the very silicon that will power the future of artificial intelligence itself. The time to act is now.</p>
       </article>

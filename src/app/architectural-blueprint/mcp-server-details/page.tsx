@@ -1,4 +1,3 @@
-
 // src/app/architectural-blueprint/mcp-server-details/page.tsx
 "use client";
 import React from 'react';
@@ -32,7 +31,7 @@ export default function McpServerDetailsPage() {
       <article className="prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6">
         <div className="flex flex-col items-center text-center mb-12">
           <ServerCog className="h-16 w-16 text-primary mb-4" />
-          <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-2">
+          <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-2 md:leading-tight">
             Deep Dive: The MCP Server
           </h1>
           <p className="text-2xl text-slate-400">Tools, Knowledge, and State Management</p>
@@ -41,7 +40,7 @@ export default function McpServerDetailsPage() {
         <p>The <strong>Multi-Agent Collaboration Protocol (MCP) Server</strong> is the linchpin of Project Chimera's architecture. It serves as a stateful, intelligent hub, providing the necessary infrastructure for Supervisor and Worker agents to operate effectively. This deep dive explores its critical functions: the Tool Abstraction Layer, the Knowledge Hub (RAG), and Context & State Management (CAG), among other vital aspects.</p>
 
         {/* Section 1: Tool Abstraction Layer */}
-        <div className="mt-12 mb-4">
+        <div className="mt-16 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             1. Tool Abstraction Layer: How it Works
           </h2>
@@ -81,7 +80,7 @@ export default function McpServerDetailsPage() {
         </ul>
 
         {/* Section 2: Knowledge Hub (RAG) */}
-        <div className="mt-12 mb-4">
+        <div className="mt-16 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             2. Knowledge Hub (RAG): What Data is Stored
           </h2>
@@ -135,7 +134,7 @@ export default function McpServerDetailsPage() {
         </ul>
 
         {/* Section 3: Context & State Management (CAG) */}
-        <div className="mt-12 mb-4">
+        <div className="mt-16 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             3. Context & State Management (CAG): How it's Handled
           </h2>
@@ -179,7 +178,7 @@ export default function McpServerDetailsPage() {
         </ul>
 
         {/* Section 4: Potential Challenges */}
-        <div className="mt-12 mb-4">
+        <div className="mt-16 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 flex items-center">
             <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
             4. Potential Challenges or Considerations for Implementing the MCP Server
@@ -200,7 +199,7 @@ export default function McpServerDetailsPage() {
         </ol>
 
         {/* Section 5: Comparison to Existing Solutions */}
-        <div className="mt-12 mb-4">
+        <div className="mt-16 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 flex items-center">
             <GitCompareArrows className="h-7 w-7 text-sky-400 mr-3 flex-shrink-0" />
             5. Comparison to Existing Solutions or Technologies
@@ -236,7 +235,7 @@ export default function McpServerDetailsPage() {
         <p>In essence, the MCP Server can be seen as an <strong>AI-native, domain-specific orchestration and knowledge platform for semiconductor design</strong>, integrating best practices from distributed systems, data management, and cutting-edge AI (RAG/CAG, multi-agent systems) into a cohesive whole.</p>
 
         {/* Section 6: Proposing Enhancements */}
-        <div className="mt-12 mb-4">
+        <div className="mt-16 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 flex items-center">
             <Lightbulb className="h-7 w-7 text-green-400 mr-3 flex-shrink-0" />
             6. Proposing Enhancements or Additional Functionalities for the MCP Server
@@ -289,7 +288,7 @@ export default function McpServerDetailsPage() {
         </ol>
 
         {/* Section 7: How the MCP Server Interacts */}
-        <div className="mt-12 mb-4">
+        <div className="mt-16 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 flex items-center">
             <Network className="h-7 w-7 text-purple-400 mr-3 flex-shrink-0" />
             7. How the MCP Server Interacts with Other Components
@@ -342,7 +341,7 @@ export default function McpServerDetailsPage() {
         </ul>
 
         {/* Section 8: Most Valuable IP */}
-        <div className="mt-12 mb-4">
+        <div className="mt-16 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 flex items-center">
             <KeyRound className="h-7 w-7 text-amber-400 mr-3 flex-shrink-0" />
             8. Focusing on the "Most Valuable Piece of Intellectual Property" Aspect

@@ -7,20 +7,24 @@ export default function AgiHorizonPage() {
   return (
     <SubPageLayout>
       <article className="prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6">
-        <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-10">
+        <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-10 md:leading-tight">
           Section 6: The Horizon: Multi-Agent Systems as a Pathway to AGI
         </h1>
         <p>While the immediate goal of Project Chimera is to achieve a decisive competitive advantage in semiconductor design, its long-term implications are far more profound. The architecture and methodologies developed are not merely for building better chips; they are foundational steps toward the creation of Artificial General Intelligence (AGI). This section explores that visionary horizon, positioning this project as a practical, domain-specific prototype for composing and orchestrating artificial minds.</p>
 
-        <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
-          6.1 Emergent Intelligence: Beyond Programmed Logic
-        </h2>
+        <div className="mt-16 mb-4">
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
+            6.1 Emergent Intelligence: Beyond Programmed Logic
+          </h2>
+        </div>
         <p>A key characteristic of complex systems is emergence: the phenomenon where a system exhibits novel, intelligent, and coherent behaviors that are not explicitly programmed into its individual components but instead arise spontaneously from their interactions. Our MAS is designed to be a crucible for such emergent intelligence.</p>
         <p>A single agent, no matter how powerful, is limited by its programming and training data. However, by orchestrating a collaborative dialogue between multiple specialized agents—a Verification agent that understands formal logic, a PPA agent that has learned the physics of silicon, and an RTL agent that knows language syntax—we create the conditions for novel solutions to emerge. The optimal solution to a complex timing closure problem might not be discovered by any single agent, but may arise from the interplay of their different perspectives, leading to a design that no single human or AI would have conceived of on its own.</p>
 
-        <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
-          6.2 From Specialized Agents to a Universal Cognitive Architecture
-        </h2>
+        <div className="mt-16 mb-4">
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
+            6.2 From Specialized Agents to a Universal Cognitive Architecture
+          </h2>
+        </div>
         <p>Current AI is specialized. The path to AGI lies in integrating these specialized intelligences into a coherent, general framework—a cognitive architecture. Researchers have proposed various functional blocks that such an architecture would require, including modules for consciousness, memory, goal management, ethics, and reflection.</p>
         <p>Project Chimera is, in effect, a real-world implementation of such an architecture within the domain of chip design.</p>
         <ul className="list-disc pl-5 space-y-2">
@@ -31,9 +35,11 @@ export default function AgiHorizonPage() {
         </ul>
         <p>By building and scaling this system, we are not just solving engineering problems; we are conducting invaluable research into the practical challenges of orchestrating a complex, multi-faceted artificial mind. The LangGraph framework itself can be seen as a &quot;hardware description language for intelligence,&quot; providing a syntax for defining how different cognitive components should be connected and controlled.</p>
 
-        <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
-          6.3 The Symbiotic Loop: How AGI Will Redefine Chip Design, and How New Chips Will Enable AGI
-        </h2>
+        <div className="mt-16 mb-4">
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
+            6.3 The Symbiotic Loop: How AGI Will Redefine Chip Design, and How New Chips Will Enable AGI
+          </h2>
+        </div>
         <p>This strategy initiates a powerful, self-accelerating feedback loop that will define the future of both computing and intelligence.</p>
         <ul className="list-disc pl-5 space-y-2">
           <li><strong>AI &rarr; Chips:</strong> The agentic design system will enable us to create novel, hyper-complex silicon architectures that are impossible to design today. This includes chips with neuro-symbolic or neuromorphic features, specifically optimized to run the next generation of AI models with unprecedented efficiency.</li>

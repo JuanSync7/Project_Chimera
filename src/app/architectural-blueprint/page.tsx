@@ -2,14 +2,14 @@
 "use client";
 import React from 'react';
 import SubPageLayout from '@/components/chimera/SubPageLayout';
-import { DraftingCompass } from 'lucide-react'; // Changed icon
+import { DraftingCompass } from 'lucide-react'; 
 
 export default function ArchitecturalBlueprintPage() {
   return (
     <SubPageLayout>
       <article className="prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6">
         <div className="flex flex-col items-center text-center mb-12">
-          <DraftingCompass className="h-16 w-16 text-primary mb-4" /> {/* Changed icon */}
+          <DraftingCompass className="h-16 w-16 text-primary mb-4" />
           <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-2">
             Section 2: Architectural Blueprint
           </h1>
@@ -20,7 +20,40 @@ export default function ArchitecturalBlueprintPage() {
         <p>Therefore, the core of our solution is a sophisticated <strong>Multi-Agent System (MAS)</strong>. This is not simply a collection of AI tools, but a <strong>collaborative, intelligent ecosystem</strong> of specialized, <strong>autonomous AI agents</strong>, meticulously orchestrated by a <strong>central intelligence hub</strong>. This section will unveil the <strong>detailed technical blueprint</strong> for this transformative system, outlining its <strong>core components</strong>, the <strong>intelligent communication protocols</strong> that enable seamless collaboration, and the <strong>strategic rationale</strong> underpinning this powerful, distributed, yet harmonized, design approach.</p>
 
         <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
-          2.1 Foundations of Multi-Agent Systems: Orchestrating Collaborative Intelligence
+          2.2 Core Components: The Specialized AI Agent Network
+        </h2>
+        <p>Our Multi-Agent System is architected as a network of distinct, specialized AI agents, each contributing its unique intelligence to the end-to-end design flow. These agents are broadly categorized by their function:</p>
+
+        <h3 className="text-2xl font-semibold text-primary mt-8 mb-4">Design & Exploration Agents:</h3>
+        <p>These agents operate in the early and iterative phases of design, translating high-level concepts into actionable design artifacts and exploring vast solution spaces.</p>
+        <ul className="list-disc pl-5 space-y-2">
+          <li><strong className="text-white font-semibold">Specification Agent:</strong> Crucial for bridging the gap between human intent and machine execution, this agent translates high-level design requirements from natural language or abstract functional specifications into formal, machine-readable design languages (e.g., SystemVerilog, VHDL).</li>
+          <li><strong className="text-white font-semibold">Architecture & RTL Agents:</strong> These agents intelligently explore optimal microarchitectures and generate highly optimized Register-Transfer Level (RTL) code, laying the foundational logic for the chip.</li>
+        </ul>
+        
+        <h3 className="text-2xl font-semibold text-primary mt-8 mb-4">Verification Agent:</h3>
+        <p>Addressing the largest bottleneck in modern design, this agent develops comprehensive test plans, generates efficient test vectors, performs formal verification, and proactively identifies and helps localize bugs.</p>
+        
+        <h3 className="text-2xl font-semibold text-primary mt-8 mb-4">Physical Design & Optimization Agents:</h3>
+        <p>Focused on transforming the logical design into a physical layout, these agents ensure the final silicon meets stringent performance, power, and area targets.</p>
+        <ul className="list-disc pl-5 space-y-2">
+          <li><strong className="text-white font-semibold">Synthesis Agent:</strong> Optimizes the generated logic for the target technology, performing gate-level netlist generation to ensure efficient translation to silicon.</li>
+          <li><strong className="text-white font-semibold">Place & Route Agent:</strong> This critical agent optimizes the physical layout, intelligently placing and routing components to minimize chip area, power consumption, and signal delay, directly impacting final PPA outcomes.</li>
+        </ul>
+
+        <h3 className="text-2xl font-semibold text-primary mt-8 mb-4">Analysis Agents:</h3>
+        <p>Specialized for specific post-design tasks, these agents provide real-time feedback on critical metrics such as power consumption, timing closure, and compliance with Design Rule Check (DRC) constraints, feeding insights back for iterative refinement.</p>
+
+        <h3 className="text-2xl font-semibold text-primary mt-8 mb-4">Central Intelligence Hub: The Orchestrator and Knowledge Backbone:</h3>
+        <p>At the heart of the MAS, this hub ensures seamless coordination, centralized intelligence, and effective human oversight.</p>
+        <ul className="list-disc pl-5 space-y-2">
+          <li><strong className="text-white font-semibold">Global Planning Agent:</strong> Acting as the system's <strong>"project manager,"</strong> this agent oversees the entire design flow. It receives high-level design goals, decomposes them into concrete sub-tasks, and intelligently delegates these tasks to the appropriate specialized Worker Agents, monitoring progress and ensuring holistic optimization.</li>
+          <li><strong className="text-white font-semibold">Knowledge Graph Agent:</strong> This serves as the organization's <strong>central, dynamic memory</strong>. It maintains a comprehensive repository of design data, intellectual property (IP), historical design performance, process design kits (PDKs), standard cell libraries, and internal guidelines, making our entire design history a searchable and queryable asset accessible to all agents.</li>
+          <li><strong className="text-white font-semibold">Human-in-the-Loop Interface:</strong> This vital agent manages interaction with human designers. It facilitates critical decision points, allows for the setting of high-level constraints, enables human overrides, and provides transparent insights into the AI's reasoning and progress, blending AI efficiency with invaluable human intuition and oversight.</li>
+        </ul>
+
+        <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
+          2.3 Foundations of Multi-Agent Systems: Orchestrating Collaborative Intelligence
         </h2>
         <p>A <strong>Multi-Agent System</strong> is composed of multiple <strong>autonomous, intelligent agents</strong>, each with specialized capabilities and goals, that interact within a shared environment to solve problems far too complex for any single agent. This architectural paradigm is uniquely suited to the challenges of semiconductor design for several key reasons:</p>
         <ul className="list-disc pl-5 space-y-2">
@@ -30,7 +63,7 @@ export default function ArchitecturalBlueprintPage() {
         </ul>
 
         <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
-          2.2 The Supervisor-Worker Pattern: A LangGraph-based Framework for Task Delegation
+          2.4 The Supervisor-Worker Pattern: A LangGraph-based Framework for Task Delegation
         </h2>
         <p>While several MAS architectures exist, the choice of architecture is a critical strategic decision. A decentralized <strong>&quot;Swarm&quot;</strong> or <strong>&quot;Network&quot;</strong> architecture, where any agent can communicate with any other, offers maximum flexibility but introduces a high degree of complexity and unpredictability. The emergent behaviors in such systems are difficult to control, audit, and debug—a level of risk that is unacceptable in the capital-intensive, high-stakes world of semiconductor design.</p>
         <p>Therefore, this plan advocates for a <strong>Supervisor-Worker architecture</strong>. This model provides the necessary balance of flexibility and control.</p>
@@ -38,7 +71,7 @@ export default function ArchitecturalBlueprintPage() {
         <p><strong className="text-white font-semibold">Implementation Framework:</strong> This architecture will be implemented using <strong>LangGraph</strong>, an open-source library designed for building stateful, multi-agent applications. In LangGraph, the entire workflow is modeled as a <strong>state machine or graph</strong>. The agents are the <strong>&quot;nodes&quot;</strong> of the graph, and the Supervisor agent controls the <strong>&quot;edges,&quot;</strong> directing the flow of execution from one node to the next based on the current state of the project. Communication and state are managed via a <strong>shared, persistent state object</strong> that is passed between agents. This <strong>centralized control flow</strong> is not merely a technical choice; it is a strategic one. It provides a single point of observation, making the entire system <strong>transparent and auditable</strong>. This is critical for <strong>MLOps, governance, and debugging</strong>, aligning perfectly with the risk-averse nature of the semiconductor industry.</p>
         
         <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
-          2.3 The MCP Server: A Central Nervous System for Tools, Knowledge, and State
+          2.5 The MCP Server: A Central Nervous System for Tools, Knowledge, and State
         </h2>
         <p>The Supervisor and Worker agents require a robust infrastructure to support their operations. The cornerstone of this infrastructure is the <strong>MCP (Multi-Agent Collaboration Protocol) Server</strong>. This is not simply a tool repository; it is a <strong>stateful, intelligent hub</strong> that serves as the <strong>brain and memory</strong> for the entire multi-agent system. Its architecture is inspired by services like <strong>LangConnect</strong>, which provide a managed API for RAG applications. The MCP Server will perform three critical functions:</p>
         <ul className="list-disc pl-5 space-y-2">
@@ -49,7 +82,7 @@ export default function ArchitecturalBlueprintPage() {
         <p>Over time, this <strong>MCP Server</strong> will evolve into the company&apos;s most valuable piece of intellectual property. It is the <strong>digital twin</strong> of our collective engineering expertise, a learning system that encapsulates our unique design methodologies and grows more powerful with every chip we produce.</p>
 
         <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
-          2.4 Grounding Agents in Reality: A Hybrid RAG/CAG Architecture for Contextual Intelligence
+          2.6 Grounding Agents in Reality: A Hybrid RAG/CAG Architecture for Contextual Intelligence
         </h2>
         <p>To perform complex reasoning, agents need access to two types of information: <strong>static, factual knowledge</strong> and <strong>dynamic, task-specific context</strong>. The MCP Server is designed to provide both through a hybrid architecture that seamlessly blends <strong>Retrieval-Augmented Generation (RAG)</strong> and <strong>Context-Augmented Generation (CAG)</strong>.</p>
         <p><strong className="text-white font-semibold">RAG for Factual Grounding:</strong> Agents will use RAG to query the MCP Server&apos;s knowledge hub for external, objective information. For example, a Verification Agent might ask, &quot;What are the specific timing constraints for the PCIe Gen 6 interface on the 3nm process node?&quot; The RAG system retrieves the relevant section from the PDK documentation and provides it to the agent. This process <strong>grounds the agent&apos;s actions in verified facts</strong>, preventing factual errors or <strong>&quot;hallucinations&quot;</strong> and ensuring designs comply with the latest specifications.</p>
@@ -59,3 +92,4 @@ export default function ArchitecturalBlueprintPage() {
     </SubPageLayout>
   );
 }
+

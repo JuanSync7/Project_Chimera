@@ -43,8 +43,9 @@ export default function AiPipelinePage() {
 
   return (
     <SubPageLayout>
-      <DigitalFallEffect isVisible={showDigitalFall} />
-      <article className="prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6">
+      {/* DigitalFallEffect is placed before the article but its positioning is now absolute to the article */}
+      <article className="prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6 relative">
+        <DigitalFallEffect isVisible={showDigitalFall} /> {/* Effect is a child of the positioned article */}
         <div className="flex flex-col items-center text-center mb-12">
           <Cpu className="h-16 w-16 text-primary mb-4" />
           <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-2">
@@ -56,12 +57,12 @@ export default function AiPipelinePage() {
         <p>This integrated approach creates a <strong>&quot;digital thread&quot;</strong> of intent and rich context that flows seamlessly from initial concept to final silicon, fundamentally breaking down traditional barriers between design disciplines. In a traditional chip design flow, critical context is often lost at handoffs between specialized teams. The verification team might receive an RTL drop, and the physical design team a netlist, but the underlying design intent, critical trade-offs, and historical decisions can become fragmented. In our proposed <strong>Multi-Agent System (MAS)</strong>, the <strong>Supervisor agent</strong> (from the Central Intelligence Hub) maintains the complete, holistic state and high-level goals for the project. When it delegates a task, it passes not just the raw data but the entire contextual awareness, managed by the <strong>MCP Server&apos;s Context & State Management (CAG)</strong> component. This shared, dynamic context empowers downstream agents to make more intelligent, globally-aware decisions, drastically reducing errors from miscommunication, accelerating design convergence, and enabling truly optimal end-to-end solutions that meet our aggressive <strong>PPA targets</strong>.</p>
 
         {/* Stage 3.1 START - Wrapped in a div styled as a section-card */}
-        <div className="section-card p-6 rounded-2xl mt-12"> {/* Added mt-12 to the card wrapper */}
-          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6"> {/* Added mb-6 to h2 */}
+        <div className="section-card p-6 rounded-2xl mt-12">
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
             3.1 Stage 1: System Specification &amp; Architecture
           </h2>
         
-          <div className="mt-6 mb-4 flex items-center"> {/* Added mt-6 to first h3 wrapper */}
+          <div className="mt-6 mb-4 flex items-center"> 
             <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
             <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
           </div>
@@ -72,7 +73,7 @@ export default function AiPipelinePage() {
             <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: AI-Driven Strategic Design &amp; Holistic Architecture Exploration</h3>
           </div>
           <p>Our workflow begins with <strong className="text-sky-400">precision and foresight</strong>, a symphony of specialized AI acting in concert:</p>
-          <ul className="list-none pl-0 space-y-6 !my-6"> {/* Added !my-6 */}
+          <ul className="list-none pl-0 space-y-6 !my-6"> 
             <li className="flex">
               <UserRoundSearch className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
               <div>The <strong>Customer Requirements Translation Agent</strong> (a Design & Exploration Agent from Section 2.2) acts as a <strong className="text-sky-400">digital envoy</strong>, engaging directly with our product managers and system architects. Leveraging the <strong>Knowledge Hub (RAG)</strong> in the MCP Server, it rapidly retrieves and analyzes data on similar past projects, market trends, and available IP to identify potential ambiguities, technical constraints, and emerging opportunities. Using the <strong>Context & State Management (CAG)</strong>, it builds a <strong className="text-sky-400">dynamic conversational bridge</strong>, iteratively refining high-level customer needs into a preliminary, yet actionable, technical specification. This significantly accelerates the proposal generation process, arming our sales team with a decisive competitive edge.</div>
@@ -177,7 +178,7 @@ export default function AiPipelinePage() {
             <li>This <strong>TDD loop</strong> continues autonomously until all tests pass with <strong>100% functional coverage</strong>, and the RTL meets its initial <strong>PPA (Power, Performance, Area) estimates</strong>. This robust, closed-loop process directly mitigates the primary weakness of using LLMs for HDL generation by grounding the creative, probabilistic nature of the AI in the deterministic, verifiable world of functional tests, dramatically accelerating the path to high-quality, bug-free RTL.</li>
         </ul>
 
-        {/* Stage 3.5 */}
+        {/* Stage 3.5 - NEW */}
         <div className="mt-12 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             3.5 Stage 5: Comprehensive Functional Verification &amp; Coverage Closure
@@ -214,7 +215,7 @@ export default function AiPipelinePage() {
         </ul>
         <p>This comprehensive, AI-driven approach to functional verification ensures that our RTL designs are rigorously exercised, catching a vast majority of functional bugs through exhaustive simulation and intelligent test generation, laying a solid foundation for subsequent physical design.</p>
 
-        {/* Stage 3.6 */}
+        {/* Stage 3.6 - NEW */}
         <div className="mt-12 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             3.6 Stage 6: Formal Verification &amp; Static Analysis for Deep Bug Detection
@@ -255,7 +256,7 @@ export default function AiPipelinePage() {
         </ul>
         <p>This multi-faceted formal and static approach significantly enhances bug detection capabilities, especially for elusive, deeply embedded issues, providing a level of confidence in design correctness that is impossible to achieve with simulation alone, drastically reducing the risk of silicon failures.</p>
 
-        {/* Stage 3.7 */}
+        {/* Stage 3.7 - NEW */}
         <div className="mt-12 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             3.7 Stage 7: AI-Driven Debugging &amp; Root Cause Analysis
@@ -293,7 +294,7 @@ export default function AiPipelinePage() {
         </ul>
         <p>This AI-driven debugging capability dramatically reduces the manual effort and expertise required for bug resolution, accelerating design cycles and allowing human engineers to focus on higher-level innovation.</p>
         
-        {/* Stage 3.8 */}
+        {/* Stage 3.8 - NEW */}
         <div className="mt-12 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             3.8 Stage 8: System-Level &amp; Cross-Domain Verification, and AI System Evaluation
@@ -348,7 +349,7 @@ export default function AiPipelinePage() {
         </ul>
         <p>This multi-faceted final verification stage ensures the comprehensive quality, reliability, and security of the entire chip, while simultaneously fostering a self-improving AI design ecosystem that continually enhances its capabilities and accelerates our design cycles.</p>
 
-        {/* Stage 3.9 - OLD 3.6 CONTENT */}
+        {/* Stage 3.9 - OLD 3.6 CONTENT (now 3.9) */}
         <div className="mt-12 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             3.9 Stage 9: Physical Design &amp; PPA Optimization
@@ -373,7 +374,7 @@ export default function AiPipelinePage() {
           <li>The <strong>Supervisor agent</strong> meticulously tracks the convergence of the <strong>PPA Optimization Agent</strong>, ensuring that it remains within defined guardrails and achieves overall project goals, while the <strong>Human-in-the-Loop Interface</strong> provides transparent dashboards for human experts to monitor progress and intervene for strategic adjustments.</li>
         </ul>
 
-        {/* Stage 3.10 - OLD 3.7 CONTENT */}
+        {/* Stage 3.10 - OLD 3.7 CONTENT (now 3.10) */}
         <div className="mt-12 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             3.10 Stage 10: Manufacturing &amp; Post-Silicon Validation

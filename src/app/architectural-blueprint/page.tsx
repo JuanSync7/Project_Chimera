@@ -2,22 +2,22 @@
 "use client";
 import React from 'react';
 import SubPageLayout from '@/components/chimera/SubPageLayout';
-import { BrainCircuit } from 'lucide-react'; // Or Network, Share2, Zap etc.
+import { DraftingCompass } from 'lucide-react'; // Changed icon
 
 export default function ArchitecturalBlueprintPage() {
   return (
     <SubPageLayout>
       <article className="prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6">
         <div className="flex flex-col items-center text-center mb-12">
-          <BrainCircuit className="h-16 w-16 text-primary mb-4" />
+          <DraftingCompass className="h-16 w-16 text-primary mb-4" /> {/* Changed icon */}
           <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-2">
             Section 2: Architectural Blueprint
           </h1>
           <p className="text-2xl text-slate-400">A Multi-Agent System for End-to-End Design</p>
         </div>
         
-        <p>To truly realize the strategic vision of <strong>full-stack AI integration</strong> and unlock the transformative capabilities detailed in Section 1, a <strong>revolutionary technical architecture</strong> is not merely beneficial, but an absolute imperative. The sheer complexity, highly multifaceted nature, and intricate domain-specific challenges of <strong>modern semiconductor design</strong> render any <strong>monolithic AI model</strong> inherently insufficient. Such a singular approach would inevitably falter under the weight of diverse data types, specialized knowledge requirements, and myriad optimization goals.</p>
-        <p>Therefore, the core of our solution is a sophisticated <strong>Multi-Agent System (MAS)</strong>. This is not simply a collection of AI tools, but a <strong>collaborative, intelligent ecosystem</strong> of specialized, <strong>autonomous AI agents</strong>, meticulously orchestrated by a <strong>central intelligence hub</strong>. This section will unveil the detailed technical blueprint for this transformative system, outlining its core components, the <strong>intelligent communication protocols</strong> that enable seamless collaboration, and the strategic rationale underpinning this powerful, distributed, yet harmonized, design approach.</p>
+        <p>To truly realize the strategic vision of <strong>full-stack AI integration</strong> and unlock the transformative capabilities detailed in Section 1, a <strong>revolutionary technical architecture</strong> is not merely beneficial, but an <strong>absolute imperative</strong>. The sheer complexity, highly multifaceted nature, and intricate domain-specific challenges of <strong>modern semiconductor design</strong> render any <strong>monolithic AI model</strong> inherently insufficient. Such a singular approach would inevitably falter under the weight of <strong>diverse data types</strong>, <strong>specialized knowledge requirements</strong>, and <strong>myriad optimization goals</strong>.</p>
+        <p>Therefore, the core of our solution is a sophisticated <strong>Multi-Agent System (MAS)</strong>. This is not simply a collection of AI tools, but a <strong>collaborative, intelligent ecosystem</strong> of specialized, <strong>autonomous AI agents</strong>, meticulously orchestrated by a <strong>central intelligence hub</strong>. This section will unveil the <strong>detailed technical blueprint</strong> for this transformative system, outlining its <strong>core components</strong>, the <strong>intelligent communication protocols</strong> that enable seamless collaboration, and the <strong>strategic rationale</strong> underpinning this powerful, distributed, yet harmonized, design approach.</p>
 
         <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
           2.1 Foundations of Multi-Agent Systems: Orchestrating Collaborative Intelligence

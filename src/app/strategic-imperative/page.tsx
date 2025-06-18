@@ -1,3 +1,4 @@
+
 // src/app/strategic-imperative/page.tsx
 "use client";
 import React from 'react';
@@ -141,7 +142,7 @@ export default function StrategicImperativePage() {
             strokeWidth={1.5}
           />
           <div className="bg-card/60 border border-primary/50 rounded-2xl p-8 shadow-xl shadow-primary/30">
-            <h3 className="text-3xl font-bold gradient-text !mb-8 text-center">
+            <h3 className="text-4xl md:text-5xl font-bold gradient-text !mb-8 text-center">
               The Future is AI-Driven, and We&apos;re Leading It
             </h3>
             <p className="text-lg text-slate-300 dark:text-slate-200 text-center leading-relaxed">
@@ -160,3 +161,4 @@ export default function StrategicImperativePage() {
     </SubPageLayout>
   );
 }
+

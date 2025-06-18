@@ -17,7 +17,7 @@ const KeyStatCard: React.FC<KeyStatCardProps> = ({ stat, description, icon, clas
       className
     )}>
       {icon && <div className="mb-4 text-primary">{React.cloneElement(icon, { size: 40 })}</div>}
-      <div className="text-4xl md:text-5xl font-bold gradient-text mb-3">{stat}</div>
+      <div className="text-4xl md:text-5xl font-bold gradient-text mb-3 relative z-10">{stat}</div>
       <p 
         className="text-slate-400 dark:text-slate-300 text-sm md:text-base leading-relaxed"
         dangerouslySetInnerHTML={{ __html: description }}

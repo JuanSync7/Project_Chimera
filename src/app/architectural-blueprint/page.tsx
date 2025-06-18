@@ -21,7 +21,7 @@ import {
   MessagesSquare, 
   FileSearch2, 
   BrainCog,
-  SearchCode // Added SearchCode here
+  SearchCode
 } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -133,13 +133,19 @@ export default function ArchitecturalBlueprintPage() {
             Verification Agents: AI-Driven Validation for Flawless Silicon
           </h3>
         </div>
-        <p>Addressing the largest bottleneck in modern design, these agents perform critical roles in ensuring <strong>design correctness and reliability</strong>.</p>
+        <p>Addressing the largest bottleneck in modern design, these agents perform critical roles in ensuring <strong>design correctness, functional completeness, and reliability</strong> across various abstraction levels and methodologies.</p>
         <ul className="list-disc pl-5 space-y-2">
           <li>
-            <strong className="text-white font-semibold">Test & Coverage Generation Agent:</strong> Focused on the proactive creation of <strong>robust verification environments</strong>, this agent autonomously develops comprehensive <strong>test plans</strong>, analyzes design <strong>coverage goals</strong>, and generates highly effective <strong>test vectors</strong> (including constrained random, directed, and formal verification assertions). Its intelligence lies in identifying <strong>critical scenarios and corner cases</strong> that effectively stress the design and ensure <strong>thorough validation</strong>.
+            <strong className="text-white font-semibold">Test & Coverage Generation Agent:</strong> Focused on the proactive creation of <strong>robust verification environments</strong> and <strong>comprehensive test scenarios</strong>, this agent autonomously develops intricate <strong>test plans</strong>, analyzes complex design <strong>coverage goals</strong>, and generates highly effective <strong>test vectors</strong>. This includes constrained random, directed, and formal verification assertions, as well as orchestrating and populating complex <strong>UVM (Universal Verification Methodology) testbenches</strong>. Its intelligence lies in identifying <strong>critical scenarios, corner cases, and coverage holes</strong>, and then generating targeted stimuli to ensure <strong>thorough validation and coverage closure</strong> for both module and system-level functionality.
           </li>
           <li>
-            <strong className="text-white font-semibold">Debug & Root Cause Analysis Agent:</strong> Addressing what is historically the <strong>largest bottleneck</strong> in modern design, this agent is a <strong>tireless problem-solver</strong>. It specializes in analyzing <strong>verification failures</strong>, sifting through vast amounts of simulation logs, waveform data, and design collateral to proactively <strong>identify, localize, and even suggest fixes</strong> for functional and performance bugs. This agent dramatically reduces <strong>manual debugging time</strong> and accelerates <strong>error resolution</strong>.
+            <strong className="text-white font-semibold">AutoReview Agent:</strong> This specialized agent acts as an automated, tireless <strong>code reviewer and static analysis expert</strong>. It leverages static analysis, sophisticated linting tools, and early-stage formal methods to meticulously check generated RTL for <strong>syntax errors, company-specific style guide violations, non-synthesizable constructs, and potential design pitfalls</strong> (e.g., clock/reset domain crossing issues). It provides precise, targeted, and actionable feedback for immediate automated correction, creating a fast feedback loop for RTL refinement.
+          </li>
+          <li>
+            <strong className="text-white font-semibold">AutoDV (Automatic Design Verification) Agent:</strong> This powerful agent is responsible for driving <strong>comprehensive functional correctness</strong> and achieving <strong>complete coverage</strong>. It intelligently orchestrates formal verification tools to <strong>mathematically prove design properties</strong> and identify deep, elusive bugs that simulation often misses, providing detailed counter-examples. Concurrently, it continuously analyzes <strong>simulation coverage reports</strong> (code, functional, assertion) and intelligently generates new, <strong>highly targeted test cases</strong> to close coverage holes, ensuring the design is rigorously exercised under all conditions.
+          </li>
+          <li>
+            <strong className="text-white font-semibold">Debug & Root Cause Analysis Agent:</strong> Addressing what is historically the <strong>largest bottleneck</strong> in modern design, this agent is a tireless, AI-powered problem-solver. It specializes in analyzing <strong>verification failures</strong> across all methodologies (simulation logs, waveform data, formal counter-examples). It sifts through vast amounts of design collateral to proactively <strong>identify, localize (down to specific RTL lines or design blocks), and even suggest precise fixes</strong> for functional, performance, and integrity bugs. This agent dramatically reduces <strong>manual debugging time</strong> and accelerates <strong>error resolution</strong> through intelligent diagnostics and feedback.
           </li>
         </ul>
 
@@ -164,7 +170,7 @@ export default function ArchitecturalBlueprintPage() {
             <strong className="text-white font-semibold">DFT Verification Agent:</strong> This agent rigorously verifies the correctness and effectiveness of the inserted DFT logic and generated test patterns. It performs fault simulations and test mode simulations to ensure high fault coverage, proper test functionality, and that test patterns can indeed detect target faults, feeding back any issues for automated correction.
           </li>
         </ul>
-
+        
         <div className="mt-8 mb-4 flex items-center">
           <Cpu className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
@@ -359,3 +365,5 @@ export default function ArchitecturalBlueprintPage() {
     </SubPageLayout>
   );
 }
+
+    

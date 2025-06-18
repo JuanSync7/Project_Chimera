@@ -14,7 +14,7 @@ const PipelineSection: React.FC = () => {
     <section id="pipeline" className="py-24">
       <h2 className="text-4xl font-bold text-center mb-3 text-white">The AI-Powered Design Pipeline</h2>
       <p className="text-slate-400 text-center text-lg mb-12 max-w-3xl mx-auto">
-        Applying agentic workflows to every stage of chip design, creating a "digital thread" of intent and context that flows from concept to silicon, breaking down traditional silos.
+        Applying <strong>agentic workflows</strong> to every stage of chip design, creating a <strong>"digital thread"</strong> of intent and context that flows from concept to silicon, breaking down traditional silos.
       </p>
       
       <div className="flex flex-wrap justify-center gap-3 mb-10">
@@ -78,4 +78,5 @@ const PipelineSection: React.FC = () => {
 };
 
 export default PipelineSection;
+
 

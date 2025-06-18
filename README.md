@@ -20,7 +20,7 @@ Project Chimera leverages Multi-Agent Systems (MAS) to achieve a generational le
 *   **Styling:** Tailwind CSS
 *   **UI Components:** ShadCN UI
 *   **Icons:** Lucide React
-*   **Generative AI (Conceptual):** Genkit (initialized in `src/ai/genkit.ts` and `src/ai/dev.ts`)
+*   **Generative AI:** Genkit (initialized in `src/ai/genkit.ts`)
 *   **Deployment:** Configured for Firebase App Hosting (see `apphosting.yaml`)
 
 ## Getting Started
@@ -69,31 +69,39 @@ This will typically start the development server on `http://localhost:9002` (as 
 
 ## Project Structure
 
-*   **`src/app/`**: Contains all the routes and pages of the application, following the Next.js App Router structure.
-    *   **`page.tsx`**: The main landing page, using `PageShell`.
-    *   **`layout.tsx`**: The root layout for the application.
-    *   **`globals.css`**: Global styles and Tailwind CSS base/components/utilities.
-    *   **`[section-name]/page.tsx`**: Individual detailed pages for major sections, using `SubPageLayout`.
+*   **`src/app/`**: Contains all the routes (pages) of the application, following the Next.js App Router structure.
+    *   **`page.tsx`**: The main landing page, utilizing `PageShell` and aggregating section components.
+    *   **`layout.tsx`**: The root layout for the application, setting up global styles, fonts, and context providers.
+    *   **`globals.css`**: Global styles, Tailwind CSS base/components/utilities, and theme (CSS variable) definitions.
+    *   **`[section-name]/page.tsx`**: Individual detailed subpages for major sections (e.g., `src/app/architectural-blueprint/page.tsx`), typically using `SubPageLayout`.
 *   **`src/components/`**: Reusable UI components.
-    *   **`chimera/`**: Components specific to the Project Chimera theme and layout (e.g., `Header.tsx`, `Footer.tsx`, `PageShell.tsx`, `SubPageLayout.tsx`, section components).
-    *   **`ui/`**: ShadCN UI components (e.g., `Button.tsx`, `Card.tsx`).
-    *   **`icons/`**: Custom icon components (e.g., `DynamicIcon.tsx`).
+    *   **`chimera/`**: Components specific to the Project Chimera theme, layout, and content.
+        *   `Header.tsx`, `Footer.tsx`, `PageShell.tsx`, `SubPageLayout.tsx`: Core layout and navigation components.
+        *   `sections/`: Components representing the major sections displayed on the main page (e.g., `OverviewSection.tsx`, `PipelineSection.tsx`).
+        *   Other utility components like `KeyStatCard.tsx`, `StarryBackground.tsx`.
+    *   **`ui/`**: ShadCN UI components (e.g., `Button.tsx`, `Card.tsx`, `Dialog.tsx`). These are generally imported from `@/components/ui/...`.
+    *   **`icons/`**: Custom icon components like `DynamicIcon.tsx` (though direct import of Lucide icons is also common).
 *   **`src/lib/`**: Utility functions, constants, and type definitions.
-    *   **`chimera/constants.ts`**: Contains data like navigation links, pipeline tab details, roadmap phases.
-    *   **`chimera/types.ts`**: TypeScript type definitions for the project.
-    *   **`utils.ts`**: General utility functions (e.g., `cn` for class merging).
-*   **`src/hooks/`**: Custom React hooks (e.g., `use-toast.ts`, `use-mobile.ts`).
-*   **`src/ai/`**: Contains Genkit setup and related AI logic.
-    *   **`genkit.ts`**: Genkit initialization with Google AI.
-    *   **`dev.ts`**: Development server configuration for Genkit.
-*   **`public/`**: Static assets (though this project primarily uses `next/image` or inline SVGs).
-*   **`tailwind.config.ts`**: Tailwind CSS configuration.
-*   **`next.config.ts`**: Next.js configuration.
+    *   **`chimera/constants.ts`**: Contains data structures like navigation links (`NAV_LINKS`), pipeline tab details (`PIPELINE_TABS`), and roadmap phases (`ROADMAP_PHASES`).
+    *   **`chimera/types.ts`**: TypeScript type definitions specific to the Project Chimera domain.
+    *   **`utils.ts`**: General utility functions, notably `cn` for merging Tailwind classes.
+*   **`src/hooks/`**: Custom React hooks.
+    *   `use-toast.ts`: Logic for the toast notification system.
+    *   `use-mobile.ts`: Hook to detect if the application is being viewed on a mobile device.
+*   **`src/ai/`**: Contains Genkit setup and AI-related logic.
+    *   **`genkit.ts`**: Core Genkit initialization with necessary plugins (e.g., Google AI).
+    *   **`dev.ts`**: Development server configuration for Genkit (currently minimal).
+    *   **`flows/`**: Directory for defining specific Genkit flows (e.g., AI agents or prompts).
+*   **`public/`**: Static assets that are served directly (e.g., images, favicons).
+*   **`tailwind.config.ts`**: Tailwind CSS configuration, including theme extensions (colors, fonts, etc.).
+*   **`next.config.ts`**: Next.js configuration (e.g., image optimization, build settings).
 *   **Documentation Files (Root Directory)**:
+    *   `ARCHITECTURAL_BLUEPRINT_FORMATTING_GUIDE.md`
     *   `COLOR_SCHEME.md`
     *   `FONT_CHOICES.md`
-    *   `SVG_DIAGRAM_GUIDELINES.md`
     *   `GUIDE_CREATING_PAGES.md`
+    *   `SVG_DIAGRAM_GUIDELINES.md`
+    *   `TEXT_STYLING_GUIDELINES.md`
 
 ## Building for Production
 
@@ -117,12 +125,15 @@ This will generate an optimized build in the `.next` directory.
 This project includes several key documents and areas for deeper understanding:
 
 *   **`GUIDE_CREATING_PAGES.md`**: Step-by-step instructions on adding new main page sections and subpages.
+*   **`ARCHITECTURAL_BLUEPRINT_FORMATTING_GUIDE.md`**: Specific formatting conventions for the detailed architectural blueprint page.
 *   **`COLOR_SCHEME.md`**: Details the color palette, theme variables, and specific color usage.
 *   **`FONT_CHOICES.md`**: Outlines the font families used and their configuration.
 *   **`SVG_DIAGRAM_GUIDELINES.md`**: Provides best practices for creating and integrating SVG diagrams.
+*   **`TEXT_STYLING_GUIDELINES.md`**: Conventions for text styling, especially keyword highlighting.
 
 To understand the code:
-*   Explore the individual section components in `src/components/chimera/sections/` to see how the content is structured.
-*   Review the detailed page components in `src/app/[section-name]/` to understand how navigation and content display for sub-pages are handled using `SubPageLayout.tsx` and `PageShell.tsx`.
+*   Explore the individual section components in `src/components/chimera/sections/` to see how the content for the main page is structured.
+*   Review the detailed page components in `src/app/[section-name]/page.tsx` to understand how navigation and content display for sub-pages are handled using `SubPageLayout.tsx` and `PageShell.tsx`.
+*   Examine `src/lib/chimera/constants.ts` to see how data for dynamic content sections (like the pipeline and roadmap) is structured.
 
 This README provides a starting point for understanding and working with the Project Chimera web application.

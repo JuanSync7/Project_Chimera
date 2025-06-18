@@ -28,7 +28,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
       <p><strong class="text-white font-semibold">Core AI Technique:</strong> <strong>RAG/CAG</strong>, <strong>Reinforcement Learning (RL)</strong>.</p>
       <p><strong class="text-white font-semibold">Key Tools/Frameworks:</strong> <strong>LangGraph</strong>, Custom Python scripts for DSE, AI models for rapid PPA estimation from high-level descriptions (achieving up to <strong>10x improvement</strong> in exploration speed).</p>
       <p><strong class="text-white font-semibold">Process:</strong> The <strong>Supervisor agent</strong> orchestrates this, presenting top candidate architectures to human architects for final decision.</p>`,
-    outcome: 'Reduced specification ambiguity; 10x faster Design Space Exploration; Architectures optimized for PPA from day one.',
+    outcome: 'Reduced specification ambiguity; <strong>10x faster Design Space Exploration</strong>; Architectures optimized for PPA from day one.',
     outcomeColor: 'text-sky-300'
   },
   {
@@ -46,7 +46,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
       <p><strong class="text-white font-semibold">Core AI Technique:</strong> <strong>Generative AI</strong>, <strong>Test-Driven Development (TDD)</strong>.</p>
       <p><strong class="text-white font-semibold">Key Tools/Frameworks:</strong> Claude Code-like models, <strong>LangGraph</strong>, Simulation tools.</p>
       <p><strong class="text-white font-semibold">Process:</strong> Human engineer provides high-level functional description and test requirements. Supervisor confirms tests. <strong>TDD loop</strong> mitigates LLM weaknesses by grounding generation in verifiable tests. <strong>HLS</strong> will be prioritized where appropriate.</p>`,
-    outcome: 'Vastly improved RTL quality and reliability; Reduced manual coding effort; Mitigated AI hallucination; Faster module development.',
+    outcome: 'Vastly improved <strong>RTL quality and reliability</strong>; Reduced <strong>manual coding effort</strong>; Mitigated AI hallucination; <strong>Faster module development</strong>.',
     outcomeColor: 'text-sky-300'
   },
   {
@@ -64,7 +64,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
       <p><strong class="text-white font-semibold">Core AI Technique:</strong> <strong>Static Analysis</strong>, <strong>Formal Methods</strong>, <strong>Coverage-driven test generation</strong>.</p>
       <p><strong class="text-white font-semibold">Key Tools/Frameworks:</strong> <strong>AIvril-inspired framework</strong>, JasperGold, Formal verification tools.</p>
       <p><strong class="text-white font-semibold">Process:</strong> <strong>Verification-in-the-loop</strong> catches virtually all bugs before physical design.</p>`,
-    outcome: 'Up to 70% reduction in debug time; Higher confidence; Significant reduction in silicon respins.',
+    outcome: 'Up to <strong>70% reduction in debug time</strong>; Higher confidence; Significant <strong>reduction in silicon respins</strong>.',
     outcomeColor: 'text-sky-300'
   },
   {
@@ -81,7 +81,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
       <p><strong class="text-white font-semibold">Core AI Technique:</strong> <strong>Reinforcement Learning (RL)</strong>.</p>
       <p><strong class="text-white font-semibold">Key Tools/Frameworks:</strong> Synopsys DSO.ai, Cadence Cerebrus, Physical design EDA tools.</p>
       <p><strong class="text-white font-semibold">Process:</strong> Agent's "actions" are adjusting tool settings, design constraints, floorplan parameters. "Reward" is a score from PPA metrics (timing, power, area, congestion) and manufacturing yield predictions. Runs <strong>thousands of automated iterations</strong> to learn complex, non-obvious optimization strategies.</p>`,
-    outcome: 'Up to 15-40% power reduction; Smaller die size; Pushing designs to the true Pareto-optimal frontier of PPA.',
+    outcome: 'Up to <strong>15-40% power reduction</strong>; Smaller die size; Pushing designs to the <strong>true Pareto-optimal frontier of PPA</strong>.',
     outcomeColor: 'text-sky-300'
   },
   {
@@ -100,7 +100,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
       <p><strong class="text-white font-semibold">Core AI Technique:</strong> <strong>Predictive Analytics</strong>, <strong>Anomaly Detection</strong>, <strong>Automated Correlation</strong>, <strong>Machine Learning</strong>.</p>
       <p><strong class="text-white font-semibold">Key Tools/Frameworks:</strong> Custom ML Models, AI-driven visual inspection systems.</p>
       <p><strong class="text-white font-semibold">Process:</strong> Incorporates <strong>manufacturability into PPA</strong>. Creates a final <strong>feedback loop</strong> refining models for future projects.</p>`,
-    outcome: 'Improved manufacturing yield; Reduced validation cycle time; More accurate models for all future projects.',
+    outcome: 'Improved <strong>manufacturing yield</strong>; Reduced <strong>validation cycle time</strong>; More <strong>accurate models for all future projects</strong>.',
     outcomeColor: 'text-sky-300'
   },
 ];
@@ -115,7 +115,7 @@ export const ROADMAP_PHASES: RoadmapPhase[] = [
         actions: "- Deploy initial <strong>MCP Server</strong> (<strong>LangGraph, LangSmith, PostgreSQL with pgvector</strong>).\n- Large-scale <strong>data ingestion</strong> for <strong>RAG knowledge base</strong> (design docs, manuals, library data).\n- Pilot project: Develop and deploy agentic <strong>Test-Driven Development (TDD) workflow</strong> for a single, non-critical IP block.",
         coreTechnologies: '<strong>MCP Server v1.0</strong>, <strong>LangGraph</strong>, <strong>LangSmith</strong>, <strong>RAG Knowledge Base</strong>, <strong>RTL TDD Agent</strong>.',
         peopleCultureFocus: 'Identify <strong>early adopters</strong>; Form a <strong>core AI platform team</strong>.',
-        successMetrics: 'Successful <strong>pilot agentic workflow deployment</strong>; <strong>>95% functional test pass rate</strong> for AI-generated RTL; Measurable <strong>reduction in design/verification time</strong> for pilot IP block; <strong>Infrastructure stability</strong>.',
+        successMetrics: 'Successful <strong>pilot agentic workflow deployment</strong>; <strong>&gt;95% functional test pass rate</strong> for AI-generated RTL; Measurable <strong>reduction in design/verification time</strong> for pilot IP block; <strong>Infrastructure stability</strong>.',
         colorClass: 'text-sky-400',
         dotClass: 'phase-crawl'
     },
@@ -128,7 +128,7 @@ export const ROADMAP_PHASES: RoadmapPhase[] = [
         actions: "- Develop and deploy autonomous <strong>PPA Optimization Agent</strong> and <strong>AIvril-inspired Verification Agent</strong>.\n- Integrate new agentic workflows into <strong>standard design methodology</strong> for all new mainstream chip projects.\n- Launch internal <strong>\"Agent Academy\"</strong> and certification program for prompt engineering, agent workflow design, MLOps.\n- Host internal hackathons for <strong>custom engineer-built agents</strong>.",
         coreTechnologies: '<strong>PPA Optimization Agent (RL)</strong>, <strong>AIvril Verification Agent</strong>, <strong>CI/CD for Agents</strong>.',
         peopleCultureFocus: 'Launch <strong>"Agent Academy"</strong>; Train all engineers in AI tools & methodologies; Foster <strong>custom agent development</strong>.',
-        successMetrics: 'Demonstration of <strong>>15% improvement in PPA</strong> on first projects using PPA agent; <strong>>50% reduction in verification closure time</strong>; <strong>80% of design engineering workforce trained and certified</strong>.',
+        successMetrics: 'Demonstration of <strong>&gt;15% improvement in PPA</strong> on first projects using PPA agent; <strong>&gt;50% reduction in verification closure time</strong>; <strong>80% of design engineering workforce trained and certified</strong>.',
         colorClass: 'text-purple-400',
         dotClass: 'phase-walk'
     },
@@ -141,7 +141,7 @@ export const ROADMAP_PHASES: RoadmapPhase[] = [
         actions: "- Integrate all five pipeline stages (Spec to Post-Silicon) into a <strong>seamless workflow</strong> orchestrated by a <strong>hierarchical supervisor architecture</strong>.\n- Empower system to autonomously suggest <strong>novel architectures/design improvements</strong> from emergent insights.\n- Initiate first projects to design <strong>novel AI accelerator chips</strong> using the Chimera system (closing <strong>AI-silicon loop</strong>).",
         coreTechnologies: '<strong>Hierarchical Supervisor Architecture</strong>; <strong>End-to-end integrated workflow</strong>; <strong>Emergent insight analysis capabilities</strong>.',
         peopleCultureFocus: 'Shift engineers from agent users to <strong>agent orchestrators</strong>; Solidify <strong>AI-first design culture</strong> throughout the organization.',
-        successMetrics: '<strong>>30% reduction in overall design cycle time</strong> (spec to tape-out); Clear <strong>market leadership in PPA benchmarks</strong>; Successful tape-out of first <strong>"AI-designed AI chip" prototype</strong>.',
+        successMetrics: '<strong>&gt;30% reduction in overall design cycle time</strong> (spec to tape-out); Clear <strong>market leadership in PPA benchmarks</strong>; Successful tape-out of first <strong>"AI-designed AI chip" prototype</strong>.',
         colorClass: 'text-fuchsia-400',
         dotClass: 'phase-run'
     }
@@ -168,6 +168,7 @@ class LogParserAgent:
     
 
     
+
 
 
 

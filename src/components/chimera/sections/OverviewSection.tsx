@@ -8,7 +8,7 @@ const OverviewSection: React.FC = () => {
     <section id="overview" className="py-24">
       <h2 className="text-4xl font-bold text-center mb-3 text-white">The Strategic Imperative: AI-First Future</h2>
       <p className="text-slate-400 text-center text-lg mb-16 max-w-3xl mx-auto">
-        The semiconductor industry's advancement principles are shifting. As Moore's Law's physical scaling diminishes, mastering design complexity through AI is paramount for leadership. This section outlines the rationale for an AI-driven design methodology.
+        The semiconductor industry's advancement principles are shifting. As <strong>Moore's Law's</strong> physical scaling diminishes, mastering <strong>design complexity</strong> through AI is paramount for leadership. This section outlines the rationale for an <strong>AI-driven design methodology</strong>.
       </p>
       <div className="grid md:grid-cols-3 gap-8">
         <SectionCard
@@ -35,4 +35,5 @@ const OverviewSection: React.FC = () => {
 };
 
 export default OverviewSection;
+
 

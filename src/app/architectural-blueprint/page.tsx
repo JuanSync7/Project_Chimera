@@ -16,13 +16,8 @@ import {
   SearchCode,
   ClipboardList,
   Workflow,
-  Package,
-  Archive,
-  MessageSquare,
-  BookOpenCheck,
-  MemoryStick,
-  Network,
-  Code2
+  Network, // Added Network
+  Code2    // Added Code2
 } from 'lucide-react';
 
 export default function ArchitecturalBlueprintPage() {
@@ -180,6 +175,8 @@ export default function ArchitecturalBlueprintPage() {
         </div>
         <p>While various <strong>Multi-Agent System (MAS) architectures</strong> exist, the strategic choice of a particular model is paramount, especially within the <strong>high-stakes domain of semiconductor design</strong>.</p>
 
+        {/* SVG Diagram was here, ensuring it is removed */}
+
         <div className="mt-8 mb-4 flex items-center">
           <ShieldCheck className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Rationale for Supervisor-Worker: Mitigating Risk in Chip Design</h3>
@@ -219,7 +216,7 @@ export default function ArchitecturalBlueprintPage() {
             <li><strong>Simplified MLOps & Governance:</strong> The structured, graph-based approach significantly simplifies the deployment, monitoring, and continuous improvement of AI agents, aligning perfectly with stringent MLOps requirements in a production environment.</li>
             <li><strong>Enhanced Debuggability:</strong> Unlike opaque monolithic systems, the modular, sequential nature of the Supervisor-Worker pattern makes it vastly easier to isolate and diagnose failures, dramatically reducing debug cycles—historically a major bottleneck in chip design.</li>
         </ul>
-
+        
         <div className="mt-8 mb-4 flex items-center">
           <SearchCode className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Observability & Evaluation: Leveraging LangSmith for AI Workflow Confidence</h3>

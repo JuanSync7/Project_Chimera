@@ -1,9 +1,9 @@
 
 // src/app/ai-pipeline/page.tsx
 "use client";
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SubPageLayout from '@/components/chimera/SubPageLayout';
-import DigitalFallEffect from '@/components/chimera/DigitalFallEffect'; // Import the new effect
+import DigitalFallEffect from '@/components/chimera/DigitalFallEffect'; 
 import {
   Cpu, 
   AlertTriangle, 
@@ -24,9 +24,26 @@ import {
 } from 'lucide-react';
 
 export default function AiPipelinePage() {
+  const [showDigitalFall, setShowDigitalFall] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setShowDigitalFall(false);
+      } else {
+        setShowDigitalFall(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <SubPageLayout>
-      <DigitalFallEffect /> {/* Add the effect component here */}
+      <DigitalFallEffect isVisible={showDigitalFall} />
       <article className="prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6">
         <div className="flex flex-col items-center text-center mb-12">
           <Cpu className="h-16 w-16 text-primary mb-4" />
@@ -39,23 +56,23 @@ export default function AiPipelinePage() {
         <p>This integrated approach creates a <strong>&quot;digital thread&quot;</strong> of intent and rich context that flows seamlessly from initial concept to final silicon, fundamentally breaking down traditional barriers between design disciplines. In a traditional chip design flow, critical context is often lost at handoffs between specialized teams. The verification team might receive an RTL drop, and the physical design team a netlist, but the underlying design intent, critical trade-offs, and historical decisions can become fragmented. In our proposed <strong>Multi-Agent System (MAS)</strong>, the <strong>Supervisor agent</strong> (from the Central Intelligence Hub) maintains the complete, holistic state and high-level goals for the project. When it delegates a task, it passes not just the raw data but the entire contextual awareness, managed by the <strong>MCP Server&apos;s Context & State Management (CAG)</strong> component. This shared, dynamic context empowers downstream agents to make more intelligent, globally-aware decisions, drastically reducing errors from miscommunication, accelerating design convergence, and enabling truly optimal end-to-end solutions that meet our aggressive <strong>PPA targets</strong>.</p>
 
         {/* Stage 3.1 START - Wrapped in a div styled as a section-card */}
-        <div className="section-card p-6 rounded-2xl mt-12">
-          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
+        <div className="section-card p-6 rounded-2xl mt-12"> {/* Added mt-12 to the card wrapper */}
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6"> {/* Added mb-6 to h2 */}
             3.1 Stage 1: System Specification &amp; Architecture
           </h2>
         
-          <div className="mt-6 mb-4 flex items-center">
+          <div className="mt-6 mb-4 flex items-center"> {/* Added mt-6 to first h3 wrapper */}
             <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
             <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
           </div>
-          <p>The critical initial phase of chip design is often shrouded in the <strong className="text-yellow-500">fog of ambiguous</strong>, high-level customer requirements expressed in natural language. Compounding this, designers face an <strong className="text-yellow-500">impossibly vast, multi-dimensional labyrinth</strong> of potential high-level architectures. Traditional manual exploration through this maze is painstakingly slow, inherently sub-optimal, and all too often prone to overlooking truly innovative, game-changing solutions.</p>
+          <p>The critical initial phase of chip design is often hampered by <strong className="text-yellow-500">ambiguous</strong>, high-level customer requirements expressed in natural language. Compounding this, designers face an <strong className="text-yellow-500">impossibly vast, multi-dimensional labyrinth</strong> of potential high-level architectures. Traditional manual exploration through this maze is painstakingly slow, inherently sub-optimal, and all too often prone to overlooking truly innovative, game-changing solutions.</p>
           
           <div className="mt-8 mb-4 flex items-center">
             <Zap className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
             <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: AI-Driven Strategic Design &amp; Holistic Architecture Exploration</h3>
           </div>
           <p>Our workflow begins with <strong className="text-sky-400">precision and foresight</strong>, a symphony of specialized AI acting in concert:</p>
-          <ul className="list-none pl-0 space-y-6 !my-6">
+          <ul className="list-none pl-0 space-y-6 !my-6"> {/* Added !my-6 */}
             <li className="flex">
               <UserRoundSearch className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
               <div>The <strong>Customer Requirements Translation Agent</strong> (a Design & Exploration Agent from Section 2.2) acts as a <strong className="text-sky-400">digital envoy</strong>, engaging directly with our product managers and system architects. Leveraging the <strong>Knowledge Hub (RAG)</strong> in the MCP Server, it rapidly retrieves and analyzes data on similar past projects, market trends, and available IP to identify potential ambiguities, technical constraints, and emerging opportunities. Using the <strong>Context & State Management (CAG)</strong>, it builds a <strong className="text-sky-400">dynamic conversational bridge</strong>, iteratively refining high-level customer needs into a preliminary, yet actionable, technical specification. This significantly accelerates the proposal generation process, arming our sales team with a decisive competitive edge.</div>

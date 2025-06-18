@@ -253,7 +253,7 @@
   top: 0;
   left: 10px; /* Positioned slightly off the left edge */
   width: 50px; /* How wide the falling area is */
-  height: 30vh; /* Confined to top 30% of viewport height */
+  height: 45vh; /* Confined to top 45% of viewport height, adjust as needed */
   pointer-events: none; /* So it doesn't interfere with clicks */
   z-index: -1; /* Behind main content */
   overflow: hidden;

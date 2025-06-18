@@ -11,26 +11,38 @@ interface Particle {
   initialTop: string;
 }
 
+interface DigitalFallEffectProps {
+  isVisible: boolean;
+}
+
 const NUM_PARTICLES = 40; // Adjust for density
 
-const DigitalFallEffect: React.FC = () => {
+const DigitalFallEffect: React.FC<DigitalFallEffectProps> = ({ isVisible }) => {
   const [particles, setParticles] = useState<Particle[]>([]);
 
   useEffect(() => {
-    const newParticles: Particle[] = [];
-    for (let i = 0; i < NUM_PARTICLES; i++) {
-      const randomSize = Math.random() * 2.5 + 1; // Particle width between 1px and 3.5px
-      newParticles.push({
-        id: i,
-        left: `${Math.random() * 95}%`, // Positioned within the container (0-95% to keep inside)
-        delay: `${Math.random() * 7}s`,  // Random start delay up to 7s
-        duration: `${Math.random() * 4 + 3}s`, // Duration between 3s and 7s
-        size: `${randomSize}px`,
-        initialTop: `${Math.random() * -40 - 10}vh`, // Start randomly above the viewport (-10vh to -50vh)
-      });
+    if (isVisible) {
+      const newParticles: Particle[] = [];
+      for (let i = 0; i < NUM_PARTICLES; i++) {
+        const randomSize = Math.random() * 2.5 + 1; // Particle width between 1px and 3.5px
+        newParticles.push({
+          id: i,
+          left: `${Math.random() * 95}%`, // Positioned within the container (0-95% to keep inside)
+          delay: `${Math.random() * 7}s`,  // Random start delay up to 7s
+          duration: `${Math.random() * 4 + 3}s`, // Duration between 3s and 7s
+          size: `${randomSize}px`,
+          initialTop: `${Math.random() * -40 - 10}vh`, // Start randomly above the viewport (-10vh to -50vh)
+        });
+      }
+      setParticles(newParticles);
+    } else {
+      setParticles([]); // Clear particles if not visible
     }
-    setParticles(newParticles);
-  }, []);
+  }, [isVisible]);
+
+  if (!isVisible) {
+    return null;
+  }
 
   return (
     <div className="digital-fall-container" aria-hidden="true">

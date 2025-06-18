@@ -15,13 +15,17 @@ import StarryBackground from '@/components/chimera/StarryBackground';
 
 // Define props for the page component
 interface HomePageProps {
-  // For static pages, params is an empty object.
-  params?: Record<string, string>; // Or Record<string, never>
+  params?: Record<string, string>; 
   searchParams?: { [key: string]: string | string[] | undefined };
 }
 
 // Renamed from App to HomePage for clarity as it's the page component
-export default function HomePage({ params, searchParams }: HomePageProps) {
+export default function HomePage({ params: initialParams, searchParams: initialSearchParams }: HomePageProps) {
+  // Create plain shallow copies of params and searchParams
+  // This might help if external tools try to enumerate them before they are fully "materialized" by Next.js
+  const params = initialParams ? { ...initialParams } : {};
+  const searchParams = initialSearchParams ? { ...initialSearchParams } : {};
+
   const [activeSection, setActiveSection] = useState<string>('home');
 
   useEffect(() => {
@@ -54,6 +58,10 @@ export default function HomePage({ params, searchParams }: HomePageProps) {
       });
     };
   }, []);
+
+  // If you needed to use params or searchParams in this component's logic,
+  // you would now use the `params` and `searchParams` constants defined above.
+  // For example: console.log(params, searchParams);
 
   return (
     <div className="relative">

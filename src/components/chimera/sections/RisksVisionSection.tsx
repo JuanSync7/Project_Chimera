@@ -42,8 +42,8 @@ const RisksVisionSection: React.FC = () => {
           <div className="text-slate-300 space-y-4 flex-grow">
             <p>Project Chimera is more than a design system; it's a real-world prototype of a cognitive architecture, pushing towards AGI:</p>
             <ul className="list-disc list-inside space-y-2 text-slate-400">
-              <li><strong>Emergent Intelligence:</strong> MAS designed as a crucible for novel, intelligent behaviors arising from collaborative dialogue between specialized agents.</li>
-              <li><strong>Universal Cognitive Architecture:</strong> A practical implementation of cognitive components:
+              <li><strong className="text-violet-400 font-semibold">Emergent Intelligence:</strong> MAS designed as a crucible for novel, intelligent behaviors arising from collaborative dialogue between specialized agents.</li>
+              <li><strong className="text-violet-400 font-semibold">Universal Cognitive Architecture:</strong> A practical implementation of cognitive components:
                   <ul className="list-circle list-inside ml-4 space-y-1 text-slate-500">
                       <li><strong className="text-slate-300">Supervisor Agent:</strong> Primitive machine consciousness (directing attention, managing goals).</li>
                       <li><strong className="text-slate-300">MCP Server:</strong> Long-term & working memory (RAG/CAG).</li>
@@ -51,7 +51,7 @@ const RisksVisionSection: React.FC = () => {
                       <li><strong className="text-slate-300">PPA Optimization Agent:</strong> Embodies reinforcement learning.</li>
                   </ul>
               </li>
-              <li><strong>The Symbiotic Loop:</strong>
+              <li><strong className="text-violet-400 font-semibold">The Symbiotic Loop:</strong>
                   <ul className="list-circle list-inside ml-4 space-y-1 text-slate-500">
                     <li><strong className="text-slate-300">AI → Chips:</strong> Agentic system designs novel AI accelerators (e.g., neuro-symbolic, neuromorphic).</li>
                     <li><strong className="text-slate-300">Chips → AI:</strong> New chips provide substrate for more powerful AI, accelerating AGI progress.</li>
@@ -74,3 +74,4 @@ const RisksVisionSection: React.FC = () => {
 };
 
 export default RisksVisionSection;
+

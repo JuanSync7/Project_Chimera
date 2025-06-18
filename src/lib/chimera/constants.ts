@@ -11,7 +11,8 @@ import {
   SearchCode,
   BarChart3,
   SlidersHorizontal, 
-  Cog 
+  Cog,
+  Wrench // Added Wrench, assuming TestTubeDiagonal or WrenchScrewdriverIcon are not preferred/available
 } from 'lucide-react';
 
 export const NAV_LINKS: NavLinkItem[] = [
@@ -122,10 +123,23 @@ export const PIPELINE_TABS: PipelineTab[] = [
     outcomeColor: 'text-teal-400'
   },
   {
+    id: 'tab-dft-atpg',
+    title: '9. DFT & ATPG',
+    icon: React.createElement(Wrench, { className: "w-5 h-5 mr-2 inline-block" }),
+    heading: 'Stage 9: Design for Testability (DFT) Insertion & Test Pattern Generation',
+    generalDescription: 'Automating Design for Testability (DFT) logic insertion and test pattern generation to ensure high manufacturability and test coverage, minimizing PPA impact.',
+    challenge: 'Ensuring a complex chip can be thoroughly tested post-manufacturing is paramount for yield and reliability. Manual DFT and ATPG are error-prone, impacting PPA and test costs.',
+    agenticWorkflowDetails: `<p>Integrates AI for DFT planning, insertion, ATPG, and verification.</p>
+      <p><strong class="text-white font-semibold">Agents:</strong> DFT Planning Agent, DFT Insertion Agent, ATPG Agent, DFT Verification Agent, Supervisor, Debug & Root Cause Analysis Agent.</p>
+      <p><strong class="text-white font-semibold">Tech:</strong> RAG, Prompt Engineering, Automated Tool Orchestration (TestMAX, Modus), Fault Simulation.</p>`,
+    outcome: 'High manufacturability; Efficient test coverage; Reduced post-silicon debug & production costs; Optimal PPA.',
+    outcomeColor: 'text-cyan-400'
+  },
+  {
     id: 'tab-physical-ppa',
-    title: '9. Physical & PPA Opt.',
+    title: '10. Physical & PPA Opt.', // Renumbered
     icon: React.createElement(SlidersHorizontal, { className: "w-5 h-5 mr-2 inline-block" }),
-    heading: 'Stage 9: Physical Design & PPA Optimization',
+    heading: 'Stage 10: Physical Design & PPA Optimization', // Renumbered
     generalDescription: 'Using <strong>Reinforcement Learning</strong> to navigate the near-infinite solution space of physical layout and push designs to the <strong>true Pareto-optimal frontier</strong>.',
     challenge: '<strong>Physical design</strong> has near-infinite choices. Manually tuning EDA tools for optimal PPA is impossible to perfect.',
     agenticWorkflowDetails: `<p><strong class="text-white font-semibold">Agents:</strong> PPA Optimization Agent (orchestrating Synthesis, Physical Implementation, Timing Closure Agents), Supervisor.</p>
@@ -136,9 +150,9 @@ export const PIPELINE_TABS: PipelineTab[] = [
   },
   {
     id: 'tab-mfg-post-silicon',
-    title: '10. Mfg & Validation',
+    title: '11. Mfg & Validation', // Renumbered
     icon: React.createElement(Cog, { className: "w-5 h-5 mr-2 inline-block" }),
-    heading: 'Stage 10: Manufacturing & Post-Silicon Validation',
+    heading: 'Stage 11: Manufacturing & Post-Silicon Validation', // Renumbered
     generalDescription: 'Closing the loop from digital design to physical reality with <strong>predictive analytics</strong> and <strong>automated validation</strong>.',
     challenge: 'Predicting <strong>manufacturing yield</strong>, detecting <strong>defects</strong>, and validating <strong>actual hardware performance</strong>.',
     agenticWorkflowDetails: `<p><strong class="text-white font-semibold">Agents:</strong> Yield Prediction, Defect Detection, Post-Silicon Validation, Knowledge Graph Agent.</p>
@@ -211,6 +225,7 @@ class LogParserAgent:
     
 
     
+
 
 
 

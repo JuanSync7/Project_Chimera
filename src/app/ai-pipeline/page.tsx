@@ -46,7 +46,7 @@ import {
   RefreshCcw,
   ListOrdered,
   ArrowRightCircle,
-  Workflow, // Replaced Sitemap
+  Workflow, 
   Shuffle, 
   Keyboard, 
   Filter, 
@@ -204,7 +204,7 @@ export default function AiPipelinePage() {
           <p>Before embarking on extensive simulation and physical design, ensuring the initial quality, synthesizability, and testability of the generated RTL is paramount. Manual linting, basic optimization, and testbench creation are time-consuming and often miss subtle issues that can lead to costly delays downstream.</p>
 
           <div className="mt-8 mb-4 flex items-center">
-            <FileCode className="h-7 w-7 text-primary mr-3 flex-shrink-0" /> {/* Changed from FileCode to maintain consistency with h3, but used FileCode as per user's visual cue preference in this context */}
+            <FileCode className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
             <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Automated RTL Quality Assurance and Comprehensive Test Environment Preparation</h3>
           </div>
           <p>Immediately following initial RTL generation, our agents perform vital proactive optimization and quality checks to ensure robust, high-quality RTL, and prepare a comprehensive test environment before functional verification begins:</p>
@@ -520,7 +520,7 @@ export default function AiPipelinePage() {
                       </div>
                       <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
                         <Network className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-sky-300 block mb-1">Power Integrity Analysis:</strong> It analyzes <strong>power integrity</strong> (e.g., IR drop, electromigration) using specialized tools, ensuring the power delivery network is robust across the entire chip. This analysis feeds back into the <strong>Physical Implementation Agent</strong> (Stage 9) for layout adjustments.</div>
+                        <div><strong className="text-sky-300 block mb-1">Power Integrity Analysis:</strong> It analyzes <strong>power integrity</strong> (e.g., IR drop, electromigration) using specialized tools, ensuring the power delivery network is robust across the entire chip. This analysis feeds back into the <strong>Physical Implementation Agent</strong> (Stage 9, now Stage 10) for layout adjustments.</div>
                       </div>
                   </div>
                 </div>
@@ -578,10 +578,113 @@ export default function AiPipelinePage() {
         </div>
         {/* Stage 3.8 END */}
 
-        {/* Stage 3.9 */}
+        {/* Stage 3.9 START - New DFT Stage */}
         <div className="section-card p-6 rounded-2xl mt-12">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
-            3.9 Stage 9: Physical Design &amp; PPA Optimization
+            3.9 Stage 9: Design for Testability (DFT) Insertion &amp; Test Pattern Generation
+          </h2>
+
+          <div className="mt-6 mb-4 flex items-center">
+            <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
+            <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
+          </div>
+          <p>Ensuring that a complex chip can be thoroughly tested after manufacturing is paramount for yield and reliability. Design for Testability (DFT) involves inserting dedicated test logic (e.g., scan chains, Built-In Self-Test - BIST, JTAG infrastructure) into the design. This process is highly specialized, computationally intensive, can significantly impact chip area, power, and performance (PPA), and requires expert knowledge to achieve high fault coverage while minimizing overhead. Manual DFT planning, insertion, and Automatic Test Pattern Generation (ATPG) are prone to errors and bottlenecks, leading to delayed test pattern availability and potentially higher manufacturing test costs.</p>
+
+          <div className="mt-8 mb-4 flex items-center">
+            <Wrench className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+            <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Automated DFT Planning, Insertion, and Optimized Test Pattern Generation</h3>
+          </div>
+          <p>This crucial stage integrates AI to automate and optimize the complex DFT flow, ensuring high test coverage and efficient manufacturing testing:</p>
+          <ul className="list-none pl-0 space-y-6 !my-6">
+            <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
+              <ClipboardList className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+              <div>
+                <strong className="text-primary block mb-1">Intelligent DFT Planning:</strong> A dedicated DFT Planning Agent (a new specialized Physical Design & Optimization Agent or a Specialized Analysis Agent from Section 2.2, expanding on its capabilities) analyzes the RTL or initial gate-level netlist received from previous stages.
+                <div className="mt-2 space-y-3">
+                  <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                    <BrainCircuit className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                    <div>Leveraging the <strong className="text-sky-300">Knowledge Hub (RAG)</strong> (containing historical DFT best practices, fault models, and technology-specific rules), it intelligently determines the optimal DFT strategy for the entire chip or specific IP blocks. This includes deciding on scan architecture, number of scan chains, BIST insertion points for memories and logic, and JTAG boundary scan requirements.</div>
+                  </div>
+                  <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                    <Scale className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                    <div>It considers initial PPA estimates and potential test time to propose a DFT plan that balances testability with design constraints.</div>
+                  </div>
+                  <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                    <Keyboard className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                    <div><strong className="text-sky-300">Prompt engineering</strong> guides general-purpose LLMs in evaluating trade-offs and generating a detailed DFT specification.</div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
+              <Puzzle className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+              <div>
+                <strong className="text-primary block mb-1">Automated DFT Insertion:</strong> The DFT Insertion Agent (another new specialized Physical Design & Optimization Agent) takes the DFT plan and autonomously modifies the design by inserting the necessary test logic.
+                 <div className="mt-2 space-y-3">
+                  <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                    <Cog className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                    <div>It orchestrates industry-standard DFT tools (via the MCP Server&apos;s Tool Abstraction Layer, e.g., Synopsys TestMAX, Cadence Modus) to perform scan chain insertion, memory BIST insertion, boundary scan logic generation, and other DFT structural enhancements.</div>
+                  </div>
+                  <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                    <RefreshCcw className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                    <div>It ensures proper clocking and reset domain handling for test mode.</div>
+                  </div>
+                   <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                    <BarChart3 className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                    <div>The agent continuously monitors the PPA impact of inserted logic, providing feedback to the Supervisor Agent for iterative adjustment if constraints are violated.</div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
+              <ListChecks className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+              <div>
+                <strong className="text-primary block mb-1">Intelligent Test Pattern Generation (ATPG):</strong> The ATPG Agent (a specialized Physical Design & Optimization Agent or Verification Agent) is responsible for generating efficient and high-quality test patterns.
+                <div className="mt-2 space-y-3">
+                  <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                    <Crosshair className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                    <div>It runs ATPG algorithms on the DFT-inserted design, targeting various fault models (e.g., stuck-at, transition, bridging faults) to achieve maximum fault coverage.</div>
+                  </div>
+                  <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                    <FileText className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                    <div>Leveraging prompt engineering and RAG on historical pattern data, it optimizes pattern count to minimize test time and cost, while maximizing effectiveness.</div>
+                  </div>
+                  <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                    <FileCode className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                    <div>It automatically generates test patterns in industry-standard formats (e.g., STIL, WGL) for direct use on ATE (Automated Test Equipment).</div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
+              <ShieldCheck className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+              <div>
+                <strong className="text-primary block mb-1">DFT Verification and Validation:</strong> A DFT Verification Agent (a Verification Agent from Section 2.2) rigorously verifies the correctness of the inserted DFT logic and the generated test patterns.
+                <div className="mt-2 space-y-3">
+                  <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                    <PlayCircle className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                    <div>It simulates the design in test mode to ensure all scan chains are correctly connected and functional, and that BIST engines operate as expected.</div>
+                  </div>
+                  <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                    <TestTube2 className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                    <div>It performs fault simulation to confirm the achieved fault coverage targets.</div>
+                  </div>
+                  <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                    <Bug className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                    <div>Any issues detected are fed back to the Debug & Root Cause Analysis Agent and the DFT Insertion Agent for automated correction.</div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <p>This AI-driven DFT stage ensures high manufacturability and testability of our chips, significantly reducing post-silicon debug efforts and overall production costs, while maintaining optimal PPA.</p>
+        </div>
+        {/* Stage 3.9 END */}
+
+        {/* Stage 3.10 */}
+        <div className="section-card p-6 rounded-2xl mt-12">
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
+            3.10 Stage 10: Physical Design &amp; PPA Optimization
           </h2>
           <div className="mt-6 mb-4 flex items-center">
             <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
@@ -605,7 +708,7 @@ export default function AiPipelinePage() {
             </li>
             <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
               <Award className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <div><strong className="text-primary block mb-1">Reward System:</strong> The <strong>&quot;reward&quot;</strong> it receives after each iterative run is a meticulously calculated score derived from the resulting comprehensive PPA metrics (<strong>timing closure, dynamic and static power consumption, silicon area utilization, routing congestion</strong>, and even early <strong>manufacturing yield predictions</strong> from the Yield Prediction Agent – introduced in Stage 3.10).</div>
+              <div><strong className="text-primary block mb-1">Reward System:</strong> The <strong>&quot;reward&quot;</strong> it receives after each iterative run is a meticulously calculated score derived from the resulting comprehensive PPA metrics (<strong>timing closure, dynamic and static power consumption, silicon area utilization, routing congestion</strong>, and even early <strong>manufacturing yield predictions</strong> from the Yield Prediction Agent – introduced in Stage 3.11).</div>
             </li>
             <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
               <FastForward className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
@@ -617,12 +720,12 @@ export default function AiPipelinePage() {
             </li>
           </ul>
         </div>
-        {/* Stage 3.9 END */}
+        {/* Stage 3.10 END */}
 
-        {/* Stage 3.10 */}
+        {/* Stage 3.11 */}
         <div className="section-card p-6 rounded-2xl mt-12">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
-            3.10 Stage 10: Manufacturing &amp; Post-Silicon Validation
+            3.11 Stage 11: Manufacturing &amp; Post-Silicon Validation
           </h2>
           <div className="mt-6 mb-4 flex items-center">
             <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
@@ -638,7 +741,7 @@ export default function AiPipelinePage() {
           <ul className="list-none pl-0 space-y-6 !my-6">
             <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
               <Activity className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <div><strong className="text-primary block mb-1">Yield Prediction:</strong> A <strong>Yield Prediction Agent</strong> will leverage advanced <strong>machine learning models</strong> trained on vast datasets of historical wafer-level data, process variation statistics, and test results. This agent identifies design features, layout structures, or even specific process parameters that are statistically likely to cause <strong>manufacturing problems or yield loss</strong>. This critical, proactive feedback is passed back to the <strong>PPA Optimization Agent</strong> in Stage 3.9, directly incorporating <strong>manufacturability and yield considerations</strong> into the iterative PPA equation from the earliest physical design stages.</div>
+              <div><strong className="text-primary block mb-1">Yield Prediction:</strong> A <strong>Yield Prediction Agent</strong> will leverage advanced <strong>machine learning models</strong> trained on vast datasets of historical wafer-level data, process variation statistics, and test results. This agent identifies design features, layout structures, or even specific process parameters that are statistically likely to cause <strong>manufacturing problems or yield loss</strong>. This critical, proactive feedback is passed back to the <strong>PPA Optimization Agent</strong> in Stage 3.10, directly incorporating <strong>manufacturability and yield considerations</strong> into the iterative PPA equation from the earliest physical design stages.</div>
             </li>
             <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
               <ScanSearch className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
@@ -650,7 +753,7 @@ export default function AiPipelinePage() {
             </li>
           </ul>
         </div>
-        {/* Stage 3.10 END */}
+        {/* Stage 3.11 END */}
       </article>
     </SubPageLayout>
   );

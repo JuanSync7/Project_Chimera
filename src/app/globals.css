@@ -176,9 +176,9 @@
     transition: all 0.3s ease;
 }
 .section-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px -3px rgba(56, 189, 248, 0.1), 0 4px 6px -2px rgba(56, 189, 248, 0.05); /* Original sky shadow, can be themed if desired */
-    /* border-color: rgba(56, 189, 248, 0.3); */ /* Original sky border, can be themed */
+    transform: translateY(-5px) scale(1.02); /* Added scale */
+    box-shadow: 0 12px 24px -6px hsl(var(--primary) / 0.25), 0 8px 16px -8px hsl(var(--primary) / 0.2); /* Enhanced themed shadow */
+    border-color: hsl(var(--primary) / 0.6); /* More vibrant primary border, may be overridden by specific hover:border-color utilities */
 }
 .tab-button-base { 
     transition: all 0.3s ease;
@@ -245,3 +245,4 @@
   animation-iteration-count: infinite;
   animation-fill-mode: forwards; 
 }
+

@@ -12,7 +12,7 @@ import {
   BarChart3,
   SlidersHorizontal, 
   Cog,
-  Wrench // Added Wrench, assuming TestTubeDiagonal or WrenchScrewdriverIcon are not preferred/available
+  Wrench
 } from 'lucide-react';
 
 export const NAV_LINKS: NavLinkItem[] = [
@@ -35,7 +35,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     agenticWorkflowDetails: `<p><strong class="text-white font-semibold">Agents:</strong> Customer Req. Translation, Specification, Microarchitecture Opt., System Interconnect, Supervisor.</p>
       <p><strong class="text-white font-semibold">Tech:</strong> RAG, CAG, RL, Multi-objective Opt.</p>`,
     outcome: 'Reduced ambiguity; <strong>10x faster Design Space Exploration</strong>; PPA optimized from day one.',
-    outcomeColor: 'text-sky-300'
+    outcomeColor: 'text-green-400'
   },
   {
     id: 'tab-rtl-gen',
@@ -47,7 +47,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     agenticWorkflowDetails: `<p><strong class="text-white font-semibold">Agents:</strong> RTL Generation & Refinement (Coder) Agent.</p>
       <p><strong class="text-white font-semibold">Tech:</strong> LLMs, Prompt Engineering, RAG, HLS.</p>`,
     outcome: 'High-quality RTL; Reduced manual coding; Reliable HLS; Faster module dev.',
-    outcomeColor: 'text-sky-300'
+    outcomeColor: 'text-green-400'
   },
   {
     id: 'tab-rtl-opt-test',
@@ -84,7 +84,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     agenticWorkflowDetails: `<p><strong class="text-white font-semibold">Agents:</strong> Test & Coverage Generation Agent, AutoDV Agent, Supervisor.</p>
       <p><strong class="text-white font-semibold">Tech:</strong> Intelligent Test Gen, UVM Orchestration, Automated Coverage Analysis & Closure (code, functional, assertion).</p>`,
     outcome: 'Rigorously exercised RTL; Vast majority of functional bugs caught; Solid foundation for physical design.',
-    outcomeColor: 'text-yellow-400'
+    outcomeColor: 'text-green-400'
   },
   {
     id: 'tab-formal-static',
@@ -96,7 +96,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     agenticWorkflowDetails: `<p><strong class="text-white font-semibold">Agents:</strong> AutoDV Agent, AutoReview Agent, Security Verification Agent.</p>
       <p><strong class="text-white font-semibold">Tech:</strong> Automated Formal Property Gen & Proofs (Model Checking), Exhaustive Static Analysis (CDC, RDC, Linting), Security Probing (Formal, Static, Fault Injection).</p>`,
     outcome: 'Enhanced bug detection for elusive issues; Higher confidence in design correctness; Drastically reduced risk of silicon failures.',
-    outcomeColor: 'text-yellow-400'
+    outcomeColor: 'text-green-400'
   },
   {
     id: 'tab-ai-debug',
@@ -108,7 +108,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     agenticWorkflowDetails: `<p><strong class="text-white font-semibold">Agents:</strong> Debug & Root Cause Analysis Agent, RTL Generation & Refinement Agent, Supervisor, Test & Coverage Generation Agent.</p>
       <p><strong class="text-white font-semibold">Tech:</strong> Automated Failure Analysis & Localization (Logs, Waveforms), Intelligent Explanation (LLM-based), "What-If" Debugging (CAG), Regression Test Generation.</p>`,
     outcome: 'Dramatically reduced manual debug effort; Accelerated design cycles; Engineers focus on higher-level innovation.',
-    outcomeColor: 'text-orange-400'
+    outcomeColor: 'text-green-400'
   },
   {
     id: 'tab-system-eval',
@@ -120,7 +120,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     agenticWorkflowDetails: `<p><strong class="text-white font-semibold">Agents:</strong> Performance Verification Agent, Power & DRC Analysis Agent, Security Verification Agent, Supervisor, Knowledge Graph Agent, Global Planning Agent.</p>
       <p><strong class="text-white font-semibold">Tech:</strong> Full-Chip Performance Sim (SystemC), Dynamic/Static Power Analysis, Holistic Security Assessment (Attack Surface, Vuln. Scan, Pen Test), LangSmith AI Eval & Guardrails, Self-Evaluation & Learning.</p>`,
     outcome: 'Comprehensive chip quality, reliability, security; Self-improving AI design ecosystem; Accelerated design cycles.',
-    outcomeColor: 'text-teal-400'
+    outcomeColor: 'text-green-400'
   },
   {
     id: 'tab-dft-atpg',
@@ -133,32 +133,32 @@ export const PIPELINE_TABS: PipelineTab[] = [
       <p><strong class="text-white font-semibold">Agents:</strong> DFT Planning Agent, DFT Insertion Agent, ATPG Agent, DFT Verification Agent, Supervisor, Debug & Root Cause Analysis Agent.</p>
       <p><strong class="text-white font-semibold">Tech:</strong> RAG, Prompt Engineering, Automated Tool Orchestration (TestMAX, Modus), Fault Simulation.</p>`,
     outcome: 'High manufacturability; Efficient test coverage; Reduced post-silicon debug & production costs; Optimal PPA.',
-    outcomeColor: 'text-cyan-400'
+    outcomeColor: 'text-green-400'
   },
   {
     id: 'tab-physical-ppa',
-    title: '10. Physical & PPA Opt.', // Renumbered
+    title: '10. Physical & PPA Opt.',
     icon: React.createElement(SlidersHorizontal, { className: "w-5 h-5 mr-2 inline-block" }),
-    heading: 'Stage 10: Physical Design & PPA Optimization', // Renumbered
+    heading: 'Stage 10: Physical Design & PPA Optimization',
     generalDescription: 'Using <strong>Reinforcement Learning</strong> to navigate the near-infinite solution space of physical layout and push designs to the <strong>true Pareto-optimal frontier</strong>.',
     challenge: '<strong>Physical design</strong> has near-infinite choices. Manually tuning EDA tools for optimal PPA is impossible to perfect.',
     agenticWorkflowDetails: `<p><strong class="text-white font-semibold">Agents:</strong> PPA Optimization Agent (orchestrating Synthesis, Physical Implementation, Timing Closure Agents), Supervisor.</p>
       <p><strong class="text-white font-semibold">Tech:</strong> Reinforcement Learning (RL).</p>
       <p><strong class="text-white font-semibold">Tools:</strong> Synopsys DSO.ai, Cadence Cerebrus principles.</p>`,
     outcome: 'Up to <strong>15-40% power reduction</strong>; Smaller die size; Designs at <strong>true Pareto-optimal PPA frontier</strong>.',
-    outcomeColor: 'text-purple-400'
+    outcomeColor: 'text-green-400'
   },
   {
     id: 'tab-mfg-post-silicon',
-    title: '11. Mfg & Validation', // Renumbered
+    title: '11. Mfg & Validation',
     icon: React.createElement(Cog, { className: "w-5 h-5 mr-2 inline-block" }),
-    heading: 'Stage 11: Manufacturing & Post-Silicon Validation', // Renumbered
+    heading: 'Stage 11: Manufacturing & Post-Silicon Validation',
     generalDescription: 'Closing the loop from digital design to physical reality with <strong>predictive analytics</strong> and <strong>automated validation</strong>.',
     challenge: 'Predicting <strong>manufacturing yield</strong>, detecting <strong>defects</strong>, and validating <strong>actual hardware performance</strong>.',
     agenticWorkflowDetails: `<p><strong class="text-white font-semibold">Agents:</strong> Yield Prediction, Defect Detection, Post-Silicon Validation, Knowledge Graph Agent.</p>
       <p><strong class="text-white font-semibold">Tech:</strong> Predictive Analytics, Anomaly Detection, Automated Correlation, ML.</p>`,
     outcome: 'Improved <strong>yield</strong>; Reduced <strong>validation cycle time</strong>; More <strong>accurate models for future projects</strong>.',
-    outcomeColor: 'text-rose-400'
+    outcomeColor: 'text-green-400'
   },
 ];
 
@@ -225,6 +225,7 @@ class LogParserAgent:
     
 
     
+
 
 
 

@@ -253,9 +253,9 @@
   top: 0;
   left: 10px; /* Positioned slightly off the left edge */
   width: 50px; /* How wide the falling area is */
-  height: 100vh;
+  height: 30vh; /* Confined to top 30% of viewport height */
   pointer-events: none; /* So it doesn't interfere with clicks */
-  z-index: 1; /* Above starry background, below main content */
+  z-index: -1; /* Behind main content */
   overflow: hidden;
 }
 
@@ -282,7 +282,7 @@
     opacity: 0.7;
   }
   100% {
-    transform: translateY(105vh); /* Fall slightly below the viewport */
+    transform: translateY(105vh); /* Fall slightly below the viewport - particles will be clipped by container */
     opacity: 0;
   }
 }

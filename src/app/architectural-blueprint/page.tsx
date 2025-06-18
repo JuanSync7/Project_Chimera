@@ -1,3 +1,4 @@
+
 // src/app/architectural-blueprint/page.tsx
 "use client";
 import React from 'react';
@@ -73,7 +74,7 @@ export default function ArchitecturalBlueprintPage() {
 
         <div className="mt-8 mb-4 flex items-center">
           <PenTool className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Design & Exploration Agents: Intelligent Conception, Blueprinting, and Requirements Translation</h3>
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Design & Exploration Agents: Intelligent Design & Requirements Capture</h3>
         </div>
         <p>These agents are strategically positioned at the very front-end of our product lifecycle, enabling rapid innovation from initial customer engagement through foundational design. They play a pivotal role in translating <strong>market needs</strong> into <strong>actionable technical specifications</strong>, exploring <strong>vast solution spaces</strong>, and laying the <strong>robust groundwork</strong> that dictates the efficiency, performance, and market fit of the entire chip.</p>
         <ul className="list-disc pl-5 space-y-2">
@@ -271,4 +272,6 @@ export default function ArchitecturalBlueprintPage() {
     </SubPageLayout>
   );
 }
+    
+
     

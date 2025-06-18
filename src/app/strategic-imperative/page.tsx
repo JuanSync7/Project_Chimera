@@ -77,31 +77,37 @@ export default function StrategicImperativePage() {
             icon={<FastForward className="h-8 w-8 md:h-10 md:w-10" />}
             stat="30-50%"
             description="AI-driven design automation slashes our overall chip design time by 30-50%, enabling faster delivery and market capture."
+            className="bg-slate-800/50 dark:bg-slate-900/60"
           />
           <KeyStatCard
             icon={<Zap className="h-8 w-8 md:h-10 md:w-10" />}
             stat="Up to 40%"
             description="ML algorithms redefine efficiency, leading to power reductions of up to 40% for our customers."
+            className="bg-slate-800/50 dark:bg-slate-900/60"
           />
           <KeyStatCard
             icon={<Minimize2 className="h-8 w-8 md:h-10 md:w-10" />}
             stat="Up to 20%"
             description="RL-based layout optimization cuts chip area up to 20%, delivering smaller, cost-effective silicon."
+            className="bg-slate-800/50 dark:bg-slate-900/60"
           />
           <KeyStatCard
             icon={<UsersRound className="h-8 w-8 md:h-10 md:w-10" />}
             stat="3x-5x"
             description="AI-powered EDA tools propel our design team productivity 3x-5x, freeing engineers for innovation."
+            className="bg-slate-800/50 dark:bg-slate-900/60"
           />
           <KeyStatCard
             icon={<ClipboardCheck className="h-8 w-8 md:h-10 md:w-10" />}
             stat="Up to 70%"
             description="AI streamlines verification, cutting our debugging time by as much as 70% for more reliable designs."
+            className="bg-slate-800/50 dark:bg-slate-900/60"
           />
           <KeyStatCard
             icon={<SearchCode className="h-8 w-8 md:h-10 md:w-10" />}
             stat="Up to 10x"
             description="RL models explore design spaces up to 10x more efficiently, uncovering novel, optimized solutions that set our chips apart."
+            className="bg-slate-800/50 dark:bg-slate-900/60"
           />
         </div>
         
@@ -132,33 +138,22 @@ export default function StrategicImperativePage() {
           </li>
         </ul>
 
-        <div className="relative max-w-4xl mx-auto mt-12 p-6 border-2 border-primary/30 border-dashed rounded-3xl">
-          <Cpu
-            className="absolute -top-4 -left-4 h-10 w-10 text-primary/50 opacity-70"
-            strokeWidth={1.5}
-          />
-          <BrainCircuit
-            className="absolute -bottom-4 -right-4 h-10 w-10 text-primary/50 opacity-70"
-            strokeWidth={1.5}
-          />
-          <div className="bg-card/60 border border-primary/50 rounded-2xl p-8 shadow-xl shadow-primary/30">
-            <h3 className="text-4xl md:text-5xl font-bold gradient-text !mb-8 text-center">
-              The Future is AI-Driven, and We&apos;re Leading It
-            </h3>
-            <p className="text-lg text-slate-300 dark:text-slate-200 text-center leading-relaxed">
-              When these compounded gains from both advanced AI in EDA and the
-              strategic deployment of agentic LLMs are realized across our full
-              design flow, the vision is not for a marginal improvement but for a
-              transformative enhancement in our overall design quality and
-              efficiency. By embracing this multi-faceted AI revolution, we are
-              not just adapting to the future; we are actively shaping it,
-              positioning ourselves to achieve a sustainable and decisive
-              competitive advantage in the global semiconductor market.
-            </p>
-          </div>
+        <div className="max-w-4xl mx-auto mt-12 p-8 bg-card border border-primary/30 rounded-2xl shadow-2xl shadow-primary/40">
+          <h3 className="text-4xl md:text-5xl leading-snug font-bold gradient-text !mb-8 text-center">
+            The Future is AI-Driven, and We&apos;re Leading It
+          </h3>
+          <p className="text-lg text-slate-300 dark:text-slate-200 text-center leading-relaxed">
+            When these compounded gains from both advanced AI in EDA and the
+            strategic deployment of agentic LLMs are realized across our full
+            design flow, the vision is not for a marginal improvement but for a
+            transformative enhancement in our overall design quality and
+            efficiency. By embracing this multi-faceted AI revolution, we are
+            not just adapting to the future; we are actively shaping it,
+            positioning ourselves to achieve a sustainable and decisive
+            competitive advantage in the global semiconductor market.
+          </p>
         </div>
       </article>
     </SubPageLayout>
   );
 }
-

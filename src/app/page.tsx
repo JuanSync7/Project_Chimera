@@ -1,7 +1,7 @@
 // src/app/page.tsx
 "use client";
 import React, { useState, useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+// Removed: import { useSearchParams } from 'next/navigation';
 import PageShell from '@/components/chimera/PageShell';
 import HomeSection from '@/components/chimera/sections/HomeSection';
 import OverviewSection from '@/components/chimera/sections/OverviewSection';
@@ -16,9 +16,7 @@ import StarryBackground from '@/components/chimera/StarryBackground';
 
 // This component contains the actual page content and logic
 function HomePageContent() {
-  // Call useSearchParams to ensure Next.js handles searchParams correctly for this component tree.
-  // The return value isn't used here as the page content is static, but calling the hook is important.
-  useSearchParams();
+  // Removed: useSearchParams(); // Call was here
 
   const [activeSection, setActiveSection] = useState<string>('home');
 
@@ -114,8 +112,6 @@ function HomePageContent() {
 
 // The default export is now a wrapper component that includes Suspense
 export default function HomePage() {
-  // Using useSearchParams (in HomePageContent) typically requires a Suspense boundary.
-  // The fallback can be null if no specific loading UI is needed while searchParams resolve.
   return (
     <Suspense fallback={null}>
       <HomePageContent />

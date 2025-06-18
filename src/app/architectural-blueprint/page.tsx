@@ -3,8 +3,8 @@
 "use client";
 import React from 'react';
 import SubPageLayout from '@/components/chimera/SubPageLayout';
-import { 
-  DraftingCompass, 
+import {
+  DraftingCompass,
   Component,
   Scaling,
   ShieldCheck,
@@ -36,7 +36,7 @@ export default function ArchitecturalBlueprintPage() {
           </h1>
           <p className="text-2xl text-slate-400">A Multi-Agent System for End-to-End Design</p>
         </div>
-        
+
         <p>To truly realize the strategic vision of <strong>full-stack AI integration</strong> and unlock the transformative capabilities detailed in Section 1, a <strong>revolutionary technical architecture</strong> is not merely beneficial, but an <strong>absolute imperative</strong>. The sheer complexity, highly multifaceted nature, and intricate domain-specific challenges of <strong>modern semiconductor design</strong> render any <strong>monolithic AI model</strong> inherently insufficient. Such a singular approach would inevitably falter under the weight of <strong>diverse data types</strong>, <strong>specialized knowledge requirements</strong>, and <strong>myriad optimization goals</strong>.</p>
         <p>Therefore, the core of our solution is a sophisticated <strong>Multi-Agent System (MAS)</strong>. This is not simply a collection of AI tools, but a <strong>collaborative, intelligent ecosystem</strong> of specialized, <strong>autonomous AI agents</strong>, meticulously orchestrated by a <strong>central intelligence hub</strong>. This section will unveil the <strong>detailed technical blueprint</strong> for this transformative system, outlining its <strong>core components</strong>, the <strong>intelligent communication protocols</strong> that enable seamless collaboration, and the <strong>strategic rationale</strong> underpinning this powerful, <strong>distributed, yet harmonized</strong>, design approach.</p>
 
@@ -46,13 +46,13 @@ export default function ArchitecturalBlueprintPage() {
           </h2>
         </div>
         <p>A <strong>Multi-Agent System (MAS)</strong> stands as a paradigm of <strong>distributed intelligence</strong>, composed of multiple <strong>autonomous, intelligent agents</strong>, each endowed with <strong>specialized capabilities</strong> and clearly defined goals. These agents do not operate in isolation but rather interact strategically within a <strong>shared environment</strong> to collectively solve problems of immense scale and complexity – challenges far beyond the scope of any single, <strong>monolithic AI model</strong>. This architectural approach is uniquely and inherently suited to the intricate, <strong>multi-domain nature</strong> of modern semiconductor design for several pivotal reasons:</p>
-        
+
         <div className="mt-8 mb-4 flex items-center">
           <Component className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Modularity and Specialization:</h3>
         </div>
         <p>The entire chip design process is intrinsically divisible into distinct, highly specialized domains of expertise, such as <strong>architectural exploration, RTL generation, formal verification, and sophisticated physical design</strong> (including placement, routing, and PPA optimization). A MAS directly leverages this natural segmentation by allowing for the creation of dedicated <strong>&quot;expert&quot; agents</strong> for each specific domain. This not only dramatically improves performance, as each agent can be precisely optimized with <strong>tailored AI models</strong> for its narrow, deep task, but also significantly enhances <strong>maintainability</strong>, enabling independent development, rigorous testing, and seamless updates of individual components.</p>
-        
+
         <div className="mt-8 mb-4 flex items-center">
           <Scaling className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Scalability:</h3>
@@ -64,9 +64,9 @@ export default function ArchitecturalBlueprintPage() {
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Robustness and Debuggability:</h3>
         </div>
         <p>The inherent <strong>separation of concerns</strong>, where each agent is responsible for a well-defined task, profoundly improves system robustness. Failures or unexpected behaviors can be localized and traced directly to the responsible agent and its specific interactions, dramatically simplifying the process of <strong>isolation, diagnosis, and resolution</strong>. Unlike debugging an opaque, monolithic AI system, the MAS's <strong>transparent, modular structure</strong> ensures a high degree of <strong>auditability and control</strong>, which is paramount in the high-stakes, capital-intensive world of chip manufacturing.</p>
-        
+
         <div className="mt-12 mb-4">
-          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2"> 
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             2.2 Core Components: The Specialized AI Agent Network
           </h2>
         </div>
@@ -113,7 +113,7 @@ export default function ArchitecturalBlueprintPage() {
             <strong className="text-white font-semibold">Power-Aware RTL Optimization Agent:</strong> Specializing in <strong>energy efficiency</strong>, this agent focuses on applying <strong>advanced power optimization techniques</strong> directly at the <strong>RTL level</strong>. It analyzes the design's <strong>power characteristics</strong>, identifies <strong>static and dynamic power hot-spots</strong>, and autonomously modifies RTL code to implement techniques like <strong>advanced clock gating, power gating, multi-voltage domain partitioning, and intelligent activity-based power reduction strategies</strong>. This proactive, AI-driven power optimization at the RTL stage is critical for achieving <strong>aggressive power targets</strong> in modern <strong>low-power and mobile applications</strong>.
           </li>
         </ul>
-        
+
         <div className="mt-8 mb-4 flex items-center">
           <ShieldCheck className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Verification Agents: AI-Driven Validation for Flawless Silicon</h3>
@@ -144,7 +144,7 @@ export default function ArchitecturalBlueprintPage() {
             <strong className="text-white font-semibold">Timing Closure Agent:</strong> Dedicated to achieving <strong>timing sign-off</strong>, this agent is deeply integrated with industry-standard <strong>static timing analysis (STA) tools</strong> such as <strong>Synopsys PrimeTime</strong>. It proactively analyzes complex <strong>timing paths</strong>, identifies violations, and, crucially, reasons about and proposes specific modifications to <strong>RTL, synthesis scripts, physical constraints, or even back-annotated netlist changes</strong>. This agent drives <strong>iterative timing closure</strong>, collaborating with the Synthesis and Physical Implementation Agents to resolve <strong>critical path delays</strong>, ensuring our designs meet <strong>aggressive frequency targets</strong>.
           </li>
         </ul>
-        
+
         <div className="mt-8 mb-4 flex items-center">
            <BarChart3 className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
            <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Analysis Agents:</h3>
@@ -174,19 +174,170 @@ export default function ArchitecturalBlueprintPage() {
         </ul>
 
         <div className="mt-12 mb-4">
-          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2"> 
+          <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             2.3 The Supervisor-Worker Pattern: Precision Orchestration for Semiconductor Design
           </h2>
         </div>
         <p>While various <strong>Multi-Agent System (MAS) architectures</strong> exist, the strategic choice of a particular model is paramount, especially within the <strong>high-stakes domain of semiconductor design</strong>.</p>
-        
+
+        <div className="my-8 p-4 border border-border rounded-lg bg-card shadow-md flex justify-center">
+          <svg width="100%" viewBox="0 0 800 650" xmlns="http://www.w3.org/2000/svg" style={{ maxWidth: '700px' }}>
+            <title>Supervisor-Worker Pattern: Orchestrated AI for Chip Design</title>
+            <desc>Diagram illustrating the Supervisor-Worker agent architecture, LangGraph framework, MCP Server, LangSmith platform, and Human-in-the-Loop interface for AI-driven chip design.</desc>
+            <style>
+              {`
+                /* Basic Shapes & Fills */
+                .supervisor-node-bg { fill: hsl(var(--diagram-supervisor-fill)); stroke: hsl(var(--diagram-foreground)); stroke-width: 1.5; }
+                .worker-node-bg { fill: hsl(var(--diagram-worker-fill)); stroke: hsl(var(--diagram-foreground)); stroke-width: 1; }
+                .langgraph-framework-bg { fill: hsla(var(--secondary), 0.15); stroke: hsl(var(--border)); stroke-width: 2; stroke-dasharray: 10 5; } /* Using secondary for a muted background */
+                .mcp-server-box-bg { fill: hsl(var(--diagram-mcp-fill)); stroke: hsl(var(--diagram-mcp-stroke)); stroke-width: 2; }
+                .mcp-internal-box-bg { fill: hsl(var(--diagram-mcp-internal-fill)); stroke: hsl(var(--border)); stroke-width: 1; }
+                .langsmith-platform-bg { fill: hsla(var(--accent), 0.2); stroke: hsl(var(--accent)); stroke-width: 2; }
+                .human-interface-bg { fill: hsl(var(--muted)); stroke: hsl(var(--muted-foreground)); stroke-width: 1.5; }
+                .shared-state-icon-bg { fill: hsl(var(--secondary)); stroke: hsl(var(--border)); stroke-width: 1; }
+
+                /* Text Styles */
+                .text-title-main { font-family: var(--font-inter, 'Inter', sans-serif); font-size: 16px; font-weight: bold; fill: hsl(var(--diagram-title-text-fill)); text-anchor: middle; }
+                .text-title-sub { font-family: var(--font-inter, 'Inter', sans-serif); font-size: 13px; font-weight: bold; fill: hsl(var(--diagram-title-text-fill)); text-anchor: middle; }
+                .text-label-main { font-family: var(--font-inter, 'Inter', sans-serif); font-size: 11px; fill: hsl(var(--diagram-text-fill)); text-anchor: middle; }
+                .text-label-small { font-family: var(--font-inter, 'Inter', sans-serif); font-size: 9px; fill: hsl(var(--diagram-muted-text-fill)); text-anchor: middle; }
+                .text-label-path { font-family: var(--font-inter, 'Inter', sans-serif); font-size: 9px; fill: hsl(var(--diagram-text-fill)); text-anchor: middle; }
+                .supervisor-detail-text { font-family: var(--font-inter, 'Inter', sans-serif); font-size: 9px; fill: hsl(var(--primary-foreground)); text-anchor: middle; }
+
+                /* Arrow Styles */
+                .arrow-main { stroke: hsl(var(--diagram-arrow-stroke)); stroke-width: 2; marker-end: url(#arrowhead-main); fill: none; }
+                .arrow-feedback { stroke: hsl(var(--accent)); stroke-width: 2; marker-end: url(#arrowhead-feedback); fill: none; }
+                .arrow-data { stroke: hsl(var(--diagram-arrow-stroke)); stroke-width: 1.5; stroke-dasharray: 6 3; marker-end: url(#arrowhead-data); fill: none; }
+                .arrow-observability { stroke: hsl(var(--muted-foreground)); stroke-width: 1.5; stroke-dasharray: 4 4; marker-end: url(#arrowhead-observability); fill: none; }
+              `}
+            </style>
+            <defs>
+              <marker id="arrowhead-main" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><polygon points="0 0, 8 3, 0 6" fill="hsl(var(--diagram-arrow-stroke))" /></marker>
+              <marker id="arrowhead-feedback" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><polygon points="0 0, 8 3, 0 6" fill="hsl(var(--accent))" /></marker>
+              <marker id="arrowhead-data" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto" markerUnits="strokeWidth"><polygon points="0 0, 7 2.5, 0 5" fill="hsl(var(--diagram-arrow-stroke))" /></marker>
+              <marker id="arrowhead-observability" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto" markerUnits="strokeWidth"><polygon points="0 0, 7 2.5, 0 5" fill="hsl(var(--muted-foreground))" /></marker>
+            </defs>
+
+            {/* LangGraph Framework */}
+            <rect x="20" y="80" width="500" height="420" rx="20" className="langgraph-framework-bg" />
+            <text x="270" y="65" className="text-title-main">LangGraph Framework</text>
+            <text x="270" y="515" className="text-label-small">(State Machine / Graph: Nodes, Edges)</text>
+
+            {/* Shared Persistent State (within LangGraph) */}
+            <g transform="translate(270, 445)">
+              <ellipse cx="0" cy="0" rx="50" ry="18" className="shared-state-icon-bg"/>
+              <ellipse cx="0" cy="-6" rx="50" ry="18" className="shared-state-icon-bg" strokeWidth="0"/>
+              <path d="M -50 0 L -50 -6 M 50 0 L 50 -6" stroke="hsl(var(--border))" strokeWidth="1"/>
+              <ellipse cx="0" cy="0" rx="50" ry="18" fill="none" stroke="hsl(var(--diagram-foreground))" strokeWidth="0.5"/>
+              <text x="0" y="4" className="text-label-small" fill="hsl(var(--primary-foreground))">Shared Persistent State</text>
+            </g>
+            <path d="M270 250 Q 270 350 270 427" className="arrow-data" /> {/* Supervisor to Shared State */}
+            <path d="M270 427 Q 270 350 270 250" className="arrow-data" /> {/* Shared State to Supervisor (bi-directional visually) */}
+
+
+            {/* Supervisor Agent */}
+            <g transform="translate(270, 180)">
+              <rect x="-100" y="-55" width="200" height="110" rx="15" className="supervisor-node-bg" />
+              <text x="0" y="-35" className="text-title-sub" fill="hsl(var(--primary-foreground))">Supervisor Agent</text>
+              <text x="0" y="-18" className="text-label-small" fill="hsl(var(--primary-foreground))">(Intelligent Project Manager)</text>
+              <line x1="-90" x2="90" y1="-10" y2="-10" stroke="hsl(var(--primary-foreground))" strokeOpacity="0.5" />
+              <text x="-65" y="10" className="supervisor-detail-text">Decomposition</text>
+              <text x="0" y="10" className="supervisor-detail-text">Task Selection</text>
+              <text x="65" y="10" className="supervisor-detail-text">Monitoring</text>
+              <text x="0" y="35" className="supervisor-detail-text">Iterative Refinement</text>
+            </g>
+
+            {/* Worker Agents */}
+            <g id="worker-group">
+              <g transform="translate(130, 330)">
+                <rect x="-60" y="-30" width="120" height="60" rx="10" className="worker-node-bg" />
+                <text x="0" y="-10" className="text-label-main" fill="hsl(var(--primary-foreground))">Worker Agent</text>
+                <text x="0" y="10" className="text-label-small" fill="hsl(var(--primary-foreground))">(e.g. RTL Gen)</text>
+              </g>
+              <g transform="translate(270, 330)">
+                <rect x="-60" y="-30" width="120" height="60" rx="10" className="worker-node-bg" />
+                <text x="0" y="-10" className="text-label-main" fill="hsl(var(--primary-foreground))">Worker Agent</text>
+                <text x="0" y="10" className="text-label-small" fill="hsl(var(--primary-foreground))">(e.g. PPA Opt)</text>
+              </g>
+              <g transform="translate(410, 330)">
+                <rect x="-60" y="-30" width="120" height="60" rx="10" className="worker-node-bg" />
+                <text x="0" y="-10" className="text-label-main" fill="hsl(var(--primary-foreground))">Worker Agent</text>
+                <text x="0" y="10" className="text-label-small" fill="hsl(var(--primary-foreground))">(e.g. Verify)</text>
+              </g>
+            </g>
+
+            {/* Arrows: Supervisor to Workers */}
+            <path d="M220 235 Q 160 270 130 300" className="arrow-main" />
+            <text x="180" y="255" className="text-label-path">Task Delegation</text>
+            <path d="M270 235 L 270 300" className="arrow-main" />
+            <path d="M320 235 Q 380 270 410 300" className="arrow-main" />
+
+            {/* Arrows: Workers to Supervisor (Feedback) */}
+            <path d="M130 300 Q 190 255 220 235" className="arrow-feedback" />
+            <text x="165" y="280" transform="rotate(0)" className="text-label-path">Results/Feedback</text>
+            <path d="M270 300 L 270 235" className="arrow-feedback" />
+            <path d="M410 300 Q 350 255 320 235" className="arrow-feedback" />
+
+            {/* MCP Server */}
+            <g transform="translate(670, 290)">
+              <rect x="-110" y="-150" width="220" height="300" rx="15" className="mcp-server-box-bg" />
+              <text x="0" y="-130" className="text-title-sub">MCP Server</text>
+              <rect x="-100" y="-100" width="200" height="75" rx="8" className="mcp-internal-box-bg" />
+              <text x="0" y="-80" className="text-label-main">Tool Abstraction Layer</text>
+              <text x="0" y="-65" className="text-label-small">(EDA, Scripts, Utilities)</text>
+
+              <rect x="-100" y="-15" width="200" height="75" rx="8" className="mcp-internal-box-bg" />
+              <text x="0" y="5" className="text-label-main">Knowledge Hub (RAG)</text>
+              <text x="0" y="20" className="text-label-small">(PDKs, IP Libs, Docs, History)</text>
+
+              <rect x="-100" y="70" width="200" height="75" rx="8" className="mcp-internal-box-bg" />
+              <text x="0" y="90" className="text-label-main">Context & State (CAG)</text>
+              <text x="0" y="105" className="text-label-small">(Working Memory, Task Context)</text>
+            </g>
+
+            {/* Arrows: Agents to MCP */}
+            <path d="M370 180 Q 480 180 560 180" className="arrow-data" /> {/* Supervisor to MCP */}
+            <text x="465" y="170" className="text-label-path">Query Knowledge / Access Tools / Update Context</text>
+            <path d="M410 360 Q 500 330  560 250" className="arrow-data" /> {/* Worker3 to MCP */}
+
+            {/* LangSmith Platform */}
+            <g transform="translate(670, 550)">
+              <ellipse cx="0" cy="0" rx="90" ry="45" className="langsmith-platform-bg" />
+              <text x="0" y="-20" className="text-title-sub">LangSmith Platform</text>
+              <text x="0" y="-5" className="text-label-small">(Observability, Debugging, Evaluation)</text>
+              <text x="0" y="15" className="text-label-small">Logs, Traces, Metrics, Evaluation Data</text>
+            </g>
+
+            {/* Arrow: LangGraph to LangSmith */}
+            <path d="M450 500 Q 550 525 620 535" className="arrow-observability" />
+            <text x="535" y="510" className="text-label-path">Data to LangSmith</text>
+
+            {/* Human-in-the-Loop Interface */}
+            <g transform="translate(120, 50)">
+              <circle cx="0" cy="-15" r="12" className="human-interface-bg" />
+              <path d="M -18 10 Q 0 0 18 10 Q 0 35 -18 10 Z" className="human-interface-bg" />
+              <text x="0" y="35" className="text-label-main">Human Designers</text>
+              <text x="0" y="48" className="text-label-small">/ Architects</text>
+            </g>
+
+            {/* Arrow: Human to Supervisor */}
+            <path d="M120 75 Q 180 100 230 125" className="arrow-main" />
+            <text x="165" y="85" className="text-label-path" dy="-3">High-Level Goals</text>
+            <text x="165" y="85" className="text-label-path" dy="7">Strategic Input</text>
+            <path d="M230 125 Q 180 135 120 85" className="arrow-feedback" />
+            <text x="165" y="125" className="text-label-path" dy="-3">Intervention</text>
+            <text x="165" y="125" className="text-label-path" dy="7">Feedback</text>
+
+          </svg>
+        </div>
+
         <div className="mt-8 mb-4 flex items-center">
           <ShieldCheck className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Rationale for Supervisor-Worker: Mitigating Risk in Chip Design</h3>
         </div>
         <p>A decentralized <strong>&quot;Swarm&quot;</strong> or <strong>&quot;Network&quot;</strong> architecture, where any agent can communicate directly with any other, offers theoretical maximum flexibility. However, in practice, it introduces an <strong>unacceptable degree of complexity, unpredictability, and emergent behaviors</strong> that are exceedingly difficult to <strong>control, audit, and debug</strong>. Given the <strong>capital-intensive nature, stringent quality requirements, and zero-tolerance for errors</strong> inherent in chip manufacturing, such a level of risk is <strong>fundamentally incompatible with our objectives</strong>.</p>
         <p>Therefore, this blueprint mandates a <strong>Supervisor-Worker architecture</strong>. This model provides the critical balance of <strong>flexibility and stringent control</strong> necessary for <strong>robust, verifiable, and efficient chip design workflows</strong>. It directly addresses the need for <strong>predictability, traceability, and systematic error handling</strong> — core tenets of successful semiconductor product development.</p>
-        
+
         <div className="mt-8 mb-4 flex items-center">
           <ClipboardList className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Architecture: The Intelligent Design Project Manager</h3>
@@ -201,7 +352,7 @@ export default function ArchitecturalBlueprintPage() {
           <li><strong>Facilitates iterative refinement:</strong> When a Worker identifies an issue or cannot meet a target, control returns to the Supervisor, which then intelligently reasons about next steps, potentially initiating a different Worker, modifying constraints, or escalating to <strong>human intervention</strong>.</li>
         </ul>
         <p>Control always returns to the Supervisor after a Worker completes its task or encounters a pre-defined condition. This <strong>closed-loop feedback mechanism</strong> ensures <strong>centralized monitoring, informed decision-making, and maintains a comprehensive audit trail</strong>, which is indispensable for debugging, post-mortem analysis, and adherence to industry compliance standards.</p>
-        
+
         <div className="mt-8 mb-4 flex items-center">
           <Workflow className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Implementation Framework: LangGraph for Structured Workflows</h3>
@@ -219,7 +370,7 @@ export default function ArchitecturalBlueprintPage() {
             <li><strong>Simplified MLOps & Governance:</strong> The structured, graph-based approach significantly simplifies the deployment, monitoring, and continuous improvement of AI agents, aligning perfectly with stringent MLOps requirements in a production environment.</li>
             <li><strong>Enhanced Debuggability:</strong> Unlike opaque monolithic systems, the modular, sequential nature of the Supervisor-Worker pattern makes it vastly easier to isolate and diagnose failures, dramatically reducing debug cycles—historically a major bottleneck in chip design.</li>
         </ul>
-        
+
         <div className="mt-8 mb-4 flex items-center">
           <SearchCode className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Observability & Evaluation: Leveraging LangSmith for AI Workflow Confidence</h3>
@@ -228,7 +379,7 @@ export default function ArchitecturalBlueprintPage() {
         <ul className="list-disc pl-5 space-y-2">
             <li><strong>Trace Agent Interactions:</strong> Gain granular insight into every step of an agent's reasoning, tool calls, and LLM interactions within the LangGraph workflow. This is crucial for understanding complex, non-deterministic behaviors that are common in AI agents, enabling rapid root cause analysis of design anomalies or unexpected PPA outcomes.</li>
             <li><strong>Debug and Iterate Rapidly:</strong> Pinpoint exactly where issues arise in a multi-agent sequence, whether it's an incorrect prompt, a faulty tool invocation, or an agent's reasoning error. This dramatically accelerates the debugging cycle, moving away from black-box issues to transparent, actionable insights.</li>
-            <li><strong>Evaluate Performance Systematically:</strong> Capture production traces and use them to build comprehensive datasets for automated evaluation. We can define custom evaluators (e.g., "Does the generated RTL meet synthesizability guidelines?", "Is the proposed floorplan free of major congestion hot-spots?") and conduct continuous testing against evolving design requirements and process nodes. This ensures our AI agents consistently deliver high-quality outputs.</li>
+            <li><strong>Evaluate Performance Systematically:</strong> Capture production traces and use them to build comprehensive datasets for automated evaluation. We can define custom evaluators (e.g., &quot;Does the generated RTL meet synthesizability guidelines?&quot;, &quot;Is the proposed floorplan free of major congestion hot-spots?&quot;) and conduct continuous testing against evolving design requirements and process nodes. This ensures our AI agents consistently deliver high-quality outputs.</li>
             <li><strong>Monitor System Health & Efficiency:</strong> Track key metrics such as latency, token usage, cost, and agent success rates in real-time. This provides the MLOps team with live dashboards and alerts, proactively identifying potential bottlenecks or performance degradation, vital for maintaining an efficient and cost-effective design flow.</li>
             <li><strong>Facilitate Collaboration:</strong> Provide a shared platform for engineers, AI developers, and verification teams to inspect agent runs, provide human feedback, and collaborate on improving prompts and agent behaviors, fostering a more agile development environment.</li>
         </ul>
@@ -240,7 +391,7 @@ export default function ArchitecturalBlueprintPage() {
           </h2>
         </div>
         <p>The Supervisor and Worker agents require a robust infrastructure to support their operations. The cornerstone of this infrastructure is the <strong>MCP (Multi-Agent Collaboration Protocol) Server</strong>. This is not simply a tool repository; it is a <strong>stateful, intelligent hub</strong> that serves as the <strong>brain and memory</strong> for the entire multi-agent system. Its architecture is inspired by services like <strong>LangConnect</strong>, which provide a managed API for RAG applications. The MCP Server will perform three critical functions:</p>
-        
+
         <div className="mt-8 mb-4 flex items-center">
           <Package className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Tool Abstraction Layer:</h3>
@@ -252,7 +403,7 @@ export default function ArchitecturalBlueprintPage() {
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Knowledge Hub (RAG):</h3>
         </div>
         <p>The server will host and manage a comprehensive, <strong>version-controlled vector database</strong> that acts as the <strong>long-term memory</strong> of the organization. This knowledge base will be populated with all relevant public and proprietary data: <strong>process design kits (PDKs), standard cell libraries, datasheets, technical manuals, internal design guidelines</strong>, and, most importantly, the <strong>complete data from every previous chip design project</strong>. This turns our entire design history into a <strong>searchable, queryable asset</strong>.</p>
-        
+
         <div className="mt-8 mb-4 flex items-center">
           <MessageSquare className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Context & State Management (CAG):</h3>
@@ -266,13 +417,13 @@ export default function ArchitecturalBlueprintPage() {
           </h2>
         </div>
         <p>To perform complex reasoning, agents need access to two types of information: <strong>static, factual knowledge</strong> and <strong>dynamic, task-specific context</strong>. The MCP Server is designed to provide both through a hybrid architecture that seamlessly blends <strong>Retrieval-Augmented Generation (RAG)</strong> and <strong>Context-Augmented Generation (CAG)</strong>.</p>
-        
+
         <div className="mt-8 mb-4 flex items-center">
           <BookOpenCheck className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">RAG for Factual Grounding:</h3>
         </div>
         <p>Agents will use RAG to query the MCP Server&apos;s knowledge hub for external, objective information. For example, a Verification Agent might ask, &quot;What are the specific timing constraints for the PCIe Gen 6 interface on the 3nm process node?&quot; The RAG system retrieves the relevant section from the PDK documentation and provides it to the agent. This process <strong>grounds the agent&apos;s actions in verified facts</strong>, preventing factual errors or <strong>&quot;hallucinations&quot;</strong> and ensuring designs comply with the latest specifications.</p>
-        
+
         <div className="mt-8 mb-4 flex items-center">
           <MemoryStick className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">CAG for Conversational Context:</h3>
@@ -283,8 +434,5 @@ export default function ArchitecturalBlueprintPage() {
     </SubPageLayout>
   );
 }
-    
-
-    
 
     

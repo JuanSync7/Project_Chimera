@@ -5,23 +5,20 @@ import React from 'react';
 import SubPageLayout from '@/components/chimera/SubPageLayout';
 import { 
   DraftingCompass, 
-  PenTool, 
-  ShieldCheck, 
-  Cpu, 
-  BarChart3, 
-  Brain, 
-  Layers, 
-  Database, 
-  MessageSquare,
-  Network,
   Component,
   Scaling,
-  ClipboardList, 
-  Workflow,      
-  BookOpenCheck, 
-  MemoryStick,
+  ShieldCheck,
+  PenTool,
+  Cpu,
+  BarChart3,
+  Brain,
+  ClipboardList,
+  Workflow,
   Package,
-  Archive
+  Archive,
+  MessageSquare,
+  BookOpenCheck,
+  MemoryStick
 } from 'lucide-react';
 
 export default function ArchitecturalBlueprintPage() {
@@ -37,10 +34,9 @@ export default function ArchitecturalBlueprintPage() {
         </div>
         
         <p>To truly realize the strategic vision of <strong>full-stack AI integration</strong> and unlock the transformative capabilities detailed in Section 1, a <strong>revolutionary technical architecture</strong> is not merely beneficial, but an <strong>absolute imperative</strong>. The sheer complexity, highly multifaceted nature, and intricate domain-specific challenges of <strong>modern semiconductor design</strong> render any <strong>monolithic AI model</strong> inherently insufficient. Such a singular approach would inevitably falter under the weight of <strong>diverse data types</strong>, <strong>specialized knowledge requirements</strong>, and <strong>myriad optimization goals</strong>.</p>
-        <p>Therefore, the core of our solution is a sophisticated <strong>Multi-Agent System (MAS)</strong>. This is not simply a collection of AI tools, but a <strong>collaborative, intelligent ecosystem</strong> of specialized, <strong>autonomous AI agents</strong>, meticulously orchestrated by a <strong>central intelligence hub</strong>. This section will unveil the <strong>detailed technical blueprint</strong> for this transformative system, outlining its <strong>core components</strong>, the <strong>intelligent communication protocols</strong> that enable seamless collaboration, and the <strong>strategic rationale</strong> underpinning this powerful, distributed, yet harmonized, design approach.</p>
+        <p>Therefore, the core of our solution is a sophisticated <strong>Multi-Agent System (MAS)</strong>. This is not simply a collection of AI tools, but a <strong>collaborative, intelligent ecosystem</strong> of specialized, <strong>autonomous AI agents</strong>, meticulously orchestrated by a <strong>central intelligence hub</strong>. This section will unveil the <strong>detailed technical blueprint</strong> for this transformative system, outlining its <strong>core components</strong>, the <strong>intelligent communication protocols</strong> that enable seamless collaboration, and the <strong>strategic rationale</strong> underpinning this powerful, <strong>distributed, yet harmonized</strong>, design approach.</p>
 
-        <div className="flex items-center mt-12 mb-4">
-          <Network className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
+        <div className="mt-12 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             2.1 Foundations of Multi-Agent Systems: Orchestrating Collaborative Intelligence for Chip Design
           </h2>
@@ -65,8 +61,7 @@ export default function ArchitecturalBlueprintPage() {
         </div>
         <p>The inherent <strong>separation of concerns</strong>, where each agent is responsible for a well-defined task, profoundly improves system robustness. Failures or unexpected behaviors can be localized and traced directly to the responsible agent and its specific interactions, dramatically simplifying the process of <strong>isolation, diagnosis, and resolution</strong>. Unlike debugging an opaque, monolithic AI system, the MAS's <strong>transparent, modular structure</strong> ensures a high degree of <strong>auditability and control</strong>, which is paramount in the high-stakes, capital-intensive world of chip manufacturing.</p>
         
-        <div className="flex items-center mt-12 mb-4">
-          <Cpu className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
+        <div className="mt-12 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2"> 
             2.2 Core Components: The Specialized AI Agent Network
           </h2>
@@ -116,8 +111,7 @@ export default function ArchitecturalBlueprintPage() {
           <li><strong className="text-white font-semibold">Human-in-the-Loop Interface:</strong> This vital agent manages interaction with human designers. It facilitates <strong>critical decision points</strong>, allows for the setting of high-level constraints, enables <strong>human overrides</strong>, and provides transparent insights into the AI's reasoning and progress, blending AI efficiency with invaluable <strong>human intuition and oversight</strong>.</li>
         </ul>
 
-        <div className="flex items-center mt-12 mb-4">
-           <Layers className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
+        <div className="mt-12 mb-4">
            <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             2.3 The Supervisor-Worker Pattern: A LangGraph-based Framework for Task Delegation
           </h2>
@@ -137,8 +131,7 @@ export default function ArchitecturalBlueprintPage() {
         </div>
         <p>This architecture will be implemented using <strong>LangGraph</strong>, an open-source library designed for building stateful, multi-agent applications. In LangGraph, the entire workflow is modeled as a <strong>state machine or graph</strong>. The agents are the <strong>&quot;nodes&quot;</strong> of the graph, and the Supervisor agent controls the <strong>&quot;edges,&quot;</strong> directing the flow of execution from one node to the next based on the current state of the project. Communication and state are managed via a <strong>shared, persistent state object</strong> that is passed between agents. This <strong>centralized control flow</strong> is not merely a technical choice; it is a strategic one. It provides a single point of observation, making the entire system <strong>transparent and auditable</strong>. This is critical for <strong>MLOps, governance, and debugging</strong>, aligning perfectly with the risk-averse nature of the semiconductor industry.</p>
         
-        <div className="flex items-center mt-12 mb-4">
-           <Database className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
+        <div className="mt-12 mb-4">
            <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             2.4 The MCP Server: A Central Nervous System for Tools, Knowledge, and State
           </h2>
@@ -164,8 +157,7 @@ export default function ArchitecturalBlueprintPage() {
         <p>The server will manage the short-term, <strong>dynamic context</strong> of ongoing design tasks. This includes the conversational history between agents, the results of recent actions, and the current project state. It will employ caching mechanisms (<strong>Cache-Augmented Generation</strong>) to store and quickly retrieve frequently accessed information, reducing latency and computational cost.</p>
         <p>Over time, this <strong>MCP Server</strong> will evolve into the company&apos;s most valuable piece of intellectual property. It is the <strong>digital twin</strong> of our collective engineering expertise, a learning system that encapsulates our unique design methodologies and grows more powerful with every chip we produce.</p>
 
-        <div className="flex items-center mt-12 mb-4">
-           <BookOpenCheck className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
+        <div className="mt-12 mb-4">
            <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             2.5 Grounding Agents in Reality: A Hybrid RAG/CAG Architecture for Contextual Intelligence
           </h2>
@@ -188,3 +180,4 @@ export default function ArchitecturalBlueprintPage() {
     </SubPageLayout>
   );
 }
+

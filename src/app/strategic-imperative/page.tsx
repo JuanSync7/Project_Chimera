@@ -15,124 +15,14 @@ import {
   ClipboardCheck,
   SearchCode,
   FileCode,
-  SearchCheck as SearchCheckIcon, // Renamed to avoid conflict with component
+  SearchCheck as SearchCheckIcon,
   Workflow,
   BrainCircuit,
   Cpu,
   TrendingUp,
-  Layers,    // Added for diagram
-  Cog,       // Added for diagram (already present, but confirming usage)
-  RefreshCw, // Added for diagram
-  ArrowRight // Added for diagram
+  Layers,
+  PauseCircle // Added PauseCircle for new cards
 } from 'lucide-react';
-
-// SVG Diagram for Section 1.1
-const MooreToAiCycleDiagram: React.FC = () => (
-  <div className="my-12 flex justify-center">
-    <svg width="100%" viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg" className="max-w-3xl">
-      <style>
-        {`
-          .diagram-bg { fill: hsl(var(--card)); }
-          .axis-line { stroke: hsl(var(--muted-foreground)); stroke-width: 1.5; }
-          .moore-line { stroke: hsl(var(--diagram-worker-fill)); stroke-width: 3; fill: none; }
-          .complexity-icon-group { fill: hsl(var(--diagram-mcp-internal-fill)); } /* For icon bg if needed, or use ai-node style */
-          .ai-node { fill: hsl(var(--diagram-supervisor-fill)); }
-          .ai-icon { fill: hsl(var(--primary-foreground)); } /* Icon fill for Layers, Cog */
-          .cycle-arrow { stroke: hsl(var(--diagram-arrow-stroke)); stroke-width: 2; fill: none; marker-end: url(#cycleArrowHead); }
-          .outcome-arrow { stroke: hsl(var(--accent)); stroke-width: 2.5; fill: none; marker-end: url(#outcomeArrowHead); }
-          .text-label { font-family: var(--font-inter, 'Inter', sans-serif); font-size: 10px; fill: hsl(var(--diagram-text-fill)); text-anchor: middle; }
-          .text-label-bold { font-family: var(--font-inter, 'Inter', sans-serif); font-size: 11px; font-weight: bold; fill: hsl(var(--diagram-title-text-fill)); text-anchor: middle; }
-          .text-title-small { font-family: var(--font-inter, 'Inter', sans-serif); font-size: 12px; font-weight: bold; fill: hsl(var(--diagram-title-text-fill)); text-anchor: middle; }
-          .text-outcome { font-family: var(--font-inter, 'Inter', sans-serif); font-size: 13px; font-weight: bold; fill: hsl(var(--accent)); text-anchor: middle; }
-
-          @media (max-width: 768px) {
-            .text-label { font-size: 8px; }
-            .text-label-bold { font-size: 9px; }
-            .text-title-small { font-size: 10px; }
-            .text-outcome { font-size: 11px; }
-          }
-        `}
-      </style>
-      <defs>
-        <marker id="cycleArrowHead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
-          <polygon points="0 0, 8 3, 0 6" fill="hsl(var(--diagram-arrow-stroke))" />
-        </marker>
-        <marker id="outcomeArrowHead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
-          <polygon points="0 0, 8 3, 0 6" fill="hsl(var(--accent))" />
-        </marker>
-        <symbol id="aiCogIcon" viewBox="0 0 24 24">
-          <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V19a2 2 0 01-2 2h-1.41a2 2 0 01-2-2v-.09A1.65 1.65 0 009 16.42l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2V8.59a2 2 0 012-2h.09A1.65 1.65 0 004.6 5l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2h1.41a2 2 0 012 2v.09a1.65 1.65 0 001 1.51h.09a1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2v1.41a2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z" className="ai-icon"/>
-        </symbol>
-        <symbol id="layersIcon" viewBox="0 0 24 24" className="ai-icon"> {/* Added ai-icon class here */}
-          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-          <polygon points="2 17 12 22 22 17"></polygon>
-          <polygon points="2 12 12 17 22 12"></polygon>
-        </symbol>
-      </defs>
-
-      {/* Part 1: Moore's Law */}
-      <g transform="translate(20, 20)">
-        <text x="70" y="15" className="text-title-small">Moore's Law / Physical Scaling</text>
-        <line x1="20" y1="280" x2="20" y2="30" className="axis-line" /> {/* Y-axis */}
-        <line x1="20" y1="280" x2="140" y2="280" className="axis-line" /> {/* X-axis */}
-        <text x="70" y="300" className="text-label">Time</text>
-        <text x="10" y="150" transform="rotate(-90 10 150)" className="text-label">Performance</text>
-        <path d="M30 270 Q 40 150, 60 90 Q 80 50, 110 40 L 130 38" className="moore-line" />
-        <text x="100" y="65" className="text-label-bold" fill="hsl(var(--diagram-worker-fill))">Plateauing</text>
-      </g>
-
-      {/* Arrow from Moore's Law to Complexity */}
-      <line x1="150" y1="175" x2="180" y2="175" stroke="hsl(var(--muted-foreground))" strokeWidth="1.5" markerEnd="url(#cycleArrowHead)" />
-      
-      {/* Part 2: Design Complexity */}
-      <g transform="translate(220, 175)">
-        <text x="0" y="-50" className="text-title-small">Rising Design</text>
-        <text x="0" y="-38" className="text-title-small">Complexity</text>
-        <use href="#layersIcon" width="30" height="30" x="-15" y="-25" />
-        <text x="0" y="20" className="text-label-bold" fontSize="14px">x10</text>
-      </g>
-
-      {/* Arrow from Complexity to AI Intervention */}
-      <line x1="250" y1="175" x2="270" y2="175" stroke="hsl(var(--muted-foreground))" strokeWidth="1.5" markerEnd="url(#cycleArrowHead)" />
-
-      {/* Part 3: AI Intervention */}
-      <g transform="translate(300, 175)">
-        <circle cx="0" cy="0" r="25" className="ai-node" />
-        <use href="#aiCogIcon" width="30" height="30" x="-15" y="-15" />
-        <text x="0" y="40" className="text-label-bold">AI-Driven Design</text>
-      </g>
-
-      {/* Arrow from AI Node to "Advanced Silicon" part of Symbiotic Cycle */}
-      <path d="M325 175 C 350 175, 380 155, 410 135" className="cycle-arrow" />
-
-      {/* Part 4: Symbiotic Cycle */}
-      <g transform="translate(470, 175)">
-        <text x="0" y="-75" className="text-title-small">Self-Improving AI-Silicon Cycle</text>
-        {/* "Advanced Silicon" Node */}
-        <rect x="-60" y="-50" width="120" height="40" rx="5" className="complexity-icon-group" /> {/* Changed class for consistency */}
-        <text x="0" y="-30" className="text-label-bold">Advanced Silicon</text>
-        
-        {/* "Enhanced AI" Node */}
-        <rect x="-60" y="30" width="120" height="40" rx="5" className="complexity-icon-group" /> {/* Changed class for consistency */}
-        <text x="0" y="50" className="text-label-bold">Enhanced AI</text>
-
-        {/* Arrow from Advanced Silicon to Enhanced AI */}
-        <path d="M0 -10 Q 0 5, 0 30" className="cycle-arrow" />
-        {/* Arrow from Enhanced AI back to (conceptual) AI-Driven Design Area (loop back towards left) */}
-        <path d="M-60 50 q -20 0 -35 -20 t 0 -40 q 15 -20 35 -20" className="cycle-arrow" /> {/* Simpler loop */}
-        <text x="-85" y="0" className="text-label">(Feedback Loop)</text>
-      </g>
-      
-      {/* Part 5: Outcome */}
-      <g transform="translate(470, 310)">
-          <line x1="0" y1="0" x2="0" y2="-35" className="outcome-arrow" /> {/* Arrow from Symbiotic Cycle (bottom) */}
-          <text x="0" y="25" className="text-outcome">Innovation &amp;</text>
-          <text x="0" y="40" className="text-outcome">Compounding Advantage</text>
-      </g>
-    </svg>
-  </div>
-);
-
 
 export default function StrategicImperativePage() {
   return (
@@ -155,7 +45,33 @@ export default function StrategicImperativePage() {
         </div>
         <p>For decades, the semiconductor industry&apos;s relentless progress was largely synonymous with <strong>physical scaling</strong>, epitomized by Moore&apos;s Law – the observation that the number of transistors on a microchip roughly doubles every two years. However, as we rapidly approach the fundamental physical limits of this paradigm, the primary bottleneck in innovation is shifting dramatically from manufacturing capabilities to the sheer complexity of design. At the sub-10nm nodes, engineers grapple with daunting challenges: quantum effects like electron tunneling, exponentially rising fabrication costs (with new fabs exceeding $30 billion), and severe heat dissipation issues. These physical constraints make it increasingly difficult and economically unsustainable to continue traditional scaling, directly leading to a design space so astronomically vast that human-led exploration is simply no longer sufficient to discover truly optimal, or even feasible, solutions.</p>
         
-        <MooreToAiCycleDiagram />
+        {/* Card-based visualization for Section 1.1 concepts */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 my-12">
+          <KeyStatCard
+            icon={<PauseCircle className="h-8 w-8 md:h-10 md:w-10" />}
+            stat="Moore's Law Limits"
+            description="Physical scaling nears fundamental limits, shifting innovation bottleneck from manufacturing to design complexity."
+            className="hover:border-primary/70"
+          />
+          <KeyStatCard
+            icon={<Layers className="h-8 w-8 md:h-10 md:w-10" />}
+            stat="Complexity x10"
+            description="Sub-10nm challenges & rising costs create an astronomically vast design space, outpacing human-led exploration."
+            className="hover:border-primary/70"
+          />
+          <KeyStatCard
+            icon={<BrainCircuit className="h-8 w-8 md:h-10 md:w-10" />}
+            stat="AI-Driven Design"
+            description="AI becomes a collaborative partner, exploring millions of variations and enabling a self-improving AI-Silicon cycle."
+            className="hover:border-primary/70"
+          />
+          <KeyStatCard
+            icon={<TrendingUp className="h-8 w-8 md:h-10 md:w-10" />}
+            stat="Compounding Gains"
+            description="Each AI-assisted project refines the system, building a cumulative, defensible competitive advantage."
+            className="hover:border-primary/70"
+          />
+        </div>
 
         <p>This formidable challenge coincides with the ascendance of a powerful new tool: <strong>Artificial Intelligence</strong>. The relationship between AI and semiconductors is not merely complementary; it&apos;s a deeply <strong>symbiotic and self-reinforcing cycle</strong>. The explosive growth of AI applications across every sector, from advanced data centers demanding massive parallelism for training large language models to ultra-low-power edge devices for real-time inference, fuels an insatiable demand for chips that are smaller, faster, and dramatically more power-efficient. This drives the need for highly specialized architectures like Tensor Processing Units (TPUs) or Neural Processing Units (NPUs), beyond general-purpose CPUs and GPUs. Simultaneously, AI itself provides the unprecedented computational tools and methodologies necessary to design these cutting-edge chips. This creates a <strong>virtuous cycle</strong>: better AI algorithms require more sophisticated silicon, and AI-powered Electronic Design Automation (EDA) tools, in turn, enable the creation of those next-generation chips. The company that masters and leverages this self-improving cycle will undoubtedly lead the industry in the post-Moore&apos;s Law era.</p>
         <p>This strategic shift proposes a profound move beyond the traditional model of <strong>computer-aided design (CAD)</strong>, where engineers use software as a passive instrument to execute their instructions. Instead, we envision a new paradigm of <strong>AI-driven design</strong>. In this model, AI transcends being a mere instrument; it becomes a <strong>collaborative partner</strong>, actively participating in the creative and optimization processes of chip development. Unlike deterministic CAD tools, AI learns, adapts, and makes intelligent decisions, often exploring non-intuitive solutions. AI can, for instance, intelligently explore millions of design variations, autonomously generate initial Register-Transfer Level (RTL) code or architectural blueprints, and even predict design flaws or Power, Performance, Area (PPA) outcomes with unprecedented accuracy, significantly reducing costly re-spins. It can achieve higher verification coverage faster by identifying obscure corner cases and generating highly effective test benches that human engineers might miss. While some AI-generated designs may appear &quot;unintuitive&quot; to human designers – looking &quot;weird&quot; or &quot;random-shaped&quot; – their superior performance often validates the AI&apos;s unique problem-solving capabilities. Human engineers remain crucial for setting high-level strategic goals, interpreting complex results, and providing strategic oversight; AI amplifies their ingenuity by orders of magnitude.</p>
@@ -290,4 +206,3 @@ export default function StrategicImperativePage() {
     </SubPageLayout>
   );
 }
-

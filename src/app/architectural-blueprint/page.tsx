@@ -1,4 +1,3 @@
-
 // src/app/architectural-blueprint/page.tsx
 "use client";
 import React from 'react';
@@ -20,7 +19,9 @@ import {
   Archive,
   MessageSquare,
   BookOpenCheck,
-  MemoryStick
+  MemoryStick,
+  Network, // Added for Architecture Exploration Agents
+  Code2   // Added for RTL Generation Agents
 } from 'lucide-react';
 
 export default function ArchitecturalBlueprintPage() {
@@ -72,15 +73,43 @@ export default function ArchitecturalBlueprintPage() {
 
         <div className="mt-8 mb-4 flex items-center">
           <PenTool className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Design & Exploration Agents:</h3>
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Design & Exploration Agents: Intelligent Conception, Blueprinting, and Requirements Translation</h3>
         </div>
-        <p>These agents operate in the early and iterative phases of design, translating high-level concepts into actionable design artifacts and exploring vast solution spaces.</p>
+        <p>These agents are strategically positioned at the very front-end of our product lifecycle, enabling rapid innovation from initial customer engagement through foundational design. They play a pivotal role in translating <strong>market needs</strong> into <strong>actionable technical specifications</strong>, exploring <strong>vast solution spaces</strong>, and laying the <strong>robust groundwork</strong> that dictates the efficiency, performance, and market fit of the entire chip.</p>
         <ul className="list-disc pl-5 space-y-2">
           <li>
-            <strong className="text-white font-semibold">Specification Agent:</strong> Crucial for bridging the gap between <strong>human intent</strong> and <strong>machine execution</strong>, this agent leverages advanced <strong>Natural Language Understanding (NLU)</strong> to interpret high-level design requirements from natural language inputs or abstract functional specifications. It then autonomously translates these into formal, <strong>machine-readable design languages</strong> (e.g., SystemVerilog, VHDL), drastically accelerating the initial <strong>concept-to-code phase</strong> and ensuring <strong>unambiguous starting points</strong>.
+            <strong className="text-white font-semibold">Customer Requirements Translation Agent:</strong> This agent is designed to bridge the crucial gap between <strong>high-level customer needs</strong> and <strong>initial technical feasibility</strong>. Leveraging advanced <strong>Natural Language Understanding (NLU)</strong> and <strong>domain-specific knowledge</strong> of semiconductor capabilities, it assists our sales and pre-sales teams in interpreting complex, often ambiguous, <strong>customer requirements</strong>. It can rapidly generate an initial draft of a <strong>high-level design specification</strong>, <strong>block diagram</strong>, or even a <strong>preliminary feasibility assessment</strong> based on <strong>past project data</strong> and current <strong>IP libraries</strong>. This dramatically accelerates the <strong>proposal generation process</strong>, ensures a <strong>consistent understanding</strong> of customer needs, and enables our sales team to provide <strong>quick, technically grounded responses</strong>, setting us apart in competitive bids.
           </li>
           <li>
-            <strong className="text-white font-semibold">Architecture & RTL Agents:</strong> These agents are the architects of the digital logic. Employing sophisticated <strong>reinforcement learning</strong> and <strong>generative AI techniques</strong>, they intelligently explore optimal <strong>microarchitectures</strong>, evaluate diverse design choices against <strong>PPA targets</strong>, and generate highly optimized, clean <strong>Register-Transfer Level (RTL) code</strong>. Their intelligence lies in discerning patterns and predicting outcomes across <strong>complex design alternatives</strong>.
+            <strong className="text-white font-semibold">Specification Agent:</strong> Building upon the initial customer translation, this agent then focuses on <strong>formalizing</strong> those high-level requirements into <strong>precise, unambiguous, and machine-readable design specifications</strong>. It leverages <strong>formal verification techniques</strong> and <strong>semantic analysis</strong> to ensure <strong>consistency, completeness, and adherence</strong> to established <strong>design guidelines</strong>. This agent is critical for mitigating <strong>costly ambiguities and misinterpretations upfront</strong>, ensuring a <strong>solid, verifiable starting point</strong> for all subsequent engineering stages.
+          </li>
+        </ul>
+
+        <div className="mt-8 mb-4 flex items-center">
+          <Network className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Architecture Exploration Agents: Pioneering System-Level Innovation</h3>
+        </div>
+        <p>These agents specialize in the <strong>abstract, high-level structural and functional design</strong> of the chip. They utilize <strong>advanced AI techniques</strong> to explore <strong>vast architectural landscapes</strong>, identify <strong>optimal configurations</strong>, and make <strong>foundational decisions</strong> that profoundly impact the final chip's <strong>performance, power, and area (PPA)</strong>.</p>
+        <ul className="list-disc pl-5 space-y-2">
+          <li>
+            <strong className="text-white font-semibold">Microarchitecture Optimization Agent:</strong> This agent is adept at designing the <strong>internal structure and organization</strong> of core components (e.g., CPU cores, DSPs, custom accelerators). Employing sophisticated <strong>reinforcement learning</strong> and <strong>multi-objective optimization algorithms</strong>, it autonomously explores myriad <strong>pipeline stages, cache hierarchies, memory access patterns, and functional unit configurations</strong>. Its intelligence lies in predicting <strong>complex PPA trade-offs</strong> at the earliest stages, identifying the <strong>most efficient microarchitectures</strong> for specific workloads and performance targets, and generating <strong>detailed architectural specifications</strong> that feed into RTL generation.
+          </li>
+          <li>
+            <strong className="text-white font-semibold">System-Level Interconnect Agent:</strong> As chip complexity grows with numerous <strong>IP blocks and heterogeneous components</strong>, efficient communication becomes paramount. This agent focuses on designing and optimizing the chip's <strong>internal communication fabric</strong>, such as <strong>Network-on-Chip (NoC) topologies, bus architectures, and memory interfaces</strong>. It intelligently leverages and orchestrates <strong>system-level exploration tools</strong> like <strong>Synopsys Platform Architect</strong> to model and simulate <strong>complex traffic scenarios</strong>, analyze <strong>bandwidth and latency</strong> across the entire system. Its AI enables it to evaluate and propose <strong>optimal interconnect configurations</strong>, ensuring <strong>seamless and high-performance data flow</strong> between all functional blocks, even across <strong>multi-die systems and chiplets</strong>.
+          </li>
+        </ul>
+
+        <div className="mt-8 mb-4 flex items-center">
+          <Code2 className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">RTL Generation Agents: Translating Vision into Optimized Code</h3>
+        </div>
+        <p>These agents focus on the intricate task of converting <strong>architectural blueprints</strong> into <strong>executable Register-Transfer Level (RTL) code</strong>. They embody <strong>deep domain knowledge</strong> to generate <strong>high-quality, synthesizable, and optimized RTL</strong>, ensuring both <strong>functional correctness</strong> and downstream <strong>PPA targets</strong> are met.</p>
+        <ul className="list-disc pl-5 space-y-2">
+          <li>
+            <strong className="text-white font-semibold">RTL Generation & Refinement Agent:</strong> This agent translates the <strong>detailed architectural specifications</strong> from the Architecture Exploration Agents (or even high-level design descriptions) directly into <strong>clean, synthesizable RTL code (Verilog, VHDL)</strong>. It leverages <strong>generative AI models</strong> trained on vast codebases and design patterns to autonomously write <strong>complex modules, state machines, and data paths</strong>. Beyond initial generation, it performs <strong>initial local optimizations, code linting, and design rule checking</strong>, significantly reducing <strong>manual coding effort</strong> and potential <strong>human errors</strong> while adhering to <strong>company coding standards</strong>.
+          </li>
+          <li>
+            <strong className="text-white font-semibold">Power-Aware RTL Optimization Agent:</strong> Specializing in <strong>energy efficiency</strong>, this agent focuses on applying <strong>advanced power optimization techniques</strong> directly at the <strong>RTL level</strong>. It analyzes the design's <strong>power characteristics</strong>, identifies <strong>static and dynamic power hot-spots</strong>, and autonomously modifies RTL code to implement techniques like <strong>advanced clock gating, power gating, multi-voltage domain partitioning, and intelligent activity-based power reduction strategies</strong>. This proactive, AI-driven power optimization at the RTL stage is critical for achieving <strong>aggressive power targets</strong> in modern <strong>low-power and mobile applications</strong>.
           </li>
         </ul>
         
@@ -88,13 +117,13 @@ export default function ArchitecturalBlueprintPage() {
           <ShieldCheck className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Verification Agents: AI-Driven Validation for Flawless Silicon</h3>
         </div>
-        <p>Addressing the largest bottleneck in modern design, these agents perform critical roles in ensuring design correctness and reliability.</p>
+        <p>Addressing the largest bottleneck in modern design, these agents perform critical roles in ensuring <strong>design correctness and reliability</strong>.</p>
         <ul className="list-disc pl-5 space-y-2">
           <li>
-            <strong className="text-white font-semibold">Test & Coverage Generation Agent:</strong> Focused on the proactive creation of robust verification environments, this agent autonomously develops comprehensive <strong>test plans</strong>, analyzes design <strong>coverage goals</strong>, and generates highly effective <strong>test vectors</strong> (including constrained random, directed, and formal verification assertions). Its intelligence lies in identifying critical scenarios and corner cases that effectively stress the design and ensure thorough validation.
+            <strong className="text-white font-semibold">Test & Coverage Generation Agent:</strong> Focused on the proactive creation of <strong>robust verification environments</strong>, this agent autonomously develops comprehensive <strong>test plans</strong>, analyzes design <strong>coverage goals</strong>, and generates highly effective <strong>test vectors</strong> (including constrained random, directed, and formal verification assertions). Its intelligence lies in identifying <strong>critical scenarios and corner cases</strong> that effectively stress the design and ensure <strong>thorough validation</strong>.
           </li>
           <li>
-            <strong className="text-white font-semibold">Debug & Root Cause Analysis Agent:</strong> Addressing what is historically the largest bottleneck in modern design, this agent is a tireless problem-solver. It specializes in analyzing <strong>verification failures</strong>, sifting through vast amounts of simulation logs, waveform data, and design collateral to proactively identify, localize, and even suggest fixes for functional and performance bugs. This agent dramatically reduces <strong>manual debugging time</strong> and accelerates error resolution.
+            <strong className="text-white font-semibold">Debug & Root Cause Analysis Agent:</strong> Addressing what is historically the <strong>largest bottleneck</strong> in modern design, this agent is a <strong>tireless problem-solver</strong>. It specializes in analyzing <strong>verification failures</strong>, sifting through vast amounts of simulation logs, waveform data, and design collateral to proactively <strong>identify, localize, and even suggest fixes</strong> for functional and performance bugs. This agent dramatically reduces <strong>manual debugging time</strong> and accelerates <strong>error resolution</strong>.
           </li>
         </ul>
 
@@ -102,16 +131,16 @@ export default function ArchitecturalBlueprintPage() {
           <Cpu className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Physical Design & Optimization Agents: Mastering Complex EDA Workflows</h3>
         </div>
-        <p>Focused on transforming the logical design into a manufacturable physical layout, these agents are masters of <strong>spatial, electrical, and timing optimization</strong>. They are specifically engineered to interface with and intelligently control highly complex commercial EDA tools (like <strong>Synopsys Fusion Compiler, PrimeTime, Cadence Innovus, and Siemens Aprisa</strong>), autonomously driving iterative refinement by making crucial decisions and modifying design parameters, scripts, or rules.</p>
+        <p>Focused on transforming the logical design into a <strong>manufacturable physical layout</strong>, these agents are masters of <strong>spatial, electrical, and timing optimization</strong>. They are specifically engineered to interface with and intelligently control highly complex commercial EDA tools (like <strong>Synopsys Fusion Compiler, PrimeTime, Cadence Innovus, and Siemens Aprisa</strong>), autonomously driving iterative refinement by making crucial decisions and modifying <strong>design parameters, scripts, or rules</strong>.</p>
         <ul className="list-disc pl-5 space-y-2">
           <li>
-            <strong className="text-white font-semibold">Synthesis Agent:</strong> This agent acts as an expert compiler, translating high-level RTL into a <strong>gate-level netlist</strong> optimized for specific process technologies (e.g., <strong>3nm, 5nm</strong>). Its intelligence lies in generating and dynamically modifying <strong>synthesis scripts, constraint files, and library selections</strong> to guide tools like <strong>Synopsys Fusion Compiler's synthesis engine</strong>. It performs iterative optimization to balance <strong>area, power, and initial timing goals</strong>, adapting to feedback from subsequent stages.
+            <strong className="text-white font-semibold">Synthesis Agent:</strong> This agent acts as an <strong>expert compiler</strong>, translating high-level RTL into a <strong>gate-level netlist</strong> optimized for specific process technologies (e.g., <strong>3nm, 5nm</strong>). Its intelligence lies in generating and dynamically modifying <strong>synthesis scripts, constraint files, and library selections</strong> to guide tools like <strong>Synopsys Fusion Compiler's synthesis engine</strong>. It performs iterative optimization to balance <strong>area, power, and initial timing goals</strong>, adapting to feedback from subsequent stages.
           </li>
           <li>
-            <strong className="text-white font-semibold">Physical Implementation Agent:</strong> This agent is the core of our chip's physical realization. Beyond merely running placement and routing tools, it intelligently orchestrates tools like <strong>Fusion Compiler (for integrated P&R) or Cadence Innovus</strong>. It assesses intermediate results to make critical decisions on <strong>floorplanning, power grid design, cell placement strategies, routing congestion relief, and clock tree synthesis</strong>. This agent autonomously modifies <strong>physical design scripts, directives, and rules</strong> through iterative loops, ensuring the most optimized silicon area, minimal power consumption, and efficient signal propagation.
+            <strong className="text-white font-semibold">Physical Implementation Agent:</strong> This agent is the core of our <strong>chip's physical realization</strong>. Beyond merely running placement and routing tools, it intelligently orchestrates tools like <strong>Fusion Compiler (for integrated P&R) or Cadence Innovus</strong>. It assesses intermediate results to make critical decisions on <strong>floorplanning, power grid design, cell placement strategies, routing congestion relief, and clock tree synthesis</strong>. This agent autonomously modifies <strong>physical design scripts, directives, and rules</strong> through iterative loops, ensuring the most <strong>optimized silicon area, minimal power consumption, and efficient signal propagation</strong>.
           </li>
           <li>
-            <strong className="text-white font-semibold">Timing Closure Agent:</strong> Dedicated to achieving timing sign-off, this agent is deeply integrated with industry-standard <strong>static timing analysis (STA) tools</strong> such as <strong>Synopsys PrimeTime</strong>. It proactively analyzes complex <strong>timing paths</strong>, identifies violations, and, crucially, reasons about and proposes specific modifications to <strong>RTL, synthesis scripts, physical constraints, or even back-annotated netlist changes</strong>. This agent drives iterative timing closure, collaborating with the Synthesis and Physical Implementation Agents to resolve <strong>critical path delays</strong>, ensuring our designs meet aggressive <strong>frequency targets</strong>.
+            <strong className="text-white font-semibold">Timing Closure Agent:</strong> Dedicated to achieving <strong>timing sign-off</strong>, this agent is deeply integrated with industry-standard <strong>static timing analysis (STA) tools</strong> such as <strong>Synopsys PrimeTime</strong>. It proactively analyzes complex <strong>timing paths</strong>, identifies violations, and, crucially, reasons about and proposes specific modifications to <strong>RTL, synthesis scripts, physical constraints, or even back-annotated netlist changes</strong>. This agent drives <strong>iterative timing closure</strong>, collaborating with the Synthesis and Physical Implementation Agents to resolve <strong>critical path delays</strong>, ensuring our designs meet <strong>aggressive frequency targets</strong>.
           </li>
         </ul>
 

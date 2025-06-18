@@ -161,7 +161,7 @@ This guide outlines the specific formatting conventions used for article-style s
         <RelevantIcon className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" /> {/* Icon color often matches H3 title color */}
         <div>
           <strong className="text-primary block mb-1">Key Point Title:</strong> Further description...
-          {/* Can include more paragraphs or even nested <ul> (see 5.2.1) here if needed */}
+          {/* Can include more paragraphs or even nested <div> container for sub-sub-points (see 5.2.1) here if needed */}
         </div>
       </li>
       {/* Additional list items with the same structure */}
@@ -175,26 +175,27 @@ This guide outlines the specific formatting conventions used for article-style s
     *   `<strong>` (optional title within list item): `text-primary block mb-1` (Color often matches icon/H3 color).
 
 ### 5.2.1 Card-Styled Nested List Items (Sub-Sub-Points)
-*   When a primary list item (styled as per 5.2) itself contains a nested list of points, these sub-sub-points can also be styled as individual mini-cards for enhanced visual separation and detail emphasis.
+*   When a primary list item (styled as per 5.2) itself contains a nested list of points (which was previously a nested `<ul>`), these sub-sub-points can also be styled as individual mini-cards for enhanced visual separation and detail emphasis. This pattern is particularly useful for detailing steps within a process, as seen in the AI Pipeline page.
 *   **Purpose**: To clearly delineate and highlight individual components or steps within a larger process detailed in a primary list item.
-*   **Structure**:
+*   **Structure**: The original nested `<ul>` is replaced with a `div` container. Each original `<li>` becomes a styled `div` card.
     ```tsx
     // ... (inside a primary list item's div, after its main description)
-    <ul className="list-none pl-0 space-y-2 mt-2"> {/* Nested UL for sub-sub-points */}
-      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30"> {/* No w-full needed here usually, takes parent width */}
-        <SubPointIcon className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" /> {/* Slightly smaller icon, themed color */}
+    <div className="mt-2 space-y-3"> {/* Container for sub-sub-point cards, replaces nested <ul> */}
+      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30"> {/* Card for a sub-sub-point */}
+        <SubPointIcon className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" /> {/* Themed icon, e.g., sky blue */}
         <div>
-          <strong className="text-primary block mb-1">Nested Point Title (Optional):</strong> Description of nested point...
+          <strong className="text-sky-300 block mb-1">Nested Point Title (Optional):</strong> Description of nested point...
         </div>
-      </li>
-      {/* More nested points */}
-    </ul>
+      </div>
+      {/* More nested point cards */}
+    </div>
     ```
 *   **Styling**:
-    *   Nested `<ul>`: `list-none pl-0 space-y-2 mt-2`
-    *   Each nested `<li>`: `flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30`
-    *   Icon for nested `<li>`: `h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0` (Slightly smaller, adjusted margin. Color often matches the parent H3/list item icon color, e.g., `text-primary`).
-    *   `<div>` (text wrapper) and optional `<strong>` can follow styles similar to the primary list item, or be simplified. The `<strong>` should also use the themed color like `text-primary`.
+    *   Container `<div>` for sub-sub-points: `mt-2 space-y-3` (replaces the nested `<ul>`'s styling).
+    *   Each sub-sub-point `<div>` card: `flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30`.
+    *   Icon for sub-sub-point card: `h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0` (Slightly smaller icon, specific accent color like `text-sky-400`).
+    *   `<div>` (text wrapper within sub-sub-point card) and optional `<strong>`.
+    *   `<strong>` (optional title within sub-sub-point card): `text-sky-300 block mb-1` (Matches the icon's accent theme, e.g., `text-sky-300`).
 
 ## 6. General Paragraphs and Keyword Highlighting
 
@@ -218,5 +219,6 @@ This guide outlines the specific formatting conventions used for article-style s
     ```
 
 By following these guidelines, article-style subpages will maintain a consistent and readable structure, making it easier for users to navigate and understand the detailed content.
+
 
 

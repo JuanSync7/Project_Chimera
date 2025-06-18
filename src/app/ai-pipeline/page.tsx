@@ -44,8 +44,8 @@ import {
   ScanSearch,
   CheckCircle2,
   RefreshCcw,
-  ListOrdered, 
-  ArrowRightCircle 
+  ListOrdered,
+  ArrowRightCircle // Added for nested list items
 } from 'lucide-react';
 
 export default function AiPipelinePage() {
@@ -139,18 +139,18 @@ export default function AiPipelinePage() {
             <FileCode className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
             <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Agentic Workflow: Leveraging Prompt Engineering &amp; RAG for High-Quality RTL and HLS Integration</h3>
           </div>
-          <p>Our workflow for RTL generation transforms this complex stage into an intelligent, automated, and verifiable process, strategically leveraging off-the-shelf <strong>Large Language Models (LLMs)</strong> through sophisticated prompt engineering and our comprehensive knowledge base:</p>
+          
           <ul className="list-none pl-0 space-y-6 !my-6">
             <li className="flex items-start">
               <UserCog className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
               <div>
-                Building directly upon the detailed architectural specifications provided by the <strong>Architecture Exploration Agents</strong> (from Section 2.2), the <strong>RTL Generation & Refinement Agent</strong> (a specialized RTL Generation Agent from Section 2.2), here acting as our primary <strong>Verilog/VHDL Coder Agent</strong>, initiates the RTL creation.
+                <strong className="text-primary block mb-1">Agent Role:</strong> Building directly upon the detailed architectural specifications provided by the <strong>Architecture Exploration Agents</strong> (from Section 2.2), the <strong>RTL Generation & Refinement Agent</strong> (a specialized RTL Generation Agent from Section 2.2), here acting as our primary <strong>Verilog/VHDL Coder Agent</strong>, initiates the RTL creation.
               </div>
             </li>
              <li className="flex items-start">
               <BrainCircuit className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
               <div>
-                This agent intelligently synthesizes the architectural intent directly into initial RTL, making informed decisions on crucial aspects like <strong>data path structures, control logic, state machine implementations, and module interfaces</strong>. It achieves this by employing advanced <strong>prompt engineering techniques</strong> with powerful, general-purpose LLMs. This involves:
+                <strong className="text-primary block mb-1">Intelligent Synthesis & Prompt Engineering:</strong> This agent intelligently synthesizes the architectural intent directly into initial RTL, making informed decisions on crucial aspects like <strong>data path structures, control logic, state machine implementations, and module interfaces</strong>. It achieves this by employing advanced <strong>prompt engineering techniques</strong> with powerful, general-purpose LLMs. This involves:
                 <div className="mt-4 space-y-3">
                   <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
                     <ListOrdered className="h-6 w-6 text-sky-400 mr-3 mt-1 flex-shrink-0" />
@@ -170,7 +170,7 @@ export default function AiPipelinePage() {
             <li className="flex items-start">
               <Layers3 className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
               <div>
-                For modules specified at a higher level (e.g., in C/C++/SystemC), the <strong>Verilog/VHDL Coder Agent</strong> orchestrates <strong>High-Level Synthesis (HLS) tools</strong> (via the MCP Server&apos;s Tool Abstraction Layer). It intelligently guides the HLS process by applying optimal pragmas and directives, ensuring the generated RTL is highly optimized for PPA and efficient resource utilization, bridging the gap between software-oriented descriptions and hardware implementation.
+                <strong className="text-primary block mb-1">High-Level Synthesis (HLS) Orchestration:</strong> For modules specified at a higher level (e.g., in C/C++/SystemC), the <strong>Verilog/VHDL Coder Agent</strong> orchestrates <strong>High-Level Synthesis (HLS) tools</strong> (via the MCP Server&apos;s Tool Abstraction Layer). It intelligently guides the HLS process by applying optimal pragmas and directives, ensuring the generated RTL is highly optimized for PPA and efficient resource utilization, bridging the gap between software-oriented descriptions and hardware implementation.
               </div>
             </li>
           </ul>
@@ -196,15 +196,15 @@ export default function AiPipelinePage() {
           <ul className="list-none pl-0 space-y-6 !my-6">
             <li className="flex items-start">
               <Settings2 className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <div>The <strong>Verilog/VHDL Coder Agent</strong> performs initial local optimizations, code linting, and <strong>design rule checking (DRC)</strong> before extensive simulation. This includes applying <strong>power-aware techniques</strong> (e.g., advanced clock gating opportunities) and structural optimizations at the RTL level, often guided by prompt-engineered rules. It also conducts quick <strong>pre-synthesis analysis</strong> to ensure the generated RTL is robust for downstream synthesis tools.</div>
+              <div><strong className="text-primary block mb-1">Initial Optimization & Pre-Synthesis:</strong> The <strong>Verilog/VHDL Coder Agent</strong> performs initial local optimizations, code linting, and <strong>design rule checking (DRC)</strong> before extensive simulation. This includes applying <strong>power-aware techniques</strong> (e.g., advanced clock gating opportunities) and structural optimizations at the RTL level, often guided by prompt-engineered rules. It also conducts quick <strong>pre-synthesis analysis</strong> to ensure the generated RTL is robust for downstream synthesis tools.</div>
             </li>
             <li className="flex items-start">
               <Zap className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <div>The <strong>Power-Aware RTL Optimization Agent</strong> (also an RTL Generation Agent from Section 2.2) collaborates here. It performs a deeper analysis of the design&apos;s power characteristics and autonomously suggests or implements modifications to reduce <strong>static and dynamic power consumption</strong> directly at the RTL level, using further prompt engineering to guide LLMs in identifying optimization opportunities. This early-stage optimization is critical for achieving aggressive power targets in modern low-power and mobile applications.</div>
+              <div><strong className="text-primary block mb-1">Power-Aware Optimization:</strong> The <strong>Power-Aware RTL Optimization Agent</strong> (also an RTL Generation Agent from Section 2.2) collaborates here. It performs a deeper analysis of the design&apos;s power characteristics and autonomously suggests or implements modifications to reduce <strong>static and dynamic power consumption</strong> directly at the RTL level, using further prompt engineering to guide LLMs in identifying optimization opportunities. This early-stage optimization is critical for achieving aggressive power targets in modern low-power and mobile applications.</div>
             </li>
             <li className="flex items-start">
               <ClipboardList className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <div>Simultaneously, the <strong>Test & Coverage Generation Agent</strong> (a Verification Agent from Section 2.2) takes the formalized design specification and automatically generates a comprehensive functional <strong>testbench</strong> for the module. This includes creating robust <strong>test cases, stimulus patterns, monitors, and SystemVerilog Assertions (SVA)</strong> that precisely define the expected behavior and <strong>&quot;correctness&quot;</strong> of the RTL. This crucial <strong>&quot;test-first&quot; approach</strong> establishes a clear, unambiguous, and machine-verifiable definition of desired functionality, grounding the AI-generated code in verifiable reality. The <strong>Supervisor agent</strong> then presents these autonomously generated testbenches and assertions to the human engineer for final review and confirmation, ensuring alignment with the original design intent and comprehensive test coverage goals.</div>
+              <div><strong className="text-primary block mb-1">Testbench Generation:</strong> Simultaneously, the <strong>Test & Coverage Generation Agent</strong> (a Verification Agent from Section 2.2) takes the formalized design specification and automatically generates a comprehensive functional <strong>testbench</strong> for the module. This includes creating robust <strong>test cases, stimulus patterns, monitors, and SystemVerilog Assertions (SVA)</strong> that precisely define the expected behavior and <strong>&quot;correctness&quot;</strong> of the RTL. This crucial <strong>&quot;test-first&quot; approach</strong> establishes a clear, unambiguous, and machine-verifiable definition of desired functionality, grounding the AI-generated code in verifiable reality. The <strong>Supervisor agent</strong> then presents these autonomously generated testbenches and assertions to the human engineer for final review and confirmation, ensuring alignment with the original design intent and comprehensive test coverage goals.</div>
             </li>
           </ul>
         </div>
@@ -229,23 +229,23 @@ export default function AiPipelinePage() {
           <ul className="list-none pl-0 space-y-6 !my-6">
               <li className="flex items-start">
                 <PlayCircle className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-                <div>The <strong>Supervisor</strong> invokes our advanced simulation tools (via the MCP Server&apos;s Tool Abstraction Layer) to execute the autonomously generated tests against the newly optimized RTL.</div>
+                <div><strong className="text-primary block mb-1">Test Execution:</strong> The <strong>Supervisor</strong> invokes our advanced simulation tools (via the MCP Server&apos;s Tool Abstraction Layer) to execute the autonomously generated tests against the newly optimized RTL.</div>
               </li>
               <li className="flex items-start">
                 <Bug className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-                <div>The <strong>Debug & Root Cause Analysis Agent</strong> (a dedicated Verification Agent from Section 2.2) meticulously analyzes any simulation failures or coverage gaps. It sifts through vast amounts of simulation logs, waveform data, and design collateral to pinpoint the exact functional bug or performance bottleneck with unparalleled speed.</div>
+                <div><strong className="text-primary block mb-1">Failure Analysis:</strong> The <strong>Debug & Root Cause Analysis Agent</strong> (a dedicated Verification Agent from Section 2.2) meticulously analyzes any simulation failures or coverage gaps. It sifts through vast amounts of simulation logs, waveform data, and design collateral to pinpoint the exact functional bug or performance bottleneck with unparalleled speed.</div>
               </li>
               <li className="flex items-start">
                 <Lightbulb className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-                <div>The <strong>Debug & Root Cause Analysis Agent</strong> then provides precise, targeted, and actionable feedback directly to the <strong>Verilog/VHDL Coder Agent</strong> (our RTL Generation & Refinement Agent), often suggesting specific code modifications or architectural adjustments. This feedback is critically important and will often be translated into specific instructions or new context within the prompt for the <strong>Verilog/VHDL Coder Agent&apos;s</strong> next iteration.</div>
+                <div><strong className="text-primary block mb-1">Targeted Feedback:</strong> The <strong>Debug & Root Cause Analysis Agent</strong> then provides precise, targeted, and actionable feedback directly to the <strong>Verilog/VHDL Coder Agent</strong> (our RTL Generation & Refinement Agent), often suggesting specific code modifications or architectural adjustments. This feedback is critically important and will often be translated into specific instructions or new context within the prompt for the <strong>Verilog/VHDL Coder Agent&apos;s</strong> next iteration.</div>
               </li>
               <li className="flex items-start">
                 <Repeat2 className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-                <div>The <strong>Verilog/VHDL Coder Agent</strong> intelligently leverages this precise, prompt-driven feedback to refactor, debug, and further optimize its generated code, proposing new RTL iterations.</div>
+                <div><strong className="text-primary block mb-1">Automated Refinement:</strong> The <strong>Verilog/VHDL Coder Agent</strong> intelligently leverages this precise, prompt-driven feedback to refactor, debug, and further optimize its generated code, proposing new RTL iterations.</div>
               </li>
               <li className="flex items-start">
                  <RefreshCcw className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-                <div>This <strong>TDD loop</strong> continues autonomously until all tests pass with <strong>100% functional coverage</strong>, and the RTL meets its initial <strong>PPA (Power, Performance, Area) estimates</strong>. This robust, closed-loop process directly mitigates the primary weakness of using LLMs for HDL generation by grounding the creative, probabilistic nature of the AI in the deterministic, verifiable world of functional tests, dramatically accelerating the path to high-quality, bug-free RTL.</div>
+                <div><strong className="text-primary block mb-1">Iterative Loop:</strong> This <strong>TDD loop</strong> continues autonomously until all tests pass with <strong>100% functional coverage</strong>, and the RTL meets its initial <strong>PPA (Power, Performance, Area) estimates</strong>. This robust, closed-loop process directly mitigates the primary weakness of using LLMs for HDL generation by grounding the creative, probabilistic nature of the AI in the deterministic, verifiable world of functional tests, dramatically accelerating the path to high-quality, bug-free RTL.</div>
               </li>
           </ul>
         </div>
@@ -272,36 +272,36 @@ export default function AiPipelinePage() {
                 <ClipboardList className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <strong className="text-primary block mb-1">Sophisticated Test & Stimulus Generation:</strong> The <strong>Test & Coverage Generation Agent</strong> (a Verification Agent from Section 2.2) is central to this stage. Beyond generating initial module-level tests (as in Stage 3.3), it now dynamically creates <strong>complex, system-level test cases, intelligent stimulus patterns, and comprehensive verification environments</strong>.
-                  <ul className="list-none pl-0 space-y-2 mt-2">
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ArrowRightCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">UVM Orchestration:</strong> For highly complex IPs, it orchestrates and populates <strong>Universal Verification Methodology (UVM) testbenches</strong> (via the MCP Server&apos;s Tool Abstraction Layer), intelligently configuring sequences, transactors, and scoreboards. It can parse protocol specifications from the <strong>Knowledge Hub (RAG)</strong> and generate UVM components tailored to specific interface standards (e.g., PCIe, DDR, USB), significantly reducing manual UVM development time.</div>
-                      </li>
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ArrowRightCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Constrained Random Generation:</strong> It employs <strong>constrained random test generation</strong>, guided by a deep understanding of the design&apos;s architecture and potential stress points, to explore a vast array of functional scenarios far beyond what human engineers could manually conceive.</div>
-                      </li>
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ArrowRightCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Prompt-Driven Test Code:</strong> Using <strong>prompt engineering</strong>, the agent can translate high-level test plans and coverage goals into executable test code and assertions.</div>
-                      </li>
-                  </ul>
+                  <div className="mt-2 space-y-3">
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ArrowRightCircle className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">UVM Orchestration:</strong> For highly complex IPs, it orchestrates and populates <strong>Universal Verification Methodology (UVM) testbenches</strong> (via the MCP Server&apos;s Tool Abstraction Layer), intelligently configuring sequences, transactors, and scoreboards. It can parse protocol specifications from the <strong>Knowledge Hub (RAG)</strong> and generate UVM components tailored to specific interface standards (e.g., PCIe, DDR, USB), significantly reducing manual UVM development time.</div>
+                      </div>
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ArrowRightCircle className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Constrained Random Generation:</strong> It employs <strong>constrained random test generation</strong>, guided by a deep understanding of the design&apos;s architecture and potential stress points, to explore a vast array of functional scenarios far beyond what human engineers could manually conceive.</div>
+                      </div>
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ArrowRightCircle className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Prompt-Driven Test Code:</strong> Using <strong>prompt engineering</strong>, the agent can translate high-level test plans and coverage goals into executable test code and assertions.</div>
+                      </div>
+                  </div>
                 </div>
               </li>
               <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
                 <Target className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <strong className="text-primary block mb-1">Automated Coverage Analysis and Closure:</strong> The <strong>AutoDV (Automatic Design Verification) Agent</strong> (a Verification Agent from Section 2.2) plays a critical role in driving coverage closure. It continuously analyzes various forms of <strong>coverage metrics</strong> (code coverage, functional coverage, assertion coverage, toggle coverage) from extensive simulation runs.
-                  <ul className="list-none pl-0 space-y-2 mt-2">
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ArrowRightCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Coverage Hole Identification:</strong> Upon identifying <strong>coverage holes</strong> (untested design areas), the AutoDV Agent intelligently reasons about the root cause of the missing coverage.</div>
-                      </li>
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ArrowRightCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Targeted Test Generation:</strong> It then collaborates with the <strong>Test & Coverage Generation Agent</strong> to formulate and generate new, <strong>highly targeted test cases</strong> specifically designed to hit these uncovered areas, creating a powerful, <strong>closed-loop system</strong> for continuous coverage improvement. This iterative process drastically reduces the manual effort typically required to reach <strong>100% functional and code coverage targets</strong>.</div>
-                      </li>
-                  </ul>
+                  <div className="mt-2 space-y-3">
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ArrowRightCircle className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Coverage Hole Identification:</strong> Upon identifying <strong>coverage holes</strong> (untested design areas), the AutoDV Agent intelligently reasons about the root cause of the missing coverage.</div>
+                      </div>
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ArrowRightCircle className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Targeted Test Generation:</strong> It then collaborates with the <strong>Test & Coverage Generation Agent</strong> to formulate and generate new, <strong>highly targeted test cases</strong> specifically designed to hit these uncovered areas, creating a powerful, <strong>closed-loop system</strong> for continuous coverage improvement. This iterative process drastically reduces the manual effort typically required to reach <strong>100% functional and code coverage targets</strong>.</div>
+                      </div>
+                  </div>
                 </div>
               </li>
               <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
@@ -334,52 +334,52 @@ export default function AiPipelinePage() {
                 <LockKeyhole className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <strong className="text-primary block mb-1">Automated Formal Property Generation & Proofs:</strong> The <strong>AutoDV (Automatic Design Verification) Agent</strong> (a Verification Agent from Section 2.2) is the cornerstone of this stage. Leveraging the design specification, RTL, and the <strong>Knowledge Hub (RAG)</strong> for common property patterns, it intelligently generates and applies <strong>formal verification properties</strong> (e.g., using SystemVerilog Assertions for model checking).
-                  <ul className="list-none pl-0 space-y-2 mt-2">
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ArrowRightCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Formal Tool Orchestration:</strong> It orchestrates <strong>formal verification tools</strong> (via the MCP Server&apos;s Tool Abstraction Layer, e.g., Synopsys JasperGold, Cadence Jasper, Siemens Questa Formal) to <strong>mathematically prove</strong> that the design adheres to its specified behavior under all possible input conditions, identifying unreachable states, deadlocks, and protocol violations.</div>
-                      </li>
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ArrowRightCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Property Decomposition & Debug:</strong> For complex properties, it can intelligently decompose them or generate smaller, more tractable proofs. In cases where properties cannot be proven, the agent provides precise <strong>counter-example waveforms and traces</strong> that are critical for debugging.</div>
-                      </li>
-                  </ul>
+                  <div className="mt-2 space-y-3">
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ArrowRightCircle className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Formal Tool Orchestration:</strong> It orchestrates <strong>formal verification tools</strong> (via the MCP Server&apos;s Tool Abstraction Layer, e.g., Synopsys JasperGold, Cadence Jasper, Siemens Questa Formal) to <strong>mathematically prove</strong> that the design adheres to its specified behavior under all possible input conditions, identifying unreachable states, deadlocks, and protocol violations.</div>
+                      </div>
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ArrowRightCircle className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Property Decomposition & Debug:</strong> For complex properties, it can intelligently decompose them or generate smaller, more tractable proofs. In cases where properties cannot be proven, the agent provides precise <strong>counter-example waveforms and traces</strong> that are critical for debugging.</div>
+                      </div>
+                  </div>
                 </div>
               </li>
               <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
                 <ScanLine className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <strong className="text-primary block mb-1">Exhaustive Static Analysis & Linting:</strong> The <strong>AutoReview Agent</strong> (a Verification Agent from Section 2.2) continues its role from earlier stages, but now performs an <strong>exhaustive, chip-level static analysis</strong>.
-                  <ul className="list-none pl-0 space-y-2 mt-2">
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ArrowRightCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Complex Rule Checking:</strong> It rigorously checks for complex design rule violations beyond simple syntax, including potential <strong>clock domain crossing (CDC) issues, reset domain crossing (RDC) issues, coding style inconsistencies, and non-synthesizable constructs</strong> that could lead to synthesis tool errors or sub-optimal hardware.</div>
-                      </li>
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ArrowRightCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Knowledge-Driven Linting:</strong> It leverages the <strong>Knowledge Hub (RAG)</strong> for company-specific linting rules and best practices, ensuring adherence to internal quality standards.</div>
-                      </li>
-                  </ul>
+                  <div className="mt-2 space-y-3">
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ArrowRightCircle className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Complex Rule Checking:</strong> It rigorously checks for complex design rule violations beyond simple syntax, including potential <strong>clock domain crossing (CDC) issues, reset domain crossing (RDC) issues, coding style inconsistencies, and non-synthesizable constructs</strong> that could lead to synthesis tool errors or sub-optimal hardware.</div>
+                      </div>
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ArrowRightCircle className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Knowledge-Driven Linting:</strong> It leverages the <strong>Knowledge Hub (RAG)</strong> for company-specific linting rules and best practices, ensuring adherence to internal quality standards.</div>
+                      </div>
+                  </div>
                 </div>
               </li>
               <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
                 <ShieldAlert className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <strong className="text-primary block mb-1">Security Verification:</strong> A specialized sub-component of the <strong>AutoDV Agent</strong> or a dedicated <strong>Security Verification Agent</strong> (a Verification Agent or Specialized Analysis Agent) begins to actively probe the design for <strong>security vulnerabilities</strong>.
-                  <ul className="list-none pl-0 space-y-2 mt-2">
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ShieldCheck className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Formal Security Properties:</strong> This includes <strong>formal verification of security properties</strong> (e.g., isolation, tamper detection, secure boot sequences),</div>
-                      </li>
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <Layers3 className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Static Exploit Pattern Analysis:</strong> <strong>static analysis for known exploit patterns</strong>, and</div>
-                      </li>
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <Zap className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Intelligent Fault Injection:</strong> <strong>intelligent fault injection scenarios</strong>, crucial for applications like automotive (ISO 26262) and IoT devices.</div>
-                      </li>
-                  </ul>
+                  <div className="mt-2 space-y-3">
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ShieldCheck className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Formal Security Properties:</strong> This includes <strong>formal verification of security properties</strong> (e.g., isolation, tamper detection, secure boot sequences),</div>
+                      </div>
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <Layers3 className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Static Exploit Pattern Analysis:</strong> <strong>static analysis for known exploit patterns</strong>, and</div>
+                      </div>
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <Zap className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Intelligent Fault Injection:</strong> <strong>intelligent fault injection scenarios</strong>, crucial for applications like automotive (ISO 26262) and IoT devices.</div>
+                      </div>
+                  </div>
                 </div>
               </li>
           </ul>
@@ -408,40 +408,40 @@ export default function AiPipelinePage() {
                 <FileSearch2 className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <strong className="text-primary block mb-1">Automated Failure Analysis & Localization:</strong> The <strong>Debug & Root Cause Analysis Agent</strong> (a dedicated Verification Agent from Section 2.2) is the tireless problem-solver. When a simulation fails, a formal tool produces a counter-example, or a metric deviates from expectation, this agent springs into action.
-                  <ul className="list-none pl-0 space-y-2 mt-2">
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ArrowRightCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Log Parsing:</strong> It intelligently parses and analyzes massive <strong>simulation logs</strong>, automatically identifying error messages, warnings, and unexpected behaviors.</div>
-                      </li>
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ArrowRightCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Waveform Analysis:</strong> It integrates with <strong>waveform viewers</strong> (via the MCP Server&apos;s Tool Abstraction Layer) to automatically navigate and analyze critical signal traces and timing paths identified as problematic. It can filter noise, highlight key events, and correlate activity across multiple design blocks.</div>
-                      </li>
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ArrowRightCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Knowledge-Driven Localization:</strong> Leveraging the <strong>Knowledge Hub (RAG)</strong> (which contains historical bug patterns, design specifications, and common debug strategies), it intelligently localizes the likely source of the bug down to specific RTL lines, module interfaces, or architectural components.</div>
-                      </li>
-                  </ul>
+                  <div className="mt-2 space-y-3">
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ArrowRightCircle className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Log Parsing:</strong> It intelligently parses and analyzes massive <strong>simulation logs</strong>, automatically identifying error messages, warnings, and unexpected behaviors.</div>
+                      </div>
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ArrowRightCircle className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Waveform Analysis:</strong> It integrates with <strong>waveform viewers</strong> (via the MCP Server&apos;s Tool Abstraction Layer) to automatically navigate and analyze critical signal traces and timing paths identified as problematic. It can filter noise, highlight key events, and correlate activity across multiple design blocks.</div>
+                      </div>
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ArrowRightCircle className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Knowledge-Driven Localization:</strong> Leveraging the <strong>Knowledge Hub (RAG)</strong> (which contains historical bug patterns, design specifications, and common debug strategies), it intelligently localizes the likely source of the bug down to specific RTL lines, module interfaces, or architectural components.</div>
+                      </div>
+                  </div>
                 </div>
               </li>
               <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
                 <MessageCircleQuestion className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <strong className="text-primary block mb-1">Intelligent Explanation and Suggested Fixes:</strong> Beyond just localization, the <strong>Debug & Root Cause Analysis Agent</strong> leverages LLM capabilities (through prompt engineering) to:
-                  <ul className="list-none pl-0 space-y-2 mt-2">
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <Lightbulb className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Explain the Bug:</strong> Provide clear, human-readable explanations of why a failure occurred, translating complex technical jargon into understandable insights.</div>
-                      </li>
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <Wrench className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Suggest Solutions:</strong> Propose specific, actionable code modifications or design adjustments to resolve the identified bug. This feedback is directed back to the <strong>RTL Generation & Refinement Agent</strong> (for code fixes) or the <strong>Supervisor Agent</strong> (for higher-level architectural adjustments or constraint modifications).</div>
-                      </li>
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <Repeat2 className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">&quot;What-If&quot; Debugging:</strong> Using the <strong>Context & State Management (CAG)</strong>, the agent can track previous debug attempts and avoid repeating failed strategies, suggesting alternative approaches based on prior context.</div>
-                      </li>
-                  </ul>
+                  <div className="mt-2 space-y-3">
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <Lightbulb className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Explain the Bug:</strong> Provide clear, human-readable explanations of why a failure occurred, translating complex technical jargon into understandable insights.</div>
+                      </div>
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <Wrench className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Suggest Solutions:</strong> Propose specific, actionable code modifications or design adjustments to resolve the identified bug. This feedback is directed back to the <strong>RTL Generation & Refinement Agent</strong> (for code fixes) or the <strong>Supervisor Agent</strong> (for higher-level architectural adjustments or constraint modifications).</div>
+                      </div>
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <Repeat2 className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">&quot;What-If&quot; Debugging:</strong> Using the <strong>Context & State Management (CAG)</strong>, the agent can track previous debug attempts and avoid repeating failed strategies, suggesting alternative approaches based on prior context.</div>
+                      </div>
+                  </div>
                 </div>
               </li>
               <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
@@ -474,88 +474,88 @@ export default function AiPipelinePage() {
                 <Gauge className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <strong className="text-primary block mb-1">System-Level Performance Verification:</strong> A <strong>Performance Verification Agent</strong> (a Specialized Analysis Agent from Section 2.2) takes the lead here.
-                  <ul className="list-none pl-0 space-y-2 mt-2">
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ArrowRightCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Full-Chip Simulations:</strong> It orchestrates <strong>full-chip performance simulations</strong> (e.g., using SystemC or transaction-level models) driven by real-world workload scenarios.</div>
-                      </li>
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ArrowRightCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">KPI Analysis:</strong> It collects and analyzes key performance indicators (KPIs) such as throughput, latency, bandwidth utilization, and clock cycles, correlating them against the initial architectural targets.</div>
-                      </li>
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ArrowRightCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Feedback Loop:</strong> Discrepancies are flagged and analyzed, providing feedback to the <strong>Architecture Exploration Agents</strong> or <strong>RTL Generation Agents</strong> for iterative performance tuning.</div>
-                      </li>
-                  </ul>
+                  <div className="mt-2 space-y-3">
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ArrowRightCircle className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Full-Chip Simulations:</strong> It orchestrates <strong>full-chip performance simulations</strong> (e.g., using SystemC or transaction-level models) driven by real-world workload scenarios.</div>
+                      </div>
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ArrowRightCircle className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">KPI Analysis:</strong> It collects and analyzes key performance indicators (KPIs) such as throughput, latency, bandwidth utilization, and clock cycles, correlating them against the initial architectural targets.</div>
+                      </div>
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ArrowRightCircle className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Feedback Loop:</strong> Discrepancies are flagged and analyzed, providing feedback to the <strong>Architecture Exploration Agents</strong> or <strong>RTL Generation Agents</strong> for iterative performance tuning.</div>
+                      </div>
+                  </div>
                 </div>
               </li>
               <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
                 <BatteryCharging className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <strong className="text-primary block mb-1">Power Verification & Integrity:</strong> The <strong>Power & Design Rule Check (DRC) Analysis Agent</strong> (a Specialized Analysis Agent from Section 2.2) extends its role to comprehensive power verification.
-                  <ul className="list-none pl-0 space-y-2 mt-2">
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ArrowRightCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Dynamic Power Analysis:</strong> It performs <strong>dynamic power analysis</strong> by correlating workload simulations with power models, identifying power hotspots and peak power consumption.</div>
-                      </li>
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ArrowRightCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Static Power Analysis:</strong> It conducts <strong>static power analysis</strong> to identify leakage current issues.</div>
-                      </li>
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ArrowRightCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Power Integrity Analysis:</strong> It analyzes <strong>power integrity</strong> (e.g., IR drop, electromigration) using specialized tools, ensuring the power delivery network is robust across the entire chip. This analysis feeds back into the <strong>Physical Implementation Agent</strong> (Stage 9) for layout adjustments.</div>
-                      </li>
-                  </ul>
+                  <div className="mt-2 space-y-3">
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ArrowRightCircle className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Dynamic Power Analysis:</strong> It performs <strong>dynamic power analysis</strong> by correlating workload simulations with power models, identifying power hotspots and peak power consumption.</div>
+                      </div>
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ArrowRightCircle className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Static Power Analysis:</strong> It conducts <strong>static power analysis</strong> to identify leakage current issues.</div>
+                      </div>
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ArrowRightCircle className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Power Integrity Analysis:</strong> It analyzes <strong>power integrity</strong> (e.g., IR drop, electromigration) using specialized tools, ensuring the power delivery network is robust across the entire chip. This analysis feeds back into the <strong>Physical Implementation Agent</strong> (Stage 9) for layout adjustments.</div>
+                      </div>
+                  </div>
                 </div>
               </li>
               <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
                 <ShieldCheck className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <strong className="text-primary block mb-1">Comprehensive Security Verification:</strong> Building on earlier formal checks, the <strong>Security Verification Agent</strong> (a specialized Verification Agent or Specialized Analysis Agent) performs holistic, chip-level security assessments. This includes:
-                  <ul className="list-none pl-0 space-y-2 mt-2">
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ArrowRightCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Attack Surface Analysis:</strong> Identifying potential entry points for attacks.</div>
-                      </li>
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ArrowRightCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Vulnerability Scanning:</strong> Probing for known vulnerabilities in IP blocks or interfaces.</div>
-                      </li>
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ArrowRightCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Simulated Penetration Testing:</strong> Running simulated attack scenarios against the full chip model to validate the effectiveness of security features.</div>
-                      </li>
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ArrowRightCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Compliance Checks:</strong> Ensuring adherence to security standards (e.g., FIPS, ISO 26262 functional safety security requirements).</div>
-                      </li>
-                  </ul>
+                  <div className="mt-2 space-y-3">
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ArrowRightCircle className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Attack Surface Analysis:</strong> Identifying potential entry points for attacks.</div>
+                      </div>
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ArrowRightCircle className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Vulnerability Scanning:</strong> Probing for known vulnerabilities in IP blocks or interfaces.</div>
+                      </div>
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ArrowRightCircle className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Simulated Penetration Testing:</strong> Running simulated attack scenarios against the full chip model to validate the effectiveness of security features.</div>
+                      </div>
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ArrowRightCircle className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Compliance Checks:</strong> Ensuring adherence to security standards (e.g., FIPS, ISO 26262 functional safety security requirements).</div>
+                      </div>
+                  </div>
                 </div>
               </li>
               <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
                 <SlidersHorizontal className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <strong className="text-primary block mb-1">AI System Evaluation & Guardrails:</strong> This is where the overall AI design system&apos;s effectiveness is rigorously monitored and improved, utilizing the <strong>Human-in-the-Loop Interface</strong> and <strong>LangSmith</strong>:
-                  <ul className="list-none pl-0 space-y-2 mt-2">
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <CheckCircle2 className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Automated Evaluation:</strong> LangSmith is used to capture production traces of agent interactions, LLM prompts, and tool calls. Custom evaluators are defined to automatically assess the quality of AI-generated content (e.g., &quot;Is generated RTL synthesizable?&quot;, &quot;Are test cases effective?&quot;). This builds comprehensive datasets for continuous, objective evaluation of agent performance and output quality.</div>
-                      </li>
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <Lightbulb className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Prompt Engineering Refinement:</strong> Based on evaluation results, insights are used to refine and optimize prompt engineering strategies for all agents, improving their accuracy, efficiency, and adherence to design rules.</div>
-                      </li>
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <ShieldAlert className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">AI Guardrails & Anomaly Detection:</strong> The <strong>Supervisor Agent</strong> (via LangSmith monitoring) actively enforces predefined guardrails, preventing agents from pursuing irrational design paths or generating outputs that violate critical constraints. Anomaly detection algorithms monitor agent behavior for unexpected deviations, allowing for proactive intervention.</div>
-                      </li>
-                      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 mt-2">
-                        <BrainCircuit className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <div><strong className="text-primary block mb-1">Self-Evaluation & Learning:</strong> The system can engage in meta-level self-evaluation. For instance, the <strong>Knowledge Graph Agent</strong> can analyze historical performance data of specific agents and workflows (from LangSmith traces) to identify patterns of success or failure. This feedback loop informs the <strong>Global Planning Agent</strong> on how to optimize agent selection, task decomposition, and resource allocation for future design projects.</div>
-                      </li>
-                  </ul>
+                  <div className="mt-2 space-y-3">
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <CheckCircle2 className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Automated Evaluation:</strong> LangSmith is used to capture production traces of agent interactions, LLM prompts, and tool calls. Custom evaluators are defined to automatically assess the quality of AI-generated content (e.g., &quot;Is generated RTL synthesizable?&quot;, &quot;Are test cases effective?&quot;). This builds comprehensive datasets for continuous, objective evaluation of agent performance and output quality.</div>
+                      </div>
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <Lightbulb className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Prompt Engineering Refinement:</strong> Based on evaluation results, insights are used to refine and optimize prompt engineering strategies for all agents, improving their accuracy, efficiency, and adherence to design rules.</div>
+                      </div>
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <ShieldAlert className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">AI Guardrails & Anomaly Detection:</strong> The <strong>Supervisor Agent</strong> (via LangSmith monitoring) actively enforces predefined guardrails, preventing agents from pursuing irrational design paths or generating outputs that violate critical constraints. Anomaly detection algorithms monitor agent behavior for unexpected deviations, allowing for proactive intervention.</div>
+                      </div>
+                      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+                        <BrainCircuit className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <div><strong className="text-sky-300 block mb-1">Self-Evaluation & Learning:</strong> The system can engage in meta-level self-evaluation. For instance, the <strong>Knowledge Graph Agent</strong> can analyze historical performance data of specific agents and workflows (from LangSmith traces) to identify patterns of success or failure. This feedback loop informs the <strong>Global Planning Agent</strong> on how to optimize agent selection, task decomposition, and resource allocation for future design projects.</div>
+                      </div>
+                  </div>
                 </div>
               </li>
           </ul>
@@ -563,7 +563,7 @@ export default function AiPipelinePage() {
         </div>
         {/* Stage 3.8 END */}
 
-        {/* Stage 3.9 - OLD 3.6 CONTENT (now 3.9) */}
+        {/* Stage 3.9 */}
         <div className="section-card p-6 rounded-2xl mt-12">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
             3.9 Stage 9: Physical Design &amp; PPA Optimization
@@ -580,31 +580,31 @@ export default function AiPipelinePage() {
           </div>
           <p>To unlock unprecedented PPA optimization and design convergence speed, an autonomous <strong>PPA Optimization Agent</strong> will be deployed. This agent is the intelligent orchestrator of our <strong>Physical Design & Optimization Agents</strong> (from Section 2.2) and is based on the principles of industry-leading AI-driven tools like <strong>Synopsys DSO.ai</strong> and <strong>Cadence Cerebrus</strong>, but integrated within our comprehensive MAS:</p>
           <ul className="list-none pl-0 space-y-6 !my-6">
-            <li className="flex items-start">
+            <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
               <BrainCircuit className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <div>The <strong>PPA Optimization Agent</strong> uses sophisticated <strong>reinforcement learning</strong> to holistically and autonomously explore the vast PPA solution space. It treats the entire physical design EDA toolchain (orchestrating the <strong>Synthesis Agent, Physical Implementation Agent, and Timing Closure Agent</strong> from Section 2.2 via the MCP Server&apos;s Tool Abstraction Layer) as its <strong>&quot;environment.&quot;</strong></div>
+              <div><strong className="text-primary block mb-1">RL Orchestration:</strong> The <strong>PPA Optimization Agent</strong> uses sophisticated <strong>reinforcement learning</strong> to holistically and autonomously explore the vast PPA solution space. It treats the entire physical design EDA toolchain (orchestrating the <strong>Synthesis Agent, Physical Implementation Agent, and Timing Closure Agent</strong> from Section 2.2 via the MCP Server&apos;s Tool Abstraction Layer) as its <strong>&quot;environment.&quot;</strong></div>
             </li>
-            <li className="flex items-start">
+            <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
               <Wrench className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <div>The agent&apos;s <strong>&quot;actions&quot;</strong> consist of intelligently adjusting hundreds of critical tool settings, design constraints (e.g., placement density, routing layers, clock tree balance), and floorplan parameters.</div>
+              <div><strong className="text-primary block mb-1">Agent Actions:</strong> The agent&apos;s <strong>&quot;actions&quot;</strong> consist of intelligently adjusting hundreds of critical tool settings, design constraints (e.g., placement density, routing layers, clock tree balance), and floorplan parameters.</div>
             </li>
-            <li className="flex items-start">
+            <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
               <Award className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <div>The <strong>&quot;reward&quot;</strong> it receives after each iterative run is a meticulously calculated score derived from the resulting comprehensive PPA metrics (<strong>timing closure, dynamic and static power consumption, silicon area utilization, routing congestion</strong>, and even early <strong>manufacturing yield predictions</strong> from the Yield Prediction Agent – introduced in Stage 3.10).</div>
+              <div><strong className="text-primary block mb-1">Reward System:</strong> The <strong>&quot;reward&quot;</strong> it receives after each iterative run is a meticulously calculated score derived from the resulting comprehensive PPA metrics (<strong>timing closure, dynamic and static power consumption, silicon area utilization, routing congestion</strong>, and even early <strong>manufacturing yield predictions</strong> from the Yield Prediction Agent – introduced in Stage 3.10).</div>
             </li>
-            <li className="flex items-start">
+            <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
               <FastForward className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <div>By running <strong>thousands of these automated iterations</strong>, facilitated by rapid, AI-accelerated estimations, the RL agent learns complex, non-obvious, and often counter-intuitive relationships between input parameters and final outcomes. It continuously discovers <strong>novel optimization strategies</strong> that consistently outperform even seasoned human experts, pushing our designs to the <strong>true Pareto-optimal frontier of PPA</strong>, delivering highly competitive and differentiated silicon.</div>
+              <div><strong className="text-primary block mb-1">Iterative Learning:</strong> By running <strong>thousands of these automated iterations</strong>, facilitated by rapid, AI-accelerated estimations, the RL agent learns complex, non-obvious, and often counter-intuitive relationships between input parameters and final outcomes. It continuously discovers <strong>novel optimization strategies</strong> that consistently outperform even seasoned human experts, pushing our designs to the <strong>true Pareto-optimal frontier of PPA</strong>, delivering highly competitive and differentiated silicon.</div>
             </li>
-            <li className="flex items-start">
+            <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
               <Eye className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <div>The <strong>Supervisor agent</strong> meticulously tracks the convergence of the <strong>PPA Optimization Agent</strong>, ensuring that it remains within defined guardrails and achieves overall project goals, while the <strong>Human-in-the-Loop Interface</strong> provides transparent dashboards for human experts to monitor progress and intervene for strategic adjustments.</div>
+              <div><strong className="text-primary block mb-1">Supervisor Oversight:</strong> The <strong>Supervisor agent</strong> meticulously tracks the convergence of the <strong>PPA Optimization Agent</strong>, ensuring that it remains within defined guardrails and achieves overall project goals, while the <strong>Human-in-the-Loop Interface</strong> provides transparent dashboards for human experts to monitor progress and intervene for strategic adjustments.</div>
             </li>
           </ul>
         </div>
         {/* Stage 3.9 END */}
 
-        {/* Stage 3.10 - OLD 3.7 CONTENT (now 3.10) */}
+        {/* Stage 3.10 */}
         <div className="section-card p-6 rounded-2xl mt-12">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
             3.10 Stage 10: Manufacturing &amp; Post-Silicon Validation
@@ -621,17 +621,17 @@ export default function AiPipelinePage() {
           </div>
           <p>This final stage integrates AI to ensure manufacturing quality and create a powerful feedback loop for future designs:</p>
           <ul className="list-none pl-0 space-y-6 !my-6">
-            <li className="flex items-start">
+            <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
               <Activity className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <div>A <strong>Yield Prediction Agent</strong> (a Specialized Analysis Agent from Section 2.2) will leverage advanced <strong>machine learning models</strong> trained on vast datasets of historical wafer-level data, process variation statistics, and test results. This agent identifies design features, layout structures, or even specific process parameters that are statistically likely to cause <strong>manufacturing problems or yield loss</strong>. This critical, proactive feedback is passed back to the <strong>PPA Optimization Agent</strong> in Stage 3.9, directly incorporating <strong>manufacturability and yield considerations</strong> into the iterative PPA equation from the earliest physical design stages.</div>
+              <div><strong className="text-primary block mb-1">Yield Prediction:</strong> A <strong>Yield Prediction Agent</strong> (a Specialized Analysis Agent from Section 2.2) will leverage advanced <strong>machine learning models</strong> trained on vast datasets of historical wafer-level data, process variation statistics, and test results. This agent identifies design features, layout structures, or even specific process parameters that are statistically likely to cause <strong>manufacturing problems or yield loss</strong>. This critical, proactive feedback is passed back to the <strong>PPA Optimization Agent</strong> in Stage 3.9, directly incorporating <strong>manufacturability and yield considerations</strong> into the iterative PPA equation from the earliest physical design stages.</div>
             </li>
-            <li className="flex items-start">
+            <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
               <ScanSearch className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <div>A <strong>Defect Detection Agent</strong> (another Specialized Analysis Agent from Section 2.2), utilizing <strong>AI-powered visual inspection systems</strong> and advanced computer vision algorithms, analyzes high-resolution wafer scans and in-line process monitoring data. It identifies, classifies, and localizes <strong>microscopic physical defects</strong> (e.g., shorts, opens, particles) with a speed and accuracy far exceeding traditional human capabilities or simpler automated optical inspection systems. This dramatically accelerates <strong>quality control and root cause analysis</strong> in the fab.</div>
+              <div><strong className="text-primary block mb-1">Defect Detection:</strong> A <strong>Defect Detection Agent</strong> (another Specialized Analysis Agent from Section 2.2), utilizing <strong>AI-powered visual inspection systems</strong> and advanced computer vision algorithms, analyzes high-resolution wafer scans and in-line process monitoring data. It identifies, classifies, and localizes <strong>microscopic physical defects</strong> (e.g., shorts, opens, particles) with a speed and accuracy far exceeding traditional human capabilities or simpler automated optical inspection systems. This dramatically accelerates <strong>quality control and root cause analysis</strong> in the fab.</div>
             </li>
-            <li className="flex items-start">
+            <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
               <CheckCircle2 className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <div>A <strong>Post-Silicon Validation Agent</strong> (a distinct Specialized Analysis Agent from Section 2.2) automates the complex <strong>bring-up and characterization process</strong> for prototype chips and first silicon. It dynamically orchestrates lab equipment, runs comprehensive diagnostics, collects <strong>detailed performance data</strong> from the actual silicon (e.g., power consumption under various workloads, maximum operating frequency, signal integrity), and automatically correlates any discrepancies against the meticulously documented <strong>pre-silicon simulation results and PPA targets</strong>. This creates a final, invaluable <strong>feedback loop</strong> directly into our <strong>Knowledge Graph Agent</strong> (within the Central Intelligence Hub), continuously refining our verification models, simulation methodologies, and predictive AI models for all future chip design projects. This ensures continuous learning and improvement in our design and manufacturing processes.</div>
+              <div><strong className="text-primary block mb-1">Post-Silicon Validation:</strong> A <strong>Post-Silicon Validation Agent</strong> (a distinct Specialized Analysis Agent from Section 2.2) automates the complex <strong>bring-up and characterization process</strong> for prototype chips and first silicon. It dynamically orchestrates lab equipment, runs comprehensive diagnostics, collects <strong>detailed performance data</strong> from the actual silicon (e.g., power consumption under various workloads, maximum operating frequency, signal integrity), and automatically correlates any discrepancies against the meticulously documented <strong>pre-silicon simulation results and PPA targets</strong>. This creates a final, invaluable <strong>feedback loop</strong> directly into our <strong>Knowledge Graph Agent</strong> (within the Central Intelligence Hub), continuously refining our verification models, simulation methodologies, and predictive AI models for all future chip design projects. This ensures continuous learning and improvement in our design and manufacturing processes.</div>
             </li>
           </ul>
         </div>

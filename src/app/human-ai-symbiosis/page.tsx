@@ -14,7 +14,7 @@ import {
   GraduationCap, 
   Trophy, 
   FileSearch2, 
-  ShieldCheck as ShieldCheckIcon,
+  ShieldCheck as ShieldCheckIcon, // Renamed to avoid conflict
   Filter, 
   FileText,
   Settings,
@@ -27,12 +27,12 @@ import {
   ClipboardCheck,
   Wrench,
   ShieldAlert, 
-  ListChecks as ListChecksIcon,
-  MessageSquare as MessageSquareIcon,
+  ListChecks as ListChecksIcon, // Renamed to avoid conflict
+  MessageSquare as MessageSquareIcon, // Renamed to avoid conflict
   GitCommitVertical, 
   PenSquare, 
   Edit,
-  Inspect
+  Inspect // Added Inspect as it was missing from previous diffs but used
 } from 'lucide-react';
 
 // SVG Diagram Component for Section 4
@@ -70,7 +70,7 @@ const HumanAiSymbiosisDiagram: React.FC = () => (
         </symbol>
         {/* Simplified Settings Icon (Gear) */}
         <symbol id="symbiosisIconSettings" viewBox="0 0 24 24">
-          <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12-.64l2 3.46c.12.22.39.3.61.22l2.49 1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z" className="icon-fill"/>
+          <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12-.64l2 3.46c.12.22.39.3.61.22l2.49 1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z" className="icon-fill"/>
         </symbol>
         {/* Simplified Inspect Icon (Magnifying glass) */}
         <symbol id="symbiosisIconInspect" viewBox="0 0 24 24">
@@ -81,9 +81,9 @@ const HumanAiSymbiosisDiagram: React.FC = () => (
       {/* Central Human Engineer Node */}
       <g transform="translate(300, 240)">
         <circle r="60" className="human-engineer-node"/>
-        <use href="#symbiosisIconUser" width="50" height="50" x="-25" y="-30" />
-        <text y="38" className="text-main-title">Human</text>
-        <text y="55" className="text-main-title">Engineer</text>
+        <use href="#symbiosisIconUser" width="50" height="50" x="-25" y="-35" />
+        <text y="33" className="text-main-title">Human</text>
+        <text y="48" className="text-main-title">Engineer</text>
       </g>
 
       {/* Node positions and Arrows */}
@@ -292,7 +292,7 @@ export default function HumanAiSymbiosisPage() {
             <GitBranchPlus className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
             <div>
               <strong className="text-primary block mb-1">CI/CD for LLM Applications, Adapted for Chip Design:</strong>
-              A <strong>Continuous Integration/Continuous Deployment (CI/CD)</strong> pipeline will be established for all agentic systems. Whenever a change is made—to an agent&apos;s prompt, its underlying model, or one of its tools—an automated workflow will be triggered. This workflow will run the agent against a <strong>&quot;golden dataset&quot;</strong> of carefully curated test cases specific to semiconductor design. These <strong>&quot;golden datasets&quot;</strong> will include scenarios ranging from specific RTL module functionalities to PPA optimization targets, ensuring the AI&apos;s output is verified against known good results. This isn&apos;t just about software; it&apos;s about validating the AI&apos;s ability to produce correct and efficient hardware designs.
+              A <strong>Continuous Integration/Continuous Deployment (CI/CD)</strong> pipeline will be established for all agentic systems. Whenever a change is made—to an agent&apos;s prompt, its underlying model, or one of its tools—an automated workflow will be triggered. This workflow will run the agent against a <strong>&quot;golden dataset&quot;</strong> of carefully curated test cases specific to semiconductor design. These <strong>&quot;golden datasets&quot;</strong> will include scenarios ranging from specific RTL module functionalities to PPA optimization targets, ensuring the AI&apos;s output is verified against known good results. This isn&t just about software; it&apos;s about validating the AI&apos;s ability to produce correct and efficient hardware designs.
             </div>
           </li>
           <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full">
@@ -423,3 +423,4 @@ export default function HumanAiSymbiosisPage() {
     </SubPageLayout>
   );
 }
+

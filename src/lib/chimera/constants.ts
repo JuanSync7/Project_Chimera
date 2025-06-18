@@ -1,7 +1,15 @@
 
 import React from 'react';
 import type { NavLinkItem, PipelineTab, RoadmapPhase } from '@/lib/chimera/types';
-import { Pencil, Code, BadgeCheck, Cpu, Cog } from 'lucide-react';
+import { 
+  Pencil, 
+  FileCode, 
+  ClipboardCheck, 
+  RefreshCcw, 
+  ShieldCheck, 
+  SlidersHorizontal, 
+  Cog 
+} from 'lucide-react';
 
 export const NAV_LINKS: NavLinkItem[] = [
   { id: 'overview', href: '#overview', label: 'Overview' },
@@ -14,94 +22,124 @@ export const NAV_LINKS: NavLinkItem[] = [
 
 export const PIPELINE_TABS: PipelineTab[] = [
   {
-    id: 'tab-spec',
+    id: 'tab-spec-arch',
     title: '1. Spec & Arch',
     icon: React.createElement(Pencil, { className: "w-5 h-5 mr-2 inline-block" }),
     heading: 'Stage 1: System Specification & Architecture',
     generalDescription: 'Transforming ambiguous natural language requirements into formal, optimized architectural blueprints. This stage creates a <strong>"digital thread"</strong> of intent and context that flows from initial concept to final silicon.',
-    challenge: 'The initial phase of design is often hampered by <strong>ambiguous requirements</strong> expressed in natural language and the impossibly vast search space of potential <strong>high-level architectures</strong>.',
-    agenticWorkflowDetails: `<p><strong class="text-white font-semibold">AI Agent(s) & Role:</strong></p>
+    challenge: 'The critical initial phase of chip design is often hampered by <strong>ambiguous requirements</strong> expressed in natural language and the impossibly vast search space of potential <strong>high-level architectures</strong>.',
+    agenticWorkflowDetails: `<p><strong class="text-white font-semibold">AI Agents & Roles:</strong></p>
       <ul class="list-disc list-inside space-y-1 mt-1">
-        <li><strong>Spec Analyst Agent:</strong> Engages with product managers/architects. Uses <strong>RAG</strong> for data on past projects to identify ambiguities/constraints. Uses <strong>CAG</strong> for conversational context to refine requirements into a formal, machine-readable specification.</li>
-        <li><strong>Design Space Exploration (DSE) Agent:</strong> Powered by <strong>reinforcement learning</strong>, autonomously generates and evaluates thousands of high-level architectural variants (e.g., memory hierarchies, bus fabrics, core configurations).</li>
+        <li><strong>Customer Requirements Translation Agent:</strong> Leverages RAG/CAG to refine customer needs into preliminary specs.</li>
+        <li><strong>Specification Agent:</strong> Formalizes requirements into machine-readable design specifications using formal verification.</li>
+        <li><strong>Microarchitecture Optimization Agent:</strong> Uses RL to explore architectural variants (CPU pipelines, caches).</li>
+        <li><strong>System-Level Interconnect Agent:</strong> Designs/optimizes NoCs and memory interfaces using system-level tools.</li>
+        <li><strong>Supervisor Agent:</strong> Orchestrates exploration, monitors PPA, presents top candidates.</li>
       </ul>
-      <p><strong class="text-white font-semibold">Core AI Technique:</strong> <strong>RAG/CAG</strong>, <strong>Reinforcement Learning (RL)</strong>.</p>
-      <p><strong class="text-white font-semibold">Key Tools/Frameworks:</strong> <strong>LangGraph</strong>, Custom Python scripts for DSE, AI models for rapid PPA estimation from high-level descriptions (achieving up to <strong>10x improvement</strong> in exploration speed).</p>
-      <p><strong class="text-white font-semibold">Process:</strong> The <strong>Supervisor agent</strong> orchestrates this, presenting top candidate architectures to human architects for final decision.</p>`,
+      <p><strong class="text-white font-semibold">Core AI Techniques:</strong> RAG, CAG, Reinforcement Learning, Multi-objective Optimization.</p>`,
     outcome: 'Reduced specification ambiguity; <strong>10x faster Design Space Exploration</strong>; Architectures optimized for PPA from day one.',
     outcomeColor: 'text-sky-300'
   },
   {
-    id: 'tab-rtl',
-    title: '2. RTL Design',
-    icon: React.createElement(Code, { className: "w-5 h-5 mr-2 inline-block" }),
-    heading: 'Stage 2: RTL Design & High-Level Synthesis (HLS)',
-    generalDescription: 'Automating the tedious and error-prone process of HDL coding with verifiable, AI-driven generation, addressing <strong>reliability gaps</strong> of generative AI for hardware.',
-    challenge: 'Manual creation of <strong>Register-Transfer Level (RTL)</strong> code (Verilog/VHDL) is <strong>time-consuming, tedious, and error-prone</strong>. LLMs can generate HDL but often produce <strong>functionally flawed code</strong>.',
-    agenticWorkflowDetails: `<p><strong class="text-white font-semibold">AI Agent(s) & Role (Test-Driven Development - TDD):</strong></p>
+    id: 'tab-rtl-gen',
+    title: '2. RTL Gen',
+    icon: React.createElement(FileCode, { className: "w-5 h-5 mr-2 inline-block" }),
+    heading: 'Stage 2: Intelligent RTL Generation from Architecture',
+    generalDescription: 'Transforming complex architectural blueprints into high-quality, synthesizable RTL code, leveraging advanced prompt engineering and RAG for LLMs, and integrating HLS.',
+    challenge: 'Translating architectural blueprints to <strong>high-quality, synthesizable RTL</strong> is error-prone. LLMs need careful guidance for reliability and adherence to standards. Integrating HLS is key for productivity.',
+    agenticWorkflowDetails: `<p><strong class="text-white font-semibold">AI Agents & Roles:</strong></p>
       <ul class="list-disc list-inside space-y-1 mt-1">
-        <li><strong>Testbench Generator Agent:</strong> Writes functional tests and assertions first, creating a clear, verifiable definition of <strong>"correctness"</strong>.</li>
-        <li><strong>Verilog/VHDL Coder Agent:</strong> Instructed to write RTL code that passes the pre-defined tests. Iterates (generates code, Supervisor runs tests, agent analyzes failures, refactors) until all tests pass. Also capable of <strong>code conversion</strong> between HDLs.</li>
+        <li><strong>RTL Generation & Refinement Agent (Coder Agent):</strong> Synthesizes architectural intent into initial RTL (Verilog/VHDL) using advanced prompt engineering (structured prompts, in-context learning, constraint-based generation) with LLMs and RAG. Orchestrates HLS tools for C/C++/SystemC modules.</li>
       </ul>
-      <p><strong class="text-white font-semibold">Core AI Technique:</strong> <strong>Generative AI</strong>, <strong>Test-Driven Development (TDD)</strong>.</p>
-      <p><strong class="text-white font-semibold">Key Tools/Frameworks:</strong> Claude Code-like models, <strong>LangGraph</strong>, Simulation tools.</p>
-      <p><strong class="text-white font-semibold">Process:</strong> Human engineer provides high-level functional description and test requirements. Supervisor confirms tests. <strong>TDD loop</strong> mitigates LLM weaknesses by grounding generation in verifiable tests. <strong>HLS</strong> will be prioritized where appropriate.</p>`,
-    outcome: 'Vastly improved <strong>RTL quality and reliability</strong>; Reduced <strong>manual coding effort</strong>; Mitigated AI hallucination; <strong>Faster module development</strong>.',
+      <p><strong class="text-white font-semibold">Core AI Techniques:</strong> Generative AI (LLMs), Prompt Engineering, RAG, HLS Integration.</p>`,
+    outcome: 'High-quality, synthesizable RTL; Reduced manual coding; Reliable HLS integration; Faster module development.',
     outcomeColor: 'text-sky-300'
   },
   {
-    id: 'tab-verify',
-    title: '3. Verification',
-    icon: React.createElement(BadgeCheck, { className: "w-5 h-5 mr-2 inline-block" }),
-    heading: 'Stage 3: Verification & Validation',
+    id: 'tab-rtl-opt-test',
+    title: '3. RTL Opt & Test',
+    icon: React.createElement(ClipboardCheck, { className: "w-5 h-5 mr-2 inline-block" }),
+    heading: 'Stage 3: Proactive RTL Optimization & Testbench Setup',
+    generalDescription: 'Ensuring initial RTL quality, synthesizability, and testability through automated optimizations and comprehensive test environment preparation before functional verification.',
+    challenge: 'Manual linting, optimization, and testbench creation are <strong>time-consuming</strong> and miss subtle issues, leading to downstream delays.',
+    agenticWorkflowDetails: `<p><strong class="text-white font-semibold">AI Agents & Roles:</strong></p>
+      <ul class="list-disc list-inside space-y-1 mt-1">
+        <li><strong>Verilog/VHDL Coder Agent:</strong> Performs initial local optimizations, linting, DRC, power-aware techniques, and pre-synthesis analysis.</li>
+        <li><strong>Power-Aware RTL Optimization Agent:</strong> Collaborates to analyze and implement RTL modifications for power reduction.</li>
+        <li><strong>Test & Coverage Generation Agent:</strong> Automatically generates comprehensive functional testbenches, test cases, stimulus patterns, monitors, and SVA, enabling a "test-first" approach. Supervisor presents these to human engineer for review.</li>
+      </ul>
+      <p><strong class="text-white font-semibold">Core AI Techniques:</strong> Automated Code Analysis, Power-Aware Optimization, Automated Testbench Generation (SVA).</p>`,
+    outcome: 'Robust, high-quality RTL; Early power optimization; Comprehensive and verified test environment; Reduced downstream verification effort.',
+    outcomeColor: 'text-green-400'
+  },
+  {
+    id: 'tab-tdd-rtl',
+    title: '4. TDD RTL',
+    icon: React.createElement(RefreshCcw, { className: "w-5 h-5 mr-2 inline-block" }),
+    heading: 'Stage 4: Test-Driven Development (TDD) for Iterative RTL Refinement',
+    generalDescription: 'Automated debugging and self-correction loop to rapidly achieve functional correctness and PPA targets for RTL using pre-defined tests.',
+    challenge: 'Iterative debugging and refinement of RTL is a major bottleneck. Manually identifying and fixing bugs from simulation failures is <strong>labor-intensive and slow</strong>.',
+    agenticWorkflowDetails: `<p><strong class="text-white font-semibold">AI Agents & Roles (TDD Loop):</strong></p>
+      <ul class="list-disc list-inside space-y-1 mt-1">
+        <li><strong>Supervisor:</strong> Invokes simulation tools to run tests against RTL.</li>
+        <li><strong>Debug & Root Cause Analysis Agent:</strong> Analyzes simulation failures/coverage gaps, pinpoints bugs, and provides feedback to Coder Agent.</li>
+        <li><strong>Verilog/VHDL Coder Agent:</strong> Leverages feedback to refactor, debug, and optimize generated code.</li>
+      </ul>
+      <p><strong class="text-white font-semibold">Process:</strong> Loop continues until all tests pass (100% functional coverage) and RTL meets PPA estimates. Grounds LLM generation in verifiable tests.</p>
+      <p><strong class="text-white font-semibold">Core AI Techniques:</strong> Test-Driven Development (TDD), Automated Debugging, Closed-Loop Refinement.</p>`,
+    outcome: 'Dramatically accelerated RTL convergence; High-quality, bug-free RTL; Mitigation of LLM weaknesses in HDL generation.',
+    outcomeColor: 'text-green-400'
+  },
+  {
+    id: 'tab-verify-validate',
+    title: '5. Verification',
+    icon: React.createElement(ShieldCheck, { className: "w-5 h-5 mr-2 inline-block" }),
+    heading: 'Stage 5: Verification & Validation',
     generalDescription: 'Tackling the <strong>single largest bottleneck</strong> in chip design with an AI-powered <strong>verification-in-the-loop</strong> framework, aiming for <strong>"first-time-right" silicon</strong>.',
     challenge: '<strong>Functional verification</strong> consumes up to <strong>70% of total project resources</strong>. Traditional simulation-based methods can miss <strong>deep, corner-case bugs</strong> leading to costly silicon respins.',
-    agenticWorkflowDetails: `<p><strong class="text-white font-semibold">AI Agent(s) & Role (AIvril Verification-in-the-Loop Framework):</strong></p>
+    agenticWorkflowDetails: `<p><strong class="text-white font-semibold">AI Agents & Roles (AIvril Verification-in-the-Loop):</strong></p>
       <ul class="list-disc list-inside space-y-1 mt-1">
-        <li><strong>AutoReview Agent:</strong> Automated code reviewer. Uses <strong>static analysis, linting, and formal methods</strong> to check RTL for errors, style violations, non-synthesizable constructs. Provides targeted feedback to Coder Agent.</li>
-        <li><strong>AutoDV (Automatic Design Verification) Agent:</strong> Responsible for functional correctness. Uses <strong>formal verification tools</strong> (e.g., JasperGold) to mathematically prove properties and find deep bugs. Analyzes simulation coverage reports to identify untested areas and intelligently generates new, targeted test cases to <strong>close coverage holes</strong>.</li>
+        <li><strong>AutoReview Agent:</strong> Automated code reviewer using static analysis, linting, formal methods. Provides feedback to Coder Agent.</li>
+        <li><strong>AutoDV Agent:</strong> Ensures functional correctness using formal verification tools (e.g., JasperGold), analyzes coverage, and intelligently generates new test cases to close coverage holes.</li>
+        <li><strong>Supervisor Agent:</strong> Oversees framework, prioritizes tasks, communicates with Debug Agent.</li>
       </ul>
-      <p><strong class="text-white font-semibold">Core AI Technique:</strong> <strong>Static Analysis</strong>, <strong>Formal Methods</strong>, <strong>Coverage-driven test generation</strong>.</p>
-      <p><strong class="text-white font-semibold">Key Tools/Frameworks:</strong> <strong>AIvril-inspired framework</strong>, JasperGold, Formal verification tools.</p>
-      <p><strong class="text-white font-semibold">Process:</strong> <strong>Verification-in-the-loop</strong> catches virtually all bugs before physical design.</p>`,
+      <p><strong class="text-white font-semibold">Core AI Techniques:</strong> Static Analysis, Formal Methods, Coverage-Driven Test Generation, Verification-in-the-Loop.</p>`,
     outcome: 'Up to <strong>70% reduction in debug time</strong>; Higher confidence; Significant <strong>reduction in silicon respins</strong>.',
-    outcomeColor: 'text-sky-300'
+    outcomeColor: 'text-yellow-400'
   },
   {
-    id: 'tab-physical',
-    title: '4. Physical Design',
-    icon: React.createElement(Cpu, { className: "w-5 h-5 mr-2 inline-block" }),
-    heading: 'Stage 4: Physical Design & PPA Optimization',
+    id: 'tab-physical-ppa',
+    title: '6. Physical & PPA',
+    icon: React.createElement(SlidersHorizontal, { className: "w-5 h-5 mr-2 inline-block" }),
+    heading: 'Stage 6: Physical Design & PPA Optimization',
     generalDescription: 'Using <strong>Reinforcement Learning</strong> to navigate the near-infinite solution space of physical layout and push designs to the <strong>true Pareto-optimal frontier</strong>.',
     challenge: '<strong>Physical design</strong> (floorplanning, placement, routing) involves a <strong>near-infinite solution space</strong>. Manually tuning EDA tool parameters for optimal PPA is humanly impossible to perfect.',
-    agenticWorkflowDetails: `<p><strong class="text-white font-semibold">AI Agent(s) & Role (Autonomous RL):</strong></p>
+    agenticWorkflowDetails: `<p><strong class="text-white font-semibold">AI Agents & Roles (Autonomous RL):</strong></p>
       <ul class="list-disc list-inside space-y-1 mt-1">
-        <li><strong>PPA Optimization Agent:</strong> Based on principles of tools like <strong>Synopsys DSO.ai</strong> and <strong>Cadence Cerebrus</strong>. Uses <strong>RL</strong> to holistically and autonomously explore the PPA solution space.</li>
+        <li><strong>PPA Optimization Agent:</strong> Orchestrates Physical Design & Optimization Agents (Synthesis, Physical Implementation, Timing Closure). Uses RL to explore PPA solution space by adjusting tool settings, design constraints, floorplan parameters.</li>
+        <li><strong>Supervisor Agent:</strong> Tracks convergence, ensures guardrails, manages Human-in-the-Loop interface.</li>
       </ul>
-      <p><strong class="text-white font-semibold">Core AI Technique:</strong> <strong>Reinforcement Learning (RL)</strong>.</p>
-      <p><strong class="text-white font-semibold">Key Tools/Frameworks:</strong> Synopsys DSO.ai, Cadence Cerebrus, Physical design EDA tools.</p>
-      <p><strong class="text-white font-semibold">Process:</strong> Agent's "actions" are adjusting tool settings, design constraints, floorplan parameters. "Reward" is a score from PPA metrics (timing, power, area, congestion) and manufacturing yield predictions. Runs <strong>thousands of automated iterations</strong> to learn complex, non-obvious optimization strategies.</p>`,
+      <p><strong class="text-white font-semibold">Core AI Techniques:</strong> Reinforcement Learning (RL).</p>
+      <p><strong class="text-white font-semibold">Key Tools:</strong> Synopsys DSO.ai, Cadence Cerebrus principles.</p>`,
     outcome: 'Up to <strong>15-40% power reduction</strong>; Smaller die size; Pushing designs to the <strong>true Pareto-optimal frontier of PPA</strong>.',
-    outcomeColor: 'text-sky-300'
+    outcomeColor: 'text-purple-400'
   },
   {
-    id: 'tab-post',
-    title: '5. Post-Silicon',
+    id: 'tab-mfg-post-silicon',
+    title: '7. Mfg & Validation',
     icon: React.createElement(Cog, { className: "w-5 h-5 mr-2 inline-block" }),
-    heading: 'Stage 5: Manufacturing & Post-Silicon Validation',
+    heading: 'Stage 7: Manufacturing & Post-Silicon Validation',
     generalDescription: 'Closing the loop from digital design to physical reality with <strong>predictive analytics</strong> and <strong>automated validation</strong>.',
     challenge: 'Bridging pre-silicon design and physical reality involves predicting <strong>manufacturing yield</strong>, detecting microscopic <strong>physical defects</strong>, and validating <strong>actual hardware performance</strong>.',
-    agenticWorkflowDetails: `<p><strong class="text-white font-semibold">AI Agent(s) & Role:</strong></p>
+    agenticWorkflowDetails: `<p><strong class="text-white font-semibold">AI Agents & Roles:</strong></p>
       <ul class="list-disc list-inside space-y-1 mt-1">
-        <li><strong>Yield Prediction Agent:</strong> Uses <strong>ML models</strong> trained on historical wafer-level data to identify design features likely to cause manufacturing problems. Feedback passed to PPA Optimization Agent.</li>
-        <li><strong>Defect Detection Agent:</strong> Leverages <strong>AI-powered visual inspection systems</strong> to analyze wafer scans, identifying and classifying defects.</li>
-        <li><strong>Post-Silicon Validation Agent:</strong> Automates prototype chip bring-up. Runs diagnostics, collects performance data, and correlates discrepancies against pre-silicon simulations.</li>
+        <li><strong>Yield Prediction Agent:</strong> Uses ML models to identify design features likely to cause manufacturing problems; feedback to PPA Agent.</li>
+        <li><strong>Defect Detection Agent:</strong> Leverages AI visual inspection to analyze wafer scans, classify defects.</li>
+        <li><strong>Post-Silicon Validation Agent:</strong> Automates chip bring-up, runs diagnostics, collects performance data, correlates against pre-silicon simulations. Feedback to Knowledge Graph Agent.</li>
       </ul>
-      <p><strong class="text-white font-semibold">Core AI Technique:</strong> <strong>Predictive Analytics</strong>, <strong>Anomaly Detection</strong>, <strong>Automated Correlation</strong>, <strong>Machine Learning</strong>.</p>
-      <p><strong class="text-white font-semibold">Key Tools/Frameworks:</strong> Custom ML Models, AI-driven visual inspection systems.</p>
-      <p><strong class="text-white font-semibold">Process:</strong> Incorporates <strong>manufacturability into PPA</strong>. Creates a final <strong>feedback loop</strong> refining models for future projects.</p>`,
+      <p><strong class="text-white font-semibold">Core AI Techniques:</strong> Predictive Analytics, Anomaly Detection, Automated Correlation, Machine Learning.</p>`,
     outcome: 'Improved <strong>manufacturing yield</strong>; Reduced <strong>validation cycle time</strong>; More <strong>accurate models for all future projects</strong>.',
-    outcomeColor: 'text-sky-300'
+    outcomeColor: 'text-rose-400'
   },
 ];
 
@@ -168,6 +206,7 @@ class LogParserAgent:
     
 
     
+
 
 
 

@@ -26,7 +26,7 @@ const ArchitectureSection: React.FC = () => {
         {/* MCP Server & RAG/CAG */}
         <div className="section-card rounded-2xl p-8 md:p-12">
           <div className="grid md:grid-cols-5 gap-10 items-center">
-            <div className="md:col-span-2">
+            <div className="md:col-span-3"> {/* Changed from md:col-span-2 to md:col-span-3 */}
               <h3 className="text-3xl font-bold mb-4 gradient-text">The MCP Server: Central Nervous System</h3>
               <p className="text-slate-300 mb-6">The <strong>Multi-Agent Collaboration Protocol (MCP) Server</strong> is the stateful, intelligent hub for <strong>Tools, Knowledge, and State</strong>, acting as the brain and memory for the MAS. It's inspired by services like <strong>LangConnect</strong>.</p>
               <ul className="space-y-4">
@@ -45,7 +45,7 @@ const ArchitectureSection: React.FC = () => {
               </ul>
                <p className="text-slate-300 mt-6">This hybrid <strong>RAG/CAG architecture</strong> provides agents with both static, factual knowledge and dynamic, task-specific context, enabling <strong>contextual intelligence</strong>.</p>
             </div>
-            <div className="md:col-span-3">
+            <div className="md:col-span-2"> {/* Changed from md:col-span-3 to md:col-span-2 */}
               <div className="glassmorphism rounded-xl p-6 border-2 border-slate-700">
                 <svg width="100%" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
                   <style>
@@ -139,4 +139,3 @@ const ArchitectureSection: React.FC = () => {
 };
 
 export default ArchitectureSection;
-

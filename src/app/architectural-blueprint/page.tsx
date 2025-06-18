@@ -5,6 +5,7 @@ import React from 'react';
 import SubPageLayout from '@/components/chimera/SubPageLayout';
 import { 
   DraftingCompass, 
+  Network,
   Component,
   Scaling,
   ShieldCheck,
@@ -18,7 +19,9 @@ import {
   Archive,
   MessageSquare,
   BookOpenCheck,
-  MemoryStick
+  MemoryStick,
+  ListChecks, // Added for Test & Coverage Generation Agent
+  SearchCode  // Added for Debug & Root Cause Analysis Agent
 } from 'lucide-react';
 
 export default function ArchitecturalBlueprintPage() {
@@ -79,11 +82,17 @@ export default function ArchitecturalBlueprintPage() {
         </ul>
         
         <div className="flex items-center mt-8 mb-4">
-          <ShieldCheck className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
-          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Verification Agent:</h3>
+          <ListChecks className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Test & Coverage Generation Agent:</h3>
         </div>
-        <p>Addressing the largest bottleneck in modern design, this agent develops comprehensive <strong>test plans</strong>, generates efficient <strong>test vectors</strong>, performs <strong>formal verification</strong>, and proactively identifies and helps localize bugs.</p>
-        
+        <p>Focused on the proactive creation of robust verification environments, this agent autonomously develops comprehensive <strong>test plans</strong>, analyzes design <strong>coverage goals</strong>, and generates highly effective <strong>test vectors</strong> (including constrained random, directed, and formal verification assertions). Its intelligence lies in identifying critical scenarios and corner cases that effectively stress the design and ensure thorough validation.</p>
+
+        <div className="flex items-center mt-8 mb-4">
+          <SearchCode className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Debug & Root Cause Analysis Agent:</h3>
+        </div>
+        <p>Addressing what is historically the largest bottleneck in modern design, this agent is a tireless problem-solver. It specializes in analyzing <strong>verification failures</strong>, sifting through vast amounts of simulation logs, waveform data, and design collateral to proactively identify, localize, and even suggest fixes for functional and performance bugs. This agent dramatically reduces <strong>manual debugging time</strong> and accelerates error resolution.</p>
+
         <div className="flex items-center mt-8 mb-4">
           <Cpu className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">Physical Design & Optimization Agents:</h3>
@@ -180,4 +189,3 @@ export default function ArchitecturalBlueprintPage() {
     </SubPageLayout>
   );
 }
-

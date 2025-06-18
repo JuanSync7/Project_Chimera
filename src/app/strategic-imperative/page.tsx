@@ -20,8 +20,8 @@ import {
   BrainCircuit,
   Cpu,
   TrendingUp,
-  Layers,
-  PauseCircle // Added PauseCircle for new cards
+  // Layers, // No longer needed for this section's card layout
+  PauseCircle
 } from 'lucide-react';
 
 export default function StrategicImperativePage() {
@@ -44,38 +44,36 @@ export default function StrategicImperativePage() {
           </h2>
         </div>
         <p>For decades, the semiconductor industry&apos;s relentless progress was largely synonymous with <strong>physical scaling</strong>, epitomized by Moore&apos;s Law – the observation that the number of transistors on a microchip roughly doubles every two years. However, as we rapidly approach the fundamental physical limits of this paradigm, the primary bottleneck in innovation is shifting dramatically from manufacturing capabilities to the sheer complexity of design. At the sub-10nm nodes, engineers grapple with daunting challenges: quantum effects like electron tunneling, exponentially rising fabrication costs (with new fabs exceeding $30 billion), and severe heat dissipation issues. These physical constraints make it increasingly difficult and economically unsustainable to continue traditional scaling, directly leading to a design space so astronomically vast that human-led exploration is simply no longer sufficient to discover truly optimal, or even feasible, solutions.</p>
-        
-        {/* Card-based visualization for Section 1.1 concepts */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 my-12">
-          <KeyStatCard
+        <KeyStatCard
             icon={<PauseCircle className="h-8 w-8 md:h-10 md:w-10" />}
-            stat="Moore's Law Limits"
-            description="Physical scaling nears fundamental limits, shifting innovation bottleneck from manufacturing to design complexity."
-            className="hover:border-primary/70"
-          />
-          <KeyStatCard
-            icon={<Layers className="h-8 w-8 md:h-10 md:w-10" />}
-            stat="Complexity x10"
-            description="Sub-10nm challenges & rising costs create an astronomically vast design space, outpacing human-led exploration."
-            className="hover:border-primary/70"
-          />
-          <KeyStatCard
+            stat="Scaling Limits"
+            description="Moore's Law nears physical limits; design complexity at sub-10nm and rising costs outpace human-led exploration."
+            className="my-8 hover:border-primary/70"
+        />
+        
+        <p>This formidable challenge coincides with the ascendance of a powerful new tool: <strong>Artificial Intelligence</strong>. The relationship between AI and semiconductors is not merely complementary; it&apos;s a deeply <strong>symbiotic and self-reinforcing cycle</strong>. The explosive growth of AI applications across every sector, from advanced data centers demanding massive parallelism for training large language models to ultra-low-power edge devices for real-time inference, fuels an insatiable demand for chips that are smaller, faster, and dramatically more power-efficient. This drives the need for highly specialized architectures like Tensor Processing Units (TPUs) or Neural Processing Units (NPUs), beyond general-purpose CPUs and GPUs. Simultaneously, AI itself provides the unprecedented computational tools and methodologies necessary to design these cutting-edge chips. This creates a <strong>virtuous cycle</strong>: better AI algorithms require more sophisticated silicon, and AI-powered Electronic Design Automation (EDA) tools, in turn, enable the creation of those next-generation chips. The company that masters and leverages this self-improving cycle will undoubtedly lead the industry in the post-Moore&apos;s Law era.</p>
+        <KeyStatCard
             icon={<BrainCircuit className="h-8 w-8 md:h-10 md:w-10" />}
-            stat="AI-Driven Design"
-            description="AI becomes a collaborative partner, exploring millions of variations and enabling a self-improving AI-Silicon cycle."
-            className="hover:border-primary/70"
-          />
-          <KeyStatCard
+            stat="AI ↔ Silicon Cycle"
+            description="AI demands advanced chips; AI-powered EDA enables them, creating a virtuous, self-improving innovation loop."
+            className="my-8 hover:border-primary/70"
+        />
+
+        <p>This strategic shift proposes a profound move beyond the traditional model of <strong>computer-aided design (CAD)</strong>, where engineers use software as a passive instrument to execute their instructions. Instead, we envision a new paradigm of <strong>AI-driven design</strong>. In this model, AI transcends being a mere instrument; it becomes a <strong>collaborative partner</strong>, actively participating in the creative and optimization processes of chip development. Unlike deterministic CAD tools, AI learns, adapts, and makes intelligent decisions, often exploring non-intuitive solutions. AI can, for instance, intelligently explore millions of design variations, autonomously generate initial Register-Transfer Level (RTL) code or architectural blueprints, and even predict design flaws or Power, Performance, Area (PPA) outcomes with unprecedented accuracy, significantly reducing costly re-spins. It can achieve higher verification coverage faster by identifying obscure corner cases and generating highly effective test benches that human engineers might miss. While some AI-generated designs may appear &quot;unintuitive&quot; to human designers – looking &quot;weird&quot; or &quot;random-shaped&quot; – their superior performance often validates the AI&apos;s unique problem-solving capabilities. Human engineers remain crucial for setting high-level strategic goals, interpreting complex results, and providing strategic oversight; AI amplifies their ingenuity by orders of magnitude.</p>
+        <KeyStatCard
+            icon={<UsersRound className="h-8 w-8 md:h-10 md:w-10" />}
+            stat="AI as Partner"
+            description="AI evolves from CAD tool to active collaborator, exploring vast design spaces and amplifying engineering ingenuity."
+            className="my-8 hover:border-primary/70"
+        />
+
+        <p>The value of this transition is not static; it <strong>compounds exponentially</strong>. Learnings from one AI-assisted design project—from successful optimizations to identified bottlenecks, from efficient power management strategies to novel routing techniques—are seamlessly retained, refined, and applied to subsequent projects. This happens through the continuous accumulation of massive datasets of successful and failed design iterations, which train and refine reinforcement learning agents to better navigate the vast design space. This process creates a <strong>self-improving design ecosystem</strong>. Each chip designed with this sophisticated system not only benefits from AI&apos;s intelligence but also makes the system itself more knowledgeable and effective for all future designs. This iterative learning establishes a formidable <strong>competitive moat</strong> – a proprietary, ever-growing repository of encoded institutional knowledge, optimized design strategies, and an accumulated dataset of high-quality solutions. This unique, evolving design methodology becomes a core IP asset, making it increasingly difficult, if not virtually impossible, for competitors relying on traditional, human-intensive methods to replicate over time. The first mover who aggressively pursues and masters this AI-driven design path will build an insurmountable lead in the race for future silicon innovation.</p>
+        <KeyStatCard
             icon={<TrendingUp className="h-8 w-8 md:h-10 md:w-10" />}
             stat="Compounding Gains"
-            description="Each AI-assisted project refines the system, building a cumulative, defensible competitive advantage."
-            className="hover:border-primary/70"
-          />
-        </div>
-
-        <p>This formidable challenge coincides with the ascendance of a powerful new tool: <strong>Artificial Intelligence</strong>. The relationship between AI and semiconductors is not merely complementary; it&apos;s a deeply <strong>symbiotic and self-reinforcing cycle</strong>. The explosive growth of AI applications across every sector, from advanced data centers demanding massive parallelism for training large language models to ultra-low-power edge devices for real-time inference, fuels an insatiable demand for chips that are smaller, faster, and dramatically more power-efficient. This drives the need for highly specialized architectures like Tensor Processing Units (TPUs) or Neural Processing Units (NPUs), beyond general-purpose CPUs and GPUs. Simultaneously, AI itself provides the unprecedented computational tools and methodologies necessary to design these cutting-edge chips. This creates a <strong>virtuous cycle</strong>: better AI algorithms require more sophisticated silicon, and AI-powered Electronic Design Automation (EDA) tools, in turn, enable the creation of those next-generation chips. The company that masters and leverages this self-improving cycle will undoubtedly lead the industry in the post-Moore&apos;s Law era.</p>
-        <p>This strategic shift proposes a profound move beyond the traditional model of <strong>computer-aided design (CAD)</strong>, where engineers use software as a passive instrument to execute their instructions. Instead, we envision a new paradigm of <strong>AI-driven design</strong>. In this model, AI transcends being a mere instrument; it becomes a <strong>collaborative partner</strong>, actively participating in the creative and optimization processes of chip development. Unlike deterministic CAD tools, AI learns, adapts, and makes intelligent decisions, often exploring non-intuitive solutions. AI can, for instance, intelligently explore millions of design variations, autonomously generate initial Register-Transfer Level (RTL) code or architectural blueprints, and even predict design flaws or Power, Performance, Area (PPA) outcomes with unprecedented accuracy, significantly reducing costly re-spins. It can achieve higher verification coverage faster by identifying obscure corner cases and generating highly effective test benches that human engineers might miss. While some AI-generated designs may appear &quot;unintuitive&quot; to human designers – looking &quot;weird&quot; or &quot;random-shaped&quot; – their superior performance often validates the AI&apos;s unique problem-solving capabilities. Human engineers remain crucial for setting high-level strategic goals, interpreting complex results, and providing strategic oversight; AI amplifies their ingenuity by orders of magnitude.</p>
-        <p>The value of this transition is not static; it <strong>compounds exponentially</strong>. Learnings from one AI-assisted design project—from successful optimizations to identified bottlenecks, from efficient power management strategies to novel routing techniques—are seamlessly retained, refined, and applied to subsequent projects. This happens through the continuous accumulation of massive datasets of successful and failed design iterations, which train and refine reinforcement learning agents to better navigate the vast design space. This process creates a <strong>self-improving design ecosystem</strong>. Each chip designed with this sophisticated system not only benefits from AI&apos;s intelligence but also makes the system itself more knowledgeable and effective for all future designs. This iterative learning establishes a formidable <strong>competitive moat</strong> – a proprietary, ever-growing repository of encoded institutional knowledge, optimized design strategies, and an accumulated dataset of high-quality solutions. This unique, evolving design methodology becomes a core IP asset, making it increasingly difficult, if not virtually impossible, for competitors relying on traditional, human-intensive methods to replicate over time. The first mover who aggressively pursues and masters this AI-driven design path will build an insurmountable lead in the race for future silicon innovation.</p>
+            description="Each AI-assisted project refines the system's knowledge, building a cumulative, defensible competitive advantage."
+            className="my-8 hover:border-primary/70"
+        />
 
         {/* Section 1.2 */}
         <div className="mt-12 mb-4">

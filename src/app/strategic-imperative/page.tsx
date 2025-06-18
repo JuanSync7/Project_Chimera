@@ -4,6 +4,10 @@ import React from 'react';
 import SubPageLayout from '@/components/chimera/SubPageLayout';
 import KeyStatCard from '@/components/chimera/KeyStatCard';
 import { 
+  PauseCircle,
+  BrainCircuit,
+  UsersRound,
+  TrendingUp,
   LayoutDashboard, 
   ShieldCheck, 
   Binary, 
@@ -11,17 +15,12 @@ import {
   FastForward, 
   Zap, 
   Minimize2, 
-  UsersRound, 
   ClipboardCheck,
   SearchCode,
   FileCode,
   SearchCheck as SearchCheckIcon,
   Workflow,
-  BrainCircuit,
-  Cpu,
-  TrendingUp,
-  Layers, 
-  PauseCircle
+  Cpu
 } from 'lucide-react';
 
 export default function StrategicImperativePage() {
@@ -31,7 +30,7 @@ export default function StrategicImperativePage() {
         {/* Section 1 Title */}
         <div className="flex flex-col items-center text-center mb-12">
           <TrendingUp className="h-16 w-16 text-primary mb-4" />
-          <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-2">
+          <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-2 md:leading-tight">
             Section 1: The Strategic Imperative
           </h1>
           <p className="text-2xl text-slate-400">Re-architecting for an AI-First Future</p>
@@ -201,3 +200,4 @@ export default function StrategicImperativePage() {
     </SubPageLayout>
   );
 }
+

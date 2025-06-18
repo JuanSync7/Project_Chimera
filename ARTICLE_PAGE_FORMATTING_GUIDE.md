@@ -89,8 +89,9 @@ This guide outlines the specific formatting conventions used for article-style s
         {/* Icon and h3 title for "Agentic Workflow" */}
       </div>
       <p>Workflow intro...</p>
-      <ul className="list-disc pl-5 space-y-2">
-        {/* Workflow list items */}
+      {/* Enhanced list with icons */}
+      <ul className="list-none pl-0 space-y-6 !my-6">
+        {/* List items with icons, see section 5.1 */}
       </ul>
       {/* ... potentially more content for this H2 section ... */}
     </div> {/* End of card wrapper for H2 section */}
@@ -116,6 +117,7 @@ This guide outlines the specific formatting conventions used for article-style s
       </h3>
     </div>
     <p>Introductory paragraph for this category...</p>
+    {/* Standard list or enhanced list (see section 5 & 5.1) */}
     <ul className="list-disc pl-5 space-y-2">
       {/* List items for specific points/components */}
     </ul>
@@ -125,8 +127,9 @@ This guide outlines the specific formatting conventions used for article-style s
     *   Icon: `h-7 w-7 text-primary mr-3 flex-shrink-0` (or other theme/accent color if appropriate for specific emphasis, e.g., `text-yellow-400` for "Challenge:" `<h3>` headings).
     *   `<h3>`: `text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0` (or other theme/accent color).
 
-## 5. Agent/Component/Item List Items (within `<h3>` Categories)
+## 5. Lists and List Items
 
+### 5.1 Standard Unordered List Items
 *   Specific items listed under an `<h3>` category are typically presented as list items within a `<ul>`.
 *   The name/title of the item is emphasized using `<strong className="text-white font-semibold">`.
 *   **Structure**:
@@ -145,36 +148,53 @@ This guide outlines the specific formatting conventions used for article-style s
     *   `<ul>`: `list-disc pl-5 space-y-2`
     *   `<strong>` for item name: `text-white font-semibold`
 
-### 5.1 Enhanced List Item Styling with Icons (within `<h3>` or Card-Wrapped `<h2>` Sections)
-*   For more visually distinct lists, particularly when detailing features, process steps, or components under an `<h3>` category or within a card-wrapped `<h2>` section, each list item can be enhanced with a leading Lucide icon.
-*   **Purpose**: To break up text more effectively and visually guide the reader to key points.
+### 5.2 Enhanced List Item Styling with Icons (Primary List Items)
+*   For more visually distinct lists, particularly when detailing features, process steps, or components under an `<h3>` category or within a card-wrapped `<h2>` section (like Agentic Workflows in the AI Pipeline page).
+*   Each primary list item is enhanced with a leading Lucide icon.
 *   **Structure**:
     ```tsx
     import { RelevantIcon } from 'lucide-react';
 
     // ... inside <article>, typically under an <h3> or within a card-wrapped <h2> section
     <ul className="list-none pl-0 space-y-6 !my-6"> {/* Note: list-none, specific margins, and y-spacing */}
-      <li className="flex items-start">
-        <RelevantIcon className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full"> {/* Optional card styling for the LI itself */}
+        <RelevantIcon className="h-6 w-6 text-sky-400 mr-3 mt-1 flex-shrink-0" /> {/* Icon color often matches H3 title color */}
         <div>
-          <strong className="text-white font-semibold">Key Point Title or First Sentence:</strong> Further description for this point...
-          {/* Can include more paragraphs or even nested <ul> here if needed */}
+          <strong className="text-sky-300 block mb-1">Key Point Title:</strong> Further description...
+          {/* Can include more paragraphs or even nested <ul> (see 5.2.1) here if needed */}
         </div>
       </li>
       {/* Additional list items with the same structure */}
-      <li className="flex items-start">
-        <RelevantIcon className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-        <div>
-          Description that might not start with a bolded title.
-        </div>
-      </li>
     </ul>
     ```
 *   **Styling**:
-    *   `<ul>`: `list-none pl-0 space-y-6 !my-6` (Removes default bullets, sets custom vertical spacing, and overrides prose margins).
-    *   `<li>`: `flex items-start` (Aligns icon and text content to the start of their respective containers).
-    *   Icon: `h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0` (Adjust icon size, color, and margins as needed. `text-primary` is an example; use thematic colors where appropriate).
-    *   `<div>` (wrapper for text): Allows text content (including optional `<strong>` titles) to flow naturally beside the icon.
+    *   `<ul>`: `list-none pl-0 space-y-6 !my-6`
+    *   `<li>`: `flex items-start` (Optionally, can be styled as a card: `p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full`).
+    *   Icon: `h-6 w-6 text-sky-400 mr-3 mt-1 flex-shrink-0` (Adjust icon size, color, and margins. `text-sky-400` is an example).
+    *   `<div>` (wrapper for text): Allows text content (including optional `<strong>` titles) to flow naturally.
+    *   `<strong>` (optional title within list item): `text-sky-300 block mb-1` (Color often matches icon/H3 color).
+
+### 5.2.1 Card-Styled Nested List Items (Sub-Sub-Points)
+*   When a primary list item (styled as per 5.2) itself contains a nested list of points, these sub-sub-points can also be styled as individual mini-cards for enhanced visual separation and detail emphasis.
+*   **Purpose**: To clearly delineate and highlight individual components or steps within a larger process detailed in a primary list item.
+*   **Structure**:
+    ```tsx
+    // ... (inside a primary list item's div, after its main description)
+    <ul className="list-none pl-0 space-y-2 mt-2"> {/* Nested UL for sub-sub-points */}
+      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30"> {/* No w-full needed here usually, takes parent width */}
+        <SubPointIcon className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" /> {/* Slightly smaller icon */}
+        <div>
+          <strong className="text-sky-300 block mb-1">Nested Point Title (Optional):</strong> Description of nested point...
+        </div>
+      </li>
+      {/* More nested points */}
+    </ul>
+    ```
+*   **Styling**:
+    *   Nested `<ul>`: `list-none pl-0 space-y-2 mt-2`
+    *   Each nested `<li>`: `flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30`
+    *   Icon for nested `<li>`: `h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0` (Slightly smaller, adjusted margin).
+    *   `<div>` (text wrapper) and optional `<strong>` can follow styles similar to the primary list item, or be simplified.
 
 ## 6. General Paragraphs and Keyword Highlighting
 

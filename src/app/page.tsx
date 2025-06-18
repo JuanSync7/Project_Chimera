@@ -1,6 +1,7 @@
 // src/app/page.tsx
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import PageShell from '@/components/chimera/PageShell';
 import HomeSection from '@/components/chimera/sections/HomeSection';
 import OverviewSection from '@/components/chimera/sections/OverviewSection';
@@ -13,18 +14,11 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import StarryBackground from '@/components/chimera/StarryBackground';
 
-// Define props for the page component
-interface HomePageProps {
-  params?: Record<string, string>; 
-  searchParams?: { [key: string]: string | string[] | undefined };
-}
-
-// Renamed from App to HomePage for clarity as it's the page component
-export default function HomePage({ params: initialParams, searchParams: initialSearchParams }: HomePageProps) {
-  // The component doesn't use initialParams or initialSearchParams for its own logic.
-  // Removed lines that copied these props using spread operator, as that caused the enumeration warning.
-  // const params = initialParams ? { ...initialParams } : {}; // Removed
-  // const searchParams = initialSearchParams ? { ...initialSearchParams } : {}; // Removed
+// This component contains the actual page content and logic
+function HomePageContent() {
+  // Call useSearchParams to ensure Next.js handles searchParams correctly for this component tree.
+  // The return value isn't used here as the page content is static, but calling the hook is important.
+  useSearchParams();
 
   const [activeSection, setActiveSection] = useState<string>('home');
 
@@ -103,7 +97,6 @@ export default function HomePage({ params: initialParams, searchParams: initialS
           </div>
           
           <RisksVisionSection />
-          {/* Buttons for Risks & AGI Horizon are now inside RisksVisionSection component */}
 
           <RoadmapSection />
           <div className="text-center mt-[-4rem] mb-16">
@@ -117,4 +110,15 @@ export default function HomePage({ params: initialParams, searchParams: initialS
       </PageShell>
     </div>
   );
-};
+}
+
+// The default export is now a wrapper component that includes Suspense
+export default function HomePage() {
+  // Using useSearchParams (in HomePageContent) typically requires a Suspense boundary.
+  // The fallback can be null if no specific loading UI is needed while searchParams resolve.
+  return (
+    <Suspense fallback={null}>
+      <HomePageContent />
+    </Suspense>
+  );
+}

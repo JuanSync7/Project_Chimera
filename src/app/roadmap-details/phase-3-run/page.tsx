@@ -2,7 +2,7 @@
 "use client";
 import React from 'react';
 import SubPageLayout from '@/components/chimera/SubPageLayout';
-import { Target, FileText } from 'lucide-react'; // Icons used directly in this page
+import { Target, FileText, Lightbulb, Workflow, UsersRound, GanttChartSquare, BarChart3, Users, Cpu, Package, BookOpenCheck, Milestone } from 'lucide-react';
 
 // Import Part components
 import Part1StrategicClarification from '@/components/chimera/roadmap-phase-3/Part1StrategicClarification';
@@ -117,6 +117,7 @@ export default function RoadmapPhase3RunPage() {
 
         <ExecutiveOverviewComponent />
 
+        <hr className="!my-16 !border-t-2 !border-dashed !border-white/60 !border-b-0 !border-l-0 !border-r-0" />
         <Part1StrategicClarification />
 
         <hr className="!my-16 !border-t-2 !border-dashed !border-white/60 !border-b-0 !border-l-0 !border-r-0" />

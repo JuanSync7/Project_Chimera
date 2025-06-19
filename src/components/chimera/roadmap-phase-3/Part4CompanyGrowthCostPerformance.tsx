@@ -127,7 +127,7 @@ const Part4CompanyGrowthCostPerformance: React.FC = () => {
       </p>
       <div className="space-y-6 mt-6">
         <div className="flex items-start">
-          <FastForward className="h-7 w-7 text-purple-400 mr-4 mt-1 flex-shrink-0" />
+          <FastForward className="h-7 w-7 text-white mr-4 mt-1 flex-shrink-0" />
           <div>
             <strong className="text-white font-semibold block mb-1">Transformative Time-to-Market (TTM) Reduction:</strong>
             <p className="text-slate-400">
@@ -152,7 +152,7 @@ const Part4CompanyGrowthCostPerformance: React.FC = () => {
         </div>
 
         <div className="flex items-start">
-          <Award className="h-7 w-7 text-purple-400 mr-4 mt-1 flex-shrink-0" />
+          <Award className="h-7 w-7 text-white mr-4 mt-1 flex-shrink-0" />
           <div>
             <strong className="text-white font-semibold block mb-1">Superior Power, Performance, and Area (PPA):</strong>
             <p className="text-slate-400">
@@ -173,7 +173,7 @@ const Part4CompanyGrowthCostPerformance: React.FC = () => {
         </div>
 
         <div className="flex items-start">
-          <DollarSign className="h-7 w-7 text-purple-400 mr-4 mt-1 flex-shrink-0" />
+          <DollarSign className="h-7 w-7 text-white mr-4 mt-1 flex-shrink-0" />
           <div>
             <strong className="text-white font-semibold block mb-1">Compounding Financial ROI:</strong>
             <ul className="list-disc pl-5 space-y-1 mt-2 text-slate-400">

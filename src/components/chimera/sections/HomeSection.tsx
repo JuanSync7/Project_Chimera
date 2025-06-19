@@ -1,10 +1,22 @@
-
+// src/components/chimera/sections/HomeSection.tsx
 import React from 'react';
+import AnimatedRocket from '@/components/chimera/AnimatedRocket';
 
 const HomeSection: React.FC = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center">
-      <div className="w-full"> {/* Ensure content is above stars */}
+    <section id="home" className="min-h-screen flex items-center relative overflow-x-clip"> {/* Use overflow-x-clip */}
+      
+      {/* Rocket Animation Container: Positioned absolutely within the section */}
+      <div 
+        className="absolute bottom-[25%] left-0 w-full h-auto pointer-events-none" 
+        // h-auto so rocket defines its needed vertical space within this track.
+        // The 'bottom-[25%]' positions the track (and thus the rocket's flight path)
+        // 25% from the bottom of the HomeSection.
+      >
+        <AnimatedRocket />
+      </div>
+
+      <div className="w-full z-10"> {/* Ensure main content is interactive and above rocket if overlap */}
         <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-6">
           Project Chimera: The<span className="gradient-text"> Future of Silicon</span>, Designed by AI.
         </h1>

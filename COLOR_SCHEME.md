@@ -1,123 +1,69 @@
 
-# Project Chimera Webpage Color Scheme
+# Bouton App Color Scheme
 
-This document outlines the color scheme used throughout the Project Chimera webpage. The application defaults to **dark mode**.
+This document outlines the color scheme used for the **Bouton** application.
 
 ## 1. Global Theme Colors (CSS Variables in `src/app/globals.css`)
 
-These colors are defined as HSL CSS variables and form the base theme. The application `<html>` tag has the `dark` class applied, so **dark mode variables are active by default.**
+These colors are defined as HSL CSS variables and form the base theme. The application `<html>` tag has the `dark` class applied by default, making dark mode variables active.
 
-*   **Background (`--background`)**: `278 15% 10%` (Dark Indigo)
-*   **Foreground (`--foreground` - Default Text)**: `278 30% 90%` (Light Indigo text)
-*   **Primary (`--primary` - Theme Accent)**: `278 100% 65%` (Lighter Strong Indigo)
-*   **Primary Foreground (`--primary-foreground`)**: `278 100% 10%` (Dark text for on primary)
-*   **Accent (`--accent` - Secondary Theme Accent)**: `271 76% 60%` (Lighter Blue Violet)
-*   **Accent Foreground (`--accent-foreground`)**: `278 100% 10%` (Dark text for on accent)
-*   **Secondary (`--secondary`)**: `278 15% 20%`
-*   **Muted (`--muted`)**: `278 15% 23%`
-*   **Muted Foreground (`--muted-foreground`)**: `278 30% 65%`
-*   **Border (`--border`)**: `278 15% 25%`
+*   **Primary Color (`--primary`)**: Strong Indigo (`#4B0082`)
+    *   HSL (Dark Mode): `278 100% 65%` (Lighter Strong Indigo for better visibility on dark backgrounds)
+    *   HSL (Light Mode): `278 100% 25%` (The Strong Indigo itself)
+    *   Used for: Main interactive elements, primary buttons, active states, important accents.
 
-Refer to the `.dark { ... }` block in `src/app/globals.css` for all dark mode HSL values. Light mode values are defined under `:root { ... }`.
+*   **Background Color (`--background`)**: Light Indigo (`#E6E0EB`) for light mode, Dark Indigo for dark mode.
+    *   HSL (Dark Mode): `278 15% 10%` (Dark Indigo)
+    *   HSL (Light Mode): `278 32% 90%` (Light Indigo #E6E0EB)
+    *   Used for: Overall application background.
 
-## 2. Gradient Text
+*   **Accent Color (`--accent`)**: Blue Violet (`#8A2BE2`)
+    *   HSL (Dark Mode): `271 76% 60%` (Lighter Blue Violet)
+    *   HSL (Light Mode): `271 76% 53%` (The Blue Violet itself)
+    *   Used for: Secondary interactive elements, highlights, or playful touches.
 
-*   **Class**: `.gradient-text` (defined in `src/app/globals.css`)
-*   **Palette**: Bright Yellow -> Lime Green -> Green
-*   **Implementation**: `linear-gradient(to right, #fde047 0%, #bef264 35%, #22c55e 100%)`
-*   **Usage**: Reserved for high-impact, short phrases, key acronym letters, or main titles that need to stand out significantly.
+*   **Foreground Color (`--foreground` - Default Text)**:
+    *   HSL (Dark Mode): `278 30% 90%` (Light Indigo text)
+    *   HSL (Light Mode): `278 100% 10%` (Dark contrast for text)
+    *   Used for: General text content.
 
-## 3. Button Colors
+*   **Card Background (`--card`)**:
+    *   HSL (Dark Mode): `278 15% 15%`
+    *   HSL (Light Mode): `0 0% 100%` (White)
+    *   Used for: Background of card-like components (e.g., style control panels).
 
-### 3.1 Solid Green Buttons (Primary Call to Action)
-    *   **Applied to**: "Explore the Strategic Blueprint", "← Back to Project Overview"
-    *   **Background**: `bg-green-600` (Tailwind)
-    *   **Text**: `text-white` (Tailwind)
-    *   **Hover Background**: `bg-green-700` (Tailwind)
-    *   **Shadow (Home page CTA only)**: `shadow-lg hover:shadow-green-600/50`
+*   **Border Color (`--border`)**:
+    *   HSL (Dark Mode): `278 15% 25%`
+    *   HSL (Light Mode): `278 30% 80%`
+    *   Used for: Borders on components, inputs.
 
-### 3.2 Outlined "Learn More" Buttons (on Main Page & Risks/Vision Section)
-    *   **General Style**: `variant="outline" size="lg" className="bg-transparent transition-all duration-300 ease-in-out transform hover:scale-105"`
+*   **Muted Colors (`--muted`, `--muted-foreground`)**:
+    *   Used for less emphasized text or UI elements. Values are in `globals.css`.
 
-    *   **Yellow Outline Button**:
-        *   Text: `text-yellow-400`
-        *   Border: `border-yellow-500`
-        *   Hover Background: `hover:bg-yellow-500/20`
-        *   Hover Text: `hover:text-yellow-300`
-        *   Hover Border: `hover:border-yellow-400`
-        *   Hover Shadow: `hover:shadow-lg hover:shadow-yellow-500/40`
-        *   **Used for**: "Learn More: The Strategic Imperative &rarr;", "Explore the Architectural Blueprint &rarr;", "Deep Dive into the AI-Powered Pipeline &rarr;", "Understand Human-AI Symbiosis &rarr;"
+Refer to the `.dark { ... }` and `:root { ... }` blocks in `src/app/globals.css` for all HSL values.
 
-    *   **Lime Outline Button**:
-        *   Text: `text-lime-400`
-        *   Border: `border-lime-500`
-        *   Hover Background: `hover:bg-lime-500/20`
-        *   Hover Text: `hover:text-lime-300`
-        *   Hover Border: `hover:border-lime-400`
-        *   Hover Shadow: `hover:shadow-lg hover:shadow-lime-500/40`
-        *   **Used for**: "View Detailed Implementation Roadmap &rarr;"
+## 2. Button Colors (ShadCN UI Button Variants)
 
-    *   **Rose Outline Button (Risks Section)**:
-        *   Text: `text-rose-400`
-        *   Border: `border-rose-500`
-        *   Hover Background: `hover:bg-rose-500/20`
-        *   Hover Text: `hover:text-rose-300`
-        *   Hover Border: `hover:border-rose-400`
-        *   Hover Shadow: `hover:shadow-lg hover:shadow-rose-500/40`
-        *   **Used for**: "Analyze Risks & Mitigation &rarr;" (in Risks/Vision Section)
+*   **Primary Buttons**: Use the `default` variant of the ShadCN Button, which will automatically pick up `hsl(var(--primary))` for its background.
+    ```tsx
+    <Button>Primary Action</Button>
+    ```
+*   **Secondary/Outline Buttons**: Use `variant="outline"` or `variant="secondary"`. These will use theme colors for borders, text, and backgrounds accordingly.
+    ```tsx
+    <Button variant="outline">Outline Action</Button>
+    <Button variant="secondary">Secondary Action</Button>
+    ```
+*   **Accent Buttons**: If a button needs to use the accent color, apply Tailwind classes directly or create a custom variant.
+    ```tsx
+    <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">Accent Button</Button>
+    ```
 
-    *   **Violet Outline Button (AGI Horizon Section)**:
-        *   Text: `text-violet-400`
-        *   Border: `border-violet-500`
-        *   Hover Background: `hover:bg-violet-500/20`
-        *   Hover Text: `hover:text-violet-300`
-        *   Hover Border: `hover:border-violet-400`
-        *   Hover Shadow: `hover:shadow-lg hover:shadow-violet-500/40`
-        *   **Used for**: "Explore the AGI Horizon &rarr;" (in Risks/Vision Section)
+## 3. Icon Colors
 
-### 3.3 AI Pipeline Stage Shortcut Buttons (`src/app/ai-pipeline/page.tsx`)
-    *   **Base Style**: `variant="outline" size="sm"`
-    *   **Normal State**: `bg-slate-800/60 border-white hover:bg-slate-700/80 hover:border-primary text-slate-300 hover:text-white`
-    *   **Transition**: `transition-all duration-200`
+*   Icons from `lucide-react` should generally use `text-primary`, `text-accent`, or `text-foreground` (or `text-muted-foreground`) for their color, applied via Tailwind CSS classes.
+    ```tsx
+    import { Sparkles } from 'lucide-react';
+    <Sparkles className="text-primary" />
+    ```
 
-## 4. SVG Diagram Colors (Architectural Blueprint - Dark Mode)
-
-These are defined as HSL CSS variables in `src/app/globals.css` under the `.dark` theme, prefixed with `--diagram-`.
-
-*   **Supervisor Fill (`--diagram-supervisor-fill`)**: `var(--primary)` (Lighter Strong Indigo - `278 100% 65%`)
-*   **Worker Fill (`--diagram-worker-fill`)**: `var(--accent)` (Lighter Blue Violet - `271 76% 60%`)
-*   **MCP Server Fill (`--diagram-mcp-fill`)**: `var(--secondary)` (Darker Indigo background for MCP - `278 15% 20%`)
-*   **MCP Server Stroke (`--diagram-mcp-stroke`)**: `var(--primary)` (Lighter Strong Indigo for MCP stroke - `278 100% 65%`)
-*   **MCP Internal Component Fill (`--diagram-mcp-internal-fill`)**: `var(--muted)` (Slightly lighter dark indigo for MCP internal boxes - `278 15% 23%`)
-*   **Text Labels (`--diagram-text-fill`)**: `0 0% 95%` (Off-white)
-*   **Small Text Labels (`--diagram-muted-text-fill`)**: `0 0% 85%` (Lighter muted text)
-*   **Title Text (`--diagram-title-text-fill`)**: `0 0% 100%` (White)
-*   **Arrows (`--diagram-arrow-stroke`)**: `var(--accent)` (Lighter Blue Violet for arrows - `271 76% 60%`)
-
-## 5. Tab Buttons (Main Page Pipeline Section)
-
-Styled using global CSS classes `.tab-button-active` and `.tab-button-inactive` in `src/app/globals.css`.
-
-*   **Active Tab Background**: `hsl(var(--primary))`
-*   **Active Tab Text**: `hsl(var(--primary-foreground))`
-*   **Active Tab Shadow**: `shadow-primary/50` (Tailwind utility, `primary` shadow color defined in `tailwind.config.ts`)
-*   **Inactive Tab Background**: `hsl(var(--secondary))`
-*   **Inactive Tab Text**: `hsl(var(--muted-foreground))`
-*   **Inactive Tab Hover Background**: `hsl(var(--muted))`
-*   **Inactive Tab Hover Text**: `hsl(var(--foreground))`
-
-## 6. Starry Background Effect
-
-A subtle, animated starry background is used on the main page (`src/app/page.tsx`) to enhance the visual appeal.
-
-*   **Implementation**: Managed by the `StarryBackground.tsx` component located in `src/components/chimera/StarryBackground.tsx`.
-*   **CSS Classes**:
-    *   `.star-item`: Applied to individual star elements.
-    *   Animation: `star-animation` (defined in `src/app/globals.css`).
-*   **Behavior**:
-    *   Stars are randomly positioned and sized within the viewport.
-    *   They have a gentle "twinkling" animation affecting opacity and scale.
-    *   The number of stars and their size are adjusted for mobile vs. desktop views for performance and visual balance (50 stars of 1.5-3.5px on mobile, 100 stars of 3-5px on desktop).
-    *   The background is fixed to the viewport, meaning it does not scroll with the page content.
-
-This documentation helps ensure consistency and provides a reference for future design and development work.
+This color scheme provides a modern, focused, and playful identity for the Bouton application.

@@ -1,133 +1,155 @@
 
-# Formatting Guide for `src/app/architectural-blueprint/mcp-server-details/page.tsx`
+# Guide for Structuring Core Logic (e.g., AI Interaction) in Bouton
 
-This guide outlines the specific formatting conventions for the "Deep Dive: The MCP Server" page (`src/app/architectural-blueprint/mcp-server-details/page.tsx`) in the Project Chimera application. Adhering to these guidelines ensures consistency in structure and style, mirroring the main Architectural Blueprint page but tailored for this detailed content.
+The **Bouton** application is significantly simpler than the "Project Chimera" for which the original `MCP_SERVER_DETAILS_FORMATTING_GUIDE.md` was intended. Bouton does not have a complex "MCP Server." However, we can adapt the spirit of that guide to discuss how core logic, particularly AI interactions, might be structured if Bouton evolves.
 
-## 1. Overall Page Structure
+This document focuses on the AI styling flow as the primary "intelligent component" in Bouton.
 
-*   **Layout Component**: The page content is wrapped with the `<SubPageLayout>` component.
-    *   The `backButtonHref` prop should point back to `/architectural-blueprint`.
-    *   The `backButtonText` prop should be `"&larr; Back to Architectural Blueprint"`.
-    ```tsx
-    import SubPageLayout from '@/components/chimera/SubPageLayout';
+## 1. AI Styling Flow (`src/ai/flows/suggest-button-style-flow.ts`)
 
-    export default function McpServerDetailsPage() {
-      return (
-        <SubPageLayout
-          backButtonHref="/architectural-blueprint"
-          backButtonText="&larr; Back to Architectural Blueprint"
-        >
-          {/* Page content goes here */}
-        </SubPageLayout>
-      );
+This Genkit flow is the central piece of AI functionality in Bouton.
+
+*   **Purpose**: To take a user's prompt and optionally the current button style, and return a new suggested `ButtonState`.
+*   **Structure (Conceptual, following Genkit guidelines):**
+    ```typescript
+    // src/ai/flows/suggest-button-style-flow.ts
+    'use server';
+    /**
+     * @fileOverview AI flow for suggesting button styles.
+     * - suggestStyleFlow - Main function to generate button style suggestions.
+     * - AiStyleSuggestionInput - Input type for the flow.
+     * - AiStyleSuggestionOutput - Output type (mirrors ButtonState).
+     */
+
+    import { ai } from '@/ai/genkit';
+    import { z } from 'genkit';
+    import type { ButtonState } from '@/lib/bouton/types'; // Assuming ButtonState type
+
+    // Define Zod schema for ButtonState (or import if already defined elsewhere)
+    const ButtonStateSchema = z.object({
+      text: z.string().optional(),
+      textColor: z.string().optional().describe("CSS color for text, e.g., #RRGGBB"),
+      backgroundColor: z.string().optional().describe("CSS color for background, e.g., #RRGGBB"),
+      // ... other ButtonState fields as Zod types with descriptions
+      borderColor: z.string().optional(),
+      borderWidth: z.number().optional(),
+      borderRadius: z.number().optional(),
+      paddingX: z.number().optional(),
+      paddingY: z.number().optional(),
+      fontSize: z.number().optional(),
+      fontWeight: z.string().optional(),
+      fontFamily: z.string().optional(),
+      iconName: z.string().optional().describe("Name of a lucide-react icon, e.g., 'Sparkles'"),
+      iconPosition: z.enum(['left', 'right']).optional(),
+      boxShadow: z.string().optional().describe("CSS box-shadow value"),
+      customClasses: z.string().optional().describe("Additional Tailwind CSS classes"),
+    });
+    
+    export const AiStyleSuggestionInputSchema = z.object({
+      currentStyle: ButtonStateSchema.partial().optional().describe("Current style of the button, if any."),
+      userPrompt: z.string().describe("User's textual prompt for desired style."),
+      buttonPurpose: z.string().optional().describe("The purpose of the button, e.g., 'Submit form'."),
+    });
+    export type AiStyleSuggestionInput = z.infer<typeof AiStyleSuggestionInputSchema>;
+    
+    // Output is effectively a complete ButtonState
+    export const AiStyleSuggestionOutputSchema = ButtonStateSchema;
+    export type AiStyleSuggestionOutput = z.infer<typeof AiStyleSuggestionOutputSchema>;
+
+    // Main exported function to call the flow
+    export async function suggestStyleFlow(input: AiStyleSuggestionInput): Promise<AiStyleSuggestionOutput> {
+      return internalSuggestStyleFlow(input);
     }
+
+    const stylePrompt = ai.definePrompt({
+      name: 'boutonStylePrompt',
+      input: { schema: AiStyleSuggestionInputSchema },
+      output: { schema: AiStyleSuggestionOutputSchema },
+      prompt: `You are an expert UI/UX designer specializing in button design.
+      The user wants a button style.
+      User prompt: {{{userPrompt}}}
+      {{#if buttonPurpose}}Button's purpose: {{{buttonPurpose}}}{{/if}}
+      {{#if currentStyle}}Current button style for context: 
+        Text: {{currentStyle.text}}
+        Text Color: {{currentStyle.textColor}}
+        Background Color: {{currentStyle.backgroundColor}}
+        Border Radius: {{currentStyle.borderRadius}}px
+        {{!-- Add other currentStyle fields as needed --}}
+      {{/if}}
+
+      Provide a new complete button style (all fields from ButtonStateSchema) that meets the user's request.
+      Use the application's theme colors where appropriate:
+      - Primary: Strong Indigo (#4B0082)
+      - Background: Light Indigo (#E6E0EB) for light mode UI
+      - Accent: Blue Violet (#8A2BE2)
+      - Font: Inter
+
+      Ensure all color values are in hex format (e.g., #RRGGBB).
+      For borderRadius, paddingX, paddingY, fontSize, borderWidth, provide numeric values (pixels).
+      Suggest a relevant lucide-react iconName if applicable.
+      `,
+    });
+    
+    const internalSuggestStyleFlow = ai.defineFlow(
+      {
+        name: 'internalSuggestStyleFlow',
+        inputSchema: AiStyleSuggestionInputSchema,
+        outputSchema: AiStyleSuggestionOutputSchema,
+      },
+      async (input) => {
+        const { output } = await stylePrompt(input);
+        if (!output) {
+          throw new Error("AI failed to suggest a style.");
+        }
+        // Potentially add validation or minor adjustments here before returning
+        return output;
+      }
+    );
     ```
-*   **Main Content Wrapper**: The primary content within `<SubPageLayout>` is an `<article>` element.
-    *   Apply Tailwind Prose classes for readability: `prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6`.
+
+## 2. Invoking the AI Flow (from `src/app/page.tsx` or `AiStyler.tsx`)
+
+The AI flow is invoked when the user requests an AI-generated style.
+
+*   **Responsibility**: The component responsible for the AI interaction (e.g., `AiStyler.tsx` or its parent `src/app/page.tsx`) will:
+    1.  Collect the user's prompt and the current button state.
+    2.  Call the exported `suggestStyleFlow` function.
+    3.  Handle the promise (e.g., update the main button state with the suggestion, manage loading states, show errors via toasts).
+
     ```tsx
-    <article className="prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6">
-      {/* Sections and text content */}
-    </article>
+    // Example within a component
+    import { suggestStyleFlow, type AiStyleSuggestionInput } from '@/ai/flows/suggest-button-style-flow';
+    import { toast } from '@/components/ui/use-toast'; // ShadCN toast
+
+    // ...
+    const handleAiStyleRequest = async (prompt: string, currentButtonState: ButtonState) => {
+      setIsLoading(true);
+      try {
+        const input: AiStyleSuggestionInput = {
+          userPrompt: prompt,
+          currentStyle: currentButtonState, // Pass relevant parts
+          // buttonPurpose: "Primary action" // Optional
+        };
+        const suggestedStyle = await suggestStyleFlow(input);
+        onNewStyle(suggestedStyle); // Callback to update the main button state
+      } catch (error) {
+        console.error("AI Styler Error:", error);
+        toast({
+          variant: "destructive",
+          title: "AI Styling Failed",
+          description: error instanceof Error ? error.message : "Could not generate style.",
+        });
+      } finally {
+        setIsLoading(false);
+      }
+    };
     ```
 
-## 2. Main Page Title (`<h1>`)
+## 3. Considerations for Bouton's "Core Logic"
 
-*   The main title of the page (e.g., "Deep Dive: The MCP Server") is an `<h1>` element.
-*   It is centered and includes a thematic Lucide icon (`ServerCog`).
-*   **Structure**:
-    ```tsx
-    import { ServerCog } from 'lucide-react';
+*   **State Management**: The primary `ButtonState` should be managed centrally (e.g., in `src/app/page.tsx` or a React Context) to be accessible by `BoutonDisplay`, `StyleControls`, and `AiStyler`.
+*   **Modularity**: Keep AI interaction logic separate from UI components as much as possible. The Genkit flow handles the AI part; UI components handle user input and display.
+*   **Error Handling**: Robust error handling for AI flow calls is important for user experience.
+*   **Simplicity**: For Bouton, the "server-side" logic is encapsulated within the Genkit flow. There isn't a persistent backend server in the traditional sense beyond what Genkit and Next.js provide for server actions/functions.
 
-    // ... inside <article>
-    <div className="flex flex-col items-center text-center mb-12">
-      <ServerCog className="h-16 w-16 text-primary mb-4" /> {/* Icon */}
-      <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-2 md:leading-tight">
-        Deep Dive: The MCP Server {/* Title Text */}
-      </h1>
-      {/* Subtitle paragraph */}
-      <p className="text-2xl text-slate-400">Tools, Knowledge, and State Management</p>
-    </div>
-    ```
-*   **Styling**: (Inherits from global and `ARTICLE_PAGE_FORMATTING_GUIDE.md` conventions)
-    *   Icon: `h-16 w-16 text-primary mb-4`
-    *   `<h1>`: `text-4xl md:text-5xl font-bold gradient-text !mb-2 md:leading-tight`
-        *   The `md:leading-tight` class is crucial for larger responsive font sizes (like `md:text-5xl`) to ensure character descenders (e.g., 'g', 'p', 'y') are not clipped.
-    *   Subtitle `<p>`: `text-2xl text-slate-400`
-
-## 3. Main Section Titles (`<h2>`)
-
-*   Each major numbered section (e.g., 1. Tool Abstraction Layer, 2. Knowledge Hub) starts with an `<h2>` element.
-*   The first `<h2>` on the page should have its wrapper `div` styled with `mt-16 mb-4`. Subsequent `<h2>` sections should use `mt-24 mb-4`.
-*   Some `<h2>` titles (like for "Potential Challenges" or "Comparison") may include a leading icon for thematic emphasis.
-*   **Structure (First `<h2>` on page)**:
-    ```tsx
-    // ... inside <article>
-    <div className="mt-16 mb-4"> {/* Wrapper for consistent spacing */}
-      <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
-        1. Tool Abstraction Layer: How it Works
-      </h2>
-    </div>
-    <p>Paragraph content for the section...</p>
-    ```
-*   **Structure (Subsequent `<h2>` with Icon)**:
-    ```tsx
-    import { AlertTriangle } from 'lucide-react';
-
-    // ... inside <article>
-    <div className="mt-24 mb-4">
-      <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 flex items-center">
-        <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" /> {/* Icon */}
-        4. Potential Challenges for MCP Server Implementation
-      </h2>
-    </div>
-    ```
-*   **Styling**:
-    *   Wrapper `<div>`: `mt-16 mb-4` (for first H2), `mt-24 mb-4` (for subsequent H2s).
-    *   `<h2>`: `text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2`
-    *   Icon (if present): `h-7 w-7 [specific-color] mr-3 flex-shrink-0` (e.g., `text-yellow-400`)
-
-## 4. Sub-Section Category Titles (`<h3>`)
-
-*   Within each main `<h2>` section, categories like "Core Functionality:", "Benefits of the TAL:", or "Key Components and Mechanisms:" are `<h3>` elements.
-*   Each `<h3>` is preceded by a thematic Lucide icon.
-*   **Structure**:
-    ```tsx
-    import { Settings2 } from 'lucide-react'; // Or other relevant icon
-
-    // ... inside <article>, after an <h2> section
-    <div className="mt-8 mb-4 flex items-center"> {/* Wrapper for icon and title */}
-      <Settings2 className="h-7 w-7 text-primary mr-3 flex-shrink-0" /> {/* Icon */}
-      <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
-        Core Functionality: {/* Title Text */}
-      </h3>
-    </div>
-    <p>Introductory paragraph for this category or directly into a list...</p>
-    <ul className="list-disc pl-5 space-y-2">
-      {/* List items */}
-    </ul>
-    ```
-*   **Styling**:
-    *   Wrapper `<div>`: `mt-8 mb-4 flex items-center`
-    *   Icon: `h-7 w-7 text-primary mr-3 flex-shrink-0` (or other theme color if appropriate)
-    *   `<h3>`: `text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0` (or other theme color)
-
-## 5. List Items and Keyword Highlighting
-
-*   **Unordered Lists (`<ul>`)**: Use `list-disc pl-5 space-y-2`. Refer to `ARTICLE_PAGE_FORMATTING_GUIDE.md` Section 5 for standard and enhanced list styles.
-*   **Agent/Component/Item Titles in Lists**: The name/title of the item (e.g., "Standardized API:") is emphasized using `<strong className="text-white font-semibold">`.
-    ```html
-    <ul class="list-disc pl-5 space-y-2">
-      <li>
-        <strong class="text-white font-semibold">Standardized API:</strong> The MCP Server provides...
-      </li>
-    </ul>
-    ```
-*   **General Keywords**: Important terms within paragraph text or list descriptions are highlighted using simple `<strong>` tags (no specific color class, inherits from parent or appears brighter/white).
-*   **Code Examples (`<code>`)**: Inline code snippets or JSON examples should use `<code className="language-json bg-slate-700 p-1 rounded text-sm">` or similar, with the content properly escaped within curly braces if it's a JSX string literal: `{'{"key": "value"}'}`.
-
-## 6. Lucide Icons Used
-
-This page uses a variety of Lucide icons. Ensure they are imported at the top:
-`ServerCog`, `Settings2`, `TerminalSquare`, `ThumbsUp`, `DatabaseZap`, `BrainCircuit`, `MessagesSquare`, `Sparkles`, `AlertTriangle`, `GitCompareArrows`, `Lightbulb`, `Network`, `UserCheck`, `Users`, `Share2`, `UserSquare2`, `KeyRound`.
-
-By following these guidelines, the `mcp-server-details/page.tsx` will maintain structural and stylistic consistency with the rest of the "Architectural Blueprint" section.
+This structure ensures that the AI styling functionality is well-organized, maintainable, and leverages the capabilities of Genkit effectively for the Bouton application.

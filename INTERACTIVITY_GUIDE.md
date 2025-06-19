@@ -1,84 +1,55 @@
 
-# Project Chimera Interactivity Guide
+# Bouton App Interactivity Guide
 
-This document details the key client-side interactive features within the Project Chimera application and how their state is managed. Understanding these mechanisms is crucial for modifying or extending the application's dynamic behaviors.
+This document details the key client-side interactive features within the **Bouton** application and how their state is managed.
 
-## 1. Main Page Section Highlighting (`src/app/page.tsx`)
+## 1. Button Style Manipulation (`StyleControls.tsx` & `src/app/page.tsx`)
 
-The main page (`src/app/page.tsx`) implements a scroll-based navigation highlighting feature.
+The core interactivity of Bouton revolves around changing the visual style of the displayed button.
 
-*   **State**: An `activeSection` state variable (string) is maintained within the `HomePageContent` component. It stores the `id` of the currently visible section.
+*   **State**: A `buttonState` object (type `ButtonState`) is managed in `src/app/page.tsx` using `useState`. This object holds all current style properties of the button (text, colors, padding, border, etc.).
 *   **Mechanism**:
-    *   An `IntersectionObserver` is set up in a `useEffect` hook.
-    *   This observer monitors all `<section>` elements on the page that have an `id` attribute.
-    *   When a section enters the viewport and meets the `threshold` (0.4, meaning 40% of the section is visible), the observer updates the `activeSection` state with that section's `id`.
-*   **Usage**:
-    *   The `NAV_LINKS` array in `src/lib/chimera/constants.ts` defines navigation items, each with an `id` that should correspond to a `<section>` `id` on the main page (e.g., `overview`, `architecture`).
-    *   The `activeSection` state is passed as a prop to the `<PageShell>` component.
-    *   `<PageShell>` then passes `activeSection` to `<Header>` and `<MobileMenu>`.
-    *   In `<Header>` and `<MobileMenu>`, this `activeSection` prop is used to apply an 'active' style (e.g., `active-nav` class) to the navigation link whose `id` matches the current `activeSection`.
+    *   The `StyleControls.tsx` component receives the `buttonState` and a callback function (e.g., `onStyleChange` which is `setButtonState`).
+    *   `StyleControls.tsx` contains various UI elements (sliders, color pickers, text inputs, select dropdowns from ShadCN UI) that correspond to properties in `ButtonState`.
+    *   When a user interacts with a control (e.g., drags a slider for `borderRadius`), the control's `onChange` handler updates the relevant property in a local temporary state or directly calls `onStyleChange` with the updated `ButtonState`.
+    *   For example, changing the background color would update `buttonState.backgroundColor`.
+*   **Live Preview**:
+    *   The `BoutonDisplay.tsx` component receives the `buttonState` as a prop.
+    *   It dynamically applies the styles from `buttonState` to the rendered `<button>` element (likely a ShadCN `Button` component or a custom styled one).
+    *   Any change to `buttonState` in `src/app/page.tsx` causes `BoutonDisplay.tsx` to re-render, providing an immediate live preview.
 
-## 2. Mobile Menu Navigation (`src/components/chimera/PageShell.tsx`, `Header.tsx`, `MobileMenu.tsx`)
+## 2. AI-Powered Style Suggestion (`AiStyler.tsx` & `src/app/page.tsx`)
 
-The application features a collapsible mobile menu for navigation on smaller screens.
+Bouton allows users to get AI-generated style suggestions for their button.
 
-*   **State**: An `isMobileMenuOpen` state variable (boolean) is managed within the `<PageShell>` component.
+*   **State**:
+    *   The user's textual prompt is managed locally within `AiStyler.tsx` (e.g., using `useState` for a text input).
+    *   A loading state (e.g., `isAiStyling`) can be used in `AiStyler.tsx` or `src/app/page.tsx` to indicate when an AI request is in progress.
 *   **Mechanism**:
-    *   `PageShell` defines `toggleMobileMenu` and `closeMobileMenu` callback functions.
-    *   `toggleMobileMenu` is passed to the `<Header>` component and is triggered by clicking the hamburger icon button (`#mobile-menu-button`). This flips the `isMobileMenuOpen` state.
-    *   `closeMobileMenu` is passed to the `<MobileMenu>` component and is triggered when a navigation link within the mobile menu is clicked. This sets `isMobileMenuOpen` to `false`.
-*   **Visibility**:
-    *   The `<MobileMenu>` component's rendering is conditional on the `isMobileMenuOpen` state. It only renders if `isMobileMenuOpen` is `true`.
-    *   The `aria-expanded` attribute on the mobile menu button in `<Header>` is also tied to this state.
-    *   The `MobileMenu` itself becomes sticky below the header when open.
+    *   The `AiStyler.tsx` component provides an input field for the user to describe their desired style (e.g., "a modern, sleek button").
+    *   It also has a "Get AI Style" button.
+    *   When clicked, `AiStyler.tsx` calls a handler function (e.g., `handleAiStyle`) passed from `src/app/page.tsx`.
+    *   This handler function in `src/app/page.tsx` will:
+        1.  Construct an `AiStyleSuggestionInput` object containing the user's prompt and optionally the `currentStyle` from `buttonState`.
+        2.  Set a loading state to true.
+        3.  Invoke the Genkit flow (e.g., `suggestStyleFlow`) defined in `src/ai/flows/suggest-button-style-flow.ts`.
+        4.  Await the `AiStyleSuggestionOutput` (which should conform to `ButtonState`).
+        5.  Update the main `buttonState` in `src/app/page.tsx` with the AI's suggested style.
+        6.  Set the loading state to false.
+*   **Error Handling**:
+    *   The AI flow invocation should be wrapped in a try/catch block.
+    *   Errors (e.g., API failures, invalid suggestions) should be displayed to the user, possibly using the `useToast` hook and ShadCN `Toast` components.
 
-## 3. Pipeline Section Tabs (Main Page - `src/components/chimera/sections/PipelineSection.tsx`)
+## 3. Responsive Behavior with `useIsMobile` Hook (`src/hooks/use-mobile.ts`)
 
-The "AI-Powered Design Pipeline" section on the main page uses a tabbed interface to display different stages.
-
-*   **State**: An `activeTab` state variable (string) is managed within the `<PipelineSection>` component. It stores the `id` of the currently selected tab.
-*   **Mechanism**:
-    *   The `PIPELINE_TABS` array in `src/lib/chimera/constants.ts` defines the data for each tab, including a unique `id` and an icon.
-    *   When a tab button is clicked, its `onClick` handler calls `setActiveTab` with the `id` of the clicked tab.
-*   **Content Display**:
-    *   The content area renders the details of the `PipelineTab` whose `id` matches the current `activeTab` state.
-    *   CSS opacity and positioning are used to smoothly transition between tab content panels, ensuring only the active tab's content is fully visible and interactive.
-    *   Tab buttons are styled differently based on whether their `id` matches `activeTab` (using `tab-button-active` vs. `tab-button-inactive` classes).
-
-## 4. Animated Rocket Effect (`src/components/chimera/AnimatedRocket.tsx`)
-
-The main page features an animated rocket for visual engagement.
-
-*   **Component**: `AnimatedRocket.tsx` located in `src/components/chimera/`.
-*   **Purpose**: Provides a dynamic visual element on the `HomeSection` of the main page.
-*   **Mechanism**:
-    *   Uses the `RocketIcon` from `lucide-react`.
-    *   Employs React state (`stage`, `animationStyle`) and `useEffect` hooks to manage the animation sequence.
-    *   The `stage` variable tracks the rocket's current action (e.g., `flyingRight`, `turningToFlyLeft`, `flyingLeft`, `turningToFlyRight`).
-    *   The `animationStyle` state object dynamically updates CSS properties like `left` and `transform` (for rotation).
-    *   CSS transitions are applied to these properties to achieve smooth movement across the screen and rotations at each end of its flight path.
-    *   `onTransitionEnd` event listeners and `setTimeout` are used to sequence the flight and turn animations, creating a continuous loop.
-*   **Location**: Integrated into `src/components/chimera/sections/HomeSection.tsx`, positioned to fly horizontally above the main title. It scrolls out of view with the `HomeSection`.
-
-## 5. Responsive Behavior with `useIsMobile` Hook (`src/hooks/use-mobile.ts`)
-
-The `useIsMobile` hook provides a simple way to detect if the application is being viewed on a mobile-sized screen.
+The `useIsMobile` hook can be used if the layout or behavior of controls needs to adapt for smaller screens, although Bouton's core interface might be simple enough not to require major changes.
 
 *   **Purpose**: Allows components to adapt their rendering or behavior based on viewport width.
-*   **Mechanism**:
-    *   It uses `window.matchMedia` to check if the viewport width is less than a defined breakpoint (768px).
-    *   It sets an `isMobile` state (boolean) and updates it on initial load and when the viewport resizes across the breakpoint.
 *   **Usage Examples**:
-    *   **`StarryBackground.tsx`**: Adjusts the number and size of stars rendered based on the return value of `useIsMobile` for performance and visual balance.
-    *   **`SidebarProvider.tsx` (from ShadCN, potentially used internally by `Sidebar` components if they were present in the main application)**: This hook is a common pattern in ShadCN UI to determine whether to render a collapsible icon-based sidebar or an off-canvas mobile sheet.
+    *   If `StyleControls.tsx` has many options, it might switch to a more compact layout or use a dialog/sheet for some settings on mobile.
 
-## 6. Client-Side Data Fetching and State (Illustrative - Not Heavily Used in Chimera Currently)
+## 4. General UI State (ShadCN Components)
 
-While Project Chimera primarily presents static content enhanced with client-side interactivity, future extensions involving data fetching would typically use:
+Many ShadCN UI components (like `Select`, `Dialog`, `Popover`) manage their own internal open/close states. Bouton leverages these for a polished user experience without needing to manually manage all such states.
 
-*   **`useEffect`**: For fetching data on component mount if it's client-side only.
-*   **`useState`**: To store the fetched data and manage loading/error states.
-*   **Server Components with Client Component Consumers**: For Next.js App Router, data fetching is often done in Server Components and passed as props to Client Components, or Client Components can use `React.use()` with async functions/promises for data fetching if needed during rendering.
-*   **Genkit Flows**: For AI-related data fetching or generation, Genkit flows defined in `src/ai/flows/` would be called from Server Actions or client-side `useEffect` hooks, depending on the use case.
-
-This guide covers the primary client-side interactive elements in Project Chimera. Understanding these patterns will help in maintaining and extending the application's dynamic features.
+This guide covers the primary interactive elements in Bouton. Understanding these state management patterns and data flows is key to extending its features.

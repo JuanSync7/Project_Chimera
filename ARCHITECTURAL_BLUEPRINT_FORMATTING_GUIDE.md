@@ -1,246 +1,100 @@
 
-# Formatting Guide for Article-Style Subpages
+# Formatting Guide for Bouton App Components and Pages
 
-This guide outlines the specific formatting conventions used for article-style subpages (e.g., "Strategic Imperative," "AI-Powered Design Pipeline," "Architectural Blueprint," etc.) in the Project Chimera application. Adhering to these guidelines ensures consistency in structure and style.
+This guide outlines formatting conventions for developing components and potential future subpages for the **Bouton** application. Adhering to these guidelines ensures consistency. Bouton primarily focuses on a main interface for button display and styling, so these guidelines are simplified compared to large multi-page applications.
 
-## 1. Overall Page Structure
+## 1. Overall Page/View Structure (Main App View)
 
-*   **Layout Component**: The page content is wrapped with the `<SubPageLayout>` component.
+*   **Layout Component**: If multiple views/pages are ever needed, a consistent layout component (e.g., `<AppLayout>`) should wrap content. For the current single-view Bouton app, the main page (`src/app/page.tsx`) will structure the primary components.
     ```tsx
-    import SubPageLayout from '@/components/chimera/SubPageLayout';
+    // Example for src/app/page.tsx
+    import BoutonDisplay from '@/components/bouton/BoutonDisplay';
+    import StyleControls from '@/components/bouton/StyleControls';
+    import AiStyler from '@/components/bouton/AiStyler';
 
-    export default function ExampleArticlePage() {
+    export default function BoutonHomePage() {
       return (
-        <SubPageLayout>
-          {/* Page content goes here */}
-        </SubPageLayout>
+        <main className="container mx-auto p-4 flex flex-col md:flex-row gap-8">
+          <div className="md:w-2/3">
+            <BoutonDisplay />
+          </div>
+          <div className="md:w-1/3 space-y-6">
+            <StyleControls />
+            <AiStyler />
+          </div>
+        </main>
       );
     }
     ```
-*   **Main Content Wrapper**: The primary content within `<SubPageLayout>` is an `<article>` element.
-    *   Apply Tailwind Prose classes for readability: `prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6`.
+*   **Component Structure**: Components should be well-defined and reusable. Use ShadCN UI components where appropriate.
+
+## 2. Main Titles (e.g., Section Titles within Components)
+
+*   If components have distinct sections, use `<h2>` or `<h3>` for titles.
+*   **Structure Example (within a component like `StyleControls.tsx`):**
     ```tsx
-    <article className="prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6">
-      {/* Sections and text content */}
-    </article>
-    ```
+    import { Palette } from 'lucide-react'; // Example icon
 
-## 2. Main Page Title (`<h1>`)
-
-*   The main title of the page (e.g., "Section X: Example Page Title") is an `<h1>` element.
-*   It is centered and includes a thematic Lucide icon relevant to the page's content.
-*   **Structure**:
-    ```tsx
-    import { ExampleIcon } from 'lucide-react'; // Choose a thematic icon
-
-    // ... inside <article>
-    <div className="flex flex-col items-center text-center mb-12">
-      <ExampleIcon className="h-16 w-16 text-primary mb-4" /> {/* Thematic Icon */}
-      <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-2 md:leading-tight">
-        Section X: Example Page Title {/* Title Text */}
-      </h1>
-      {/* Optional: Subtitle paragraph */}
-      <p className="text-2xl text-slate-400">A brief and engaging subtitle for the page.</p>
-    </div>
-    ```
-*   **Styling**:
-    *   Icon: `h-16 w-16 text-primary mb-4`
-    *   `<h1>`: `text-4xl md:text-5xl font-bold gradient-text !mb-2 md:leading-tight`
-        *   The `md:leading-tight` class (or a similar `leading-*` utility) is crucial for larger responsive font sizes (like `md:text-5xl`) to ensure character descenders (e.g., 'g', 'p', 'y') are not clipped.
-    *   Subtitle `<p>`: `text-2xl text-slate-400`
-
-## 3. Main Section Titles (`<h2>`)
-
-*   Each major numbered section (e.g., X.1, X.2, X.3) or significant topic starts with an `<h2>` element.
-*   These titles generally do **not** have preceding icons, unless a specific thematic icon strongly enhances a particular section (e.g., "Potential Challenges" in the MCP Server details page).
-
-### Standard `<h2>` Section Structure:
-*   **Structure**:
-    ```tsx
-    // ... inside <article>
-    <div className="mt-24 mb-4"> {/* Wrapper for consistent spacing. Use mt-16 for the very first H2 on a page. */}
-      <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
-        X.1 Example Main Section Title
+    // ... inside a component
+    <div className="mb-4">
+      <h2 className="text-2xl font-semibold text-foreground mb-2 flex items-center">
+        <Palette className="h-6 w-6 text-primary mr-2" />
+        Button Appearance
       </h2>
     </div>
-    <p>Paragraph content for the section...</p>
-    {/* More content like sub-headings (h3), lists, etc. */}
+    {/* Controls for button style */}
     ```
 *   **Styling**:
-    *   Wrapper `<div>`: `mt-24 mb-4` (For subsequent H2 sections. The very first `<h2>` on a page after the main `<h1>` block might use `mt-16 mb-4` if less initial spacing is desired).
-    *   `<h2>`: `text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2`
+    *   Icon: `h-6 w-6 text-primary mr-2` (or `text-accent`)
+    *   `<h2>`: `text-2xl font-semibold text-foreground mb-2`
+    *   `<h3>`: `text-xl font-medium text-foreground mb-1`
 
-### `<h2>` Section Encapsulated in a Card:
-*   For certain pages like the "AI-Powered Design Pipeline," individual `<h2>` sections (e.g., each pipeline stage) can be visually grouped by wrapping the entire section's content (including the `<h2>` title and all its subsequent paragraphs, `<h3>`s, lists, etc.) within a `div` styled as a card.
-*   **Structure**:
+## 3. Control Group Labels
+
+*   For groups of related controls (e.g., color pickers, sliders for border radius), use a clear label, possibly an `<h4>` or styled `<div>`.
+*   **Structure Example (within `StyleControls.tsx`):**
     ```tsx
-    // ... inside <article>
-    <div className="section-card p-6 rounded-2xl mt-24"> {/* Card wrapper for the entire H2 section. Use mt-16 for the very first H2 card. */}
-      <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6"> {/* Adjusted margin for inside card */}
-        X.2 Another Main Section Title (Pipeline Stage Example)
-      </h2>
-      {/* "Challenge" h3 block */}
-      <div className="mt-6 mb-4 flex items-center"> {/* Note: mt-6 instead of mt-8 for first h3 inside card */}
-        {/* Icon and h3 title for "Challenge" */}
-      </div>
-      <p>Challenge description...</p>
-      
-      {/* "Agentic Workflow" h3 block */}
-      <div className="mt-8 mb-4 flex items-center">
-        {/* Icon and h3 title for "Agentic Workflow" */}
-      </div>
-      <p>Workflow intro...</p>
-      {/* Enhanced list with icons */}
-      <ul className="list-none pl-0 space-y-6 !my-6">
-        {/* List items with icons, see section 5.2 */}
-      </ul>
-      {/* ... potentially more content for this H2 section ... */}
-    </div> {/* End of card wrapper for H2 section */}
-    ```
-*   **Styling for Card-Wrapped `<h2>` Section**:
-    *   Outer `div`: `section-card p-6 rounded-2xl mt-24` (or `mt-16` if it's the first carded H2 section). The `section-card` class provides base background, border, and hover effects from `globals.css`.
-    *   `<h2>` within card: `text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6` (Note the `mb-6` for spacing below the title within the card).
-    *   First `<h3>` wrapper div (e.g., for "Challenge:") within the card: `mt-6 mb-4 flex items-center` (Top margin adjusted from `mt-8` to `mt-6` due to card padding).
-
-## 4. Sub-Section Category Titles (`<h3>`)
-
-*   Within each main section (e.g., under "X.2 Example Main Section"), categories or key sub-topics can be introduced with `<h3>` elements.
-*   Each `<h3>` is often preceded by a thematic Lucide icon relevant to the sub-topic.
-*   **Structure**:
-    ```tsx
-    import { AnotherExampleIcon } from 'lucide-react'; // Choose a thematic icon
-
-    // ... inside <article>, after an <h2> section (or inside its card wrapper)
-    <div className="mt-8 mb-4 flex items-center"> {/* Wrapper for icon and title. Use mt-6 if it's the first h3 in a card-wrapped h2 section */}
-      <AnotherExampleIcon className="h-7 w-7 text-primary mr-3 flex-shrink-0" /> {/* Thematic Icon */}
-      <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
-        Example Category Title: {/* Title Text */}
-      </h3>
-    </div>
-    <p>Introductory paragraph for this category...</p>
-    {/* Standard list or enhanced list (see section 5 & 5.1) */}
-    <ul className="list-disc pl-5 space-y-2">
-      {/* List items for specific points/components */}
-    </ul>
-    ```
-*   **Styling**:
-    *   Wrapper `<div>`: `mt-8 mb-4 flex items-center` (or `mt-6` if it's the first `<h3>` within a card-wrapped `<h2>` section).
-    *   Icon: `h-7 w-7 text-primary mr-3 flex-shrink-0` (or other theme/accent color if appropriate for specific emphasis, e.g., `text-yellow-400` for "Challenge:" `<h3>` headings).
-    *   `<h3>`: `text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0` (or other theme/accent color).
-
-## 5. Lists and List Items
-
-### 5.1 Standard Unordered List Items
-*   Specific items listed under an `<h3>` category are typically presented as list items within a `<ul>`.
-*   The name/title of the item is emphasized using `<strong className="text-white font-semibold">`.
-*   **Structure**:
-    ```tsx
-    // ... inside <article>, following an <h3> category and its intro paragraph
-    <ul className="list-disc pl-5 space-y-2">
-      <li>
-        <strong className="text-white font-semibold">Key Item Title:</strong> Description of the key item...
-      </li>
-      <li>
-        <strong className="text-white font-semibold">Another Key Item:</strong> Further details...
-      </li>
-    </ul>
-    ```
-*   **Styling**:
-    *   `<ul>`: `list-disc pl-5 space-y-2`
-    *   `<strong>` for item name: `text-white font-semibold`
-
-### 5.2 Enhanced List Item Styling with Icons (Primary List Items)
-*   For more visually distinct lists, particularly when detailing features, process steps, or components under an `<h3>` category or within a card-wrapped `<h2>` section (like Agentic Workflows in the AI Pipeline page).
-*   Each primary list item is enhanced with a leading Lucide icon.
-*   **Structure**:
-    ```tsx
-    import { RelevantIcon } from 'lucide-react';
-
-    // ... inside <article>, typically under an <h3> or within a card-wrapped <h2> section
-    <ul className="list-none pl-0 space-y-6 !my-6"> {/* Note: list-none, specific margins, and y-spacing */}
-      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full"> {/* Optional card styling for the LI itself */}
-        <RelevantIcon className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" /> {/* Icon color often matches H3 title color */}
-        <div>
-          <strong className="text-primary block mb-1">Key Point Title:</strong> Further description...
-          {/* Can include more paragraphs or even nested <div> container for sub-sub-points (see 5.2.1) here if needed */}
-        </div>
-      </li>
-      {/* Additional list items with the same structure */}
-    </ul>
-    ```
-*   **Styling**:
-    *   `<ul>`: `list-none pl-0 space-y-6 !my-6`
-    *   `<li>`: `flex items-start` (Optionally, can be styled as a card: `p-3 border border-slate-700 rounded-lg bg-slate-800/30 w-full`).
-    *   Icon: `h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0` (Adjust icon size, color, and margins. Color often matches H3 title, e.g., `text-primary` or `text-sky-400`).
-    *   `<div>` (wrapper for text): Allows text content (including optional `<strong>` titles) to flow naturally.
-    *   `<strong>` (optional title within list item): `text-primary block mb-1` (Color often matches icon/H3 color).
-
-### 5.2.1 Card-Styled Nested List Items (Sub-Sub-Points)
-*   When a primary list item (styled as per 5.2) itself contains a nested list of points (which was previously a nested `<ul>`), these sub-sub-points can also be styled as individual mini-cards for enhanced visual separation and detail emphasis. This pattern is particularly useful for detailing steps within a process, as seen in the AI Pipeline page.
-*   **Purpose**: To clearly delineate and highlight individual components or steps within a larger process detailed in a primary list item.
-*   **Structure**: The original nested `<ul>` is replaced with a `div` container. Each original `<li>` becomes a styled `div` card.
-    ```tsx
-    // ... (inside a primary list item's div, after its main description)
-    <div className="mt-2 space-y-3"> {/* Container for sub-sub-point cards, replaces nested <ul> */}
-      <div className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30"> {/* Card for a sub-sub-point */}
-        <SubPointIcon className="h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0" /> {/* Themed icon, e.g., sky blue */}
-        <div>
-          <strong className="text-sky-300 block mb-1">Nested Point Title (Optional):</strong> Description of nested point...
-        </div>
-      </div>
-      {/* More nested point cards */}
+    <div>
+      <h4 className="text-lg font-medium text-muted-foreground mb-2">Colors</h4>
+      {/* Color control components */}
     </div>
     ```
 *   **Styling**:
-    *   Container `<div>` for sub-sub-points: `mt-2 space-y-3` (replaces the nested `<ul>`'s styling).
-    *   Each sub-sub-point `<div>` card: `flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30`.
-    *   Icon for sub-sub-point card: `h-5 w-5 text-sky-400 mr-3 mt-0.5 flex-shrink-0` (Slightly smaller icon, specific accent color like `text-sky-400`).
-    *   `<div>` (text wrapper within sub-sub-point card) and optional `<strong>`.
-    *   `<strong>` (optional title within sub-sub-point card): `text-sky-300 block mb-1` (Matches the icon's accent theme, e.g., `text-sky-300`).
+    *   `<h4>`: `text-lg font-medium text-muted-foreground mb-2`
 
-## 6. General Paragraphs and Keyword Highlighting
+## 4. Lists (If Used for Options or Features)
 
-*   General descriptive text is placed within `<p>` tags.
-*   Important keywords or phrases within these paragraphs are highlighted using simple `<strong>` tags without additional color classes. The default browser bolding and parent text color (e.g., `text-slate-300`) provide sufficient emphasis.
+*   Use standard `<ul>` or `<ol>` with Tailwind CSS for styling.
+*   **Example for a list of features (if applicable):**
+    ```tsx
+    <ul className="list-disc pl-5 space-y-2 text-foreground">
+      <li>
+        <strong className="font-semibold">Real-time Preview:</strong> See your button change as you adjust styles.
+      </li>
+      <li>
+        <strong className="font-semibold">AI-Powered Suggestions:</strong> Get unique style recommendations.
+      </li>
+    </ul>
+    ```
+
+## 5. General Paragraphs and Descriptions
+
+*   Use `<p>` tags with appropriate text color (e.g., `text-foreground` or `text-muted-foreground`).
+*   Highlight keywords with `<strong>` for emphasis.
     ```html
-    <p>This is a paragraph with <strong>important keywords</strong> that need emphasis. The system uses <strong>RAG</strong> and <strong>CAG</strong>.</p>
+    <p class="text-muted-foreground">Adjust the <strong>padding</strong> and <strong>margin</strong> to change the button's spacing.</p>
     ```
-*   Inline code mentions (e.g., command snippets, JSON examples) should use `<code class="language-json bg-slate-700 p-1 rounded text-sm">` or similar. Ensure content is properly escaped if it's a JSX string literal: `{'{"key": "value"}'}`.
 
-## 7. Lucide Icons
+## 6. Lucide Icons
 
-*   All icons are sourced from the `lucide-react` library.
-*   Import specific icons as needed at the top of the file.
+*   Utilize icons from `lucide-react` for UI elements like section titles or interactive controls.
     ```tsx
-    import {
-      ExampleIcon,
-      AnotherExampleIcon,
-      // ... other imported icons relevant to the page
-    } from 'lucide-react';
+    import { Palette, Sparkles } from 'lucide-react';
     ```
 
-## 8. Alternative Content Block Patterns
+## 7. ShadCN UI Components
 
-While the above sections detail standard prose and heading structures, certain types of content may benefit from alternative presentation patterns for clarity and visual impact.
+*   Prefer using ShadCN UI components (`Button`, `Slider`, `Select`, `Input`, `Card`, etc.) for building the interface. They are pre-styled and accessible.
+*   Customize their appearance using Tailwind utility classes.
 
-### 8.1 Using `KeyStatCard` for Highlighted Concepts
-
-*   **Purpose**: For presenting distinct, high-impact concepts, statistics, or main points that benefit from visual separation and emphasis with an icon and a prominent title (or "stat"). This pattern is particularly effective for introductory sections or a series of key takeaways where each point needs to stand as a self-contained block of information. The `KeyStatCard` component internally handles styling for its "stat" (title) including responsive font sizes and line heights to prevent descender clipping.
-*   **Structure**:
-    ```tsx
-    import KeyStatCard from '@/components/chimera/KeyStatCard';
-    import { YourChosenIcon } from 'lucide-react'; // Example icon import
-
-    // ... inside <article> ...
-    <KeyStatCard
-      icon={<YourChosenIcon className="h-8 w-8 md:h-10 md:w-10 text-primary" />} // Adjust icon size and color as needed
-      stat="Key Statistic or Concept Title" // This is the prominent "stat" line, can use gradient-text
-      description="<p>Detailed explanation for this key point. <strong>Strong tags</strong> can be used for emphasis and will be rendered correctly. This content replaces what might otherwise be a standard paragraph following an H2 or H3.</p><p>Additional details or multiple paragraphs can be included here.</p>"
-      className="my-8 hover:border-primary/70" // Example: provides spacing and hover effect
-    />
-    {/* Repeat KeyStatCard for other distinct points in the section */}
-    ```
-*   **Usage Context**: This pattern is notably used in `src/app/strategic-imperative/page.tsx` for presenting the main arguments in Section 1.1. Each `KeyStatCard` encapsulates a core idea, replacing a traditional sequence of `<h2>` (or `<h3>`) followed by one or more `<p>` elements.
-*   **Important Note**: The `description` prop of the `KeyStatCard` component supports HTML (via `dangerouslySetInnerHTML`), allowing for rich text formatting, including `<p>`, `<strong>`, `<ul>`, etc., ensuring the full narrative can be contained within the card. The `stat` prop typically holds a short, impactful title or statistic.
-
-By following these guidelines, article-style subpages will maintain a consistent and readable structure, making it easier for users to navigate and understand the detailed content.
+This simplified guide should help maintain consistency as Bouton evolves. For more complex text formatting (if detailed articles are ever added), the general principles from `ARTICLE_PAGE_FORMATTING_GUIDE.md` can be adapted.

@@ -1,153 +1,78 @@
 
-# SVG Diagram Creation Guidelines for Project Chimera
+# SVG Usage Guidelines for Bouton App
 
-This document outlines the guidelines and best practices for creating and integrating SVG diagrams within the Project Chimera webpage. Adhering to these guidelines will ensure consistency, maintainability, and proper theme integration.
+This document outlines guidelines for using SVGs, primarily icons from `lucide-react`, within the **Bouton** application. While Bouton might not require complex custom SVG diagrams like "Project Chimera," these principles ensure consistency if custom SVGs are ever needed.
 
-## 1. General Principles
+## 1. Primary SVG Source: `lucide-react`
 
-*   **Inline SVGs**: Diagrams should be implemented as inline SVGs directly within Next.js/React components (e.g., `src/components/chimera/sections/ArchitectureSection.tsx`).
-*   **Scalability**: SVGs should be scalable and responsive. This is primarily achieved by setting `width="100%"` on the `<svg>` element and defining an appropriate `viewBox`.
-*   **Theme Integration**: All styling, especially colors, **must** be driven by CSS variables defined in `src/app/globals.css` to ensure diagrams adapt to the application's theme (currently dark mode by default).
-*   **Readability**: SVG code should be well-formatted and commented where necessary for clarity.
-
-## 2. SVG Structure
-
-A typical root `<svg>` element should look like this:
-
-```xml
-<svg width="100%" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-  {/* SVG content goes here */}
-</svg>
-```
-
-*   `width="100%"`: Makes the SVG take the full width of its container.
-*   `viewBox="0 0 <width> <height>"`: Defines the internal coordinate system of the SVG. `<width>` and `<height>` should be chosen to comfortably fit your diagram content. This allows the SVG to scale without distortion.
-*   `xmlns="http://www.w3.org/2000/svg"`: The XML namespace for SVG.
-
-## 3. Styling with CSS Variables
-
-All visual styling (colors, fonts, etc.) **must** use CSS variables defined in `src/app/globals.css` under the `.dark` (and potentially `:root` for light mode) theme. Diagram-specific variables are prefixed with `--diagram-`.
-
-### 3.1. Inline `<style>` Block
-
-Define CSS classes within an inline `<style>` tag inside your SVG. These classes will then be applied to your SVG elements.
-
-```xml
-<svg width="100%" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    {`
-      .supervisor { fill: hsl(var(--diagram-supervisor-fill)); }
-      .worker { fill: hsl(var(--diagram-worker-fill)); }
-      .mcp { fill: hsl(var(--diagram-mcp-fill)); stroke: hsl(var(--diagram-mcp-stroke)); stroke-width: 1.5; }
-      .mcp-internal { fill: hsl(var(--diagram-mcp-internal-fill)); }
-      .text-label { font-family: var(--font-inter, 'Inter', sans-serif); font-size: 10px; fill: hsl(var(--diagram-text-fill)); }
-      .text-label-small { font-family: var(--font-inter, 'Inter', sans-serif); font-size: 9px; fill: hsl(var(--diagram-muted-text-fill)); }
-      .text-title { font-family: var(--font-inter, 'Inter', sans-serif); font-size: 11px; font-weight: bold; fill: hsl(var(--diagram-title-text-fill)); }
-      .arrow { stroke: hsl(var(--diagram-arrow-stroke)); stroke-width: 1.5; marker-end: url(#arrowhead); }
-      .dashed-arrow { stroke: hsl(var(--diagram-arrow-stroke)); stroke-width: 1.5; stroke-dasharray: 4 2; marker-end: url(#arrowhead-dashed); }
-    `}
-  </style>
-  {/* ... rest of SVG elements ... */}
-</svg>
-```
-
-*   **Colors**: Use `fill: hsl(var(--diagram-some-color));` or `stroke: hsl(var(--diagram-some-color));`.
-*   **Fonts**: For text elements, use `font-family: var(--font-inter, 'Inter', sans-serif);` to ensure consistency with the webpage's typography. Specify font sizes as needed.
-*   **CSS Variables**: The `--diagram-*` variables are defined in `src/app/globals.css`. Refer to `COLOR_SCHEME.md` for their intended use.
-
-### 3.2. Applying Styles
-
-Apply these classes to your SVG elements:
-
-```xml
-<circle cx="200" cy="45" r="32" className="supervisor" />
-<text x="200" y="44" textAnchor="middle" className="text-title">Supervisor</text>
-```
-
-## 4. Common SVG Elements and Their Usage
-
-*   **`<g>` (Group)**: Use to group related elements. Transformations (translate, scale, rotate) applied to a `<g>` element affect all its children.
-    ```xml
-    <g className="mcp-internal"> {/* This class might not exist, example of applying styles */}
-        <rect x="40" y="225" width="100" height="55" rx="5" className="mcp-internal-box-class" /> {/* More specific class for the rect */}
-        <text x="90" y="246" textAnchor="middle" className="text-label">Tool Abstraction</text>
-    </g>
+*   **Default Choice**: For all iconography, `lucide-react` is the preferred library. It offers a wide range of clean, consistent, and highly configurable SVG icons.
+*   **Import**: Import icons directly from `lucide-react`.
+    ```tsx
+    import { Sparkles, Palette, Check } from 'lucide-react';
     ```
-*   **`<rect>` (Rectangle)**: For boxes. Attributes: `x`, `y`, `width`, `height`, `rx` (corner radius).
-*   **`<circle>` (Circle)**: For circular nodes. Attributes: `cx`, `cy`, `r`.
-*   **`<path>` (Path)**: For lines, curves, and complex shapes. The `d` attribute defines the path data.
-    *   Straight line: `d="M x1,y1 L x2,y2"`
-    *   Quadratic Bezier curve (for simple curves): `d="M x1,y1 Q cx,cy x2,y2"`
-*   **`<text>` (Text)**: For labels.
-    *   `x`, `y`: Coordinates (behavior depends on `text-anchor`).
-    *   `textAnchor="middle"`: Horizontally centers text at the `x` coordinate.
-    *   For multi-line text, you can use multiple `<text>` elements with adjusted `y` coordinates or `<tspan>` elements within a single `<text>` element. The current `ArchitectureSection.tsx` example uses multiple `<text>` elements for sub-labels.
-*   **`<defs>` and `<marker>`**: For defining reusable elements like arrowheads.
-    ```xml
-    <defs>
-      <marker id="arrowhead" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto" markerUnits="strokeWidth">
-        <polygon points="0 0, 7 2.5, 0 5" fill="hsl(var(--diagram-arrow-stroke))" />
-      </marker>
-    </defs>
+*   **Usage**:
+    ```tsx
+    <Sparkles className="h-5 w-5 text-primary" />
     ```
-    Apply markers to paths: `marker-end="url(#arrowhead)"`.
+*   **Styling**:
+    *   **Size**: Control size using Tailwind's height and width utilities (e.g., `h-5 w-5`, `h-6 w-6`).
+    *   **Color**: Control color using Tailwind's text color utilities (e.g., `text-primary`, `text-accent`, `text-foreground`). The icon will inherit this color.
+    *   **Stroke Width**: Lucide icons can accept a `strokeWidth` prop if needed, but the default is usually appropriate.
 
-## 5. Coordinate System
+## 2. Custom Inline SVGs (If Necessary)
 
-The coordinate system is defined by the `viewBox`. `(0,0)` is typically the top-left corner. All `x`, `y`, `cx`, `cy`, and path data coordinates are relative to this `viewBox`.
+If a specific icon or simple graphic is not available in `lucide-react` and must be custom-made, follow these guidelines:
 
-## 6. Positioning and Layout
+*   **Simplicity**: Keep custom SVGs simple and aligned with the geometric style of Lucide icons.
+*   **Inline SVGs**: Implement as inline SVGs directly within Next.js/React components.
+*   **Scalability**: Ensure SVGs are scalable. Use `viewBox` attribute and avoid fixed `width` and `height` attributes on the `<svg>` element itself if it's meant to scale with Tailwind classes. Instead, apply Tailwind size classes to the parent or the SVG element in the JSX.
+    ```tsx
+    // Example of a simple custom inline SVG component
+    const MyCustomIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor" // currentColor will make it inherit Tailwind text color
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        {...props} // Spread props to allow className for sizing and color
+      >
+        <path d="M12 2 L2 22 L22 22 Z" /> {/* Example path */}
+      </svg>
+    );
 
-*   Manual positioning is standard in SVG. Calculate coordinates carefully.
-*   Use `<g>` elements with `transform="translate(x,y)"` to simplify positioning of complex groups.
-*   For text within shapes, ensure `text-anchor="middle"` and adjust `y` coordinates for vertical centering. Fine-tune `dy` attribute if precise baseline adjustments are needed. The current architecture diagram adjusts `y` coordinates of multiple `<text>` elements for this.
+    // Usage:
+    // <MyCustomIcon className="h-6 w-6 text-accent" />
+    ```
+*   **Theme Integration for Fills/Strokes**:
+    *   For colors within the SVG that *cannot* be controlled by `currentColor` (e.g., multi-color SVGs), use CSS classes that reference theme variables from `src/app/globals.css` if possible. This is more complex for simple icons and `currentColor` is preferred.
+    *   If CSS variables must be used directly within an inline `<style>` tag in the SVG (less common for icons), ensure they map to Bouton's theme (e.g., `fill: hsl(var(--primary));`).
 
-## 7. Constraints and Best Practices
+## 3. Styling with Tailwind CSS
 
-*   **DO NOT** use hardcoded color values (e.g., `fill="#FFFFFF"`, `stroke="blue"`) directly in SVG attributes or styles. **Always use the `hsl(var(--diagram-...))` CSS variables via CSS classes.**
-*   **DO NOT** use inline style attributes on SVG elements (e.g., `<circle style="fill: red;">`). Use CSS classes.
-*   Keep the SVG structure clean and logically grouped.
-*   Use meaningful class names for CSS styling.
-*   Incrementally build and test your diagram. Browser developer tools are invaluable for inspecting and debugging SVGs.
-*   Reference the existing diagram in `src/components/chimera/sections/ArchitectureSection.tsx` as a complete example of these guidelines in practice.
-*   For accessibility, consider adding a `<title>` and `<desc>` element as the first children of your `<svg>` tag to describe its content, especially if the diagram conveys important information not available elsewhere.
-    ```xml
-    <svg width="100%" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-      <title>Architecture Diagram</title>
-      <desc>A diagram showing the supervisor-worker architecture and MCP server components.</desc>
-      {/* ... rest of SVG ... */}
-    </svg>
+*   Apply Tailwind CSS classes directly to the `<IconComponent />` or custom `<svg>` element for sizing, color, and layout.
+    ```tsx
+    <Palette className="h-6 w-6 text-primary mr-2" />
     ```
 
-## 8. Example: Defining and Using a Styled Element
+## 4. Accessibility
 
-**In `src/app/globals.css` (within `.dark` or `:root`):**
+*   If an icon is purely decorative and provides no additional information, use `aria-hidden="true"`.
+*   If an icon conveys meaning and is not accompanied by visible text (e.g., an icon-only button), provide an accessible label using `aria-label` on the interactive element or an associated `<span>` with `sr-only` class.
+    ```tsx
+    <button aria-label="Suggest Style">
+      <Sparkles className="h-5 w-5" />
+    </button>
+    ```
 
-```css
-/* Diagram specific colors for dark theme (Indigo/Violet Theme) */
---diagram-supervisor-fill: var(--primary); /* e.g., 278 100% 65% */
---diagram-text-fill: 0 0% 95%;
-/* ... other diagram variables ... */
-```
+## 5. Placeholder Images
 
-**In your SVG component's `<style>` block:**
+*   For placeholder images (if ever needed, though less likely for Bouton), use `https://placehold.co/<width>x<height>.png`.
+*   Add `data-ai-hint` with one or two keywords for future image search.
+    ```html
+    <img src="https://placehold.co/300x200.png" alt="Placeholder" data-ai-hint="abstract button" />
+    ```
 
-```xml
-  <style>
-    {`
-      .supervisor-node { fill: hsl(var(--diagram-supervisor-fill)); }
-      .node-title { font-family: var(--font-inter, 'Inter', sans-serif); font-size: 11px; font-weight: bold; fill: hsl(var(--diagram-text-fill)); text-anchor: middle; }
-    `}
-  </style>
-```
-
-**In your SVG body:**
-
-```xml
-<g>
-  <circle cx="50" cy="50" r="30" className="supervisor-node" />
-  <text x="50" y="53" className="node-title">Supervisor</text>
-</g>
-```
-
-By following these guidelines, you'll create SVG diagrams that are consistent, maintainable, and visually aligned with the Project Chimera web application.
+By prioritizing `lucide-react` and following these guidelines for any custom SVGs, Bouton will maintain a visually consistent and accessible interface.

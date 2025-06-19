@@ -28,7 +28,7 @@ const AnimatedRocket: React.FC = () => {
       role="presentation" // It's decorative
     >
       <RocketIcon
-        className="h-10 w-10 text-primary" // Removed -rotate-45, default orientation should work or can be adjusted further.
+        className="h-10 w-10 text-primary rotate-90" 
         aria-hidden="true"
       />
     </div>

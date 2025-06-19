@@ -1,7 +1,7 @@
 
 import React from 'react';
 import SectionCard from '@/components/chimera/SectionCard'; 
-import { PYTHON_CODE_EXAMPLE } from '@/lib/chimera/constants';
+import { HIGH_LEVEL_PYTHON_CODE_EXAMPLE } from '@/lib/chimera/constants'; // Use the new constant
 import { UserCog, Wrench, Inspect } from 'lucide-react';
 
 const SymbiosisSection: React.FC = () => {
@@ -28,9 +28,17 @@ const SymbiosisSection: React.FC = () => {
         <SectionCard
           icon={<Wrench className="h-12 w-12 text-purple-400" />}
           title="Building Custom Tools & Agents"
-          description={`Fostering a culture of <strong>'citizen AI development'</strong> where engineers build and share <strong>lightweight, custom agents</strong> using <strong>Python</strong> (with libraries like <strong>Pandas, LangChain</strong>) to automate niche workflows.
-          <div class='bg-gray-900 rounded-lg p-4 mt-4 text-sm font-mono text-slate-300 overflow-x-auto'>
-            <pre><code class='language-python whitespace-pre-wrap'>${PYTHON_CODE_EXAMPLE}</code></pre>
+          description={`Fostering a culture of <strong>'citizen AI development'</strong> where engineers build and share <strong>lightweight, custom agents</strong> using <strong>Python & Genkit</strong> to automate niche workflows.
+          <div class="bg-black rounded-lg shadow-xl overflow-hidden my-4 border border-slate-700">
+            <div class="bg-slate-800 px-4 py-2 flex items-center">
+              <div class="w-3 h-3 bg-red-500 rounded-full mr-1.5"></div>
+              <div class="w-3 h-3 bg-yellow-500 rounded-full mr-1.5"></div>
+              <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+              <span class="ml-auto text-xs text-slate-400 font-mono">Python (Genkit Tool) -- ~user/dev/custom_tools</span>
+            </div>
+            <div class="p-4 text-sm font-mono text-slate-300 overflow-x-auto bg-slate-900">
+              <pre><code class='language-python whitespace-pre-wrap'>${HIGH_LEVEL_PYTHON_CODE_EXAMPLE}</code></pre>
+            </div>
           </div>
           Validated custom tools are registered with the <strong>MCP Server</strong>, becoming available to the entire organization's agent ecosystem.`}
           className="hover:border-purple-500/50 flex flex-col"
@@ -56,5 +64,3 @@ const SymbiosisSection: React.FC = () => {
 };
 
 export default SymbiosisSection;
-
-

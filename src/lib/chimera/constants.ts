@@ -204,27 +204,61 @@ export const ROADMAP_PHASES: RoadmapPhase[] = [
     }
 ];
 
-export const PYTHON_CODE_EXAMPLE = `
-# A simple agent to parse log files
-class LogParserAgent:
-    def run(self, log_file):
-        errors = []
-        with open(log_file, 'r') as f:
-            for line in f:
-                if "ERROR:" in line:
-                    errors.append(line.strip())
-        
-        summary = f"Found {len(errors)} errors."
-        return {"summary": summary, "errors": errors}
+export const HIGH_LEVEL_PYTHON_CODE_EXAMPLE = `
+# Conceptual Genkit Tool for Design Analysis
+from genkit import ai, define_tool, z
 
-# Register with MCP Server
-# mcp.register_tool("log_parser", LogParserAgent()) # Assuming mcp is defined elsewhere
-`;
+@define_tool(
+    name="design_analyzer_tool",
+    description="Analyzes RTL design metrics from a report.",
+    input_schema=z.object({
+        "report_path": z.string().describe(
+            "Path to the design report file (e.g., JSON, text)."
+        )
+    }),
+    output_schema=z.object({
+        "critical_warnings": z.number(),
+        "timing_slack_ns": z.number(),
+        "summary": z.string()
+    })
+)
+async def analyze_design(report_path: str):
+    # In a real scenario:
+    # 1. Read the report_path file
+    # 2. Parse out relevant metrics
+    # 3. Perform analysis or apply rules
+    # 4. Return structured analysis
+
+    # For this example, returning placeholder data:
+    print(f"Analyzing design report: {report_path}")
+    warnings = 5  # Example
+    slack = -0.2 # Example
+    summary_text = f"Found {warnings} critical warnings. Timing slack: {slack}ns."
+    
+    return {
+        "critical_warnings": warnings,
+        "timing_slack_ns": slack,
+        "summary": summary_text
+    }
+
+# An AI agent could then use this tool:
+# result = await ai.run(
+#   design_analyzer_tool, 
+#   {"report_path": "/path/to/synthesis_report.json"}
+# )
+# print(result.summary)
+`.trim();
+
+// Keep the old constant name for now if other parts of the app might still reference it,
+// but ensure its content is also updated or new sections use the new constant.
+// For this specific request, SymbiosisSection will use HIGH_LEVEL_PYTHON_CODE_EXAMPLE.
+export const PYTHON_CODE_EXAMPLE = HIGH_LEVEL_PYTHON_CODE_EXAMPLE;
     
 
     
 
     
+
 
 
 

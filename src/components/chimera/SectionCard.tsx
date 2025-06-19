@@ -10,12 +10,19 @@ const SectionCard: React.FC<SectionCardProps> = ({ icon, title, description, cla
         className={`text-xl font-bold mb-2 text-white ${titleClassName}`}
         dangerouslySetInnerHTML={{ __html: title }}
       />
-      <div 
-        className={`text-slate-400 ${contentClassName}`}
-        dangerouslySetInnerHTML={{ __html: description }}
-      />
+      {typeof description === 'string' ? (
+        <div
+          className={`text-slate-400 ${contentClassName}`}
+          dangerouslySetInnerHTML={{ __html: description }}
+        />
+      ) : (
+        <div className={`text-slate-400 ${contentClassName}`}>
+          {description}
+        </div>
+      )}
     </div>
   );
 };
 
 export default SectionCard;
+

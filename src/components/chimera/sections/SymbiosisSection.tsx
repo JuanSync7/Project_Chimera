@@ -1,8 +1,46 @@
 
 import React from 'react';
 import SectionCard from '@/components/chimera/SectionCard'; 
-import { HIGH_LEVEL_PYTHON_CODE_EXAMPLE } from '@/lib/chimera/constants'; // Use the new constant
-import { UserCog, Wrench, Inspect } from 'lucide-react';
+import { HIGH_LEVEL_PYTHON_CODE_EXAMPLE } from '@/lib/chimera/constants';
+import { UserCog, Wrench, Inspect, Lightbulb, Workflow, UserCheck, BrainCircuit } from 'lucide-react';
+
+const OrchestratorResponsibilities = () => (
+  <>
+    <p>The engineer's role evolves significantly, shifting from detailed, low-level implementation tasks towards high-level strategic oversight and direction. They transition into an <strong>Agent Orchestrator</strong>, guiding and supervising the AI ensemble, with responsibilities including:</p>
+    <ul className="list-none pl-0 space-y-6 !my-6">
+      <li className="flex items-start">
+        <Lightbulb className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+        <div>
+          <strong className="text-primary block mb-1">Strategic Goal Definition & Prompt Engineering:</strong>
+          Engineers will translate complex product requirements and business objectives into clear, high-level strategic goals for the AI system. A key skill will be crafting effective, nuanced prompts for the Supervisor agent, guiding its task decomposition and overall design exploration. For example, prompting: <i>“Design a low-power RISC-V core for an edge IoT device, prioritizing battery life over raw throughput, targeting the 3nm process node, and adhering to specific security enclave requirements.”</i>
+        </div>
+      </li>
+      <li className="flex items-start">
+        <Workflow className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+        <div>
+          <strong className="text-primary block mb-1">Agentic Workflow Curation & Customization:</strong>
+          Engineers will leverage frameworks like LangGraph to design, curate, and customize the sequences of agent interactions. They might adapt standard verification workflows to incorporate novel AI-driven test generation techniques or configure the PPA Optimization Agent to explore unconventional power-saving strategies for a specific design block. This empowers them to tailor the AI's approach to unique project challenges.
+        </div>
+      </li>
+      <li className="flex items-start">
+        <UserCheck className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+        <div>
+          <strong className="text-primary block mb-1">Human-in-the-Loop Supervision & Validation:</strong>
+          While AI automates extensively, engineers remain crucial for validating key AI-generated outputs, making strategic decisions at critical junctures, and intervening to resolve complex, ambiguous, or novel problems that agents cannot autonomously handle. For instance, if an agent proposes a radically unconventional but potentially highly efficient layout, the engineer provides the domain expertise to assess its manufacturability and real-world viability, ensuring AI's novel solutions are practically grounded.
+        </div>
+      </li>
+      <li className="flex items-start">
+        <BrainCircuit className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
+        <div>
+          <strong className="text-primary block mb-1">Insight Generation & Knowledge Encoding:</strong>
+          Engineers will analyze AI-generated outputs and reasoning traces (e.g., via LangSmith) to uncover novel design insights and optimization patterns. They'll also play a vital role in curating and refining the MCP Server's Knowledge Hub, encoding successful design patterns and human expertise to continuously enhance the AI system's collective intelligence, transforming individual learnings into persistent organizational knowledge.
+        </div>
+      </li>
+    </ul>
+    <p className='mt-4'>This evolved role transforms engineers into strategic <strong>force multipliers</strong>, enabling them to oversee numerous complex design explorations simultaneously, significantly amplifying their creative impact and innovation capacity.</p>
+  </>
+);
+
 
 const SymbiosisSection: React.FC = () => {
   return (
@@ -15,26 +53,7 @@ const SymbiosisSection: React.FC = () => {
         <SectionCard
           icon={<UserCog className="h-12 w-12 text-sky-400" />}
           title="From Tool User to Agent Orchestrator"
-          description={`<p>The engineer's role evolves significantly, shifting from detailed, low-level implementation tasks towards high-level strategic oversight and direction. They transition into an <strong>Agent Orchestrator</strong>, guiding and supervising the AI ensemble, with responsibilities including:</p>
-          <ul class='list-disc pl-5 space-y-3 mt-3'>
-            <li>
-              <strong class='text-sky-300 font-semibold'>Strategic Goal Definition & Prompt Engineering:</strong><br/>
-              Engineers will translate complex product requirements and business objectives into clear, high-level strategic goals for the AI system. A key skill will be crafting effective, nuanced prompts for the Supervisor agent, guiding its task decomposition and overall design exploration. For example, prompting: <i>“Design a low-power RISC-V core for an edge IoT device, prioritizing battery life over raw throughput, targeting the 3nm process node, and adhering to specific security enclave requirements.”</i>
-            </li>
-            <li>
-              <strong class='text-sky-300 font-semibold'>Agentic Workflow Curation & Customization:</strong><br/>
-              Engineers will leverage frameworks like LangGraph to design, curate, and customize the sequences of agent interactions. They might adapt standard verification workflows to incorporate novel AI-driven test generation techniques or configure the PPA Optimization Agent to explore unconventional power-saving strategies for a specific design block. This empowers them to tailor the AI's approach to unique project challenges.
-            </li>
-            <li>
-              <strong class='text-sky-300 font-semibold'>Human-in-the-Loop Supervision & Validation:</strong><br/>
-              While AI automates extensively, engineers remain crucial for validating key AI-generated outputs, making strategic decisions at critical junctures, and intervening to resolve complex, ambiguous, or novel problems that agents cannot autonomously handle. For instance, if an agent proposes a radically unconventional but potentially highly efficient layout, the engineer provides the domain expertise to assess its manufacturability and real-world viability, ensuring AI's novel solutions are practically grounded.
-            </li>
-            <li>
-              <strong class='text-sky-300 font-semibold'>Insight Generation & Knowledge Encoding:</strong><br/>
-              Engineers will analyze AI-generated outputs and reasoning traces (e.g., via LangSmith) to uncover novel design insights and optimization patterns. They'll also play a vital role in curating and refining the MCP Server's Knowledge Hub, encoding successful design patterns and human expertise to continuously enhance the AI system's collective intelligence, transforming individual learnings into persistent organizational knowledge.
-            </li>
-          </ul>
-          <p class='mt-4'>This evolved role transforms engineers into strategic <strong>force multipliers</strong>, enabling them to oversee numerous complex design explorations simultaneously, significantly amplifying their creative impact and innovation capacity.</p>`}
+          description={<OrchestratorResponsibilities />}
           className="hover:border-sky-500/50 flex flex-col"
           contentClassName="flex-grow"
         />
@@ -77,3 +96,4 @@ const SymbiosisSection: React.FC = () => {
 };
 
 export default SymbiosisSection;
+

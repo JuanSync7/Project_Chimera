@@ -21,7 +21,7 @@ export interface PipelineTab {
 export interface SectionCardProps {
   icon?: React.ReactNode;
   title: string;
-  description: string;
+  description: string | React.ReactNode; // Allow ReactNode for description
   className?: string;
   contentClassName?: string;
   titleClassName?: string;
@@ -40,3 +40,4 @@ export interface RoadmapPhase {
   colorClass: string; 
   dotClass: string;
 }
+

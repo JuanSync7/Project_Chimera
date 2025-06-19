@@ -82,7 +82,6 @@ const PipelineSection: React.FC = () => {
                     </h4>
                     <p className="text-slate-400 pl-[22px]" dangerouslySetInnerHTML={{ __html: currentMobileStageData.challenge }}></p>
                 </div>
-
                 <div>
                   <h4 className="font-semibold text-white mb-1 flex items-center">
                     <Workflow className="w-4 h-4 mr-2 text-primary flex-shrink-0" />
@@ -90,7 +89,6 @@ const PipelineSection: React.FC = () => {
                   </h4>
                   <div className="text-slate-400 prose prose-xs prose-invert max-w-none pl-[22px]" dangerouslySetInnerHTML={{ __html: currentMobileStageData.agenticWorkflowDetails }}></div>
                 </div>
-                
                 <div>
                     <h4 className="font-semibold text-white text-sm mb-1 flex items-center">
                         <Star className="w-4 h-4 mr-2 inline-block text-green-400 flex-shrink-0" />
@@ -164,7 +162,7 @@ const PipelineSection: React.FC = () => {
                      <div className="text-center mt-8">
                         <Link href={`/ai-pipeline#${currentDesktopStageData.id}`} passHref>
                           <Button variant="link" className="text-sky-400 hover:text-sky-300 text-base">
-                            Full Stage Details on AI Pipeline Page &rarr;
+                            Full Stage Details &rarr;
                           </Button>
                         </Link>
                       </div>
@@ -174,9 +172,20 @@ const PipelineSection: React.FC = () => {
           )}
         </>
       )}
-      {/* Removed the general "Deep Dive into All AI Pipeline Stages" button from here */}
+      <div className="text-center mt-16 md:mt-12"> {/* Adjusted margin: mt-16 for mobile, md:mt-12 for desktop */}
+        <Link href="/ai-pipeline" passHref>
+          <Button
+            variant="outline"
+            size="lg"
+            className="bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/40"
+          >
+            Deep Dive into the AI-Powered Pipeline &rarr;
+          </Button>
+        </Link>
+      </div>
     </section>
   );
 };
 
 export default PipelineSection;
+

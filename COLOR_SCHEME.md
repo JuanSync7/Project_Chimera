@@ -1,3 +1,4 @@
+
 # Project Chimera Webpage Color Scheme
 
 This document outlines the color scheme used throughout the Project Chimera webpage. The application defaults to **dark mode**.
@@ -74,6 +75,10 @@ Refer to the `.dark { ... }` block in `src/app/globals.css` for all dark mode HS
         *   Hover Shadow: `hover:shadow-lg hover:shadow-violet-500/40`
         *   **Used for**: "Explore the AGI Horizon &rarr;" (in Risks/Vision Section)
 
+### 3.3 AI Pipeline Stage Shortcut Buttons (`src/app/ai-pipeline/page.tsx`)
+    *   **Base Style**: `variant="outline" size="sm"`
+    *   **Normal State**: `bg-slate-800/60 border-white hover:bg-slate-700/80 hover:border-primary text-slate-300 hover:text-white`
+    *   **Transition**: `transition-all duration-200`
 
 ## 4. SVG Diagram Colors (Architectural Blueprint - Dark Mode)
 
@@ -89,7 +94,7 @@ These are defined as HSL CSS variables in `src/app/globals.css` under the `.dark
 *   **Title Text (`--diagram-title-text-fill`)**: `0 0% 100%` (White)
 *   **Arrows (`--diagram-arrow-stroke`)**: `var(--accent)` (Lighter Blue Violet for arrows - `271 76% 60%`)
 
-## 5. Tab Buttons (Pipeline Section)
+## 5. Tab Buttons (Main Page Pipeline Section)
 
 Styled using global CSS classes `.tab-button-active` and `.tab-button-inactive` in `src/app/globals.css`.
 

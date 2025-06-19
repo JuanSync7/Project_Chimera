@@ -1,3 +1,4 @@
+
 # Guide: Creating Main and Subpages for Project Chimera
 
 This guide details how to add new main content areas (typically as sections on the primary `src/app/page.tsx`) and new dedicated subpages to the Project Chimera application.
@@ -14,7 +15,7 @@ The application uses a tiered layout system for consistency:
 2.  **`SubPageLayout.tsx` (`src/components/chimera/SubPageLayout.tsx`)**:
     *   This component is specifically for creating detailed subpages.
     *   It wraps its content with `PageShell` to provide the standard header, footer, and mobile menu.
-    *   It automatically includes a "Back to Project Overview" button.
+    *   It automatically includes a "Back to Project Overview" button (configurable via `backButtonHref` and `backButtonText` props).
     *   It expects page-specific content (like an `<article>`) as its `children`.
 
 ## The Main Page (`src/app/page.tsx`)
@@ -28,6 +29,7 @@ The application has one primary main page (`src/app/page.tsx`) which serves as t
 *   May include page-specific components like `<StarryBackground />`.
 *   Content is organized into various `<section>` components (e.g., `<HomeSection />`, `<OverviewSection />`), imported from `src/components/chimera/sections/`.
 *   Often includes "Learn More" buttons (`<Link href="/subpage-route">...</Link>`) that navigate to dedicated subpages for more detailed information.
+*   The main content logic (`HomePageContent`) is wrapped in a `<Suspense>` component for potential future use with server components or data fetching strategies, though currently, it primarily handles client-side interactivity.
 
 ### Adding a New Section to the Main Page:
 
@@ -36,7 +38,7 @@ The application has one primary main page (`src/app/page.tsx`) which serves as t
     *   Design your section using React and Tailwind CSS. Use ShadCN UI components where appropriate.
     *   Ensure the root element of your section is a `<section id="new-content-id">...</section>` where `new-content-id` is unique.
 2.  **Import and Use in `src/app/page.tsx`**:
-    *   Import your new section component.
+    *   Import your new section component into `HomePageContent`.
     *   Place it in the desired order within the main page's JSX structure.
 3.  **Update Navigation (Optional but Recommended)**:
     *   Add a new entry to `NAV_LINKS` in `src/lib/chimera/constants.ts` if this section should be directly navigable from the header/mobile menu. The `id` should match the `id` of your `<section>` tag.
@@ -66,31 +68,41 @@ Subpages are used for detailed content related to a specific topic, often linked
     *   Import `SubPageLayout` from `@/components/chimera/SubPageLayout`.
     *   The main export should be a React functional component.
     *   Wrap your subpage's primary content within the `<SubPageLayout>` component.
-    *   Typically, subpage content is structured as an `<article>` with prose styling for readability.
+    *   Typically, subpage content is structured as an `<article>` with prose styling for readability. Refer to `ARTICLE_PAGE_FORMATTING_GUIDE.md` for detailed styling conventions for headings, lists, cards, etc.
 
     **Example (`src/app/new-detailed-topic/page.tsx`):**
     ```tsx
     "use client"; // If using client-side hooks or interactivity
     import React from 'react';
     import SubPageLayout from '@/components/chimera/SubPageLayout';
+    import { ExampleIcon } from 'lucide-react'; // For H1 title
 
     export default function NewDetailedTopicPage() {
       return (
         <SubPageLayout>
           <article className="prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6">
-            <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-10">
-              Title for New Detailed Topic
-            </h1>
+            {/* Main Page Title (H1) */}
+            <div className="flex flex-col items-center text-center mb-12">
+              <ExampleIcon className="h-16 w-16 text-primary mb-4" />
+              <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-2 md:leading-tight">
+                Title for New Detailed Topic
+              </h1>
+              <p className="text-2xl text-slate-400">Engaging subtitle here.</p>
+            </div>
+            
             <p>
               Detailed content goes here. You can use various HTML elements
               like paragraphs, lists, headings, etc.
             </p>
             
-            <h2 className="text-3xl font-semibold text-white !mt-12 !mb-6 border-b border-slate-700 pb-2">
-              Sub-heading within the Topic
-            </h2>
+            {/* Main Section Title (H2) - First one on page */}
+            <div className="mt-16 mb-4">
+              <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
+                Sub-heading within the Topic
+              </h2>
+            </div>
             <p>More details...</p>
-            {/* Add more content as needed */}
+            {/* Add more content as needed, following ARTICLE_PAGE_FORMATTING_GUIDE.md */}
           </article>
         </SubPageLayout>
       );
@@ -106,7 +118,7 @@ Subpages are used for detailed content related to a specific topic, often linked
 
         // ... inside a component's return statement
         <Link href="/new-detailed-topic" passHref>
-          <Button variant="outline" size="lg" className="...">
+          <Button variant="outline" size="lg" className="bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 ...">
             Learn More: New Detailed Topic &rarr;
           </Button>
         </Link>
@@ -114,12 +126,13 @@ Subpages are used for detailed content related to a specific topic, often linked
 
 5.  **Styling**:
     *   Use Tailwind CSS classes for styling.
-    *   For article-style content on subpages, the `prose prose-slate dark:prose-invert lg:prose-xl max-w-none` classes provide good defaults for typography and spacing.
+    *   For article-style content on subpages, the `prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300` classes provide good defaults for typography and spacing.
     *   Global styles are in `src/app/globals.css`.
+    *   For specific formatting of headings, lists, and alternative content blocks like `KeyStatCard`, refer to `ARTICLE_PAGE_FORMATTING_GUIDE.md`.
 
 ## Summary Flow
 
 *   **Main Page (`src/app/page.tsx`)**: Aggregates overview sections. Uses `PageShell`. Manages its own scroll-based navigation highlighting.
-*   **Subpages (e.g., `src/app/some-topic/page.tsx`)**: Provide focused, detailed content. Use `SubPageLayout` (which in turn uses `PageShell`).
+*   **Subpages (e.g., `src/app/some-topic/page.tsx`)**: Provide focused, detailed content. Use `SubPageLayout` (which in turn uses `PageShell`). Adhere to `ARTICLE_PAGE_FORMATTING_GUIDE.md` for content structure.
 
 By following this structure, you can maintain a consistent look and feel across the application while organizing content logically.

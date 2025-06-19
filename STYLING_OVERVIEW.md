@@ -10,7 +10,7 @@ This document provides a comprehensive overview of the styling approach used in 
     *   Configuration for ShadCN UI (component paths, base color, CSS variables) is managed in `components.json`.
     *   Components are typically located in `src/components/ui/`.
 *   **CSS Custom Properties (Variables)**: Used extensively for theming, especially for colors, to support light and dark modes. These are primarily defined in `src/app/globals.css`.
-*   **Lucide React**: The default icon library, providing a wide range of clean and consistent SVG icons.
+*   **Lucide React**: The default icon library, providing a wide range of clean and consistent SVG icons. Direct import of specific icons is preferred.
 
 ## 2. Theme Configuration (`src/app/globals.css`)
 
@@ -42,17 +42,17 @@ The `tailwind.config.ts` file extends Tailwind's default theme:
 
 Beyond theme variables, `src/app/globals.css` also contains:
 
-*   **Base Styles**: Basic resets and default styles for HTML elements (`@tailwind base`).
+*   **Base Styles**: Basic resets and default styles for HTML elements (`@tailwind base`). This includes setting the base font family to `var(--font-inter)`.
 *   **Component Styles**: Default styles for some ShadCN components or general component patterns (`@tailwind components`).
 *   **Utility Styles**: Tailwind utility classes (`@tailwind utilities`).
 *   **Custom Global Classes**:
-    *   `.glassmorphism`: For translucent, blurred backgrounds.
+    *   `.glassmorphism`: For translucent, blurred backgrounds (used on old header, potentially reusable).
     *   `.gradient-text`: For the specific yellow-lime-green gradient text effect. (See `COLOR_SCHEME.md`)
     *   `.active-nav`, `.nav-link`: For header navigation link styling.
-    *   `.section-card`: Base styling for section cards (hover effects are also defined here).
-    *   `.tab-button-active`, `.tab-button-inactive`: For styling pipeline section tabs. (See `COLOR_SCHEME.md`)
+    *   `.section-card`: Base styling for section cards (hover effects, background, border).
+    *   `.tab-button-active`, `.tab-button-inactive`: For styling pipeline section tabs on the main page. (See `COLOR_SCHEME.md`)
     *   `.roadmap-dot`, `.phase-crawl .roadmap-dot`, etc.: For styling the dots on the roadmap timeline.
-    *   Prose Adjustments: Styling for list bullets within content rendered via `dangerouslySetInnerHTML`.
+    *   Prose Adjustments: Styling for list bullets within content rendered via `dangerouslySetInnerHTML` to use the primary theme color.
     *   Starry Background Animation (`star-animation`, `.star-item`): For the animated background effect.
 
 ## 5. Component-Level Styling

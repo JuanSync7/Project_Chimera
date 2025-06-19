@@ -244,4 +244,3 @@ While the above sections detail standard prose and heading structures, certain t
 *   **Important Note**: The `description` prop of the `KeyStatCard` component supports HTML (via `dangerouslySetInnerHTML`), allowing for rich text formatting, including `<p>`, `<strong>`, `<ul>`, etc., ensuring the full narrative can be contained within the card. The `stat` prop typically holds a short, impactful title or statistic.
 
 By following these guidelines, article-style subpages will maintain a consistent and readable structure, making it easier for users to navigate and understand the detailed content.
-

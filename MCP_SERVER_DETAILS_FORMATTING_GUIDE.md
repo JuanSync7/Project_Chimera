@@ -57,23 +57,24 @@ This guide outlines the specific formatting conventions for the "Deep Dive: The 
 ## 3. Main Section Titles (`<h2>`)
 
 *   Each major numbered section (e.g., 1. Tool Abstraction Layer, 2. Knowledge Hub) starts with an `<h2>` element.
+*   The first `<h2>` on the page should have its wrapper `div` styled with `mt-16 mb-4`. Subsequent `<h2>` sections should use `mt-24 mb-4`.
 *   Some `<h2>` titles (like for "Potential Challenges" or "Comparison") may include a leading icon for thematic emphasis.
-*   **Structure (Standard)**:
+*   **Structure (First `<h2>` on page)**:
     ```tsx
     // ... inside <article>
-    <div className="mt-12 mb-4"> {/* Wrapper for consistent spacing */}
+    <div className="mt-16 mb-4"> {/* Wrapper for consistent spacing */}
       <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
         1. Tool Abstraction Layer: How it Works
       </h2>
     </div>
     <p>Paragraph content for the section...</p>
     ```
-*   **Structure (With Icon)**:
+*   **Structure (Subsequent `<h2>` with Icon)**:
     ```tsx
     import { AlertTriangle } from 'lucide-react';
 
     // ... inside <article>
-    <div className="mt-12 mb-4">
+    <div className="mt-24 mb-4">
       <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 flex items-center">
         <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" /> {/* Icon */}
         4. Potential Challenges for MCP Server Implementation
@@ -81,7 +82,7 @@ This guide outlines the specific formatting conventions for the "Deep Dive: The 
     </div>
     ```
 *   **Styling**:
-    *   Wrapper `<div>`: `mt-12 mb-4`
+    *   Wrapper `<div>`: `mt-16 mb-4` (for first H2), `mt-24 mb-4` (for subsequent H2s).
     *   `<h2>`: `text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2`
     *   Icon (if present): `h-7 w-7 [specific-color] mr-3 flex-shrink-0` (e.g., `text-yellow-400`)
 
@@ -112,7 +113,7 @@ This guide outlines the specific formatting conventions for the "Deep Dive: The 
 
 ## 5. List Items and Keyword Highlighting
 
-*   **Unordered Lists (`<ul>`)**: Use `list-disc pl-5 space-y-2`.
+*   **Unordered Lists (`<ul>`)**: Use `list-disc pl-5 space-y-2`. Refer to `ARTICLE_PAGE_FORMATTING_GUIDE.md` Section 5 for standard and enhanced list styles.
 *   **Agent/Component/Item Titles in Lists**: The name/title of the item (e.g., "Standardized API:") is emphasized using `<strong className="text-white font-semibold">`.
     ```html
     <ul class="list-disc pl-5 space-y-2">
@@ -130,5 +131,3 @@ This page uses a variety of Lucide icons. Ensure they are imported at the top:
 `ServerCog`, `Settings2`, `TerminalSquare`, `ThumbsUp`, `DatabaseZap`, `BrainCircuit`, `MessagesSquare`, `Sparkles`, `AlertTriangle`, `GitCompareArrows`, `Lightbulb`, `Network`, `UserCheck`, `Users`, `Share2`, `UserSquare2`, `KeyRound`.
 
 By following these guidelines, the `mcp-server-details/page.tsx` will maintain structural and stylistic consistency with the rest of the "Architectural Blueprint" section.
-
-    

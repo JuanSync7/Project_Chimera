@@ -19,17 +19,17 @@ This document outlines the key data structures (TypeScript interfaces) used with
 ## 2. `PipelineTab`
 
 *   **File**: `src/lib/chimera/types.ts`
-*   **Purpose**: Defines the structure for each tab in the "AI-Powered Design Pipeline" section.
+*   **Purpose**: Defines the structure for each tab in the "AI-Powered Design Pipeline" section on the main page.
 *   **Fields**:
     *   `id: string`: A unique identifier for the tab (e.g., `tab-spec`).
     *   `title: string`: The short title displayed on the tab button (e.g., "1. Spec & Arch").
-    *   `icon?: React.ReactNode`: An optional ReactNode (typically a Lucide icon component) to be displayed on the tab button.
+    *   `icon?: React.ReactNode`: A ReactNode (typically a Lucide icon component directly imported and used, e.g., `<Pencil className="w-5 h-5 mr-2 inline-block" />`) to be displayed on the tab button.
     *   `heading: string`: The main heading for the content displayed when the tab is active (e.g., "Stage 1: System Specification & Architecture").
     *   `generalDescription: string`: A general introductory paragraph for the pipeline stage. Can contain HTML for formatting (e.g., `<strong>`).
     *   `challenge: string`: Describes the key challenge this pipeline stage addresses. Can contain HTML.
     *   `agenticWorkflowDetails: string`: Detailed description of the AI agents, techniques, tools, and processes involved. Expected to contain HTML for structure (e.g., `<ul>`, `<li>`, `<strong>`).
     *   `outcome: string`: The primary business outcome or benefit of the agentic approach in this stage. Can contain HTML.
-    *   `outcomeColor?: string`: An optional Tailwind CSS text color class (e.g., `text-sky-300`) for styling the outcome text.
+    *   `outcomeColor?: string`: An optional Tailwind CSS text color class (e.g., `text-green-400`) for styling the outcome text.
 *   **Usage**:
     *   Populated in the `PIPELINE_TABS` array in `src/lib/chimera/constants.ts`.
     *   Consumed by `PipelineSection.tsx` (`src/components/chimera/sections/PipelineSection.tsx`) to render the tab buttons and their corresponding content panels.
@@ -69,7 +69,20 @@ This document outlines the key data structures (TypeScript interfaces) used with
     *   Consumed by `SectionCard.tsx` (`src/components/chimera/SectionCard.tsx`).
     *   Used by various section components (e.g., `OverviewSection.tsx`, `SymbiosisSection.tsx`) to display content in a consistent card format. The `title` and `description` are rendered using `dangerouslySetInnerHTML` to allow for embedded HTML styling.
 
-## 5. `PYTHON_CODE_EXAMPLE`
+## 5. `KeyStatCardProps` (Implicit via `KeyStatCard.tsx`)
+
+*   **File**: `src/components/chimera/KeyStatCard.tsx` (Props interface defined within the component)
+*   **Purpose**: Defines the props for the reusable `KeyStatCard.tsx` component.
+*   **Fields**:
+    *   `stat: string`: The prominent statistic or concept title displayed in large, gradient text.
+    *   `description: string`: The detailed explanation for the key point. Supports HTML rendering.
+    *   `icon?: React.ReactElement<LucideProps>`: An optional Lucide icon.
+    *   `className?: string`: Optional additional CSS classes.
+*   **Usage**:
+    *   Used in `src/app/strategic-imperative/page.tsx` (Section 1.1) to present core arguments. Each card encapsulates a key concept and its detailed paragraph.
+    *   The component internally handles responsive font sizes and line heights for the `stat` to prevent descender clipping.
+
+## 6. `PYTHON_CODE_EXAMPLE`
 
 *   **File**: `src/lib/chimera/constants.ts` (Constant, not a type)
 *   **Purpose**: A string constant holding a Python code snippet.

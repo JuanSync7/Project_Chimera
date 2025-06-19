@@ -30,14 +30,15 @@ The application features a collapsible mobile menu for navigation on smaller scr
 *   **Visibility**:
     *   The `<MobileMenu>` component's rendering is conditional on the `isMobileMenuOpen` state. It only renders if `isMobileMenuOpen` is `true`.
     *   The `aria-expanded` attribute on the mobile menu button in `<Header>` is also tied to this state.
+    *   The `MobileMenu` itself becomes sticky below the header when open.
 
-## 3. Pipeline Section Tabs (`src/components/chimera/sections/PipelineSection.tsx`)
+## 3. Pipeline Section Tabs (Main Page - `src/components/chimera/sections/PipelineSection.tsx`)
 
-The "AI-Powered Design Pipeline" section uses a tabbed interface to display different stages.
+The "AI-Powered Design Pipeline" section on the main page uses a tabbed interface to display different stages.
 
 *   **State**: An `activeTab` state variable (string) is managed within the `<PipelineSection>` component. It stores the `id` of the currently selected tab.
 *   **Mechanism**:
-    *   The `PIPELINE_TABS` array in `src/lib/chimera/constants.ts` defines the data for each tab, including a unique `id`.
+    *   The `PIPELINE_TABS` array in `src/lib/chimera/constants.ts` defines the data for each tab, including a unique `id` and an icon.
     *   When a tab button is clicked, its `onClick` handler calls `setActiveTab` with the `id` of the clicked tab.
 *   **Content Display**:
     *   The content area renders the details of the `PipelineTab` whose `id` matches the current `activeTab` state.
@@ -54,7 +55,7 @@ The `useIsMobile` hook provides a simple way to detect if the application is bei
     *   It sets an `isMobile` state (boolean) and updates it on initial load and when the viewport resizes across the breakpoint.
 *   **Usage Examples**:
     *   **`StarryBackground.tsx`**: Adjusts the number and size of stars rendered based on the return value of `useIsMobile` for performance and visual balance.
-    *   **`SidebarProvider.tsx` (from ShadCN, used internally by `Sidebar` components if they were present)**: Uses `useIsMobile` to determine whether to render a collapsible icon-based sidebar or an off-canvas mobile sheet. Although Project Chimera doesn't prominently feature a persistent sidebar, the hook's utility is demonstrated here.
+    *   **`SidebarProvider.tsx` (from ShadCN, potentially used internally by `Sidebar` components if they were present in the main application)**: This hook is a common pattern in ShadCN UI to determine whether to render a collapsible icon-based sidebar or an off-canvas mobile sheet. Although Project Chimera doesn't prominently feature a persistent main sidebar, the hook demonstrates a robust responsive pattern.
 
 ## 5. Client-Side Data Fetching and State (Illustrative - Not Heavily Used in Chimera Currently)
 
@@ -63,5 +64,6 @@ While Project Chimera primarily presents static content enhanced with client-sid
 *   **`useEffect`**: For fetching data on component mount if it's client-side only.
 *   **`useState`**: To store the fetched data and manage loading/error states.
 *   **Server Components with Client Component Consumers**: For Next.js App Router, data fetching is often done in Server Components and passed as props to Client Components, or Client Components can use `React.use()` with async functions/promises for data fetching if needed during rendering.
+*   **Genkit Flows**: For AI-related data fetching or generation, Genkit flows defined in `src/ai/flows/` would be called from Server Actions or client-side `useEffect` hooks, depending on the use case.
 
 This guide covers the primary client-side interactive elements in Project Chimera. Understanding these patterns will help in maintaining and extending the application's dynamic features.

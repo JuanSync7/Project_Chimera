@@ -25,7 +25,8 @@ import {
   DollarSign,
   TrendingUp,
   Layers3,
-  Users
+  Users,
+  Package // Added for IPaaS/PaaS
 } from 'lucide-react';
 
 export default function RoadmapPhase3RunPage() {
@@ -43,7 +44,7 @@ export default function RoadmapPhase3RunPage() {
         <p className="italic text-center text-lg text-slate-400 !mt-0">Phase Overview: If Phase 1 built the AI agents and Phase 2 taught them to work together, Phase 3: Run is about achieving a state of Human-AI Symbiosis. The AI pipeline becomes a proactive, learning partner in the chip design process, moving beyond simple automation to intelligent optimization and strategic contribution. This is the stage where we transition from using AI as a tool to integrating AI as a core pillar of the company&apos;s growth, innovation, and competitive advantage.</p>
 
         {/* Executive Overview */}
-        <div className="mt-12 mb-4">
+        <div className="mt-12 mb-4"> {/* First H2 after main title block */}
           <div className="flex items-center">
             <FileText className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
             <h2 className="text-3xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
@@ -69,7 +70,7 @@ export default function RoadmapPhase3RunPage() {
         <p>In summary, Phase 3 is designed to deliver transformative ROI by drastically reducing design time, improving chip performance beyond human capability, and slashing non-recurring engineering costs. By successfully executing this plan, we will not only optimize our internal design processes but also position the company as a leader in AI-driven design and create new, scalable lines of business.</p>
 
         {/* Part 1: Strategic Clarification */}
-        <div className="mt-16 mb-4">
+        <div className="mt-16 mb-4"> {/* First "Part X" section */}
           <div className="flex items-center">
             <Lightbulb className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
             <h2 className="text-3xl font-semibold text-primary gradient-text !m-0 !border-b-0 !pb-0">
@@ -81,7 +82,7 @@ export default function RoadmapPhase3RunPage() {
         <p>Think of it this way: The world&apos;s best Formula 1 driver doesn&apos;t build their own car from scratch; they master the use of a highly advanced machine to win races. Similarly, our AI will be the &quot;expert driver&quot; for the best EDA tools available, orchestrating them in a holistic, end-to-end flow to design world-beating chips faster and more efficiently than any competitor. Our intellectual property is the AI, not the underlying tools.</p>
 
         {/* Part 2: Full Stack Autonomy & The Human in the Loop */}
-        <div className="mt-16 mb-4">
+        <div className="mt-24 mb-4"> {/* Changed from mt-16 to mt-24 */}
           <div className="flex items-center">
             <Workflow className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
             <h2 className="text-3xl font-semibold text-primary gradient-text !m-0 !border-b-0 !pb-0">
@@ -102,7 +103,7 @@ export default function RoadmapPhase3RunPage() {
         </ul>
 
         {/* Part 3: Detailed Step-by-Step Plan */}
-        <div className="mt-16 mb-4">
+        <div className="mt-24 mb-4"> {/* Changed from mt-16 to mt-24 */}
           <div className="flex items-center">
             <GanttChartSquare className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
             <h2 className="text-3xl font-semibold text-primary gradient-text !m-0 !border-b-0 !pb-0">
@@ -282,7 +283,7 @@ export default function RoadmapPhase3RunPage() {
         </ul>
         
         {/* Part 4: Company Growth, Cost, and Performance */}
-        <div className="mt-16 mb-4">
+        <div className="mt-24 mb-4"> {/* Changed from mt-16 to mt-24 */}
           <div className="flex items-center">
             <BarChart3 className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
             <h2 className="text-3xl font-semibold text-primary gradient-text !m-0 !border-b-0 !pb-0">
@@ -376,7 +377,7 @@ export default function RoadmapPhase3RunPage() {
         </ul>
 
         {/* Part 5: Deployed Agents, New Hires, and the Future */}
-        <div className="mt-16 mb-4">
+        <div className="mt-24 mb-4"> {/* Changed from mt-16 to mt-24 */}
           <div className="flex items-center">
             <UsersRound className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
             <h2 className="text-3xl font-semibold text-primary gradient-text !m-0 !border-b-0 !pb-0">
@@ -426,7 +427,7 @@ export default function RoadmapPhase3RunPage() {
         </ul>
 
         {/* Part 6: Learning from the EDA Industry */}
-        <div className="mt-16 mb-4">
+        <div className="mt-24 mb-4"> {/* Changed from mt-16 to mt-24 */}
           <div className="flex items-center">
             <BookOpenCheck className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
             <h2 className="text-3xl font-semibold text-primary gradient-text !m-0 !border-b-0 !pb-0">

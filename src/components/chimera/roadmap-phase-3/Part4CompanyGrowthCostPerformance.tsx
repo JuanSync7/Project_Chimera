@@ -1,6 +1,6 @@
 // src/components/chimera/roadmap-phase-3/Part4CompanyGrowthCostPerformance.tsx
 import React from 'react';
-import { BarChart3, DollarSign, Users, Cpu, Layers3, TrendingUp } from 'lucide-react';
+import { BarChart3, DollarSign, Users, Cpu, Layers3, TrendingUp, FastForward, Award } from 'lucide-react';
 
 const Part4CompanyGrowthCostPerformance: React.FC = () => {
   return (
@@ -33,7 +33,7 @@ const Part4CompanyGrowthCostPerformance: React.FC = () => {
               Talent (The AI Team):
             </h4>
           </div>
-          <ul className="list-disc pl-10 space-y-1 mt-1">
+          <ul className="list-disc pl-10 space-y-1 mt-1 text-slate-400">
             <li>
               <strong className="text-white font-semibold">Cost Breakdown:</strong> 1 Lead AI Architect, 4 Senior
               ML/AI Engineers, 2 Data/Infrastructure Engineers, 1 Product Manager (AI Interfaces).
@@ -55,7 +55,7 @@ const Part4CompanyGrowthCostPerformance: React.FC = () => {
               Cloud Compute &amp; Infrastructure:
             </h4>
           </div>
-          <ul className="list-disc pl-10 space-y-1 mt-1">
+          <ul className="list-disc pl-10 space-y-1 mt-1 text-slate-400">
             <li>
               <strong className="text-white font-semibold">Cost Breakdown:</strong> GPU-intensive training
               clusters (e.g., AWS P4d/P5 instances), CPU-intensive simulation/EDA farm, High-throughput
@@ -78,7 +78,7 @@ const Part4CompanyGrowthCostPerformance: React.FC = () => {
               EDA Tool Licensing:
             </h4>
           </div>
-          <ul className="list-disc pl-10 space-y-1 mt-1">
+          <ul className="list-disc pl-10 space-y-1 mt-1 text-slate-400">
             <li>
               <strong className="text-white font-semibold">Cost Breakdown:</strong> Comprehensive licenses from
               major vendors (Synopsys, Cadence, Siemens/Mentor), Seats for both human engineers and AI-driven
@@ -102,7 +102,7 @@ const Part4CompanyGrowthCostPerformance: React.FC = () => {
               Total Estimated Annual Cost:
             </h4>
           </div>
-          <ul className="list-disc pl-10 space-y-1 mt-1">
+          <ul className="list-disc pl-10 space-y-1 mt-1 text-slate-400">
             <li><strong className="text-white font-semibold">Total:</strong> £3.5M - £5.8M.</li>
             <li>
               <strong className="text-white font-semibold">Notes:</strong> This represents the operational cost
@@ -125,71 +125,78 @@ const Part4CompanyGrowthCostPerformance: React.FC = () => {
         in engineering efficiency and superior final chip characteristics, which together drive significant
         financial ROI.
       </p>
-      <ul className="list-disc pl-5 space-y-2">
-        <li>
-          <strong className="text-white font-semibold">
-            Transformative Time-to-Market (TTM) Reduction:
-          </strong>
-          <ul className="list-circle pl-5 space-y-1 mt-1">
-            <li>
+      <div className="space-y-6 mt-6">
+        <div className="flex items-start">
+          <FastForward className="h-7 w-7 text-purple-400 mr-4 mt-1 flex-shrink-0" />
+          <div>
+            <strong className="text-white font-semibold block mb-1">Transformative Time-to-Market (TTM) Reduction:</strong>
+            <p className="text-slate-400">
               The primary value driver is a radical acceleration of the design cycle by automating repetitive
               and error-prone processes.
-            </li>
-            <li>
-              Industry benchmarks show AI-driven automation can reduce chip design time by up to 50% and cut
-              debugging time by as much as 70%.
-            </li>
-            <li>
-              The goal is to compress design timelines from months to weeks, mirroring gains of over 10x seen
-              by industry leaders.
-            </li>
-            <li>
-              This speed allows for greater agility, faster response to market demands, and more projects with
-              the same engineering team.
-            </li>
-          </ul>
-        </li>
-        <li>
-          <strong className="text-white font-semibold">
-            Superior Power, Performance, and Area (PPA):
-          </strong>
-          <ul className="list-circle pl-5 space-y-1 mt-1">
-            <li>
+            </p>
+            <ul className="list-disc pl-5 space-y-1 mt-2 text-slate-400">
+              <li>
+                Industry benchmarks show AI-driven automation can reduce chip design time by up to 50% and cut
+                debugging time by as much as 70%.
+              </li>
+              <li>
+                The goal is to compress design timelines from months to weeks, mirroring gains of over 10x seen
+                by industry leaders.
+              </li>
+              <li>
+                This speed allows for greater agility, faster response to market demands, and more projects with
+                the same engineering team.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="flex items-start">
+          <Award className="h-7 w-7 text-purple-400 mr-4 mt-1 flex-shrink-0" />
+          <div>
+            <strong className="text-white font-semibold block mb-1">Superior Power, Performance, and Area (PPA):</strong>
+            <p className="text-slate-400">
               The system is designed to achieve PPA optimizations beyond human capability by exploring a vast
               design space to find a superior balance of competing objectives.
-            </li>
-            <li>
-              Case studies show AI tools can achieve significant PPA gains, including up to 15-20% power
-              reduction, 10-20% area reduction, and substantial performance boosts.
-            </li>
-            <li>
-              A superior PPA profile results in a more competitive product that is cheaper to manufacture and
-              more efficient for the end-user.
-            </li>
-          </ul>
-        </li>
-        <li>
-          <strong className="text-white font-semibold">Compounding Financial ROI:</strong>
-          <ul className="list-circle pl-5 space-y-1 mt-1">
-            <li>
-              <strong className="text-slate-100">Increased Revenue and Market Share:</strong> Faster TTM
-              allows for capturing early-adopter markets and responding to competitive pressures more
-              effectively.
-            </li>
-            <li>
-              <strong className="text-slate-100">Reduced Non-Recurring Engineering (NRE) Costs:</strong> The
-              system aims to virtually eliminate the multi-million-dollar cost of silicon respins by
-              improving verification and achieving first-pass success.
-            </li>
-            <li>
-              <strong className="text-slate-100">Higher Profit Margins:</strong> Superior PPA leads to direct
-              cost savings (smaller die area lowers cost per wafer) and can justify premium pricing (better
-              power efficiency). The combination of lower NRE, reduced manufacturing cost, and accelerated
-              revenue creates a powerful cycle of compounding ROI.
-            </li>
-          </ul>
-        </li>
-      </ul>
+            </p>
+            <ul className="list-disc pl-5 space-y-1 mt-2 text-slate-400">
+              <li>
+                Case studies show AI tools can achieve significant PPA gains, including up to 15-20% power
+                reduction, 10-20% area reduction, and substantial performance boosts.
+              </li>
+              <li>
+                A superior PPA profile results in a more competitive product that is cheaper to manufacture and
+                more efficient for the end-user.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="flex items-start">
+          <DollarSign className="h-7 w-7 text-purple-400 mr-4 mt-1 flex-shrink-0" />
+          <div>
+            <strong className="text-white font-semibold block mb-1">Compounding Financial ROI:</strong>
+            <ul className="list-disc pl-5 space-y-1 mt-2 text-slate-400">
+              <li>
+                <strong className="text-slate-100">Increased Revenue and Market Share:</strong> Faster TTM
+                allows for capturing early-adopter markets and responding to competitive pressures more
+                effectively.
+              </li>
+              <li>
+                <strong className="text-slate-100">Reduced Non-Recurring Engineering (NRE) Costs:</strong> The
+                system aims to virtually eliminate the multi-million-dollar cost of silicon respins by
+                improving verification and achieving first-pass success.
+              </li>
+              <li>
+                <strong className="text-slate-100">Higher Profit Margins:</strong> Superior PPA leads to direct
+                cost savings (smaller die area lowers cost per wafer) and can justify premium pricing (better
+                power efficiency). The combination of lower NRE, reduced manufacturing cost, and accelerated
+                revenue creates a powerful cycle of compounding ROI.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

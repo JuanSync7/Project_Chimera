@@ -1,5 +1,6 @@
 // src/components/chimera/roadmap-phase-3/Part3DetailedStepByStepPlan.tsx
 import React from 'react';
+import SectionCard from '@/components/chimera/SectionCard'; // Import SectionCard
 import {
   GanttChartSquare,
   Link2,
@@ -75,35 +76,42 @@ const Part3DetailedStepByStepPlan: React.FC = () => {
           reliable data exchange and governance.
         </li>
       </ul>
-      <div className="mt-4 mb-2 flex items-center">
-        <ListChecks className="h-6 w-6 text-slate-300 mr-2 flex-shrink-0" />
-        <h4 className="text-xl font-medium text-slate-200 !m-0 !border-b-0 !pb-0">
-          Key Objectives &amp; KPIs:
-        </h4>
-      </div>
-      <p>
-        <strong className="text-white font-semibold">Objective:</strong> Achieve &gt;99% automated flow for
-        a complete design from spec to layout, with verifiable and repeatable results.
-      </p>
-      <p><strong className="text-white font-semibold">KPIs:</strong></p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>
-          <strong className="text-slate-100">Automation Rate:</strong> Percentage of the end-to-end design
-          flow executed without manual intervention. <strong>Target: &gt;99%.</strong>
-        </li>
-        <li>
-          <strong className="text-slate-100">Manual Intervention Points:</strong> Number of required manual
-          handoffs in the workflow. <strong>Target: Reduction of &gt;95% from baseline.</strong>
-        </li>
-        <li>
-          <strong className="text-slate-100">Total Autonomous Runtime:</strong> End-to-end wall-clock time
-          for a full design. <strong>Target: Reduce from months to &lt; 2 weeks.</strong>
-        </li>
-        <li>
-          <strong className="text-slate-100">Workflow Reliability:</strong> Successful completion rate of
-          autonomous runs. <strong>Target: &gt;98%.</strong>
-        </li>
-      </ul>
+      <SectionCard
+        className="bg-transparent border border-white/80 shadow-none mt-6 py-4 px-5"
+        description={
+          <>
+            <div className="mb-2 flex items-center">
+              <ListChecks className="h-6 w-6 text-slate-300 mr-2 flex-shrink-0" />
+              <h4 className="text-xl font-medium text-slate-200 !m-0 !border-b-0 !pb-0">
+                Key Objectives &amp; KPIs:
+              </h4>
+            </div>
+            <p className="text-sm">
+              <strong className="text-white font-semibold">Objective:</strong> Achieve &gt;99% automated flow for
+              a complete design from spec to layout, with verifiable and repeatable results.
+            </p>
+            <p className="!mt-2 !mb-1 text-sm"><strong className="text-white font-semibold">KPIs:</strong></p>
+            <ul className="list-disc pl-5 space-y-1 text-sm">
+              <li>
+                <strong className="text-slate-100">Automation Rate:</strong> Percentage of the end-to-end design
+                flow executed without manual intervention. <strong>Target: &gt;99%.</strong>
+              </li>
+              <li>
+                <strong className="text-slate-100">Manual Intervention Points:</strong> Number of required manual
+                handoffs in the workflow. <strong>Target: Reduction of &gt;95% from baseline.</strong>
+              </li>
+              <li>
+                <strong className="text-slate-100">Total Autonomous Runtime:</strong> End-to-end wall-clock time
+                for a full design. <strong>Target: Reduce from months to &lt; 2 weeks.</strong>
+              </li>
+              <li>
+                <strong className="text-slate-100">Workflow Reliability:</strong> Successful completion rate of
+                autonomous runs. <strong>Target: &gt;98%.</strong>
+              </li>
+            </ul>
+          </>
+        }
+      />
 
       {/* Step 2 */}
       <div className="mt-8 mb-4">
@@ -145,35 +153,42 @@ const Part3DetailedStepByStepPlan: React.FC = () => {
           discovery of non-intuitive and structurally different solutions.
         </li>
       </ul>
-      <div className="mt-4 mb-2 flex items-center">
-        <ListChecks className="h-6 w-6 text-slate-300 mr-2 flex-shrink-0" />
-        <h4 className="text-xl font-medium text-slate-200 !m-0 !border-b-0 !pb-0">
-          Key Objectives &amp; KPIs:
-        </h4>
-      </div>
-      <p>
-        <strong className="text-white font-semibold">Objective:</strong> Generate at least one novel,
-        high-performance architectural component that is reviewed, validated, and adopted into a production
-        design.
-      </p>
-      <p><strong className="text-white font-semibold">KPIs:</strong></p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>
-          <strong className="text-slate-100">Architect Acceptance Rate:</strong> Percentage of AI-suggested
-          architectural improvements accepted by human architects for further evaluation.{' '}
-          <strong>Target: &gt;20%.</strong>
-        </li>
-        <li>
-          <strong className="text-slate-100">Novelty Score:</strong> A computational metric assessing the
-          structural difference of generated architectures from the training data and known designs. Target:
-          Achieve a portfolio of architectures with novelty scores in the top decile.
-        </li>
-        <li>
-          <strong className="text-slate-100">Simulated PPA Improvement:</strong> PPA metrics of AI-suggested
-          architectures must show a &gt;10% improvement on the PPA frontier compared to the human-designed
-          baseline for a given benchmark project.
-        </li>
-      </ul>
+      <SectionCard
+        className="bg-transparent border border-white/80 shadow-none mt-6 py-4 px-5"
+        description={
+          <>
+            <div className="mb-2 flex items-center">
+              <ListChecks className="h-6 w-6 text-slate-300 mr-2 flex-shrink-0" />
+              <h4 className="text-xl font-medium text-slate-200 !m-0 !border-b-0 !pb-0">
+                Key Objectives &amp; KPIs:
+              </h4>
+            </div>
+            <p className="text-sm">
+              <strong className="text-white font-semibold">Objective:</strong> Generate at least one novel,
+              high-performance architectural component that is reviewed, validated, and adopted into a
+              production design.
+            </p>
+            <p className="!mt-2 !mb-1 text-sm"><strong className="text-white font-semibold">KPIs:</strong></p>
+            <ul className="list-disc pl-5 space-y-1 text-sm">
+              <li>
+                <strong className="text-slate-100">Architect Acceptance Rate:</strong> Percentage of AI-suggested
+                architectural improvements accepted by human architects for further evaluation.{' '}
+                <strong>Target: &gt;20%.</strong>
+              </li>
+              <li>
+                <strong className="text-slate-100">Novelty Score:</strong> A computational metric assessing the
+                structural difference of generated architectures from the training data and known designs. Target:
+                Achieve a portfolio of architectures with novelty scores in the top decile.
+              </li>
+              <li>
+                <strong className="text-slate-100">Simulated PPA Improvement:</strong> PPA metrics of AI-suggested
+                architectures must show a &gt;10% improvement on the PPA frontier compared to the human-designed
+                baseline for a given benchmark project.
+              </li>
+            </ul>
+          </>
+        }
+      />
 
       {/* Step 3 */}
       <div className="mt-8 mb-4">
@@ -214,38 +229,45 @@ const Part3DetailedStepByStepPlan: React.FC = () => {
           operate.
         </li>
       </ul>
-      <div className="mt-4 mb-2 flex items-center">
-        <ListChecks className="h-6 w-6 text-slate-300 mr-2 flex-shrink-0" />
-        <h4 className="text-xl font-medium text-slate-200 !m-0 !border-b-0 !pb-0">
-          Key Objectives &amp; KPIs:
-        </h4>
-      </div>
-      <p>
-        <strong className="text-white font-semibold">Objective:</strong> Create a library of 10+ core IP
-        blocks (e.g., memory controllers, RISC-V cores, interconnect fabrics) generated and maintained by
-        the AI system.
-      </p>
-      <p><strong className="text-white font-semibold">KPIs:</strong></p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>
-          <strong className="text-slate-100">Time-to-Generate &amp; Verify Custom IP:</strong> Time from
-          high-level specification to a fully verified, synthesizable IP block.{' '}
-          <strong>Target: &lt; 24 hours.</strong>
-        </li>
-        <li>
-          <strong className="text-slate-100">First-Pass Verification Rate:</strong> Percentage of generated IP
-          blocks that pass verification without manual code modification. <strong>Target: &gt;90%.</strong>
-        </li>
-        <li>
-          <strong className="text-slate-100">IP Quality (Bug Density):</strong> Number of functional bugs
-          discovered per KLOC post-generation. Target: &lt;0.1 bugs/KLOC, outperforming human-coded
-          equivalents.
-        </li>
-        <li>
-          <strong className="text-slate-100">Resource Utilization:</strong> PPA metrics of the generated IP
-          must be within 5% of hand-optimized equivalents.
-        </li>
-      </ul>
+      <SectionCard
+        className="bg-transparent border border-white/80 shadow-none mt-6 py-4 px-5"
+        description={
+          <>
+            <div className="mb-2 flex items-center">
+              <ListChecks className="h-6 w-6 text-slate-300 mr-2 flex-shrink-0" />
+              <h4 className="text-xl font-medium text-slate-200 !m-0 !border-b-0 !pb-0">
+                Key Objectives &amp; KPIs:
+              </h4>
+            </div>
+            <p className="text-sm">
+              <strong className="text-white font-semibold">Objective:</strong> Create a library of 10+ core IP
+              blocks (e.g., memory controllers, RISC-V cores, interconnect fabrics) generated and maintained by
+              the AI system.
+            </p>
+            <p className="!mt-2 !mb-1 text-sm"><strong className="text-white font-semibold">KPIs:</strong></p>
+            <ul className="list-disc pl-5 space-y-1 text-sm">
+              <li>
+                <strong className="text-slate-100">Time-to-Generate &amp; Verify Custom IP:</strong> Time from
+                high-level specification to a fully verified, synthesizable IP block.{' '}
+                <strong>Target: &lt; 24 hours.</strong>
+              </li>
+              <li>
+                <strong className="text-slate-100">First-Pass Verification Rate:</strong> Percentage of generated IP
+                blocks that pass verification without manual code modification. <strong>Target: &gt;90%.</strong>
+              </li>
+              <li>
+                <strong className="text-slate-100">IP Quality (Bug Density):</strong> Number of functional bugs
+                discovered per KLOC post-generation. Target: &lt;0.1 bugs/KLOC, outperforming human-coded
+                equivalents.
+              </li>
+              <li>
+                <strong className="text-slate-100">Resource Utilization:</strong> PPA metrics of the generated IP
+                must be within 5% of hand-optimized equivalents.
+              </li>
+            </ul>
+          </>
+        }
+      />
 
       {/* Step 4 */}
       <div className="mt-8 mb-4">
@@ -282,39 +304,46 @@ const Part3DetailedStepByStepPlan: React.FC = () => {
           engineers acting as supervisors and strategic decision-makers.
         </li>
       </ul>
-      <div className="mt-4 mb-2 flex items-center">
-        <ListChecks className="h-6 w-6 text-slate-300 mr-2 flex-shrink-0" />
-        <h4 className="text-xl font-medium text-slate-200 !m-0 !border-b-0 !pb-0">
-          Key Objectives &amp; KPIs:
-        </h4>
-      </div>
-      <p>
-        <strong className="text-white font-semibold">Objective:</strong> Tape out a functional AI accelerator
-        chip designed by Chimera that outperforms its predecessor by &gt;30% on key benchmarks.
-      </p>
-      <p><strong className="text-white font-semibold">KPIs:</strong></p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>
-          <strong className="text-slate-100">Performance-per-Watt (TOPS/Watt):</strong> The final silicon
-          must demonstrate a &gt;30% improvement in energy efficiency on target AI workloads compared to the
-          previous generation.
-        </li>
-        <li>
-          <strong className="text-slate-100">Time-to-Tape-Out:</strong> Total project duration from
-          specification to tape-out. <strong>Target: &lt; 6 months, a &gt;50% reduction from
-          traditional cycles.</strong>
-        </li>
-        <li>
-          <strong className="text-slate-100">First-Silicon Success Rate:</strong> The AI-designed chip must
-          be fully functional with the first batch of silicon, eliminating the need for costly respins.{' '}
-          <strong>Target: 100%.</strong>
-        </li>
-        <li>
-          <strong className="text-slate-100">NRE Cost Reduction:</strong> Quantifiable reduction in
-          non-recurring engineering costs due to automation and avoidance of respins.{' '}
-          <strong>Target: &gt;40%.</strong>
-        </li>
-      </ul>
+      <SectionCard
+        className="bg-transparent border border-white/80 shadow-none mt-6 py-4 px-5"
+        description={
+          <>
+            <div className="mb-2 flex items-center">
+              <ListChecks className="h-6 w-6 text-slate-300 mr-2 flex-shrink-0" />
+              <h4 className="text-xl font-medium text-slate-200 !m-0 !border-b-0 !pb-0">
+                Key Objectives &amp; KPIs:
+              </h4>
+            </div>
+            <p className="text-sm">
+              <strong className="text-white font-semibold">Objective:</strong> Tape out a functional AI accelerator
+              chip designed by Chimera that outperforms its predecessor by &gt;30% on key benchmarks.
+            </p>
+            <p className="!mt-2 !mb-1 text-sm"><strong className="text-white font-semibold">KPIs:</strong></p>
+            <ul className="list-disc pl-5 space-y-1 text-sm">
+              <li>
+                <strong className="text-slate-100">Performance-per-Watt (TOPS/Watt):</strong> The final silicon
+                must demonstrate a &gt;30% improvement in energy efficiency on target AI workloads compared to the
+                previous generation.
+              </li>
+              <li>
+                <strong className="text-slate-100">Time-to-Tape-Out:</strong> Total project duration from
+                specification to tape-out. <strong>Target: &lt; 6 months, a &gt;50% reduction from
+                traditional cycles.</strong>
+              </li>
+              <li>
+                <strong className="text-slate-100">First-Silicon Success Rate:</strong> The AI-designed chip must
+                be fully functional with the first batch of silicon, eliminating the need for costly respins.{' '}
+                <strong>Target: 100%.</strong>
+              </li>
+              <li>
+                <strong className="text-slate-100">NRE Cost Reduction:</strong> Quantifiable reduction in
+                non-recurring engineering costs due to automation and avoidance of respins.{' '}
+                <strong>Target: &gt;40%.</strong>
+              </li>
+            </ul>
+          </>
+        }
+      />
 
       {/* Step 5 */}
       <div className="mt-8 mb-4">
@@ -355,39 +384,46 @@ const Part3DetailedStepByStepPlan: React.FC = () => {
           applied to subsequent projects.
         </li>
       </ul>
-      <div className="mt-4 mb-2 flex items-center">
-        <ListChecks className="h-6 w-6 text-slate-300 mr-2 flex-shrink-0" />
-        <h4 className="text-xl font-medium text-slate-200 !m-0 !border-b-0 !pb-0">
-          Key Objectives &amp; KPIs:
-        </h4>
-      </div>
-      <p>
-        <strong className="text-white font-semibold">Objective:</strong> Demonstrate a measurable improvement
-        in the AI&apos;s predictive accuracy and design optimization capability with each completed project.
-      </p>
-      <p><strong className="text-white font-semibold">KPIs:</strong></p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>
-          <strong className="text-slate-100">Model Predictive Accuracy:</strong> Correlation between the
-          AI&apos;s pre-silicon PPA predictions and actual post-silicon measurements.{' '}
-          <strong>Target: Improve correlation coefficient by &gt;15% per project cycle.</strong>
-        </li>
-        <li>
-          <strong className="text-slate-100">PPA Optimization Improvement:</strong> For a fixed benchmark
-          design, the retrained AI should achieve a &gt;5% improvement on the PPA frontier compared to its
-          pre-retraining state.
-        </li>
-        <li>
-          <strong className="text-slate-100">Bug Escape Rate:</strong> Rate of functional bugs discovered in
-          post-silicon validation that were missed by pre-silicon verification.{' '}
-          <strong>Target: Decrease by &gt;25% per project.</strong>
-        </li>
-        <li>
-          <strong className="text-slate-100">Time-to-Insight:</strong> Time required for the AI to analyze
-          post-silicon data and generate actionable recommendations for the next design cycle.{' '}
-          <strong>Target: &lt; 48 hours.</strong>
-        </li>
-      </ul>
+      <SectionCard
+        className="bg-transparent border border-white/80 shadow-none mt-6 py-4 px-5"
+        description={
+          <>
+            <div className="mb-2 flex items-center">
+              <ListChecks className="h-6 w-6 text-slate-300 mr-2 flex-shrink-0" />
+              <h4 className="text-xl font-medium text-slate-200 !m-0 !border-b-0 !pb-0">
+                Key Objectives &amp; KPIs:
+              </h4>
+            </div>
+            <p className="text-sm">
+              <strong className="text-white font-semibold">Objective:</strong> Demonstrate a measurable improvement
+              in the AI&apos;s predictive accuracy and design optimization capability with each completed project.
+            </p>
+            <p className="!mt-2 !mb-1 text-sm"><strong className="text-white font-semibold">KPIs:</strong></p>
+            <ul className="list-disc pl-5 space-y-1 text-sm">
+              <li>
+                <strong className="text-slate-100">Model Predictive Accuracy:</strong> Correlation between the
+                AI&apos;s pre-silicon PPA predictions and actual post-silicon measurements.{' '}
+                <strong>Target: Improve correlation coefficient by &gt;15% per project cycle.</strong>
+              </li>
+              <li>
+                <strong className="text-slate-100">PPA Optimization Improvement:</strong> For a fixed benchmark
+                design, the retrained AI should achieve a &gt;5% improvement on the PPA frontier compared to its
+                pre-retraining state.
+              </li>
+              <li>
+                <strong className="text-slate-100">Bug Escape Rate:</strong> Rate of functional bugs discovered in
+                post-silicon validation that were missed by pre-silicon verification.{' '}
+                <strong>Target: Decrease by &gt;25% per project.</strong>
+              </li>
+              <li>
+                <strong className="text-slate-100">Time-to-Insight:</strong> Time required for the AI to analyze
+                post-silicon data and generate actionable recommendations for the next design cycle.{' '}
+                <strong>Target: &lt; 48 hours.</strong>
+              </li>
+            </ul>
+          </>
+        }
+      />
     </>
   );
 };

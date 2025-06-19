@@ -11,10 +11,7 @@ import { ChevronLeft, ChevronRight, AlertTriangle, Star, Workflow } from 'lucide
 const PipelineSection: React.FC = () => {
   const isMobile = useIsMobile();
 
-  // State for mobile roulette
   const [currentMobileStageIndex, setCurrentMobileStageIndex] = useState(0);
-
-  // State for desktop tabs (all 11 stages with summary)
   const [activeDesktopStageId, setActiveDesktopStageId] = useState<string>(PIPELINE_TABS[0]?.id);
 
   const handlePrevMobile = () => {
@@ -172,20 +169,9 @@ const PipelineSection: React.FC = () => {
           )}
         </>
       )}
-      <div className="text-center mt-16 md:mt-12"> {/* Adjusted margin: mt-16 for mobile, md:mt-12 for desktop */}
-        <Link href="/ai-pipeline" passHref>
-          <Button
-            variant="outline"
-            size="lg"
-            className="bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/40"
-          >
-            Deep Dive into the AI-Powered Pipeline &rarr;
-          </Button>
-        </Link>
-      </div>
+      {/* General "Deep Dive" button removed from here */}
     </section>
   );
 };
 
 export default PipelineSection;
-

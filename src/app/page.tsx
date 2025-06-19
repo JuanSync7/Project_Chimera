@@ -78,7 +78,8 @@ function HomePageContent() {
           </div>
 
           <PipelineSection />
-          <div className="text-center mt-[-4rem] mb-16">
+          {/* Added back the general "Deep Dive" button for the Pipeline section here */}
+          <div className="text-center mt-12 mb-16"> {/* Adjusted mt from -4rem to 12 for better spacing */}
             <Link href="/ai-pipeline" passHref>
               <Button variant="outline" size="lg" className="bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/40">
                 Deep Dive into the AI-Powered Pipeline &rarr;

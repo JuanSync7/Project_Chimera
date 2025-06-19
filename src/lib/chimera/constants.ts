@@ -12,7 +12,7 @@ import {
   BarChart3,
   SlidersHorizontal, 
   Cog,
-  Wrench
+  Wrench // Added Wrench icon for stage 9 as it was in the original pipeline page component
 } from 'lucide-react';
 
 export const NAV_LINKS: NavLinkItem[] = [
@@ -24,12 +24,16 @@ export const NAV_LINKS: NavLinkItem[] = [
   { id: 'roadmap', href: '#roadmap', label: 'Roadmap' },
 ];
 
-// PIPELINE_TABS is now the single source for stage data, used by main page and ai-pipeline page
+// PIPELINE_TABS is the single source for stage data.
+// Used by:
+// - Main page desktop tab view (first 5 items)
+// - Main page mobile roulette view (all 11 items)
+// - ai-pipeline page for shortcut buttons and detailed stage rendering (all 11 items)
 export const PIPELINE_TABS: PipelineTab[] = [
   {
-    id: 'stage-3-1', // Used for href linking, must match ai-pipeline page section IDs
+    id: 'stage-3-1',
     title: '1. Spec & Arch',
-    icon: React.createElement(Pencil, { className: "w-5 h-5 mr-2 inline-block" }),
+    icon: React.createElement(Pencil, { }), // className will be applied in component
     heading: 'Stage 1: System Specification & Architecture',
     generalDescription: 'Transforming ambiguous natural language requirements into formal, optimized architectural blueprints. Creates a <strong>"digital thread"</strong> of intent.',
     challenge: 'Ambiguous requirements, vast architectural search space.',
@@ -41,7 +45,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
   {
     id: 'stage-3-2',
     title: '2. RTL Gen',
-    icon: React.createElement(FileCode, { className: "w-5 h-5 mr-2 inline-block" }),
+    icon: React.createElement(FileCode, { }),
     heading: 'Stage 2: Intelligent RTL Generation from Architecture',
     generalDescription: 'Converting architectural blueprints into high-quality, synthesizable RTL using prompt engineering, RAG for LLMs, and HLS integration.',
     challenge: 'Architectural translation to RTL is error-prone; LLM reliability for HDL; HLS integration.',
@@ -53,7 +57,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
   {
     id: 'stage-3-3',
     title: '3. RTL Opt & Test Setup',
-    icon: React.createElement(ClipboardCheck, { className: "w-5 h-5 mr-2 inline-block" }),
+    icon: React.createElement(ClipboardCheck, { }),
     heading: 'Stage 3: Proactive RTL Optimization & Testbench Setup',
     generalDescription: 'Ensuring initial RTL quality, synthesizability, and testability via automated optimizations and comprehensive test environment preparation.',
     challenge: 'Manual linting, optimization, and testbench creation are time-consuming and miss subtle issues.',
@@ -65,7 +69,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
   {
     id: 'stage-3-4',
     title: '4. TDD RTL Refinement',
-    icon: React.createElement(RefreshCcw, { className: "w-5 h-5 mr-2 inline-block" }),
+    icon: React.createElement(RefreshCcw, { }),
     heading: 'Stage 4: Test-Driven Development (TDD) for Iterative RTL Refinement',
     generalDescription: 'Automated debugging and self-correction loop to rapidly achieve RTL functional correctness and PPA targets using pre-defined tests.',
     challenge: 'Iterative RTL debugging is a major bottleneck, slow and labor-intensive.',
@@ -78,7 +82,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
   {
     id: 'stage-3-5',
     title: '5. Functional Verification',
-    icon: React.createElement(ListChecks, { className: "w-5 h-5 mr-2 inline-block" }),
+    icon: React.createElement(ListChecks, { }),
     heading: 'Stage 5: Comprehensive Functional Verification & Coverage Closure',
     generalDescription: 'Achieving exhaustive functional verification and complete coverage closure through intelligent test generation, UVM harnessing, and automated coverage analysis.',
     challenge: 'Comprehensive verification is a bottleneck; achieving full coverage and exercising corner cases is monumental with traditional UVM.',
@@ -87,10 +91,11 @@ export const PIPELINE_TABS: PipelineTab[] = [
     outcome: '<ul class="list-disc list-inside"><li>Rigorously exercised RTL</li><li>Vast majority of functional bugs caught</li><li>Solid foundation for physical design.</li></ul>',
     outcomeColor: 'text-green-400'
   },
+  // Additional 6 stages for a total of 11
   {
     id: 'stage-3-6',
     title: '6. Formal & Static Analysis',
-    icon: React.createElement(ShieldCheck, { className: "w-5 h-5 mr-2 inline-block" }),
+    icon: React.createElement(ShieldCheck, { }),
     heading: 'Stage 6: Formal Verification & Static Analysis for Deep Bug Detection',
     generalDescription: 'Complementing simulation with mathematically rigorous formal methods and advanced static analysis to ensure a higher degree of correctness and identify critical issues simulation cannot.',
     challenge: 'Simulation misses deep, corner-case bugs, security vulnerabilities, or deadlocks. Formal verification requires specialized expertise.',
@@ -102,7 +107,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
   {
     id: 'stage-3-7',
     title: '7. AI-Driven Debugging',
-    icon: React.createElement(SearchCode, { className: "w-5 h-5 mr-2 inline-block" }),
+    icon: React.createElement(SearchCode, { }),
     heading: 'Stage 7: AI-Driven Debugging & Root Cause Analysis',
     generalDescription: 'Minimizing the debugging bottleneck through intelligent automation for rapid and precise bug resolution, including automated explanation and suggested fixes.',
     challenge: 'Debugging accounts for a massive portion of verification time; manual analysis of logs and waveforms is expert-intensive and slow.',
@@ -114,7 +119,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
   {
     id: 'stage-3-8',
     title: '8. System Lvl. Verify & AI Eval',
-    icon: React.createElement(BarChart3, { className: "w-5 h-5 mr-2 inline-block" }),
+    icon: React.createElement(BarChart3, { }),
     heading: 'Stage 8: System-Level & Cross-Domain Verification, and AI System Evaluation',
     generalDescription: 'Comprehensive, chip-level validation (performance, power, security) and robust mechanisms for evaluating and improving the AI design system itself.',
     challenge: 'Ensuring holistic chip quality and continuous evaluation of the AI system’s own performance and reliability.',
@@ -126,7 +131,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
   {
     id: 'stage-3-9',
     title: '9. DFT & ATPG',
-    icon: React.createElement(Wrench, { className: "w-5 h-5 mr-2 inline-block" }),
+    icon: React.createElement(Wrench, { }),
     heading: 'Stage 9: Design for Testability (DFT) Insertion & Test Pattern Generation',
     generalDescription: 'Automating Design for Testability (DFT) logic insertion and test pattern generation to ensure high manufacturability and test coverage, minimizing PPA impact.',
     challenge: 'Ensuring a complex chip can be thoroughly tested post-manufacturing is paramount for yield and reliability. Manual DFT and ATPG are error-prone, impacting PPA and test costs.',
@@ -139,7 +144,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
   {
     id: 'stage-3-10',
     title: '10. Physical & PPA Opt.',
-    icon: React.createElement(SlidersHorizontal, { className: "w-5 h-5 mr-2 inline-block" }),
+    icon: React.createElement(SlidersHorizontal, { }),
     heading: 'Stage 10: Physical Design & PPA Optimization',
     generalDescription: 'Using <strong>Reinforcement Learning</strong> to navigate the near-infinite solution space of physical layout and push designs to the <strong>true Pareto-optimal frontier</strong>.',
     challenge: '<strong>Physical design</strong> has near-infinite choices. Manually tuning EDA tools for optimal PPA is impossible to perfect.',
@@ -152,7 +157,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
   {
     id: 'stage-3-11',
     title: '11. Mfg & Validation',
-    icon: React.createElement(Cog, { className: "w-5 h-5 mr-2 inline-block" }),
+    icon: React.createElement(Cog, { }),
     heading: 'Stage 11: Manufacturing & Post-Silicon Validation',
     generalDescription: 'Closing the loop from digital design to physical reality with <strong>predictive analytics</strong> and <strong>automated validation</strong>.',
     challenge: 'Predicting <strong>manufacturing yield</strong>, detecting <strong>defects</strong>, and validating <strong>actual hardware performance</strong>.',
@@ -251,15 +256,13 @@ async def analyze_design(report_path: str):
 # print(result.summary)
 `.trim();
 
-// Keep the old constant name for now if other parts of the app might still reference it,
-// but ensure its content is also updated or new sections use the new constant.
-// For this specific request, SymbiosisSection will use HIGH_LEVEL_PYTHON_CODE_EXAMPLE.
 export const PYTHON_CODE_EXAMPLE = HIGH_LEVEL_PYTHON_CODE_EXAMPLE;
     
 
     
 
     
+
 
 
 

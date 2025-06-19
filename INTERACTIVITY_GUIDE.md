@@ -45,7 +45,22 @@ The "AI-Powered Design Pipeline" section on the main page uses a tabbed interfac
     *   CSS opacity and positioning are used to smoothly transition between tab content panels, ensuring only the active tab's content is fully visible and interactive.
     *   Tab buttons are styled differently based on whether their `id` matches `activeTab` (using `tab-button-active` vs. `tab-button-inactive` classes).
 
-## 4. Responsive Behavior with `useIsMobile` Hook (`src/hooks/use-mobile.ts`)
+## 4. Animated Rocket Effect (`src/components/chimera/AnimatedRocket.tsx`)
+
+The main page features an animated rocket for visual engagement.
+
+*   **Component**: `AnimatedRocket.tsx` located in `src/components/chimera/`.
+*   **Purpose**: Provides a dynamic visual element on the `HomeSection` of the main page.
+*   **Mechanism**:
+    *   Uses the `RocketIcon` from `lucide-react`.
+    *   Employs React state (`stage`, `animationStyle`) and `useEffect` hooks to manage the animation sequence.
+    *   The `stage` variable tracks the rocket's current action (e.g., `flyingRight`, `turningToFlyLeft`, `flyingLeft`, `turningToFlyRight`).
+    *   The `animationStyle` state object dynamically updates CSS properties like `left` and `transform` (for rotation).
+    *   CSS transitions are applied to these properties to achieve smooth movement across the screen and rotations at each end of its flight path.
+    *   `onTransitionEnd` event listeners and `setTimeout` are used to sequence the flight and turn animations, creating a continuous loop.
+*   **Location**: Integrated into `src/components/chimera/sections/HomeSection.tsx`, positioned to fly horizontally above the main title. It scrolls out of view with the `HomeSection`.
+
+## 5. Responsive Behavior with `useIsMobile` Hook (`src/hooks/use-mobile.ts`)
 
 The `useIsMobile` hook provides a simple way to detect if the application is being viewed on a mobile-sized screen.
 
@@ -55,9 +70,9 @@ The `useIsMobile` hook provides a simple way to detect if the application is bei
     *   It sets an `isMobile` state (boolean) and updates it on initial load and when the viewport resizes across the breakpoint.
 *   **Usage Examples**:
     *   **`StarryBackground.tsx`**: Adjusts the number and size of stars rendered based on the return value of `useIsMobile` for performance and visual balance.
-    *   **`SidebarProvider.tsx` (from ShadCN, potentially used internally by `Sidebar` components if they were present in the main application)**: This hook is a common pattern in ShadCN UI to determine whether to render a collapsible icon-based sidebar or an off-canvas mobile sheet. Although Project Chimera doesn't prominently feature a persistent main sidebar, the hook demonstrates a robust responsive pattern.
+    *   **`SidebarProvider.tsx` (from ShadCN, potentially used internally by `Sidebar` components if they were present in the main application)**: This hook is a common pattern in ShadCN UI to determine whether to render a collapsible icon-based sidebar or an off-canvas mobile sheet.
 
-## 5. Client-Side Data Fetching and State (Illustrative - Not Heavily Used in Chimera Currently)
+## 6. Client-Side Data Fetching and State (Illustrative - Not Heavily Used in Chimera Currently)
 
 While Project Chimera primarily presents static content enhanced with client-side interactivity, future extensions involving data fetching would typically use:
 

@@ -31,7 +31,7 @@ const AnimatedRocket: React.FC = () => {
       case 'flyingRight':
         setAnimationStyle({
           left: '105%', // Fly to right edge
-          transform: 'translateY(-50%) rotate(90deg)', // Keep pointing right
+          transform: 'translateY(-50%) rotate(45deg)', // Keep pointing right
           transition: 'left 10s linear, transform 0.1s linear', // Long for left, short for transform
         });
         break;
@@ -39,7 +39,7 @@ const AnimatedRocket: React.FC = () => {
         setAnimationStyle(prev => ({ // Keep current left from flyingRight
           ...prev,
           left: '105%', // Explicitly keep at edge
-          transform: 'translateY(-50%) rotate(-90deg)', // Turn to point left
+          transform: 'translateY(-50%) rotate(-135deg)', // Turn to point left
           transition: 'transform 0.5s ease-in-out, left 0s linear', // Animate transform only
         }));
         // After turn animation, start flying left
@@ -48,7 +48,7 @@ const AnimatedRocket: React.FC = () => {
       case 'flyingLeft':
         setAnimationStyle({
           left: '-10%', // Fly to left edge
-          transform: 'translateY(-50%) rotate(-90deg)', // Keep pointing left
+          transform: 'translateY(-50%) rotate(-135deg)', // Keep pointing left
           transition: 'left 10s linear, transform 0.1s linear', // Long for left, short for transform
         });
         break;
@@ -56,7 +56,7 @@ const AnimatedRocket: React.FC = () => {
         setAnimationStyle(prev => ({ // Keep current left from flyingLeft
           ...prev,
           left: '-10%', // Explicitly keep at edge
-          transform: 'translateY(-50%) rotate(90deg)', // Turn to point right
+          transform: 'translateY(-50%) rotate(45deg)', // Turn to point right
           transition: 'transform 0.5s ease-in-out, left 0s linear', // Animate transform only
         }));
         // After turn animation, restart flying right
@@ -97,7 +97,7 @@ const AnimatedRocket: React.FC = () => {
         position: 'absolute',
         top: '50%', // Center vertically within its parent (the track div in HomeSection)
         willChange: 'left, transform',
-        zIndex: 5,
+        zIndex: 1,
         ...animationStyle, // Apply dynamic left, transform, and transition
       }}
       role="presentation"

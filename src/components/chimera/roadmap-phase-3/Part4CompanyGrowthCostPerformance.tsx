@@ -125,11 +125,15 @@ const Part4CompanyGrowthCostPerformance: React.FC = () => {
         in engineering efficiency and superior final chip characteristics, which together drive significant
         financial ROI.
       </p>
-      <div className="space-y-6 mt-6">
-        <div className="flex items-start">
-          <FastForward className="h-7 w-7 text-white mr-4 mt-1 flex-shrink-0" />
-          <div>
-            <strong className="text-white font-semibold block mb-1">Transformative Time-to-Market (TTM) Reduction:</strong>
+      <ul className="list-none pl-0 space-y-6 mt-6">
+        <li>
+          <div className="flex items-center">
+            <FastForward className="h-6 w-6 text-white mr-2 flex-shrink-0" />
+            <h4 className="text-xl font-medium text-white !m-0 !border-b-0 !pb-0">
+              Transformative Time-to-Market (TTM) Reduction:
+            </h4>
+          </div>
+          <div className="pl-8 mt-1">
             <p className="text-slate-400">
               The primary value driver is a radical acceleration of the design cycle by automating repetitive
               and error-prone processes.
@@ -149,12 +153,16 @@ const Part4CompanyGrowthCostPerformance: React.FC = () => {
               </li>
             </ul>
           </div>
-        </div>
+        </li>
 
-        <div className="flex items-start">
-          <Award className="h-7 w-7 text-white mr-4 mt-1 flex-shrink-0" />
-          <div>
-            <strong className="text-white font-semibold block mb-1">Superior Power, Performance, and Area (PPA):</strong>
+        <li>
+          <div className="flex items-center">
+            <Award className="h-6 w-6 text-white mr-2 flex-shrink-0" />
+            <h4 className="text-xl font-medium text-white !m-0 !border-b-0 !pb-0">
+              Superior Power, Performance, and Area (PPA):
+            </h4>
+          </div>
+          <div className="pl-8 mt-1">
             <p className="text-slate-400">
               The system is designed to achieve PPA optimizations beyond human capability by exploring a vast
               design space to find a superior balance of competing objectives.
@@ -170,13 +178,17 @@ const Part4CompanyGrowthCostPerformance: React.FC = () => {
               </li>
             </ul>
           </div>
-        </div>
+        </li>
 
-        <div className="flex items-start">
-          <DollarSign className="h-7 w-7 text-white mr-4 mt-1 flex-shrink-0" />
-          <div>
-            <strong className="text-white font-semibold block mb-1">Compounding Financial ROI:</strong>
-            <ul className="list-disc pl-5 space-y-1 mt-2 text-slate-400">
+        <li>
+          <div className="flex items-center">
+            <DollarSign className="h-6 w-6 text-white mr-2 flex-shrink-0" />
+            <h4 className="text-xl font-medium text-white !m-0 !border-b-0 !pb-0">
+              Compounding Financial ROI:
+            </h4>
+          </div>
+          <div className="pl-8 mt-1">
+            <ul className="list-disc pl-5 space-y-1 text-slate-400">
               <li>
                 <strong className="text-slate-100">Increased Revenue and Market Share:</strong> Faster TTM
                 allows for capturing early-adopter markets and responding to competitive pressures more
@@ -195,8 +207,8 @@ const Part4CompanyGrowthCostPerformance: React.FC = () => {
               </li>
             </ul>
           </div>
-        </div>
-      </div>
+        </li>
+      </ul>
     </>
   );
 };

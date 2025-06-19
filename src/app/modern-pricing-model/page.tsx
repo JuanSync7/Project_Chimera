@@ -5,15 +5,13 @@ import React from 'react';
 import SubPageLayout from '@/components/chimera/SubPageLayout';
 import {
   DollarSign,
-  HelpCircle,
-  Layers3,
+  Package,
   Cpu,
-  TableIcon,
-  TrendingUp,
   Settings2,
   Target,
-  Package,
-  BarChartBig
+  Layers3,
+  Workflow,
+  TableIcon // Added for H2 if desired, but typically H2s don't have icons per guide.
 } from 'lucide-react';
 
 export default function ModernPricingModelPage() {
@@ -79,6 +77,7 @@ export default function ModernPricingModelPage() {
           </h2>
         </div>
         <p>Using this hybrid structure, you can design tiers that cater to different customer needs while protecting your margins:</p>
+        
         <div className="overflow-x-auto my-6 not-prose">
           <table className="min-w-full divide-y divide-slate-700 text-sm">
             <thead className="bg-slate-800/50">
@@ -93,7 +92,7 @@ export default function ModernPricingModelPage() {
             </thead>
             <tbody className="divide-y divide-slate-700 bg-slate-800/30">
               <tr>
-                <td className="px-4 py-3 align-top"><strong className="text-white">Professional</strong></td>
+                <td className="px-4 py-3 align-top"><strong className="text-white font-semibold">Professional</strong></td>
                 <td className="px-4 py-3 align-top">Individuals or small teams with specific project needs.</td>
                 <td className="px-4 py-3 align-top">Fixed monthly fee (e.g., £500/month)</td>
                 <td className="px-4 py-3 align-top">A baseline amount (e.g., 1 million credits/month) sufficient for standard design and optimization tasks.</td>
@@ -101,7 +100,7 @@ export default function ModernPricingModelPage() {
                 <td className="px-4 py-3 align-top">Access to core agents: PPA Optimization, Verification & Formal Analysis, and the Hierarchical Supervisor. Standard support.</td>
               </tr>
               <tr>
-                <td className="px-4 py-3 align-top"><strong className="text-white">Business</strong></td>
+                <td className="px-4 py-3 align-top"><strong className="text-white font-semibold">Business</strong></td>
                 <td className="px-4 py-3 align-top">Mid-sized design teams running multiple projects.</td>
                 <td className="px-4 py-3 align-top">Higher fixed monthly fee (e.g., £2,500/month)</td>
                 <td className="px-4 py-3 align-top">A larger pool of credits (e.g., 10 million credits/month) to support more intensive and parallel workflows.</td>
@@ -109,7 +108,7 @@ export default function ModernPricingModelPage() {
                 <td className="px-4 py-3 align-top">All Professional features, plus access to advanced agents like Emergent Architectural Suggestion and Generative IP Creation. Priority support and advanced analytics.</td>
               </tr>
               <tr>
-                <td className="px-4 py-3 align-top"><strong className="text-white">Enterprise</strong></td>
+                <td className="px-4 py-3 align-top"><strong className="text-white font-semibold">Enterprise</strong></td>
                 <td className="px-4 py-3 align-top">Large organizations with complex, ongoing design needs.</td>
                 <td className="px-4 py-3 align-top">Custom annual contract</td>
                 <td className="px-4 py-3 align-top">A very large, customized pool of credits or a move towards an outcome-based model.</td>
@@ -136,7 +135,7 @@ export default function ModernPricingModelPage() {
           </h3>
         </div>
         <p>You and your client agree on specific, measurable Key Performance Indicators (KPIs) for a project. Your payment, or a significant portion of it, is contingent on meeting or exceeding these KPIs. The AI compute costs are factored into the overall price, but the value proposition is centered on the massive savings and competitive advantage you deliver.</p>
-
+        
         <div className="mt-8 mb-4 flex items-center">
           <Target className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
@@ -157,10 +156,22 @@ export default function ModernPricingModelPage() {
           </h2>
         </div>
         <p>As you develop more specialized IP and mature your agentic AI system, you can create entirely new revenue streams by productizing your internal tools:</p>
-        <ul className="list-disc pl-5 space-y-2">
-          <li><strong className="text-white font-semibold">IP-as-a-Service (IPaaS):</strong> License the specialized, AI-generated IP blocks (e.g., memory controllers, RISC-V cores) to other companies for a recurring fee.</li>
-          <li><strong className="text-white font-semibold">Platform-as-a-Service (PaaS):</strong> License the entire Project Chimera agentic AI system to larger customers who want to use your powerful orchestration capabilities with their own internal design teams.</li>
-        </ul>
+        
+        <div className="mt-8 mb-4 flex items-center">
+          <Layers3 className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            IP-as-a-Service (IPaaS):
+          </h3>
+        </div>
+        <p>License the specialized, AI-generated IP blocks (e.g., memory controllers, RISC-V cores) to other companies for a recurring fee.</p>
+        
+        <div className="mt-8 mb-4 flex items-center">
+          <Workflow className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
+          <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            Platform-as-a-Service (PaaS):
+          </h3>
+        </div>
+        <p>License the entire Project Chimera agentic AI system to larger customers who want to use your powerful orchestration capabilities with their own internal design teams.</p>
 
         <hr className="!my-12 border-t border-slate-700" />
         

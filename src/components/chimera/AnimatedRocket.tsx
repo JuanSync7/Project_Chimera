@@ -28,7 +28,7 @@ const AnimatedRocket: React.FC = () => {
       role="presentation" // It's decorative
     >
       <RocketIcon
-        className="h-10 w-10 text-primary rotate-90" 
+        className="h-10 w-10 text-primary rotate-45" 
         aria-hidden="true"
       />
     </div>

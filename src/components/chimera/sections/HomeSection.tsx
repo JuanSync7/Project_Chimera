@@ -8,8 +8,8 @@ const HomeSection: React.FC = () => {
       
       {/* Rocket Animation Container: Positioned absolutely within the section */}
       <div 
-        className="absolute top-[15%] left-0 w-full h-auto pointer-events-none" 
-        // Changed from bottom-[25%] to top-[15%] to move rocket higher
+        className="absolute top-[10%] left-0 w-full h-auto pointer-events-none" 
+        // Changed from top-[15%] to top-[10%] to move rocket higher
         // h-auto so rocket defines its needed vertical space within this track.
       >
         <AnimatedRocket />

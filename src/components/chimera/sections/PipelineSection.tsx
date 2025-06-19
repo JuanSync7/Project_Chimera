@@ -161,19 +161,20 @@ const PipelineSection: React.FC = () => {
                       </h4>
                       <div className={`pl-7 font-semibold prose prose-sm prose-invert max-w-none ${currentDesktopStageData.outcomeColor || 'text-sky-300'}`} dangerouslySetInnerHTML={{ __html: currentDesktopStageData.outcome }}></div>
                     </div>
+                     <div className="text-center mt-8">
+                        <Link href={`/ai-pipeline#${currentDesktopStageData.id}`} passHref>
+                          <Button variant="link" className="text-sky-400 hover:text-sky-300 text-base">
+                            Full Stage Details on AI Pipeline Page &rarr;
+                          </Button>
+                        </Link>
+                      </div>
                   </div>
                 </>
             </div>
           )}
         </>
       )}
-       <div className="text-center mt-12"> {/* Moved this button outside the conditional rendering, always visible */}
-            <Link href="/ai-pipeline" passHref>
-                <Button variant="outline" size="lg" className="bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/40">
-                    Deep Dive into All AI Pipeline Stages &rarr;
-                </Button>
-            </Link>
-        </div>
+      {/* Removed the general "Deep Dive into All AI Pipeline Stages" button from here */}
     </section>
   );
 };

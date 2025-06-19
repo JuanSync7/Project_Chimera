@@ -1,4 +1,3 @@
-
 // src/app/roadmap-details/phase-3-run/page.tsx
 "use client";
 import React from 'react';
@@ -26,7 +25,8 @@ import {
   TrendingUp,
   Layers3,
   Users,
-  Package // Added for IPaaS/PaaS
+  Package, // Added for IPaaS/PaaS
+  Inspect
 } from 'lucide-react';
 
 export default function RoadmapPhase3RunPage() {
@@ -44,10 +44,10 @@ export default function RoadmapPhase3RunPage() {
         <p className="italic text-center text-lg text-slate-400 !mt-0">Phase Overview: If Phase 1 built the AI agents and Phase 2 taught them to work together, Phase 3: Run is about achieving a state of Human-AI Symbiosis. The AI pipeline becomes a proactive, learning partner in the chip design process, moving beyond simple automation to intelligent optimization and strategic contribution. This is the stage where we transition from using AI as a tool to integrating AI as a core pillar of the company&apos;s growth, innovation, and competitive advantage.</p>
 
         {/* Executive Overview */}
-        <div className="mt-12 mb-4"> {/* First H2 after main title block */}
+        <div className="mt-16 mb-4"> {/* First H2 after main title block */}
           <div className="flex items-center">
-            <FileText className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
-            <h2 className="text-3xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+            <FileText className="h-8 w-8 text-fuchsia-400 mr-3 flex-shrink-0" />
+            <h2 className="text-3xl font-semibold text-fuchsia-400 !m-0 !border-b-0 !pb-0">
               Executive Overview: Project Chimera Phase 3
             </h2>
           </div>
@@ -61,16 +61,16 @@ export default function RoadmapPhase3RunPage() {
           <li><strong>Continuous Learning from Silicon:</strong> The AI pipeline will be designed to learn from every project. By creating a post-silicon feedback loop, the system will analyze real-world performance data from manufactured chips to continuously refine its internal models, ensuring it becomes more accurate and effective with each design cycle.</li>
           <li><strong>Evolving the Engineering Role and Business Model:</strong> This phase will fundamentally reshape our workforce and business strategy.
             <ul className="list-disc pl-5 space-y-1 mt-1">
-              <li><strong>Talent:</strong> We will focus on hiring and training a new class of <strong>AI-Hybrid Engineers</strong> who possess both deep chip design fundamentals and AI fluency. This is critical for managing, debugging, and providing the essential human judgment needed to guide the AI system.</li>
-              <li><strong>Business Model:</strong> As AI drastically reduces engineering hours, we will transition from a time-based billing model to <strong>outcome-based pricing</strong>. This aligns our revenue with the tangible value we deliver to clients—such as superior PPA, accelerated time-to-market, and reduced NRE costs from eliminating respins.</li>
-              <li><strong>Future Commercialization:</strong> The ultimate goal is to productize our innovations. The generative IP capabilities will be developed into an <strong>IP-as-a-Service (IPaaS)</strong> offering, while the entire Chimera orchestration system has the potential to be licensed as a <strong>Platform-as-a-Service (PaaS)</strong>, creating new, high-margin revenue streams.</li>
+              <li><strong className="text-white font-semibold">Talent:</strong> We will focus on hiring and training a new class of <strong>AI-Hybrid Engineers</strong> who possess both deep chip design fundamentals and AI fluency. This is critical for managing, debugging, and providing the essential human judgment needed to guide the AI system.</li>
+              <li><strong className="text-white font-semibold">Business Model:</strong> As AI drastically reduces engineering hours, we will transition from a time-based billing model to <strong>outcome-based pricing</strong>. This aligns our revenue with the tangible value we deliver to clients—such as superior PPA, accelerated time-to-market, and reduced NRE costs from eliminating respins.</li>
+              <li><strong className="text-white font-semibold">Future Commercialization:</strong> The ultimate goal is to productize our innovations. The generative IP capabilities will be developed into an <strong>IP-as-a-Service (IPaaS)</strong> offering, while the entire Chimera orchestration system has the potential to be licensed as a <strong>Platform-as-a-Service (PaaS)</strong>, creating new, high-margin revenue streams.</li>
             </ul>
           </li>
         </ol>
         <p>In summary, Phase 3 is designed to deliver transformative ROI by drastically reducing design time, improving chip performance beyond human capability, and slashing non-recurring engineering costs. By successfully executing this plan, we will not only optimize our internal design processes but also position the company as a leader in AI-driven design and create new, scalable lines of business.</p>
 
         {/* Part 1: Strategic Clarification */}
-        <div className="mt-16 mb-4"> {/* First "Part X" section */}
+        <div className="mt-24 mb-4">
           <div className="flex items-center">
             <Lightbulb className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
             <h2 className="text-3xl font-semibold text-primary gradient-text !m-0 !border-b-0 !pb-0">
@@ -82,7 +82,7 @@ export default function RoadmapPhase3RunPage() {
         <p>Think of it this way: The world&apos;s best Formula 1 driver doesn&apos;t build their own car from scratch; they master the use of a highly advanced machine to win races. Similarly, our AI will be the &quot;expert driver&quot; for the best EDA tools available, orchestrating them in a holistic, end-to-end flow to design world-beating chips faster and more efficiently than any competitor. Our intellectual property is the AI, not the underlying tools.</p>
 
         {/* Part 2: Full Stack Autonomy & The Human in the Loop */}
-        <div className="mt-24 mb-4"> {/* Changed from mt-16 to mt-24 */}
+        <div className="mt-24 mb-4">
           <div className="flex items-center">
             <Workflow className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
             <h2 className="text-3xl font-semibold text-primary gradient-text !m-0 !border-b-0 !pb-0">
@@ -97,13 +97,13 @@ export default function RoadmapPhase3RunPage() {
           <h3 className="text-2xl font-semibold text-purple-400 !m-0 !border-b-0 !pb-0">How it Works with a Human in the Loop:</h3>
         </div>
         <ul className="list-disc pl-5 space-y-2">
-          <li><strong>The Engineer as a Supervisor:</strong> Instead of writing RTL code line-by-line, the engineer acts as a high-level architect and project manager. They define the &quot;what&quot; (e.g., &quot;design a low-power neural processing unit with these specific performance targets&quot;), and our AI orchestrates the EDA tools to handle the &quot;how.&quot;</li>
-          <li><strong>Strategic Intervention:</strong> The human&apos;s role shifts to strategic decision-making. The AI might present three optimized design options, each with different trade-offs in power, performance, and area (PPA). The engineer uses their expertise to select the best option based on market needs, customer requirements, and long-term product strategy.</li>
-          <li><strong>Creative Exploration:</strong> Engineers are freed from tedious, repetitive tasks, allowing them to focus on innovation. They can use the AI to rapidly prototype and test novel architectures that would have been too time-consuming to explore manually.</li>
+          <li><strong className="text-white font-semibold">The Engineer as a Supervisor:</strong> Instead of writing RTL code line-by-line, the engineer acts as a high-level architect and project manager. They define the &quot;what&quot; (e.g., &quot;design a low-power neural processing unit with these specific performance targets&quot;), and our AI orchestrates the EDA tools to handle the &quot;how.&quot;</li>
+          <li><strong className="text-white font-semibold">Strategic Intervention:</strong> The human&apos;s role shifts to strategic decision-making. The AI might present three optimized design options, each with different trade-offs in power, performance, and area (PPA). The engineer uses their expertise to select the best option based on market needs, customer requirements, and long-term product strategy.</li>
+          <li><strong className="text-white font-semibold">Creative Exploration:</strong> Engineers are freed from tedious, repetitive tasks, allowing them to focus on innovation. They can use the AI to rapidly prototype and test novel architectures that would have been too time-consuming to explore manually.</li>
         </ul>
 
         {/* Part 3: Detailed Step-by-Step Plan */}
-        <div className="mt-24 mb-4"> {/* Changed from mt-16 to mt-24 */}
+        <div className="mt-24 mb-4">
           <div className="flex items-center">
             <GanttChartSquare className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
             <h2 className="text-3xl font-semibold text-primary gradient-text !m-0 !border-b-0 !pb-0">
@@ -283,7 +283,7 @@ export default function RoadmapPhase3RunPage() {
         </ul>
         
         {/* Part 4: Company Growth, Cost, and Performance */}
-        <div className="mt-24 mb-4"> {/* Changed from mt-16 to mt-24 */}
+        <div className="mt-24 mb-4">
           <div className="flex items-center">
             <BarChart3 className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
             <h2 className="text-3xl font-semibold text-primary gradient-text !m-0 !border-b-0 !pb-0">
@@ -297,46 +297,46 @@ export default function RoadmapPhase3RunPage() {
           <DollarSign className="h-7 w-7 text-purple-400 mr-3 flex-shrink-0" />
           <h3 className="text-2xl font-semibold text-purple-400 !m-0 !border-b-0 !pb-0">Phase 3 Cost Estimation (Annual Estimate):</h3>
         </div>
-        <ul className="list-disc pl-5 space-y-4">
+        <ul className="list-none pl-0 space-y-4">
           <li>
-            <div className="mt-4 mb-2 flex items-center">
-              <Users className="h-6 w-6 text-slate-300 mr-2 flex-shrink-0" />
-              <h4 className="text-xl font-medium text-slate-200 !m-0 !border-b-0 !pb-0">Talent (The AI Team):</h4>
+            <div className="flex items-center">
+                <Users className="h-6 w-6 text-slate-300 mr-2 flex-shrink-0" />
+                <h4 className="text-xl font-medium text-slate-200 !m-0 !border-b-0 !pb-0">Talent (The AI Team):</h4>
             </div>
-            <ul className="list-circle pl-5 space-y-1">
+            <ul className="list-disc pl-10 space-y-1">
               <li><strong className="text-white font-semibold">Cost Breakdown:</strong> 1 Lead AI Architect, 4 Senior ML/AI Engineers, 2 Data/Infrastructure Engineers, 1 Product Manager (AI Interfaces).</li>
               <li><strong className="text-white font-semibold">Estimated Annual Cost:</strong> £1.2M - £1.8M.</li>
               <li><strong className="text-white font-semibold">Notes:</strong> This team is focused exclusively on developing and refining the Chimera AI agents and the Model Context Protocol (MCP). This is our core IP investment. Salaries are based on competitive rates for top-tier AI talent in the UK/EU.</li>
             </ul>
           </li>
           <li>
-            <div className="mt-4 mb-2 flex items-center">
+            <div className="flex items-center">
               <Cpu className="h-6 w-6 text-slate-300 mr-2 flex-shrink-0" />
               <h4 className="text-xl font-medium text-slate-200 !m-0 !border-b-0 !pb-0">Cloud Compute &amp; Infrastructure:</h4>
             </div>
-            <ul className="list-circle pl-5 space-y-1">
+            <ul className="list-disc pl-10 space-y-1">
               <li><strong className="text-white font-semibold">Cost Breakdown:</strong> GPU-intensive training clusters (e.g., AWS P4d/P5 instances), CPU-intensive simulation/EDA farm, High-throughput storage &amp; networking.</li>
               <li><strong className="text-white font-semibold">Estimated Annual Cost:</strong> £800k - £1.5M.</li>
               <li><strong className="text-white font-semibold">Notes:</strong> This is the most variable cost and will be highest during intensive training periods for new AI models. It will scale with the number of parallel chip design projects being executed by the AI.</li>
             </ul>
           </li>
           <li>
-            <div className="mt-4 mb-2 flex items-center">
+            <div className="flex items-center">
               <Layers3 className="h-6 w-6 text-slate-300 mr-2 flex-shrink-0" />
               <h4 className="text-xl font-medium text-slate-200 !m-0 !border-b-0 !pb-0">EDA Tool Licensing:</h4>
             </div>
-            <ul className="list-circle pl-5 space-y-1">
+            <ul className="list-disc pl-10 space-y-1">
               <li><strong className="text-white font-semibold">Cost Breakdown:</strong> Comprehensive licenses from major vendors (Synopsys, Cadence, Siemens/Mentor), Seats for both human engineers and AI-driven processes.</li>
               <li><strong className="text-white font-semibold">Estimated Annual Cost:</strong> £1.5M - £2.5M.</li>
               <li><strong className="text-white font-semibold">Notes:</strong> While we already have EDA licenses, running a fully autonomous AI pipeline requires a significant increase in license seats to allow the AI to run thousands of jobs in parallel without being bottlenecked. This is a crucial enabler for the AI&apos;s speed.</li>
             </ul>
           </li>
           <li>
-            <div className="mt-4 mb-2 flex items-center">
+            <div className="flex items-center">
               <DollarSign className="h-6 w-6 text-slate-300 mr-2 flex-shrink-0" />
               <h4 className="text-xl font-medium text-slate-200 !m-0 !border-b-0 !pb-0">Total Estimated Annual Cost:</h4>
             </div>
-            <ul className="list-circle pl-5 space-y-1">
+            <ul className="list-disc pl-10 space-y-1">
               <li><strong className="text-white font-semibold">Total:</strong> £3.5M - £5.8M.</li>
               <li><strong className="text-white font-semibold">Notes:</strong> This represents the operational cost to run at the full &quot;Run&quot; phase. The return on this investment is realized through transformative improvements in design efficiency and final product quality, leading to significant financial gains and a strong competitive advantage.</li>
             </ul>
@@ -377,7 +377,7 @@ export default function RoadmapPhase3RunPage() {
         </ul>
 
         {/* Part 5: Deployed Agents, New Hires, and the Future */}
-        <div className="mt-24 mb-4"> {/* Changed from mt-16 to mt-24 */}
+        <div className="mt-24 mb-4">
           <div className="flex items-center">
             <UsersRound className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
             <h2 className="text-3xl font-semibold text-primary gradient-text !m-0 !border-b-0 !pb-0">
@@ -427,7 +427,7 @@ export default function RoadmapPhase3RunPage() {
         </ul>
 
         {/* Part 6: Learning from the EDA Industry */}
-        <div className="mt-24 mb-4"> {/* Changed from mt-16 to mt-24 */}
+        <div className="mt-24 mb-4">
           <div className="flex items-center">
             <BookOpenCheck className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
             <h2 className="text-3xl font-semibold text-primary gradient-text !m-0 !border-b-0 !pb-0">
@@ -450,4 +450,3 @@ export default function RoadmapPhase3RunPage() {
     </SubPageLayout>
   );
 }
-

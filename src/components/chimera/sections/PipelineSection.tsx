@@ -14,9 +14,8 @@ const PipelineSection: React.FC = () => {
   // State for mobile roulette
   const [currentMobileStageIndex, setCurrentMobileStageIndex] = useState(0);
 
-  // State for desktop tabs (first 5 stages)
-  const desktopDisplayTabs = PIPELINE_TABS.slice(0, 5);
-  const [activeDesktopTabId, setActiveDesktopTabId] = useState<string>(desktopDisplayTabs[0]?.id || PIPELINE_TABS[0]?.id);
+  // State for desktop tabs (all 11 stages with summary)
+  const [activeDesktopStageId, setActiveDesktopStageId] = useState<string>(PIPELINE_TABS[0]?.id);
 
   const handlePrevMobile = () => {
     setCurrentMobileStageIndex(prev => (prev === 0 ? PIPELINE_TABS.length - 1 : prev - 1));
@@ -27,7 +26,7 @@ const PipelineSection: React.FC = () => {
   };
 
   const currentMobileStageData = isMobile !== undefined ? PIPELINE_TABS[currentMobileStageIndex] : null;
-  const currentDesktopTabData = desktopDisplayTabs.find(tab => tab.id === activeDesktopTabId);
+  const currentDesktopStageData = PIPELINE_TABS.find(tab => tab.id === activeDesktopStageId);
 
   return (
     <section id="pipeline" className="py-16 md:py-24">
@@ -107,62 +106,61 @@ const PipelineSection: React.FC = () => {
           )}
         </div>
       ) : (
-        // Desktop View: 5 Tabs with inline content
+        // Desktop View: Horizontally scrollable buttons for all 11 stages, with selected stage details below
         <>
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
-            {desktopDisplayTabs.map((tab: PipelineTab) => (
-              <button
+          <div className="no-scrollbar flex overflow-x-auto space-x-3 pb-4 mb-10">
+            {PIPELINE_TABS.map((tab: PipelineTab) => (
+              <Button
                 key={tab.id}
-                className={`tab-button-base py-2.5 px-5 rounded-full text-sm font-medium flex items-center justify-center
-                            ${activeDesktopTabId === tab.id ? 'tab-button-active shadow-md shadow-primary/50' : 'tab-button-inactive'}`}
-                onClick={() => setActiveDesktopTabId(tab.id)}
-                aria-selected={activeDesktopTabId === tab.id}
-                role="tab"
+                variant="outline"
+                size="sm"
+                onClick={() => setActiveDesktopStageId(tab.id)}
+                className={`shrink-0 flex items-center gap-2 transition-all duration-200
+                            ${activeDesktopStageId === tab.id 
+                              ? 'bg-primary text-primary-foreground border-primary shadow-md shadow-primary/50' 
+                              : 'bg-slate-800/60 border-white hover:bg-slate-700/80 hover:border-primary text-slate-300 hover:text-white'}`}
               >
-                {React.cloneElement(tab.icon as React.ReactElement, { className: "w-5 h-5 mr-2 inline-block" })}
+                {React.cloneElement(tab.icon as React.ReactElement, { className: "w-4 h-4" })}
                 {tab.title}
-              </button>
+              </Button>
             ))}
           </div>
 
-          <div id="tab-content-wrapper" className="section-card rounded-2xl p-8 md:p-12 min-h-[450px] relative overflow-hidden">
-            {desktopDisplayTabs.map((tab) => (
-              <div
-                key={tab.id}
-                role="tabpanel"
-                aria-labelledby={tab.id}
-                className={`transition-opacity duration-500 ease-in-out ${activeDesktopTabId === tab.id ? 'opacity-100' : 'opacity-0 absolute top-0 left-0 w-full p-8 md:p-12 pointer-events-none'}`}
-              >
-                {activeDesktopTabId === tab.id && currentDesktopTabData && (
-                  <>
-                    <h3 className="text-2xl lg:text-3xl font-bold mb-3 gradient-text">{currentDesktopTabData.heading}</h3>
-                    <p className="mb-6 text-slate-300 text-base lg:text-lg" dangerouslySetInnerHTML={{ __html: currentDesktopTabData.generalDescription }}></p>
-                    <div className="space-y-6">
-                      <div>
-                        <h4 className="font-semibold text-white text-lg mb-1">Key Challenge:</h4>
-                        <p className="text-slate-400" dangerouslySetInnerHTML={{ __html: currentDesktopTabData.challenge }}></p>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-white text-lg mb-1">Agentic Workflow &amp; Technologies:</h4>
-                        <div className="text-slate-400 prose prose-sm prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: currentDesktopTabData.agenticWorkflowDetails }}></div>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-white text-lg mb-1">Primary Business Outcome:</h4>
-                        <div className={`font-semibold prose prose-sm prose-invert max-w-none ${currentDesktopTabData.outcomeColor || 'text-sky-300'}`} dangerouslySetInnerHTML={{ __html: currentDesktopTabData.outcome }}></div>
-                      </div>
+          {currentDesktopStageData && (
+            <div id="desktop-stage-content-wrapper" className="section-card rounded-2xl p-8 md:p-12 min-h-[450px] relative overflow-hidden">
+                <>
+                  <h3 className="text-2xl lg:text-3xl font-bold mb-3 gradient-text">{currentDesktopStageData.heading}</h3>
+                  <p className="mb-6 text-slate-300 text-base lg:text-lg" dangerouslySetInnerHTML={{ __html: currentDesktopStageData.generalDescription }}></p>
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-semibold text-white text-lg mb-1 flex items-center">
+                        <AlertTriangle className="w-5 h-5 mr-2 text-yellow-400 flex-shrink-0" />
+                        Key Challenge:
+                      </h4>
+                      <p className="text-slate-400 pl-7" dangerouslySetInnerHTML={{ __html: currentDesktopStageData.challenge }}></p>
                     </div>
-                  </>
-                )}
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <Link href="/ai-pipeline" passHref>
-              <Button variant="outline" size="lg" className="bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/40">
-                Deep Dive into All AI Pipeline Stages &rarr;
-              </Button>
-            </Link>
-          </div>
+                    <div>
+                      <h4 className="font-semibold text-white text-lg mb-1">Agentic Workflow &amp; Technologies:</h4>
+                      <div className="text-slate-400 prose prose-sm prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: currentDesktopStageData.agenticWorkflowDetails }}></div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-white text-lg mb-1 flex items-center">
+                        <Star className="w-5 h-5 mr-2 text-green-400 flex-shrink-0" />
+                        Primary Business Outcome:
+                      </h4>
+                      <div className={`pl-7 font-semibold prose prose-sm prose-invert max-w-none ${currentDesktopStageData.outcomeColor || 'text-sky-300'}`} dangerouslySetInnerHTML={{ __html: currentDesktopStageData.outcome }}></div>
+                    </div>
+                  </div>
+                  <div className="text-center mt-12">
+                    <Link href={`/ai-pipeline#${currentDesktopStageData.id}`} passHref>
+                        <Button variant="outline" size="lg" className="bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/40">
+                            View Full Stage Details &rarr;
+                        </Button>
+                    </Link>
+                  </div>
+                </>
+            </div>
+          )}
         </>
       )}
     </section>

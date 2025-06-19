@@ -3,12 +3,12 @@
 "use client";
 import React from 'react';
 import SubPageLayout from '@/components/chimera/SubPageLayout';
-import { GanttChartSquare, Milestone, TrendingUp, Target, ExternalLink } from 'lucide-react';
+import { GanttChartSquare, Milestone, TrendingUp, Target, ExternalLink, DollarSign } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
 const PhaseCard: React.FC<{ title: string; description: string; href: string; icon: React.ReactNode; period: string; colorClass: string }> = ({ title, description, href, icon, period, colorClass }) => (
-  <div className={`section-card p-6 rounded-2xl flex flex-col h-full border-2 hover:border-${colorClass}-500/70`}>
+  <div className={`section-card p-6 rounded-2xl flex flex-col h-full border-2 hover:border-${colorClass.split('-')[1]}-500/70`}>
     <div className="flex items-center mb-4">
       {icon}
       <div className='ml-3'>
@@ -18,7 +18,7 @@ const PhaseCard: React.FC<{ title: string; description: string; href: string; ic
     </div>
     <p className="text-slate-400 flex-grow mb-6">{description}</p>
     <Link href={href} passHref>
-      <Button variant="outline" className={`w-full mt-auto bg-transparent ${colorClass} border-${colorClass} hover:bg-${colorClass}/20 hover:text-${colorClass}-300 hover:border-${colorClass}-400`}>
+      <Button variant="outline" className={`w-full mt-auto bg-transparent ${colorClass} border-${colorClass.split('-')[1]}-500 hover:bg-${colorClass.split('-')[1]}-500/20 hover:text-${colorClass.split('-')[1]}-300 hover:border-${colorClass.split('-')[1]}-400`}>
         View Details <ExternalLink className="ml-2 h-4 w-4" />
       </Button>
     </Link>
@@ -65,7 +65,7 @@ export default function RoadmapDetailsOverviewPage() {
           <PhaseCard
             title="Phase 3: Run"
             period="Year 3 - 5 (Q1 2029 - Q4 2030)"
-            description="Achieve full-stack autonomy with an end-to-end agentic design system. Leverage this capability for market leadership and designing novel AI chips."
+            description="Achieve <strong>full-stack autonomy</strong> with an end-to-end <strong>agentic design system</strong>. Leverage this unique capability for <strong>market leadership</strong> and design <strong>novel AI chips</strong> using Chimera."
             href="/roadmap-details/phase-3-run"
             icon={<Target className="h-10 w-10 text-fuchsia-400" />}
             colorClass="text-fuchsia-400"
@@ -118,6 +118,15 @@ export default function RoadmapDetailsOverviewPage() {
           </table>
         </div>
 
+        <div className="text-center mt-12 mb-8">
+            <Link href="/modern-pricing-model" passHref>
+              <Button variant="outline" size="lg" className="bg-transparent text-green-400 border-green-500 hover:bg-green-500/20 hover:text-green-300 hover:border-green-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-green-500/40">
+                <DollarSign className="mr-2 h-5 w-5" />
+                Explore Our Modern Pricing Model &rarr;
+              </Button>
+            </Link>
+        </div>
+
         <div className="mt-16 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             Conclusion
@@ -129,3 +138,4 @@ export default function RoadmapDetailsOverviewPage() {
     </SubPageLayout>
   );
 }
+

@@ -33,7 +33,7 @@ const Part4CompanyGrowthCostPerformance: React.FC = () => {
               Talent (The AI Team):
             </h4>
           </div>
-          <ul className="list-disc pl-10 space-y-1 mt-1 text-slate-400">
+          <ul className="list-disc pl-16 space-y-1 mt-1 text-slate-400">
             <li>
               <strong className="text-white font-semibold">Cost Breakdown:</strong> 1 Lead AI Architect, 4 Senior
               ML/AI Engineers, 2 Data/Infrastructure Engineers, 1 Product Manager (AI Interfaces).
@@ -55,7 +55,7 @@ const Part4CompanyGrowthCostPerformance: React.FC = () => {
               Cloud Compute &amp; Infrastructure:
             </h4>
           </div>
-          <ul className="list-disc pl-10 space-y-1 mt-1 text-slate-400">
+          <ul className="list-disc pl-16 space-y-1 mt-1 text-slate-400">
             <li>
               <strong className="text-white font-semibold">Cost Breakdown:</strong> GPU-intensive training
               clusters (e.g., AWS P4d/P5 instances), CPU-intensive simulation/EDA farm, High-throughput
@@ -78,7 +78,7 @@ const Part4CompanyGrowthCostPerformance: React.FC = () => {
               EDA Tool Licensing:
             </h4>
           </div>
-          <ul className="list-disc pl-10 space-y-1 mt-1 text-slate-400">
+          <ul className="list-disc pl-16 space-y-1 mt-1 text-slate-400">
             <li>
               <strong className="text-white font-semibold">Cost Breakdown:</strong> Comprehensive licenses from
               major vendors (Synopsys, Cadence, Siemens/Mentor), Seats for both human engineers and AI-driven
@@ -102,7 +102,7 @@ const Part4CompanyGrowthCostPerformance: React.FC = () => {
               Total Estimated Annual Cost:
             </h4>
           </div>
-          <ul className="list-disc pl-10 space-y-1 mt-1 text-slate-400">
+          <ul className="list-disc pl-16 space-y-1 mt-1 text-slate-400">
             <li><strong className="text-white font-semibold">Total:</strong> £3.5M - £5.8M.</li>
             <li>
               <strong className="text-white font-semibold">Notes:</strong> This represents the operational cost
@@ -214,3 +214,4 @@ const Part4CompanyGrowthCostPerformance: React.FC = () => {
 };
 
 export default Part4CompanyGrowthCostPerformance;
+

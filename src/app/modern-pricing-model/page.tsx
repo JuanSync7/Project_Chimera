@@ -11,7 +11,7 @@ import {
   Target,
   Layers3,
   Workflow,
-  TableIcon // Added for H2 if desired, but typically H2s don't have icons per guide.
+  TableIcon
 } from 'lucide-react';
 
 export default function ModernPricingModelPage() {
@@ -28,16 +28,12 @@ export default function ModernPricingModelPage() {
 
         <p>You've provided an excellent framework for evolving your pricing strategy from traditional, risky models (like per-seat or engineering-hour) to a more sophisticated, value-aligned approach for your AI-driven chip design company. The core solution lies in a <strong>hybrid pricing model</strong>, which is rapidly becoming the standard for AI-native applications leveraging foundation models. This approach combines the predictability of a subscription with a usage-based component, directly reflecting the variable costs of underlying AI compute, and further evolves into outcome-based pricing for your most valuable clients.</p>
 
-        <hr className="!my-12 border-t border-slate-700" />
-
         <div className="mt-16 mb-4"> {/* First H2 on page */}
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             The Need for a Modern Pricing Model
           </h2>
         </div>
         <p>The traditional "per-seat" SaaS model or the "engineering-hour" model is inherently risky and fails to capture the true value of your AI-driven capabilities. If a customer's usage of the underlying Large Language Models (LLMs) is high, a flat-rate subscription could easily lead to financial losses. Furthermore, billing by the hour undervalues the immense speed, optimization, and superior results delivered by your AI, and it doesn't properly account for the significant underlying compute costs. The value you provide is no longer just about human time; it's about the powerful combination of expert human oversight, the AI's computational effort, and, most importantly, the superior results you deliver.</p>
-
-        <hr className="!my-12 border-t border-slate-700" />
 
         <div className="mt-24 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
@@ -68,8 +64,6 @@ export default function ModernPricingModelPage() {
           <li><strong className="text-white font-semibold">How Credits Work:</strong> Every time one of your agents makes a call to an external LLM for a task (e.g., generating RTL code, analyzing a report, or PPA optimization), it consumes a certain number of credits. The number of credits consumed would be based on the number of input and output tokens processed by the third-party model, mirroring how LLM providers bill you.</li>
           <li><strong className="text-white font-semibold">Transparency:</strong> This model is highly transparent. You can show customers exactly how many credits each action consumes, enabling them to manage their usage and understand their bill effectively. This directly and transparently covers the variable costs of running the AI.</li>
         </ul>
-
-        <hr className="!my-12 border-t border-slate-700" />
 
         <div className="mt-24 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
@@ -119,8 +113,6 @@ export default function ModernPricingModelPage() {
           </table>
         </div>
         
-        <hr className="!my-12 border-t border-slate-700" />
-
         <div className="mt-24 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             The "Enterprise" Tier and Outcome-Based Pricing
@@ -148,8 +140,6 @@ export default function ModernPricingModelPage() {
           <li><strong className="text-white font-semibold">First-Pass Silicon Success:</strong> A major cost for any chip company is a silicon respin. You could structure a model with a substantial success fee for achieving a functional chip on the first tape-out, as this represents enormous risk mitigation and cost savings for your client.</li>
         </ul>
         
-        <hr className="!my-12 border-t border-slate-700" />
-
         <div className="mt-24 mb-4">
           <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
             Beyond Services: IP and Platform Licensing
@@ -172,8 +162,6 @@ export default function ModernPricingModelPage() {
           </h3>
         </div>
         <p>License the entire Project Chimera agentic AI system to larger customers who want to use your powerful orchestration capabilities with their own internal design teams.</p>
-
-        <hr className="!my-12 border-t border-slate-700" />
         
         <p>By moving away from hourly billing and adopting this robust hybrid approach, you shift the conversation with clients from "How much time will this take?" to "What incredible results can you deliver?". This model allows you to offer the subscription model that customers prefer for budgeting while ensuring that your costs are covered, your pricing scales directly with the value and resources consumed, and your success is directly aligned with that of your customers.</p>
 
@@ -181,3 +169,4 @@ export default function ModernPricingModelPage() {
     </SubPageLayout>
   );
 }
+

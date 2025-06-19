@@ -79,7 +79,7 @@ function HomePageContent() {
 
           <PipelineSection />
           {/* "Deep Dive into the AI-Powered Pipeline" button */}
-          <div className="text-center mt-4 mb-16">
+          <div className="text-center mt-0 mb-16"> {/* Changed mt-4 to mt-0 */}
             <Link href="/ai-pipeline" passHref>
               <Button variant="outline" size="lg" className="bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/40">
                 Deep Dive into the AI-Powered Pipeline &rarr;
@@ -120,3 +120,4 @@ export default function HomePage() {
     </Suspense>
   );
 }
+

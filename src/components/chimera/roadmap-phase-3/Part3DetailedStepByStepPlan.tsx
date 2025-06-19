@@ -1,6 +1,6 @@
 // src/components/chimera/roadmap-phase-3/Part3DetailedStepByStepPlan.tsx
 import React from 'react';
-import SectionCard from '@/components/chimera/SectionCard'; // Import SectionCard
+import SectionCard from '@/components/chimera/SectionCard';
 import {
   GanttChartSquare,
   Link2,
@@ -78,6 +78,7 @@ const Part3DetailedStepByStepPlan: React.FC = () => {
       </ul>
       <SectionCard
         className="bg-transparent border border-white/80 shadow-none mt-6 py-4 px-5"
+        title=""
         description={
           <>
             <div className="mb-2 flex items-center">
@@ -155,6 +156,7 @@ const Part3DetailedStepByStepPlan: React.FC = () => {
       </ul>
       <SectionCard
         className="bg-transparent border border-white/80 shadow-none mt-6 py-4 px-5"
+        title=""
         description={
           <>
             <div className="mb-2 flex items-center">
@@ -231,6 +233,7 @@ const Part3DetailedStepByStepPlan: React.FC = () => {
       </ul>
       <SectionCard
         className="bg-transparent border border-white/80 shadow-none mt-6 py-4 px-5"
+        title=""
         description={
           <>
             <div className="mb-2 flex items-center">
@@ -306,6 +309,7 @@ const Part3DetailedStepByStepPlan: React.FC = () => {
       </ul>
       <SectionCard
         className="bg-transparent border border-white/80 shadow-none mt-6 py-4 px-5"
+        title=""
         description={
           <>
             <div className="mb-2 flex items-center">
@@ -386,6 +390,7 @@ const Part3DetailedStepByStepPlan: React.FC = () => {
       </ul>
       <SectionCard
         className="bg-transparent border border-white/80 shadow-none mt-6 py-4 px-5"
+        title=""
         description={
           <>
             <div className="mb-2 flex items-center">

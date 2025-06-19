@@ -6,6 +6,7 @@ import SubPageLayout from '@/components/chimera/SubPageLayout';
 import { Cpu } from 'lucide-react'; // For H1 title
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { PIPELINE_TABS } from '@/lib/chimera/constants'; // Use PIPELINE_TABS
 
 // Import stage components
 import Stage_3_1_SpecAndArch from '@/components/chimera/pipeline-stages/Stage_3_1_SpecAndArch';
@@ -19,20 +20,6 @@ import Stage_3_8_SystemLevelCrossDomainVerify from '@/components/chimera/pipelin
 import Stage_3_9_DFT from '@/components/chimera/pipeline-stages/Stage_3_9_DFT';
 import Stage_3_10_PhysicalDesignPPAOpt from '@/components/chimera/pipeline-stages/Stage_3_10_PhysicalDesignPPAOpt';
 import Stage_3_11_MfgPostSilicon from '@/components/chimera/pipeline-stages/Stage_3_11_MfgPostSilicon';
-
-const pipelineStagesNav = [
-  { id: "stage-3-1", title: "3.1 Spec & Arch", shortTitle: "Spec & Arch" },
-  { id: "stage-3-2", title: "3.2 RTL Generation", shortTitle: "RTL Gen" },
-  { id: "stage-3-3", title: "3.3 RTL Opt & Test Setup", shortTitle: "RTL Opt & Test" },
-  { id: "stage-3-4", title: "3.4 TDD RTL Refinement", shortTitle: "TDD RTL" },
-  { id: "stage-3-5", title: "3.5 Func. Verify & Coverage", shortTitle: "Func. Verify" },
-  { id: "stage-3-6", title: "3.6 Formal & Static Analysis", shortTitle: "Formal/Static" },
-  { id: "stage-3-7", title: "3.7 AI Debugging", shortTitle: "AI Debug" },
-  { id: "stage-3-8", title: "3.8 System Lvl. Verify & AI Eval", shortTitle: "System Verify" },
-  { id: "stage-3-9", title: "3.9 DFT & ATPG", shortTitle: "DFT/ATPG" },
-  { id: "stage-3-10", title: "3.10 Physical Design & PPA Opt.", shortTitle: "Physical/PPA" },
-  { id: "stage-3-11", title: "3.11 Mfg & Post-Silicon", shortTitle: "Mfg/Post-Si" },
-];
 
 export default function AiPipelinePage() {
   return (
@@ -63,18 +50,19 @@ export default function AiPipelinePage() {
           enabling truly optimal end-to-end solutions that meet our aggressive <strong>PPA targets</strong>.
         </p>
 
-        {/* Shortcut Buttons Section */}
+        {/* Shortcut Buttons Section - Now uses PIPELINE_TABS */}
         <div className="my-12 py-4 border-y border-slate-700">
           <h3 className="text-xl font-semibold text-center text-white mb-6">Pipeline Stages Overview</h3>
           <div className="flex flex-wrap justify-center gap-3">
-            {pipelineStagesNav.map((stage) => (
+            {PIPELINE_TABS.map((stage) => (
               <Link key={stage.id} href={`#${stage.id}`} passHref>
                 <Button
                   variant="outline"
                   size="sm"
-                  className="bg-slate-800/60 border-white hover:bg-slate-700/80 hover:border-primary text-slate-300 hover:text-white transition-all duration-200"
+                  className="bg-slate-800/60 border-white hover:bg-slate-700/80 hover:border-primary text-slate-300 hover:text-white transition-all duration-200 flex items-center gap-2"
                 >
-                  {stage.shortTitle}
+                  {stage.icon} {/* Use icon from PIPELINE_TABS */}
+                  {stage.title} {/* Use title from PIPELINE_TABS */}
                 </Button>
               </Link>
             ))}

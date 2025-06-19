@@ -24,9 +24,10 @@ export const NAV_LINKS: NavLinkItem[] = [
   { id: 'roadmap', href: '#roadmap', label: 'Roadmap' },
 ];
 
+// PIPELINE_TABS is now the single source for stage data, used by main page and ai-pipeline page
 export const PIPELINE_TABS: PipelineTab[] = [
   {
-    id: 'tab-spec-arch',
+    id: 'stage-3-1', // Used for href linking, must match ai-pipeline page section IDs
     title: '1. Spec & Arch',
     icon: React.createElement(Pencil, { className: "w-5 h-5 mr-2 inline-block" }),
     heading: 'Stage 1: System Specification & Architecture',
@@ -38,7 +39,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     outcomeColor: 'text-green-400'
   },
   {
-    id: 'tab-rtl-gen',
+    id: 'stage-3-2',
     title: '2. RTL Gen',
     icon: React.createElement(FileCode, { className: "w-5 h-5 mr-2 inline-block" }),
     heading: 'Stage 2: Intelligent RTL Generation from Architecture',
@@ -50,7 +51,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     outcomeColor: 'text-green-400'
   },
   {
-    id: 'tab-rtl-opt-test',
+    id: 'stage-3-3',
     title: '3. RTL Opt & Test Setup',
     icon: React.createElement(ClipboardCheck, { className: "w-5 h-5 mr-2 inline-block" }),
     heading: 'Stage 3: Proactive RTL Optimization & Testbench Setup',
@@ -62,7 +63,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     outcomeColor: 'text-green-400' 
   },
   {
-    id: 'tab-tdd-rtl',
+    id: 'stage-3-4',
     title: '4. TDD RTL Refinement',
     icon: React.createElement(RefreshCcw, { className: "w-5 h-5 mr-2 inline-block" }),
     heading: 'Stage 4: Test-Driven Development (TDD) for Iterative RTL Refinement',
@@ -75,7 +76,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     outcomeColor: 'text-green-400'
   },
   {
-    id: 'tab-func-verify',
+    id: 'stage-3-5',
     title: '5. Functional Verification',
     icon: React.createElement(ListChecks, { className: "w-5 h-5 mr-2 inline-block" }),
     heading: 'Stage 5: Comprehensive Functional Verification & Coverage Closure',
@@ -87,7 +88,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     outcomeColor: 'text-green-400'
   },
   {
-    id: 'tab-formal-static',
+    id: 'stage-3-6',
     title: '6. Formal & Static Analysis',
     icon: React.createElement(ShieldCheck, { className: "w-5 h-5 mr-2 inline-block" }),
     heading: 'Stage 6: Formal Verification & Static Analysis for Deep Bug Detection',
@@ -99,7 +100,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     outcomeColor: 'text-green-400'
   },
   {
-    id: 'tab-ai-debug',
+    id: 'stage-3-7',
     title: '7. AI-Driven Debugging',
     icon: React.createElement(SearchCode, { className: "w-5 h-5 mr-2 inline-block" }),
     heading: 'Stage 7: AI-Driven Debugging & Root Cause Analysis',
@@ -111,8 +112,8 @@ export const PIPELINE_TABS: PipelineTab[] = [
     outcomeColor: 'text-green-400'
   },
   {
-    id: 'tab-system-eval',
-    title: '8. System Lvl. Verification & AI Eval',
+    id: 'stage-3-8',
+    title: '8. System Lvl. Verify & AI Eval',
     icon: React.createElement(BarChart3, { className: "w-5 h-5 mr-2 inline-block" }),
     heading: 'Stage 8: System-Level & Cross-Domain Verification, and AI System Evaluation',
     generalDescription: 'Comprehensive, chip-level validation (performance, power, security) and robust mechanisms for evaluating and improving the AI design system itself.',
@@ -123,7 +124,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     outcomeColor: 'text-green-400'
   },
   {
-    id: 'tab-dft-atpg',
+    id: 'stage-3-9',
     title: '9. DFT & ATPG',
     icon: React.createElement(Wrench, { className: "w-5 h-5 mr-2 inline-block" }),
     heading: 'Stage 9: Design for Testability (DFT) Insertion & Test Pattern Generation',
@@ -136,7 +137,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     outcomeColor: 'text-green-400'
   },
   {
-    id: 'tab-physical-ppa',
+    id: 'stage-3-10',
     title: '10. Physical & PPA Opt.',
     icon: React.createElement(SlidersHorizontal, { className: "w-5 h-5 mr-2 inline-block" }),
     heading: 'Stage 10: Physical Design & PPA Optimization',
@@ -149,7 +150,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     outcomeColor: 'text-green-400'
   },
   {
-    id: 'tab-mfg-post-silicon',
+    id: 'stage-3-11',
     title: '11. Mfg & Validation',
     icon: React.createElement(Cog, { className: "w-5 h-5 mr-2 inline-block" }),
     heading: 'Stage 11: Manufacturing & Post-Silicon Validation',
@@ -161,6 +162,7 @@ export const PIPELINE_TABS: PipelineTab[] = [
     outcomeColor: 'text-green-400'
   },
 ];
+
 
 export const ROADMAP_PHASES: RoadmapPhase[] = [
     {
@@ -258,6 +260,7 @@ export const PYTHON_CODE_EXAMPLE = HIGH_LEVEL_PYTHON_CODE_EXAMPLE;
     
 
     
+
 
 
 

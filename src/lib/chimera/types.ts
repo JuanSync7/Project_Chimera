@@ -7,15 +7,14 @@ export interface NavLinkItem {
 
 export interface PipelineTab {
   id: string;
-  title: string; // e.g., "1. Spec & Arch"
-  heading: string; // e.g., "Stage 1: System Specification & Architecture"
-  generalDescription: string; // General intro for the stage
-  challenge: string;
-  // Combined field for AI Agent(s) & Role, Core AI Technique, Key Tools/Frameworks
-  agenticWorkflowDetails: string; 
-  outcome: string; // Primary Business Outcome
-  outcomeColor?: string;
-  icon?: React.ReactNode;
+  title: string; // e.g., "1. Spec & Arch" - Used for button labels
+  icon?: React.ReactNode; // Icon for the button/tab
+  heading: string; // e.g., "Stage 1: System Specification & Architecture" - Used for subpage titles and mobile summary
+  generalDescription: string; // General intro for the stage - Used for mobile summary
+  challenge: string; // Used for mobile summary
+  agenticWorkflowDetails: string; // Full details for the ai-pipeline subpage
+  outcome: string; // Primary Business Outcome - Used for mobile summary
+  outcomeColor?: string; // Optional color for outcome text
 }
 
 export interface SectionCardProps {
@@ -40,4 +39,3 @@ export interface RoadmapPhase {
   colorClass: string; 
   dotClass: string;
 }
-

@@ -247,4 +247,11 @@
   animation-fill-mode: forwards; 
 }
 
-/* Digital Fall Effect CSS removed */
+/* Utility to hide scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

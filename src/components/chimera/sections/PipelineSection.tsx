@@ -6,7 +6,7 @@ import type { PipelineTab } from '@/lib/chimera/types';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { ChevronLeft, ChevronRight, AlertTriangle, Star } from 'lucide-react'; 
+import { ChevronLeft, ChevronRight, AlertTriangle, Star, Workflow } from 'lucide-react'; 
 
 const PipelineSection: React.FC = () => {
   const isMobile = useIsMobile();
@@ -140,8 +140,11 @@ const PipelineSection: React.FC = () => {
                       <p className="text-slate-400 pl-7" dangerouslySetInnerHTML={{ __html: currentDesktopStageData.challenge }}></p>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-white text-lg mb-1">Agentic Workflow &amp; Technologies:</h4>
-                      <div className="text-slate-400 prose prose-sm prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: currentDesktopStageData.agenticWorkflowDetails }}></div>
+                      <h4 className="font-semibold text-white text-lg mb-1 flex items-center">
+                        <Workflow className="w-5 h-5 mr-2 text-primary flex-shrink-0" />
+                        Agentic Workflow &amp; Technologies:
+                      </h4>
+                      <div className="text-slate-400 prose prose-sm prose-invert max-w-none pl-7" dangerouslySetInnerHTML={{ __html: currentDesktopStageData.agenticWorkflowDetails }}></div>
                     </div>
                     <div>
                       <h4 className="font-semibold text-white text-lg mb-1 flex items-center">
@@ -168,3 +171,4 @@ const PipelineSection: React.FC = () => {
 };
 
 export default PipelineSection;
+

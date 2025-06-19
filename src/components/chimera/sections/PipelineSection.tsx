@@ -68,29 +68,37 @@ const PipelineSection: React.FC = () => {
 
           {currentMobileStageData && (
             <div className="mt-6 p-6 bg-slate-800/80 rounded-lg shadow-xl text-left max-w-lg mx-auto border border-slate-700">
-              <h4 className="text-xl font-semibold text-primary mb-3">{currentMobileStageData.heading}</h4>
+              <h3 className="text-xl font-bold text-primary mb-3">{currentMobileStageData.heading}</h3>
               <p 
                 className="text-slate-300 text-sm mb-4 prose prose-sm prose-invert max-w-none"
-                dangerouslySetInnerHTML={{ __html: currentMobileStageData.generalDescription.substring(0, 150) + (currentMobileStageData.generalDescription.length > 150 ? '...' : '') }}
+                dangerouslySetInnerHTML={{ __html: currentMobileStageData.generalDescription }}
               />
               
-              <div className="space-y-3 text-xs">
-                <div className="mb-3">
-                    <h5 className="font-semibold text-white text-sm mb-1 flex items-center">
+              <div className="space-y-4 text-sm">
+                <div>
+                    <h4 className="font-semibold text-white mb-1 flex items-center">
                         <AlertTriangle className="w-4 h-4 mr-2 inline-block text-yellow-400 flex-shrink-0" />
                         Key Challenge:
-                    </h5>
-                    <p className="text-slate-400 pl-[22px]" dangerouslySetInnerHTML={{ __html: currentMobileStageData.challenge.substring(0, 100) + (currentMobileStageData.challenge.length > 100 ? '...' : '') }}></p>
+                    </h4>
+                    <p className="text-slate-400 pl-[22px]" dangerouslySetInnerHTML={{ __html: currentMobileStageData.challenge }}></p>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-white mb-1 flex items-center">
+                    <Workflow className="w-4 h-4 mr-2 text-primary flex-shrink-0" />
+                    Agentic Workflow &amp; Technologies:
+                  </h4>
+                  <div className="text-slate-400 prose prose-xs prose-invert max-w-none pl-[22px]" dangerouslySetInnerHTML={{ __html: currentMobileStageData.agenticWorkflowDetails }}></div>
                 </div>
                 
                 <div>
-                    <h5 className="font-semibold text-white text-sm mb-1 flex items-center">
+                    <h4 className="font-semibold text-white text-sm mb-1 flex items-center">
                         <Star className="w-4 h-4 mr-2 inline-block text-green-400 flex-shrink-0" />
-                        Primary Outcome:
-                    </h5>
+                        Primary Business Outcome:
+                    </h4>
                     <div 
                         className={`pl-[22px] prose prose-xs prose-invert max-w-none ${currentMobileStageData.outcomeColor || 'text-sky-300'}`} 
-                        dangerouslySetInnerHTML={{ __html: currentMobileStageData.outcome.substring(0, 100) + (currentMobileStageData.outcome.length > 100 ? '...' : '') }}
+                        dangerouslySetInnerHTML={{ __html: currentMobileStageData.outcome }}
                     ></div>
                 </div>
               </div>
@@ -154,21 +162,20 @@ const PipelineSection: React.FC = () => {
                       <div className={`pl-7 font-semibold prose prose-sm prose-invert max-w-none ${currentDesktopStageData.outcomeColor || 'text-sky-300'}`} dangerouslySetInnerHTML={{ __html: currentDesktopStageData.outcome }}></div>
                     </div>
                   </div>
-                  <div className="text-center mt-12">
-                    <Link href={`/ai-pipeline#${currentDesktopStageData.id}`} passHref>
-                        <Button variant="outline" size="lg" className="bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/40">
-                            View Full Stage Details &rarr;
-                        </Button>
-                    </Link>
-                  </div>
                 </>
             </div>
           )}
         </>
       )}
+       <div className="text-center mt-12"> {/* Moved this button outside the conditional rendering, always visible */}
+            <Link href="/ai-pipeline" passHref>
+                <Button variant="outline" size="lg" className="bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/40">
+                    Deep Dive into All AI Pipeline Stages &rarr;
+                </Button>
+            </Link>
+        </div>
     </section>
   );
 };
 
 export default PipelineSection;
-

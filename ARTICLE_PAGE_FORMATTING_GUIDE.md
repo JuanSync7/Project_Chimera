@@ -1,116 +1,110 @@
 
-# Formatting Guide for Content Pages (If Applicable for Bouton)
+# Project Chimera: Formatting Guide for Content Pages
 
-This guide outlines general formatting conventions that can be used if **Bouton** were to expand with article-style informational subpages (e.g., a "How It Works" page, "About AI Styling" page). For the core application, these guidelines might be less relevant but are provided for future use.
+This guide outlines formatting conventions for the primary content pages and sections within the **Project Chimera** application. The application itself functions as a detailed, article-style presentation of a strategic blueprint.
 
-## 1. Overall Page Structure (for a Subpage)
+## 1. Overall Page Structure (e.g., `/strategic-imperative/page.tsx`)
 
-*   **Layout Component**: Wrap page content with a layout component like `<SubPageLayout>` if such a component is created.
-    ```tsx
-    import SubPageLayout from '@/components/layout/SubPageLayout'; // Example path
-
-    export default function ExampleArticlePage() {
-      return (
-        <SubPageLayout>
-          {/* Page content goes here */}
-        </SubPageLayout>
-      );
-    }
-    ```
-*   **Main Content Wrapper**: The primary content within a layout could be an `<article>` element.
-    *   Apply Tailwind Prose classes if aiming for readability: `prose prose-slate dark:prose-invert lg:prose-lg max-w-none text-foreground space-y-4`.
-    ```tsx
-    <article className="prose prose-slate dark:prose-invert lg:prose-lg max-w-none text-foreground space-y-4">
-      {/* Sections and text content */}
-    </article>
-    ```
+*   **Layout Component**: All content pages use `<SubPageLayout>`. This component provides:
+    *   A consistent header (from `<PageShell>`).
+    *   A consistent footer (from `<PageShell>`).
+    *   A "Back" button for navigation (e.g., back to an overview page or the main page).
+    *   Basic container padding for the content area.
+*   **Main Content Wrapper**: Inside `<SubPageLayout>`, the primary content resides within an `<article>` element.
+    *   This `<article>` is styled using Tailwind Prose for excellent readability:
+        ```tsx
+        <article className="prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6">
+          {/* Page content (headings, paragraphs, lists, etc.) goes here */}
+        </article>
+        ```
+    *   Key Prose classes:
+        *   `prose-slate dark:prose-invert`: Styles for dark mode.
+        *   `lg:prose-xl`: Larger typography on larger screens.
+        *   `max-w-none`: Removes the default max-width of Prose for full-width content within the container.
+        *   `text-slate-300`: Base text color.
+        *   `space-y-6`: Default vertical spacing between block elements.
 
 ## 2. Main Page Title (`<h1>`)
 
-*   The main title of a subpage should be an `<h1>` element.
-*   Consider centering it and including a thematic Lucide icon.
-*   **Structure**:
+*   Each content page should have a clear, prominent `<h1>` title.
+*   These titles are typically centered, feature a thematic Lucide icon, and use the `.gradient-text` style.
+*   **Structure Example (from `strategic-imperative/page.tsx`):**
     ```tsx
-    import { Info } from 'lucide-react'; // Choose a thematic icon
-
-    // ... inside <article>
-    <div className="flex flex-col items-center text-center mb-8">
-      <Info className="h-12 w-12 text-primary mb-3" /> {/* Thematic Icon */}
-      <h1 className="text-3xl md:text-4xl font-bold text-primary !mb-1 md:leading-tight">
-        Page Title for Bouton Subpage
+    <div className="flex flex-col items-center text-center mb-12">
+      <TrendingUp className="h-16 w-16 text-primary mb-4" /> {/* Thematic Icon */}
+      <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-2 md:leading-tight">
+        Section 1: The Strategic Imperative
       </h1>
-      {/* Optional: Subtitle paragraph */}
-      <p className="text-xl text-muted-foreground">A brief engaging subtitle.</p>
+      <p className="text-2xl text-slate-400">Re-architecting for an AI-First Future</p> {/* Optional Subtitle */}
     </div>
     ```
 *   **Styling**:
-    *   Icon: `h-12 w-12 text-primary mb-3`
-    *   `<h1>`: `text-3xl md:text-4xl font-bold text-primary !mb-1 md:leading-tight`
-    *   Subtitle `<p>`: `text-xl text-muted-foreground`
+    *   Icon: Lucide icon, `h-16 w-16 text-primary mb-4`. (`text-primary` will use the main theme accent, which is effectively the gradient's start color or a related bright color).
+    *   `<h1>`: `text-4xl md:text-5xl font-bold gradient-text !mb-2 md:leading-tight`.
+    *   Subtitle `<p>`: `text-2xl text-slate-400`.
 
-## 3. Main Section Titles (`<h2>`)
+## 3. Major Section Titles (`<h2>`)
 
-*   Major sections within an article start with an `<h2>` element.
-*   **Structure**:
+*   For distinct, top-level sections within a page (e.g., "1.1 Beyond Moore's Law...", "2.1 Foundations...").
+*   **Structure Example:**
     ```tsx
-    // ... inside <article>
-    <div className="mt-12 mb-3"> {/* Wrapper for consistent spacing */}
-      <h2 className="text-2xl font-semibold text-foreground !m-0 border-b border-border pb-1">
-        Main Section Title
+    <div className="mt-16 mb-4"> {/* Wrapper for consistent top/bottom spacing */}
+      <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
+        1.1 Beyond Moore's Law: AI as the New Driver...
       </h2>
     </div>
-    <p>Paragraph content for the section...</p>
+    <p>Paragraph content for this section...</p>
     ```
 *   **Styling**:
-    *   Wrapper `<div>`: `mt-12 mb-3`
-    *   `<h2>`: `text-2xl font-semibold text-foreground !m-0 border-b border-border pb-1`
+    *   Wrapper `<div>`: `mt-16 mb-4` (or `mt-12`, `mt-24` for varying emphasis).
+    *   `<h2>`: `text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2`.
+    *   Sometimes, an icon is prepended if the `<h2>` introduces a new conceptual part, as seen in `roadmap-phase-3` sub-components:
+        ```tsx
+        <div className="mt-24 mb-4">
+          <div className="flex items-center">
+            <Lightbulb className="h-8 w-8 text-primary mr-3 flex-shrink-0" />
+            <h2 className="text-3xl font-semibold text-primary gradient-text !m-0 !border-b-0 !pb-0">
+              Part 1: Strategic Clarification...
+            </h2>
+          </div>
+        </div>
+        ```
 
 ## 4. Sub-Section Titles (`<h3>`)
 
-*   Sub-topics within an `<h2>` section can use `<h3>`.
-*   Consider a thematic Lucide icon.
-*   **Structure**:
+*   For specific topics or components within an `<h2>` section.
+*   Often includes a thematic Lucide icon.
+*   **Structure Example (from `mcp-server-details/page.tsx`):**
     ```tsx
-    import { CheckCircle } from 'lucide-react'; // Choose a thematic icon
-
-    // ... inside <article>, after an <h2> section
-    <div className="mt-6 mb-2 flex items-center"> {/* Wrapper for icon and title */}
-      <CheckCircle className="h-5 w-5 text-accent mr-2 flex-shrink-0" /> {/* Thematic Icon */}
-      <h3 className="text-xl font-semibold text-accent !m-0">
-        Example Sub-Section Title
+    <div className="mt-8 mb-4 flex items-center">
+      <Settings2 className="h-7 w-7 text-primary mr-3 flex-shrink-0" /> {/* Thematic Icon */}
+      <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+        Core Functionality:
       </h3>
     </div>
-    <p>Introductory paragraph for this sub-section...</p>
+    <p>Explanation or list follows...</p>
     ```
 *   **Styling**:
-    *   Wrapper `<div>`: `mt-6 mb-2 flex items-center`
-    *   Icon: `h-5 w-5 text-accent mr-2 flex-shrink-0`
-    *   `<h3>`: `text-xl font-semibold text-accent !m-0`
+    *   Wrapper `<div>`: `mt-8 mb-4 flex items-center`.
+    *   Icon: `h-7 w-7 text-primary mr-3 flex-shrink-0` (color class may vary, e.g., `text-purple-400`).
+    *   `<h3>`: `text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0` (color class may vary).
 
 ## 5. Lists and List Items
 
-### 5.1 Standard Unordered List Items
-*   Use `<ul>` with `list-disc pl-5 space-y-1`.
-*   Emphasize item titles with `<strong class="font-semibold text-foreground">`.
+*   Standard `<ul>` with `list-disc pl-5 space-y-2` (or `space-y-1`).
+*   Keywords within list items are often styled with `<strong class="text-white font-semibold">`.
     ```tsx
-    <ul className="list-disc pl-5 space-y-1">
-      <li>
-        <strong className="font-semibold text-foreground">Key Item Title:</strong> Description...
-      </li>
+    <ul className="list-disc pl-5 space-y-2">
+      <li><strong className="text-white font-semibold">Standardized API:</strong> Details about the API...</li>
     </ul>
     ```
-
-### 5.2 Enhanced List Item Styling with Icons
-*   For more visual distinction, use leading Lucide icons.
-*   **Structure**:
+*   Some lists use custom icons instead of standard bullets (e.g., `KeyStatCard` or custom lists in `human-ai-symbiosis/page.tsx`).
     ```tsx
-    import { Sparkle } from 'lucide-react';
-
-    <ul className="list-none pl-0 space-y-3 !my-4">
-      <li className="flex items-start">
-        <Sparkle className="h-5 w-5 text-primary mr-2 mt-1 flex-shrink-0" />
+    <ul className="list-none pl-0 space-y-6 !my-6">
+      <li className="flex items-start p-3 border border-slate-700 rounded-lg bg-slate-800/30">
+        <Lightbulb className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
         <div>
-          <strong className="text-primary block mb-0.5">Key Point Title:</strong> Further description...
+          <strong className="text-primary block mb-1">High-Level Design:</strong> Description...
         </div>
       </li>
     </ul>
@@ -118,18 +112,17 @@ This guide outlines general formatting conventions that can be used if **Bouton*
 
 ## 6. General Paragraphs and Keyword Highlighting
 
-*   General text in `<p>` tags.
-*   Highlight keywords with `<strong>` (inherits parent color, appears bolder).
+*   General text uses `<p>` tags. Tailwind Prose handles margins and line height.
+*   Keywords within paragraphs are highlighted with `<strong>` tags. The default Prose styling usually makes these sufficiently prominent (`font-semibold text-white` effectively).
     ```html
-    <p>Bouton uses <strong>AI</strong> to suggest <strong>button styles</strong>.</p>
+    <p>This strategic application of AI does not seek to replace engineers but to <strong>augment</strong> them.</p>
     ```
-*   Inline code: `<code class="bg-muted px-1 py-0.5 rounded text-sm">some.variable</code>`.
+*   Specific strategic terms might use `<strong class="gradient-text">Term</strong>` for higher emphasis.
 
-## 7. Lucide Icons
+## 7. Custom Components for Content Display
 
-*   Source icons from `lucide-react`.
-    ```tsx
-    import { Sparkle, Info, CheckCircle } from 'lucide-react';
-    ```
+*   **`KeyStatCard.tsx`**: Used in `strategic-imperative/page.tsx` to highlight key statistics or concepts with an icon, a prominent stat, and a description.
+*   **`SectionCard.tsx`**: Used in overview sections (e.g., `OverviewSection.tsx` on the main page) for a structured presentation of key points.
+*   Workflow/Pipeline Stages: These often use custom card structures (e.g., `PrimaryWorkflowItemCard`, `NestedDetailCard` in the `/ai-pipeline` stages) for clarity.
 
-By following these general guidelines, any future content pages for Bouton will maintain a consistent and readable structure.
+By following these conventions, the Project Chimera application ensures its strategic content is presented in a clear, readable, and visually engaging manner.

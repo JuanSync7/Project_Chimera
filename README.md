@@ -1,96 +1,42 @@
 
-# Bouton: AI Button Styler
+# Project Chimera: AI Chip Design Strategy
 
-Bouton is a Next.js web application designed to help users create and discover visually appealing button styles. It features manual style controls for direct manipulation and an AI-powered suggestion engine to generate unique button designs based on user prompts.
+Project Chimera is a React-based web application that presents a comprehensive strategic blueprint for AI-driven semiconductor design. It dynamically showcases the project's architecture, an AI-powered design pipeline, the human-AI symbiosis, risk analysis, a long-term vision, and a detailed implementation roadmap.
 
 ## Core Features
 
-*   **Button Display**: A real-time preview of the button as styles are adjusted.
-*   **Manual Style Selection**: Intuitive controls (sliders, color pickers, inputs) to modify properties like color, text, padding, border, shadow, and font.
-*   **AI-Powered Styling**: Users can input a text prompt (e.g., "modern and sleek", "playful gaming button") to get AI-generated style suggestions for the button.
+*   **Interactive Presentation:** A single-page application dynamically displaying the "Project Chimera" strategic document through various sections.
+*   **Scroll-Activated Navigation:** The header navigation highlights the currently viewed section based on scroll position.
+*   **Responsive Design:** Adapts to different screen sizes, including a mobile-friendly menu.
+*   **Thematic Styling:** Features a dark theme, gradient text effects, and glassmorphism for UI elements, enhancing visual appeal.
+*   **Animated Elements:** Includes subtle animations like the starry background and a conceptual animated rocket to add visual interest.
 
 ## Tech Stack
 
-*   **Framework:** Next.js (App Router)
+*   **Framework/Library:** React
+*   **Build Tool:** Vite
 *   **Language:** TypeScript
-*   **Styling:** Tailwind CSS
-*   **UI Components:** ShadCN UI
-*   **Icons:** Lucide React
-*   **Generative AI:** Genkit (for AI style suggestions)
-*   **Deployment:** Configured for Firebase App Hosting (see `apphosting.yaml`)
+*   **Styling:** Tailwind CSS (utilized via CDN and inline styles in `Project_Chimera/index.html`)
+*   **Icons:** Inline SVG components and Heroicons-style React components.
 
-## Getting Started
+## Running the Application
 
-### Prerequisites
+For detailed instructions on how to install dependencies and run the Vite development server for Project Chimera, please refer to the `Project_Chimera/README.md` file located within the `Project_Chimera` sub-directory.
 
-*   Node.js (latest LTS version recommended, e.g., 20.x)
-*   npm (comes with Node.js)
-
-### Installation
-
-1.  **Clone the repository (if applicable) or ensure you have the project files.**
-2.  **Navigate to the project directory:**
-    ```bash
-    cd path/to/your/bouton-app
-    ```
-3.  **Install dependencies:**
-    ```bash
-    npm install
-    ```
-
-### Environment Variables
-
-The primary environment variable needed is for Genkit to access Google AI services.
-
-1.  **Create a `.env.local` file** in the root of the project. You can copy `.env` if it exists as a template, or create it manually.
-    ```bash
-    cp .env .env.local
-    ```
-    (An empty `.env` file is typically provided as a placeholder).
-2.  **Add your Gemini API key** to `.env.local`:
-    ```env
-    # .env.local
-    # For Genkit/Gemini integration
-    GEMINI_API_KEY=your_google_ai_studio_api_key_here
-    ```
-    *   Obtain a Gemini API key from [Google AI Studio](https://aistudio.google.com/app/apikey).
-    *   **Important:** `.env.local` is gitignored and should not be committed. Use your hosting provider's environment variable settings for production.
-
-### Running the Development Server
-
-To run the application locally:
-
-```bash
-npm run dev
-```
-This will typically start the Next.js development server on `http://localhost:9002`.
-
-To run the Genkit development server (for inspecting flows via the Genkit Developer UI, usually on `http://localhost:4000`):
-```bash
-npm run genkit:dev
-# or for watching changes
-npm run genkit:watch
-```
+The application is primarily a static, client-side presentation and does not require a dedicated backend beyond serving the HTML, CSS, and JavaScript files.
 
 ## Key Documentation Files
 
-Located in the root directory:
+The following markdown files in the root directory provide further details about the Project Chimera application's structure and conventions:
 
-*   **`PROJECT_STRUCTURE_OVERVIEW.md`**: Details on directories and files.
-*   **`STYLING_OVERVIEW.md`**: Guide to styling (Tailwind, ShadCN, theming).
-*   **`GUIDE_CREATING_PAGES.md`**: Instructions for structuring components.
-*   **`DATA_STRUCTURES.md`**: TypeScript interfaces for button state and AI flows.
-*   **`INTERACTIVITY_GUIDE.md`**: Explanation of client-side interactive features.
-*   **`COLOR_SCHEME.md`**: Details the Bouton color palette.
-*   **`FONT_CHOICES.md`**: Outlines font usage.
+*   **`PROJECT_STRUCTURE_OVERVIEW.md`**: Details on the directory structure and key files for the Project Chimera presentation app.
+*   **`STYLING_OVERVIEW.md`**: Guide to styling approaches, focusing on Tailwind CSS and inline styles used in `Project_Chimera/index.html`.
+*   **`GUIDE_CREATING_PAGES.md`**: Instructions for structuring and adding new content sections to the single-page application.
+*   **`DATA_STRUCTURES.md`**: Overview of the TypeScript types and interfaces used within the Project Chimera application (see `Project_Chimera/types.ts`).
+*   **`COLOR_SCHEME.md`**: Description of the color palette and thematic styling used.
+*   **`FONT_CHOICES.md`**: Information on the 'Inter' font family used throughout the application.
+*   **`INTERACTIVITY_GUIDE.md`**: Explanation of client-side interactive features like scroll-spy navigation and mobile menu functionality.
+*   **`ARCHITECTURAL_BLUEPRINT_FORMATTING_GUIDE.md`**: Guidelines for formatting content related to the architectural blueprint sections.
+*   **`MCP_SERVER_DETAILS_FORMATTING_GUIDE.md`**: Guidance for structuring content detailing complex components like the MCP Server.
 
-## Project Structure
-
-*   **`src/app/`**: Main application page (`page.tsx`), layout (`layout.tsx`), global styles (`globals.css`).
-*   **`src/components/bouton/`**: Bouton-specific React components (`BoutonDisplay.tsx`, `StyleControls.tsx`, `AiStyler.tsx`).
-*   **`src/components/ui/`**: ShadCN UI components.
-*   **`src/lib/bouton/`**: Bouton-specific types and constants.
-*   **`src/ai/`**: Genkit setup (`genkit.ts`) and AI flows (e.g., `suggest-button-style-flow.ts`).
-*   **`public/`**: Static assets.
-
-This README provides a starting point for understanding and working with the Bouton application.
+This README provides a starting point for understanding and working with the Project Chimera presentation application.

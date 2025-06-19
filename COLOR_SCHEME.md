@@ -1,69 +1,75 @@
 
-# Bouton App Color Scheme
+# Project Chimera: Color Scheme
 
-This document outlines the color scheme used for the **Bouton** application.
+This document outlines the color scheme used for the **Project Chimera** presentation application. The styling is primarily managed via Tailwind CSS utility classes and custom CSS within `Project_Chimera/index.html`.
 
-## 1. Global Theme Colors (CSS Variables in `src/app/globals.css`)
+## 1. Base Theme (Dark Mode)
 
-These colors are defined as HSL CSS variables and form the base theme. The application `<html>` tag has the `dark` class applied by default, making dark mode variables active.
+The application defaults to a dark theme.
 
-*   **Primary Color (`--primary`)**: Strong Indigo (`#4B0082`)
-    *   HSL (Dark Mode): `278 100% 65%` (Lighter Strong Indigo for better visibility on dark backgrounds)
-    *   HSL (Light Mode): `278 100% 25%` (The Strong Indigo itself)
-    *   Used for: Main interactive elements, primary buttons, active states, important accents.
+*   **Background Color**: Deep dark gray / near black.
+    *   `Project_Chimera/index.html`: `body { background-color: #0a0a0a; }` (approximates Tailwind `bg-gray-950`).
+*   **Foreground Color (Default Text)**: Light gray / off-white.
+    *   `Project_Chimera/index.html`: `body { color: #e2e8f0; }` (approximates Tailwind `text-slate-200`).
+*   **Muted Text Color**: Lighter gray for secondary text.
+    *   Commonly `text-slate-400` or `text-slate-500` via Tailwind.
 
-*   **Background Color (`--background`)**: Light Indigo (`#E6E0EB`) for light mode, Dark Indigo for dark mode.
-    *   HSL (Dark Mode): `278 15% 10%` (Dark Indigo)
-    *   HSL (Light Mode): `278 32% 90%` (Light Indigo #E6E0EB)
-    *   Used for: Overall application background.
+## 2. Primary Accent: Gradient Text
 
-*   **Accent Color (`--accent`)**: Blue Violet (`#8A2BE2`)
-    *   HSL (Dark Mode): `271 76% 60%` (Lighter Blue Violet)
-    *   HSL (Light Mode): `271 76% 53%` (The Blue Violet itself)
-    *   Used for: Secondary interactive elements, highlights, or playful touches.
+A distinctive feature is the use of gradient text for main titles and key strategic terms.
 
-*   **Foreground Color (`--foreground` - Default Text)**:
-    *   HSL (Dark Mode): `278 30% 90%` (Light Indigo text)
-    *   HSL (Light Mode): `278 100% 10%` (Dark contrast for text)
-    *   Used for: General text content.
+*   **Gradient**: Linear gradient from Sky Blue to Indigo to Fuchsia.
+    *   Defined in `Project_Chimera/index.html` by the `.gradient-text` class:
+        ```css
+        .gradient-text {
+            background: linear-gradient(to right, #38bdf8, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        ```
+    *   Approximate Tailwind equivalents: `sky-500` (#38bdf8), `indigo-400` (#818cf8), `fuchsia-400` (#c084fc).
 
-*   **Card Background (`--card`)**:
-    *   HSL (Dark Mode): `278 15% 15%`
-    *   HSL (Light Mode): `0 0% 100%` (White)
-    *   Used for: Background of card-like components (e.g., style control panels).
+## 3. Accent Colors for UI Elements & Highlights
 
-*   **Border Color (`--border`)**:
-    *   HSL (Dark Mode): `278 15% 25%`
-    *   HSL (Light Mode): `278 30% 80%`
-    *   Used for: Borders on components, inputs.
+Specific colors are used for navigation, icons, borders, and highlights. These are often applied directly using Tailwind utility classes.
 
-*   **Muted Colors (`--muted`, `--muted-foreground`)**:
-    *   Used for less emphasized text or UI elements. Values are in `globals.css`.
+*   **Sky Blue**:
+    *   Used in: Active navigation links (`active-nav` border: `#38bdf8`), icons (e.g., `text-sky-400`), `SectionCard` hover borders.
+*   **Purple/Indigo**:
+    *   Used in: Icons (e.g., `text-purple-400`), `SectionCard` hover borders.
+*   **Fuchsia/Pink**:
+    *   Used in: Icons (e.g., `text-fuchsia-400`), `SectionCard` hover borders.
+*   **Rose (for Risks section)**:
+    *   Icons (`text-rose-400`), card hover borders (`hover:border-rose-500/50`).
+*   **Violet (for Vision section)**:
+    *   Icons (`text-violet-400`), card hover borders (`hover:border-violet-500/50`).
+*   **Green (for Home section button, some roadmap links)**:
+    *   Home button (`bg-green-600 hover:bg-green-700`).
+    *   Roadmap link buttons (e.g., `text-green-400 border-green-500`).
+*   **Yellow (for "Learn More" / "Explore" buttons)**:
+    *   e.g., `text-yellow-400 border-yellow-500`.
+*   **Lime (for Roadmap "View Detailed" button)**:
+    *   e.g., `text-lime-400 border-lime-500`.
 
-Refer to the `.dark { ... }` and `:root { ... }` blocks in `src/app/globals.css` for all HSL values.
+## 4. UI Component Styling
 
-## 2. Button Colors (ShadCN UI Button Variants)
+*   **Glassmorphism**: Applied to `Header` and `MobileMenu`.
+    *   `background: rgba(17, 24, 39, 0.6);` (approx. `bg-gray-900` with opacity)
+    *   `backdrop-filter: blur(10px);`
+    *   `border: 1px solid rgba(255, 255, 255, 0.1);`
+*   **Section Cards**:
+    *   Background: `rgba(17, 24, 39, 0.8);` (approx. `bg-gray-900/80`)
+    *   Border: `1px solid rgba(55, 65, 81, 0.5);` (approx. `border-gray-700/50`)
+    *   Hover: `transform: translateY(-5px); border-color: rgba(56, 189, 248, 0.3);` (sky accent).
+*   **Tab Buttons (Pipeline Section)**:
+    *   Active: `background-color: #38bdf8; color: #0a0a0a;`
+    *   Inactive: `background-color: rgba(31, 41, 55, 0.5); color: #9ca3af;`
+*   **Roadmap Dots**: Phase-specific background colors (sky, indigo/purple, fuchsia).
 
-*   **Primary Buttons**: Use the `default` variant of the ShadCN Button, which will automatically pick up `hsl(var(--primary))` for its background.
-    ```tsx
-    <Button>Primary Action</Button>
-    ```
-*   **Secondary/Outline Buttons**: Use `variant="outline"` or `variant="secondary"`. These will use theme colors for borders, text, and backgrounds accordingly.
-    ```tsx
-    <Button variant="outline">Outline Action</Button>
-    <Button variant="secondary">Secondary Action</Button>
-    ```
-*   **Accent Buttons**: If a button needs to use the accent color, apply Tailwind classes directly or create a custom variant.
-    ```tsx
-    <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">Accent Button</Button>
-    ```
+## 5. SVG Diagram Colors
 
-## 3. Icon Colors
+*   Inline SVGs (like the architecture diagram) have their colors defined within their `<style>` tags.
+    *   Example: `.supervisor { fill: #38bdf8; }`, `.worker { fill: #818cf8; }`
+    *   These are often direct hex codes matching the theme's accent colors.
 
-*   Icons from `lucide-react` should generally use `text-primary`, `text-accent`, or `text-foreground` (or `text-muted-foreground`) for their color, applied via Tailwind CSS classes.
-    ```tsx
-    import { Sparkles } from 'lucide-react';
-    <Sparkles className="text-primary" />
-    ```
-
-This color scheme provides a modern, focused, and playful identity for the Bouton application.
+The color scheme aims for a modern, tech-focused aesthetic with a dark base and vibrant, gradient-based accents to highlight key information and create visual appeal.

@@ -1,63 +1,75 @@
 
-# Bouton App Data Structures
+# Project Chimera: Data Structures (TypeScript Types)
 
-This document outlines the key data structures (TypeScript interfaces) used within the **Bouton** application. These structures define the shape of data related to button styling and AI interactions.
+This document outlines the key TypeScript types and interfaces used within the **Project Chimera** presentation application. These structures define the shape of data primarily used for rendering navigation, dynamic content sections (like the pipeline tabs and roadmap), and styled components.
 
-## 1. `ButtonState`
+The main type definitions can be found in `Project_Chimera/types.ts`.
 
-*   **File**: `src/lib/bouton/types.ts` (Example path)
-*   **Purpose**: Defines the current visual properties of the button being styled.
+## 1. `NavLinkItem`
+
+*   **File**: `Project_Chimera/types.ts`
+*   **Purpose**: Defines the structure for navigation links used in the header and mobile menu.
 *   **Fields**:
-    *   `text: string`: The text displayed on the button.
-    *   `textColor: string`: The CSS color value for the button's text (e.g., `#FFFFFF`, `hsl(var(--primary-foreground))`).
-    *   `backgroundColor: string`: The CSS color value for the button's background (e.g., `#4B0082`, `hsl(var(--primary))`).
-    *   `borderColor?: string`: Optional CSS color value for the button's border.
-    *   `borderWidth?: number`: Optional border width in pixels.
-    *   `borderRadius?: number`: Optional border radius in pixels.
-    *   `paddingX?: number`: Optional horizontal padding in pixels.
-    *   `paddingY?: number`: Optional vertical padding in pixels.
-    *   `fontSize?: number`: Optional font size in pixels.
-    *   `fontWeight?: string`: Optional font weight (e.g., `'normal'`, `'bold'`, `'500'`).
-    *   `fontFamily?: string`: Optional font family (e.g., `'Inter', sans-serif`).
-    *   `iconName?: IconName`: Optional name of a Lucide icon to display on the button (maps to `lucide-react` icons).
-    *   `iconPosition?: 'left' | 'right'`: Optional position of the icon relative to the text.
-    *   `boxShadow?: string`: Optional CSS box-shadow value.
-    *   `customClasses?: string`: Optional string of additional Tailwind CSS classes.
+    *   `id: string`: A unique identifier for the navigation link, often corresponding to the `id` of the target section on the page (e.g., "overview", "architecture"). Used for active section highlighting.
+    *   `href: string`: The URL or fragment identifier for the link (e.g., "#overview", "#pipeline").
+    *   `label: string`: The user-visible text for the navigation link (e.g., "Overview", "Architecture").
 *   **Usage**:
-    *   Managed by a state hook (e.g., `useState<ButtonState>`) in the main application component or a context.
-    *   Used by `BoutonDisplay.tsx` to render the button with the current styles.
-    *   Modified by `StyleControls.tsx` through user interactions.
-    *   Input to and output from the `suggestStyleFlow` AI Genkit flow.
+    *   Populates the `NAV_LINKS` array in `Project_Chimera/constants.ts`.
+    *   Rendered by `Header.tsx` and `MobileMenu.tsx` components.
+    *   The `activeSection` state in `App.tsx` (or `page.tsx` for Next.js version) compares against `NavLinkItem.id` to highlight the current link.
 
-## 2. `AiStyleSuggestionInput`
+## 2. `PipelineTab`
 
-*   **File**: `src/ai/flows/suggest-button-style-flow.ts` (Example path, assuming the flow is named this)
-*   **Purpose**: Defines the input schema for the AI flow that suggests button styles.
+*   **File**: `Project_Chimera/types.ts`
+*   **Purpose**: Defines the structure for each tab/stage displayed in the "AI-Powered Design Pipeline" section.
 *   **Fields**:
-    *   `currentStyle?: Partial<ButtonState>`: Optional current style of the button, to provide context to the AI.
-    *   `userPrompt: string`: The user's textual prompt describing the desired style (e.g., "Make it look more professional", "A playful button for a gaming site").
-    *   `buttonPurpose?: string`: Optional description of what the button is for (e.g., "Submit form", "Learn more", "Primary call to action").
+    *   `id: string`: A unique identifier for the tab/stage (e.g., "tab-spec", "stage-3-1"). Used for targeting active tab state and linking from other parts of the app.
+    *   `title: string`: Short title for the tab button (e.g., "1. Spec & Arch").
+    *   `icon?: React.ReactNode`: Optional ReactNode (typically a Lucide icon component) for the tab button.
+    *   `heading: string`: Full heading for the content display of the stage (e.g., "Stage 1: System Specification & Architecture").
+    *   `generalDescription: string`: A brief introductory description of the stage.
+    *   `challenge: string`: Description of the key challenge addressed by this stage.
+    *   `agenticWorkflowDetails: string`: Detailed HTML string content describing the AI agents, techniques, tools, and processes for this stage.
+    *   `outcome: string`: Description of the primary business outcome or benefits of this stage.
+    *   `outcomeColor?: string`: Optional Tailwind CSS text color class for the outcome text (e.g., "text-sky-300").
 *   **Usage**:
-    *   Constructed in `AiStyler.tsx` when the user requests an AI suggestion.
-    *   Passed as input to the `suggestStyleFlow` Genkit flow.
+    *   Populates the `PIPELINE_TABS` array in `Project_Chimera/constants.ts`.
+    *   Used by `PipelineSection.tsx` to render the interactive tabbed interface (or mobile roulette).
+    *   Detailed content from these fields is also used in the dedicated `/ai-pipeline/page.tsx` and its sub-components (e.g., `Stage_3_1_SpecAndArch.tsx`).
 
-## 3. `AiStyleSuggestionOutput` (Matches `ButtonState`)
+## 3. `SectionCardProps`
 
-*   **File**: `src/ai/flows/suggest-button-style-flow.ts` (Example path)
-*   **Purpose**: Defines the output schema for the AI flow, representing the AI's suggested button style. This typically mirrors the `ButtonState` structure.
-*   **Fields**: Same as `ButtonState`.
-*   **Usage**:
-    *   The Genkit flow `suggestStyleFlow` returns data conforming to this structure.
-    *   Used by `AiStyler.tsx` to update the application's main button state with the AI's suggestion.
-
-## 4. `StyleControlOption` (Example for UI elements)
-
-*   **File**: `src/lib/bouton/constants.ts` or directly in `StyleControls.tsx`
-*   **Purpose**: A generic structure if providing predefined options for style controls (e.g., a dropdown for font families or border styles).
+*   **File**: `Project_Chimera/types.ts`
+*   **Purpose**: Defines the props for the generic `SectionCard.tsx` component, used for displaying summarized information blocks (e.g., in the "Overview" section).
 *   **Fields**:
-    *   `label: string`: User-visible label for the option.
-    *   `value: string | number`: The actual value to be applied to the `ButtonState`.
+    *   `icon?: React.ReactNode`: Optional ReactNode for an icon at the top of the card.
+    *   `title: string`: The title of the card.
+    *   `description: string | React.ReactNode`: The main content/description of the card. Can be a simple string (potentially HTML) or a more complex ReactNode.
+    *   `className?: string`: Optional CSS classes for the root card `div`.
+    *   `contentClassName?: string`: Optional CSS classes for the description container.
+    *   `titleClassName?: string`: Optional CSS classes for the title element.
 *   **Usage**:
-    *   Populating `Select` components or radio groups in `StyleControls.tsx`.
+    *   Used by components like `OverviewSection.tsx` to render consistent-looking information cards.
 
-Understanding these data structures is key to modifying or extending the Bouton application's styling capabilities and AI interactions.
+## 4. `RoadmapPhase`
+
+*   **File**: `Project_Chimera/types.ts`
+*   **Purpose**: Defines the structure for each phase in the implementation roadmap.
+*   **Fields**:
+    *   `id: string`: Unique identifier for the roadmap phase (e.g., "crawl", "walk", "run").
+    *   `period: string`: The timeline for the phase (e.g., "YEAR 1 - 1.5 (Q3 2025 - Q4 2026)").
+    *   `title: string`: The title of the phase (e.g., "Phase 1: Crawl - Foundational Infrastructure...").
+    *   `narrativeDescription: string`: An introductory summary of the phase's narrative.
+    *   `objectives: string`: Key objectives for the phase.
+    *   `actions: string`: Key actions to be taken during the phase (often newline-separated for list rendering).
+    *   `coreTechnologies: string`: Core technologies to be deployed or developed.
+    *   `peopleCultureFocus: string`: Focus areas for people and cultural changes.
+    *   `successMetrics: string`: Key Performance Indicators (KPIs) and success metrics for the phase.
+    *   `colorClass: string`: Tailwind CSS text color class for theming elements related to this phase (e.g., "text-sky-400").
+    *   `dotClass: string`: CSS class (not Tailwind utility) used to style the roadmap timeline dot for this phase (defined in `Project_Chimera/index.html` styles).
+*   **Usage**:
+    *   Populates the `ROADMAP_PHASES` array in `Project_Chimera/constants.ts`.
+    *   Used by `RoadmapSection.tsx` to render the timeline.
+    *   Detailed content is also used in the dedicated roadmap phase pages (e.g., `/roadmap-details/phase-1-crawl/page.tsx`).
+
+Understanding these data structures is key to comprehending how content is managed and rendered throughout the Project Chimera presentation application.

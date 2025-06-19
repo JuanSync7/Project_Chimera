@@ -1,78 +1,61 @@
 
-# SVG Usage Guidelines for Bouton App
+# Project Chimera: SVG Usage Guidelines
 
-This document outlines guidelines for using SVGs, primarily icons from `lucide-react`, within the **Bouton** application. While Bouton might not require complex custom SVG diagrams like "Project Chimera," these principles ensure consistency if custom SVGs are ever needed.
+This document outlines guidelines for using SVGs within the **Project Chimera** presentation application. This includes inline SVGs for diagrams and custom icon components.
 
-## 1. Primary SVG Source: `lucide-react`
+## 1. Primary SVG Usage: Inline SVGs for Diagrams
 
-*   **Default Choice**: For all iconography, `lucide-react` is the preferred library. It offers a wide range of clean, consistent, and highly configurable SVG icons.
-*   **Import**: Import icons directly from `lucide-react`.
+Project Chimera features complex diagrams, notably the architectural diagram in `Project_Chimera/components/sections/ArchitectureSection.tsx`.
+
+*   **Implementation**: SVGs are implemented directly as inline JSX within React components.
     ```tsx
-    import { Sparkles, Palette, Check } from 'lucide-react';
-    ```
-*   **Usage**:
-    ```tsx
-    <Sparkles className="h-5 w-5 text-primary" />
-    ```
-*   **Styling**:
-    *   **Size**: Control size using Tailwind's height and width utilities (e.g., `h-5 w-5`, `h-6 w-6`).
-    *   **Color**: Control color using Tailwind's text color utilities (e.g., `text-primary`, `text-accent`, `text-foreground`). The icon will inherit this color.
-    *   **Stroke Width**: Lucide icons can accept a `strokeWidth` prop if needed, but the default is usually appropriate.
-
-## 2. Custom Inline SVGs (If Necessary)
-
-If a specific icon or simple graphic is not available in `lucide-react` and must be custom-made, follow these guidelines:
-
-*   **Simplicity**: Keep custom SVGs simple and aligned with the geometric style of Lucide icons.
-*   **Inline SVGs**: Implement as inline SVGs directly within Next.js/React components.
-*   **Scalability**: Ensure SVGs are scalable. Use `viewBox` attribute and avoid fixed `width` and `height` attributes on the `<svg>` element itself if it's meant to scale with Tailwind classes. Instead, apply Tailwind size classes to the parent or the SVG element in the JSX.
-    ```tsx
-    // Example of a simple custom inline SVG component
-    const MyCustomIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor" // currentColor will make it inherit Tailwind text color
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        {...props} // Spread props to allow className for sizing and color
-      >
-        <path d="M12 2 L2 22 L22 22 Z" /> {/* Example path */}
+    // Example from ArchitectureSection.tsx
+    const OriginalArchitectureDiagram: React.FC = () => (
+      <svg width="100%" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+        <style>
+          {`
+            .supervisor { fill: #38bdf8; } /* Tailwind sky-500 */
+            /* ... other styles ... */
+          `}
+        </style>
+        {/* ... SVG elements ... */}
       </svg>
     );
-
-    // Usage:
-    // <MyCustomIcon className="h-6 w-6 text-accent" />
     ```
-*   **Theme Integration for Fills/Strokes**:
-    *   For colors within the SVG that *cannot* be controlled by `currentColor` (e.g., multi-color SVGs), use CSS classes that reference theme variables from `src/app/globals.css` if possible. This is more complex for simple icons and `currentColor` is preferred.
-    *   If CSS variables must be used directly within an inline `<style>` tag in the SVG (less common for icons), ensure they map to Bouton's theme (e.g., `fill: hsl(var(--primary));`).
+*   **Styling**:
+    *   **Internal CSS**: Styles for SVG elements (fills, strokes, fonts) are defined within a `<style>` tag inside the SVG. These styles often use specific hex colors or Tailwind color names (commented).
+    *   **CSS Classes**: Classes are applied to SVG elements (e.g., `.supervisor`, `.worker`, `.text-label`) and styled by the internal CSS.
+    *   **Scalability**: The `viewBox` attribute is crucial for ensuring the SVG scales correctly. `width="100%"` allows it to adapt to its container.
+*   **Dynamic Colors (Future Consideration)**: If diagrams need to adapt to a theming system beyond the current inline styles (e.g., light/dark mode variables from a global CSS file), SVG styles would need to reference CSS custom properties. However, the current implementation uses fixed colors.
 
-## 3. Styling with Tailwind CSS
+## 2. Custom Icon Components (Heroicons-like)
 
-*   Apply Tailwind CSS classes directly to the `<IconComponent />` or custom `<svg>` element for sizing, color, and layout.
+Project Chimera uses custom React components for icons, often resembling Heroicons or other simple line icon sets. These are defined in `Project_Chimera/constants.ts` or directly in components.
+
+*   **Implementation**: As functional React components returning SVG JSX.
     ```tsx
-    <Palette className="h-6 w-6 text-primary mr-2" />
+    // Example (conceptual, from constants.ts structure)
+    const PencilSquareIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+      React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", fill: "none", viewBox: "0 0 24 24", strokeWidth: 1.5, stroke: "currentColor", ...props },
+        // ... path elements ...
+      )
+    );
     ```
+*   **Styling**:
+    *   **`stroke="currentColor"`**: This is key for allowing Tailwind text color utilities to color the icon.
+    *   **Size**: Controlled by Tailwind height and width utilities (e.g., `h-5 w-5`, `h-12 w-12`) applied to the icon component in JSX.
+    *   **Props**: The components accept standard SVG props, allowing `className` for styling.
 
-## 4. Accessibility
+## 3. No External Icon Libraries (e.g., Lucide-React)
 
-*   If an icon is purely decorative and provides no additional information, use `aria-hidden="true"`.
-*   If an icon conveys meaning and is not accompanied by visible text (e.g., an icon-only button), provide an accessible label using `aria-label` on the interactive element or an associated `<span>` with `sr-only` class.
-    ```tsx
-    <button aria-label="Suggest Style">
-      <Sparkles className="h-5 w-5" />
-    </button>
-    ```
+The Project Chimera application, as defined by its `Project_Chimera/` directory, does **not** use external icon libraries like `lucide-react`. All icons are custom SVG components or inline SVGs. Therefore, guidelines related to `lucide-react` are not applicable here.
 
-## 5. Placeholder Images
+## 4. General SVG Best Practices
 
-*   For placeholder images (if ever needed, though less likely for Bouton), use `https://placehold.co/<width>x<height>.png`.
-*   Add `data-ai-hint` with one or two keywords for future image search.
-    ```html
-    <img src="https://placehold.co/300x200.png" alt="Placeholder" data-ai-hint="abstract button" />
-    ```
+*   **Accessibility**:
+    *   For decorative SVGs (like the animated rocket, if purely visual), ensure they don't disrupt screen readers (e.g., `role="presentation"`, `aria-hidden="true"` if appropriate).
+    *   For meaningful icons used as buttons or conveying information without text, provide accessible names (e.g., `aria-label` on the parent button). The current project uses icons alongside text, reducing this need for standalone icon labels.
+*   **Optimization**: For complex diagrams, ensure SVG paths are optimized to reduce file size if this ever became a concern (though less critical for inline SVGs in a React app).
+*   **Consistency**: Strive for a consistent visual style (stroke width, line cap/join) across all custom icons and diagram elements.
 
-By prioritizing `lucide-react` and following these guidelines for any custom SVGs, Bouton will maintain a visually consistent and accessible interface.
+By adhering to these guidelines, Project Chimera maintains a consistent and effective use of SVGs for its diagrams and iconography.

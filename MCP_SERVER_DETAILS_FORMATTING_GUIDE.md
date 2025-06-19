@@ -1,155 +1,87 @@
 
-# Guide for Structuring Core Logic (e.g., AI Interaction) in Bouton
+# Project Chimera: Guide for Structuring "MCP Server" Content
 
-The **Bouton** application is significantly simpler than the "Project Chimera" for which the original `MCP_SERVER_DETAILS_FORMATTING_GUIDE.md` was intended. Bouton does not have a complex "MCP Server." However, we can adapt the spirit of that guide to discuss how core logic, particularly AI interactions, might be structured if Bouton evolves.
+The **Project Chimera** application features a detailed explanation of its "Multi-Agent Collaboration Protocol (MCP) Server" within the "Architectural Blueprint" section, particularly in the `/architectural-blueprint/mcp-server-details/page.tsx` sub-page. This guide outlines how to structure and format content when detailing such complex components.
 
-This document focuses on the AI styling flow as the primary "intelligent component" in Bouton.
+## 1. Page Title and Introduction
 
-## 1. AI Styling Flow (`src/ai/flows/suggest-button-style-flow.ts`)
+*   **Main Title (`<h1>`)**: Clear, prominent, and uses `.gradient-text`.
+    *   Accompanied by a thematic Lucide icon (e.g., `<ServerCog />`).
+    *   Includes a subtitle `<p>` for context.
+    *   **Example from `mcp-server-details/page.tsx`:**
+        ```tsx
+        <div className="flex flex-col items-center text-center mb-12">
+          <ServerCog className="h-16 w-16 text-primary mb-4" />
+          <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-2 md:leading-tight">
+            Deep Dive: The MCP Server
+          </h1>
+          <p className="text-2xl text-slate-400">Tools, Knowledge, and State Management</p>
+        </div>
+        ```
+*   **Introductory Paragraphs**: Briefly explain the component's purpose and the topics to be covered.
 
-This Genkit flow is the central piece of AI functionality in Bouton.
+## 2. Numbered Major Sections (`<h2>`)
 
-*   **Purpose**: To take a user's prompt and optionally the current button style, and return a new suggested `ButtonState`.
-*   **Structure (Conceptual, following Genkit guidelines):**
-    ```typescript
-    // src/ai/flows/suggest-button-style-flow.ts
-    'use server';
-    /**
-     * @fileOverview AI flow for suggesting button styles.
-     * - suggestStyleFlow - Main function to generate button style suggestions.
-     * - AiStyleSuggestionInput - Input type for the flow.
-     * - AiStyleSuggestionOutput - Output type (mirrors ButtonState).
-     */
-
-    import { ai } from '@/ai/genkit';
-    import { z } from 'genkit';
-    import type { ButtonState } from '@/lib/bouton/types'; // Assuming ButtonState type
-
-    // Define Zod schema for ButtonState (or import if already defined elsewhere)
-    const ButtonStateSchema = z.object({
-      text: z.string().optional(),
-      textColor: z.string().optional().describe("CSS color for text, e.g., #RRGGBB"),
-      backgroundColor: z.string().optional().describe("CSS color for background, e.g., #RRGGBB"),
-      // ... other ButtonState fields as Zod types with descriptions
-      borderColor: z.string().optional(),
-      borderWidth: z.number().optional(),
-      borderRadius: z.number().optional(),
-      paddingX: z.number().optional(),
-      paddingY: z.number().optional(),
-      fontSize: z.number().optional(),
-      fontWeight: z.string().optional(),
-      fontFamily: z.string().optional(),
-      iconName: z.string().optional().describe("Name of a lucide-react icon, e.g., 'Sparkles'"),
-      iconPosition: z.enum(['left', 'right']).optional(),
-      boxShadow: z.string().optional().describe("CSS box-shadow value"),
-      customClasses: z.string().optional().describe("Additional Tailwind CSS classes"),
-    });
-    
-    export const AiStyleSuggestionInputSchema = z.object({
-      currentStyle: ButtonStateSchema.partial().optional().describe("Current style of the button, if any."),
-      userPrompt: z.string().describe("User's textual prompt for desired style."),
-      buttonPurpose: z.string().optional().describe("The purpose of the button, e.g., 'Submit form'."),
-    });
-    export type AiStyleSuggestionInput = z.infer<typeof AiStyleSuggestionInputSchema>;
-    
-    // Output is effectively a complete ButtonState
-    export const AiStyleSuggestionOutputSchema = ButtonStateSchema;
-    export type AiStyleSuggestionOutput = z.infer<typeof AiStyleSuggestionOutputSchema>;
-
-    // Main exported function to call the flow
-    export async function suggestStyleFlow(input: AiStyleSuggestionInput): Promise<AiStyleSuggestionOutput> {
-      return internalSuggestStyleFlow(input);
-    }
-
-    const stylePrompt = ai.definePrompt({
-      name: 'boutonStylePrompt',
-      input: { schema: AiStyleSuggestionInputSchema },
-      output: { schema: AiStyleSuggestionOutputSchema },
-      prompt: `You are an expert UI/UX designer specializing in button design.
-      The user wants a button style.
-      User prompt: {{{userPrompt}}}
-      {{#if buttonPurpose}}Button's purpose: {{{buttonPurpose}}}{{/if}}
-      {{#if currentStyle}}Current button style for context: 
-        Text: {{currentStyle.text}}
-        Text Color: {{currentStyle.textColor}}
-        Background Color: {{currentStyle.backgroundColor}}
-        Border Radius: {{currentStyle.borderRadius}}px
-        {{!-- Add other currentStyle fields as needed --}}
-      {{/if}}
-
-      Provide a new complete button style (all fields from ButtonStateSchema) that meets the user's request.
-      Use the application's theme colors where appropriate:
-      - Primary: Strong Indigo (#4B0082)
-      - Background: Light Indigo (#E6E0EB) for light mode UI
-      - Accent: Blue Violet (#8A2BE2)
-      - Font: Inter
-
-      Ensure all color values are in hex format (e.g., #RRGGBB).
-      For borderRadius, paddingX, paddingY, fontSize, borderWidth, provide numeric values (pixels).
-      Suggest a relevant lucide-react iconName if applicable.
-      `,
-    });
-    
-    const internalSuggestStyleFlow = ai.defineFlow(
-      {
-        name: 'internalSuggestStyleFlow',
-        inputSchema: AiStyleSuggestionInputSchema,
-        outputSchema: AiStyleSuggestionOutputSchema,
-      },
-      async (input) => {
-        const { output } = await stylePrompt(input);
-        if (!output) {
-          throw new Error("AI failed to suggest a style.");
-        }
-        // Potentially add validation or minor adjustments here before returning
-        return output;
-      }
-    );
-    ```
-
-## 2. Invoking the AI Flow (from `src/app/page.tsx` or `AiStyler.tsx`)
-
-The AI flow is invoked when the user requests an AI-generated style.
-
-*   **Responsibility**: The component responsible for the AI interaction (e.g., `AiStyler.tsx` or its parent `src/app/page.tsx`) will:
-    1.  Collect the user's prompt and the current button state.
-    2.  Call the exported `suggestStyleFlow` function.
-    3.  Handle the promise (e.g., update the main button state with the suggestion, manage loading states, show errors via toasts).
-
+*   Divide the content into logical major sections, each starting with an `<h2>` title.
+*   Prefix titles with numbers (e.g., "1. Tool Abstraction Layer...", "2. Knowledge Hub (RAG)...").
+*   Optionally, include a thematic icon within or alongside the `<h2>` if it introduces a very distinct concept.
     ```tsx
-    // Example within a component
-    import { suggestStyleFlow, type AiStyleSuggestionInput } from '@/ai/flows/suggest-button-style-flow';
-    import { toast } from '@/components/ui/use-toast'; // ShadCN toast
-
-    // ...
-    const handleAiStyleRequest = async (prompt: string, currentButtonState: ButtonState) => {
-      setIsLoading(true);
-      try {
-        const input: AiStyleSuggestionInput = {
-          userPrompt: prompt,
-          currentStyle: currentButtonState, // Pass relevant parts
-          // buttonPurpose: "Primary action" // Optional
-        };
-        const suggestedStyle = await suggestStyleFlow(input);
-        onNewStyle(suggestedStyle); // Callback to update the main button state
-      } catch (error) {
-        console.error("AI Styler Error:", error);
-        toast({
-          variant: "destructive",
-          title: "AI Styling Failed",
-          description: error instanceof Error ? error.message : "Could not generate style.",
-        });
-      } finally {
-        setIsLoading(false);
-      }
-    };
+    <div className="mt-16 mb-4"> {/* Or mt-24 for more separation */}
+      <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
+        1. Tool Abstraction Layer: How it Works
+      </h2>
+    </div>
+    ```
+    Or, for more visual separation with an icon:
+    ```tsx
+    <div className="mt-24 mb-4">
+      <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 flex items-center">
+        <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" /> {/* Example Icon */}
+        4. Potential Challenges or Considerations...
+      </h2>
+    </div>
     ```
 
-## 3. Considerations for Bouton's "Core Logic"
+## 3. Topic Titles within Major Sections (`<h3>`)
 
-*   **State Management**: The primary `ButtonState` should be managed centrally (e.g., in `src/app/page.tsx` or a React Context) to be accessible by `BoutonDisplay`, `StyleControls`, and `AiStyler`.
-*   **Modularity**: Keep AI interaction logic separate from UI components as much as possible. The Genkit flow handles the AI part; UI components handle user input and display.
-*   **Error Handling**: Robust error handling for AI flow calls is important for user experience.
-*   **Simplicity**: For Bouton, the "server-side" logic is encapsulated within the Genkit flow. There isn't a persistent backend server in the traditional sense beyond what Genkit and Next.js provide for server actions/functions.
+*   Break down major sections further with `<h3>` titles for specific aspects or functionalities.
+*   These are consistently styled with a leading Lucide icon and a themed color.
+*   **Structure Example:**
+    ```tsx
+    <div className="mt-8 mb-4 flex items-center">
+      <Settings2 className="h-7 w-7 text-primary mr-3 flex-shrink-0" /> {/* Icon */}
+      <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0"> {/* Title */}
+        Core Functionality:
+      </h3>
+    </div>
+    <ul className="list-disc pl-5 space-y-2"> {/* Content (often lists) */}
+      {/* ... list items ... */}
+    </ul>
+    ```
+*   The icon and text color for the `<h3>` (e.g., `text-primary`, `text-yellow-400`) can be varied to provide thematic distinction for different types of information (e.g., benefits, challenges, comparisons).
 
-This structure ensures that the AI styling functionality is well-organized, maintainable, and leverages the capabilities of Genkit effectively for the Bouton application.
+## 4. Detailed Explanations (Paragraphs and Lists)
+
+*   **Paragraphs**: Use standard `<p>` tags. Tailwind Prose handles readability.
+*   **Lists (`<ul>`, `<ol>`)**:
+    *   Use `ul className="list-disc pl-5 space-y-2"` for primary bullet points.
+    *   Keywords within list items: `<strong class="text-white font-semibold">Keyword:</strong> Explanation...`
+    *   Nested lists: `ul className="list-circle pl-5 space-y-1 mt-1"` or `mt-2`.
+    *   Numbered lists `ol className="list-decimal pl-5 space-y-2"` are used for sequential items like "Challenges" or "Enhancements".
+
+## 5. Code/Command Examples
+
+*   For brief inline mentions of code, commands, or JSON, use `<code>` tags styled with a background.
+    *   Example: `<code className="language-json bg-slate-700 p-1 rounded text-sm">{'MCP_Server.execute_tool(...)'}</code>`
+*   These snippets help illustrate technical details clearly.
+
+## 6. Visual Grouping of Related Points
+
+*   Use consistent spacing (`mt-8`, `mt-16`, `mt-24`) to visually group related topics and create a clear reading flow.
+*   The border on `<h2>` titles also helps delineate major sections.
+
+## 7. Linking to Other Relevant Sections/Pages
+
+*   If the content references concepts detailed elsewhere, provide clear links. (e.g., the main Architectural Blueprint page links to the MCP Server details page).
+
+By following this structure, detailed technical explanations like that of the MCP Server can be presented in a digestible, organized, and visually appealing manner, consistent with the overall style of the Project Chimera application.

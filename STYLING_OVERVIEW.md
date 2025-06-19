@@ -1,61 +1,54 @@
 
-# Bouton App: Styling Overview
+# Project Chimera: Styling Overview
 
-This document provides a comprehensive overview of the styling approach used in the **Bouton** application. It covers the primary technologies, theme configuration, global styles, and guidelines for maintaining a consistent visual identity.
+This document provides an overview of the styling approach used in the **Project Chimera** presentation application. It focuses on the primary technologies and conventions for maintaining a consistent visual identity.
 
 ## 1. Core Styling Technologies
 
-*   **Tailwind CSS**: The primary utility-first CSS framework used for styling most components. Customizations and theme extensions are defined in `tailwind.config.ts`.
-*   **ShadCN UI**: A collection of beautifully designed, accessible, and reusable React components built on top of Tailwind CSS and Radix UI.
-    *   Configuration for ShadCN UI (component paths, base color, CSS variables) is managed in `components.json`.
-    *   Components are located in `src/components/ui/`.
-*   **CSS Custom Properties (Variables)**: Used extensively for theming, especially for colors, to support light and dark modes. These are primarily defined in `src/app/globals.css`, reflecting Bouton's color scheme.
-*   **Lucide React**: The default icon library, providing a wide range of clean and consistent SVG icons for UI elements.
+*   **Tailwind CSS (via CDN)**: The primary utility-first CSS framework used for styling most components and layout. It's included via a CDN link in `Project_Chimera/index.html`.
+*   **Inline Styles & Custom CSS**: Specific styles, particularly for the overall theme (dark mode, backgrounds), animations, and unique UI elements (like glassmorphism, gradient text), are defined directly within `<style>` tags in `Project_Chimera/index.html`.
+*   **React Component-Scoped Styles**: While Tailwind is dominant, individual React components might encapsulate some specific styling logic if needed, though the preference is utility classes.
 
-## 2. Theme Configuration (`src/app/globals.css`)
+## 2. Theme Configuration (`Project_Chimera/index.html`)
 
-The core of Bouton's theming is managed through CSS custom properties defined in `src/app/globals.css`.
+The core visual theme of Project Chimera is established through CSS within the `<style>` tags in `Project_Chimera/index.html`.
 
-*   **Color Palette (as per Bouton PRD)**:
-    *   The application defaults to **dark mode** (`<html class="dark">`). Light mode is also supported.
-    *   **Primary (`--primary`)**: Strong Indigo (`#4B0082`). HSL values are adjusted for light/dark modes.
-    *   **Background (`--background`)**: Light Indigo (`#E6E0EB`) for light mode, Dark Indigo for dark mode.
-    *   **Accent (`--accent`)**: Blue Violet (`#8A2BE2`).
-    *   Other theme colors (foreground, card, muted, border, input, ring) are defined using HSL and derived from this core palette.
-    *   Specific HSL values are documented in `COLOR_SCHEME.md` and implemented in `globals.css`.
-*   **ShadCN UI Theme**: The CSS variables in `globals.css` directly power the ShadCN UI components, ensuring they align with Bouton's theme.
+*   **Color Palette**:
+    *   **Dark Mode Default**: The application uses a dark theme as its base.
+        *   Body Background: `#0a0a0a` (approx. Tailwind `bg-gray-950`).
+        *   Text Color: `#e2e8f0` (approx. Tailwind `text-slate-200`).
+    *   **Gradient Text**: A prominent feature, using a linear gradient: `to right, #38bdf8 (sky-500), #818cf8 (indigo-400), #c084fc (fuchsia-400)`. Applied via the `.gradient-text` class.
+    *   **Accent Colors**: While not strictly defined as theme variables like in a CSS preprocessor setup, accent colors like sky blue, purple, and fuchsia are used for highlights, icons, and borders (e.g., `active-nav` uses `#38bdf8`).
+    *   **Glassmorphism Effect**: Applied to elements like the header and mobile menu using `background: rgba(17, 24, 39, 0.6); backdrop-filter: blur(10px);`.
+*   **Typography**:
+    *   **Primary Font**: 'Inter' (sans-serif), loaded from Google Fonts. Applied to the `body`.
 
-## 3. Tailwind CSS Configuration (`tailwind.config.ts`)
+## 3. Tailwind CSS Usage
 
-The `tailwind.config.ts` file extends Tailwind's default theme:
+*   Tailwind CSS is used extensively for layout, spacing, typography, colors (where applicable), and responsive design within the React components (`.tsx` files in `Project_Chimera/components/`).
+*   Utility classes are preferred for styling individual elements.
+*   There isn't a `tailwind.config.js` file to customize Tailwind's theme extensively for this project, as it relies on the CDN and inline styles for primary theming.
 
-*   **Font Families**:
-    *   `fontFamily.body` and `fontFamily.headline` are set to use `var(--font-inter)` (Inter font), loaded via `next/font` in `src/app/layout.tsx`.
-    *   Refer to `FONT_CHOICES.md` for details.
-*   **Colors**: The `colors` section in `theme.extend` maps Tailwind color names (e.g., `primary`, `secondary`, `accent`) to the CSS custom properties defined in `globals.css` (e.g., `hsl(var(--primary))`). This enables standard Tailwind color utilities like `bg-primary`, `text-accent`.
-*   **Border Radius**: Consistent border radius values (`lg`, `md`, `sm`) are defined using `var(--radius)`.
-*   **Keyframes & Animations**: Custom animations used by ShadCN components (e.g., `accordion-down`) are defined.
-*   **Plugins**: `tailwindcss-animate` is used for these animations.
+## 4. Component-Level Styling
 
-## 4. Global Styles and Custom Classes (`src/app/globals.css`)
+*   React components (e.g., `SectionCard.tsx`, `Header.tsx`) are styled using Tailwind CSS utility classes passed via the `className` prop.
+*   The `cn` utility function (if used, typically from `clsx` and `tailwind-merge`) would help in conditionally applying and merging Tailwind classes, though this project might apply classes directly given its structure.
 
-Beyond theme variables, `src/app/globals.css` also contains:
+## 5. Custom CSS Classes (`Project_Chimera/index.html`)
 
-*   **Base Styles**: Basic resets and default styles for HTML elements (`@tailwind base`), including setting the base font family to `var(--font-inter)`.
-*   **Component Styles**: Default styles for some ShadCN components or general component patterns (`@tailwind components`).
-*   **Utility Styles**: Tailwind utility classes (`@tailwind utilities`).
-*   **Custom Global Classes (Minimal for Bouton)**:
-    *   `.gradient-text`: If used for specific emphasis (though not a core Bouton PRD item, could be added).
-    *   Any other global utility styles if absolutely necessary. The preference is to use Tailwind utilities or component-scoped styles.
+Beyond Tailwind utilities, `Project_Chimera/index.html` defines several custom classes for specific effects and component states:
 
-## 5. Component-Level Styling
-
-*   **ShadCN UI Components**: Components from `src/components/ui/` are pre-styled but can be customized using Tailwind utility classes via the `className` prop.
-*   **Custom Components**: Components in `src/components/bouton/` are styled using Tailwind CSS utility classes.
-*   **`cn` Utility Function**: Located in `src/lib/utils.ts`, the `cn` function is used for conditionally applying and merging Tailwind CSS class names.
+*   `.glassmorphism`
+*   `.active-nav`, `.nav-link`
+*   `.gradient-text`
+*   `.section-card` (and its hover effects)
+*   `.tab-button-base`, `.tab-button-active`, `.tab-button-inactive` (for the pipeline section)
+*   `.roadmap-line`, `.roadmap-dot` (and phase-specific dot colors)
+*   Tailwind Prose (`prose`) adjustments for list styling.
 
 ## 6. Text and Keyword Highlighting
 
-*   Refer to `TEXT_STYLING_GUIDELINES.md` for conventions on emphasizing keywords and important text snippets using `<strong>` tags. Colors for emphasis should align with the Bouton theme (e.g., `text-primary`, `text-accent`).
+*   Keywords and important text snippets are often emphasized using `<strong>` tags.
+*   The `.gradient-text` class is used for high-impact titles and headings to make them stand out.
 
-By adhering to these conventions, the Bouton application will maintain a consistent, professional, and themeable visual appearance based on its specified style guidelines.
+This styling approach combines the power of Tailwind's utility classes for component-level styling with targeted custom CSS in `index.html` for the overall theme and unique visual effects, creating the distinctive look and feel of the Project Chimera presentation.

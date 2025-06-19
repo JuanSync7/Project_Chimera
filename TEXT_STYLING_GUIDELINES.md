@@ -1,47 +1,58 @@
 
-# Bouton App Text Styling Guidelines
+# Project Chimera: Text Styling Guidelines
 
-This document outlines conventions for text styling, particularly keyword highlighting and inline code, used within the **Bouton** application. These guidelines ensure visual consistency and enhance readability.
+This document outlines conventions for text styling, particularly keyword highlighting and specific text treatments used within the **Project Chimera** presentation application. These guidelines ensure visual consistency and enhance readability of the strategic content.
 
 ## 1. Keyword Highlighting Conventions
 
-A clear strategy for emphasizing key terms improves user understanding.
+Emphasizing key terms and concepts is crucial for conveying the strategic importance of Project Chimera's elements.
 
-### 1.1 Primary Conceptual Keywords / UI Labels / Thematic Emphasis
+### 1.1 Primary Conceptual Keywords & Thematic Emphasis
 
-*   **Purpose**: To make important UI labels (e.g., section titles within style controls), primary bullet point titles, or specific terms stand out prominently. This usually involves a thematic color or a distinct visual treatment.
+*   **Purpose**: To make important strategic terms, section titles, or specific concepts stand out prominently. This often involves bolding and sometimes specific color treatments (like gradient text).
 *   **Styling**:
-    *   Typically wrapped in `<strong>` tags or styled directly if part of a heading element (e.g., `<h2>`, `<h3>`).
-    *   May be assigned a color class from the Bouton theme (e.g., `text-primary`, `text-accent`, or `text-foreground` for general prominence where a theme color isn't suitable).
-    *   Often accompanied by `font-semibold` for consistent bolding, although `<strong>` itself provides boldness.
+    *   Typically wrapped in `<strong>` tags within descriptive text.
+    *   Headings (`<h1>` to `<h4>`) inherently provide emphasis and are styled using Tailwind CSS classes for size, weight, and color (often white or a themed gradient).
+    *   The `.gradient-text` class (defined in `Project_Chimera/index.html`) is used for high-impact titles and specific keywords to give them a distinctive, thematic look.
 *   **Examples**:
-    *   Section title in `StyleControls.tsx`: `<h3 class="text-xl font-semibold text-primary">Button Colors</h3>`
-    *   Important option in a list: `<li><strong class="font-semibold text-accent">AI Styling:</strong> Get unique suggestions.</li>`
+    *   Main section title: `<h2 class="text-4xl font-bold text-center mb-3 text-white">The Strategic Imperative...</h2>`
+    *   Gradient text for emphasis: `Redefining PPA<span class='gradient-text'>P</span>` or `The <span class='gradient-text'>10x Vision</span>`.
+    *   Important terms in paragraphs: `mastering <strong>design complexity</strong> through AI` or `a <strong>cumulative, defensible competitive advantage</strong>.`
 
-### 1.2 General Emphasis in Body Text / Descriptions
+### 1.2 Emphasis in List Items or Specific Details
 
-*   **Purpose**: To provide emphasis to important terms or specific details within descriptive paragraphs or list item details.
+*   **Purpose**: To highlight key aspects within list items or specific details in descriptive paragraphs.
 *   **Styling**:
-    *   Wrapped in simple `<strong>` tags.
-    *   No additional color classes are typically applied. The browser's default rendering for `<strong>` (bolder weight) combined with the parent text color (e.g., `text-muted-foreground` or `text-foreground`) provides sufficient visual distinction.
+    *   Often wrapped in `<strong>` tags.
+    *   May use `text-white` or a specific accent color class (e.g., `text-sky-400`, `text-purple-400`) if the `<strong>` tag is nested within an element that has a muted color by default (like `text-slate-400`). This ensures the emphasized text stands out against the muted background text.
 *   **Examples**:
-    *   In a paragraph: `<p class="text-muted-foreground">Adjust the <strong>border radius</strong> for rounded corners.</p>`
-    *   In a list item description: `<li>Adjust padding: Modifies the <strong>inner space</strong> of the button.</li>`
+    *   In `OverviewSection.tsx`: `<li><strong>Tool Abstraction Layer:</strong> Standardized, version-controlled API...</li>` (where the `<li>` itself might be styled with a base color).
+    *   In `RisksVisionSection.tsx`: `<li><strong class="text-rose-400 font-semibold">Reliability ("Hallucination"):</strong> Mitigated by...</li>`
 
-## 2. Gradient Text (Optional)
+## 2. Gradient Text Usage
 
-*   **Purpose**: Could be used for the main application title "Bouton" or very high-impact, short phrases if desired. Not a primary requirement from the PRD but a common styling technique.
-*   **Styling**: Applied using a `.gradient-text` class defined in `src/app/globals.css`.
-    *   If implemented, the palette should align with or complement Bouton's theme (e.g., a gradient incorporating Indigo and Blue Violet hues).
+*   **Purpose**: Reserved for main titles, key strategic terms (like "PPAP", "10x Vision"), or section headers to provide strong visual impact and reinforce the project's theme.
+*   **Styling**: Applied using the `.gradient-text` class defined in `Project_Chimera/index.html`. The gradient is `linear-gradient(to right, #38bdf8, #818cf8, #c084fc)`.
 *   **Example**:
-    *   Main app title: `<h1 class="... font-bold gradient-text ...">Bouton</h1>`
+    *   Main app title: `<span class="gradient-text">Project Chimera</span>`
+    *   Section sub-headings or key phrases.
 
-## 3. Inline Code Mentions (If Applicable)
+## 3. Inline Code Mentions & Technical Terms
 
-*   **Purpose**: For displaying short code snippets, CSS class examples, or property names, if Bouton ever includes a "code export" feature or detailed technical explanations.
-*   **Styling**: Use the `<code>` tag with Tailwind CSS classes for background, padding, and rounded corners.
-*   **Example**:
-    *   `<code class="bg-muted px-1.5 py-1 rounded text-sm font-mono">border-radius: 8px;</code>`
-    *   `Apply the class <code class="bg-muted px-1.5 py-1 rounded text-sm font-mono">.my-custom-button</code>.`
+*   **Purpose**: For displaying short code examples (like Python in `SymbiosisSection.tsx`), technical terms, or file names.
+*   **Styling**:
+    *   The Project Chimera app features a Python code block example in `SymbiosisSection.tsx`. This is styled with a dark background, specific font, and syntax highlighting achieved through direct HTML structure and classes within the `dangerouslySetInnerHTML` part.
+        ```html
+        <div class='bg-gray-900 rounded-lg p-4 mt-4 text-sm font-mono text-slate-300 overflow-x-auto'>
+          <pre><code class='language-python whitespace-pre-wrap'>${PYTHON_CODE_EXAMPLE}</code></pre>
+        </div>
+        ```
+    *   For simple inline mentions of technical terms (e.g., "RAG/CAG architecture", "LangGraph", "PDKs"), these are typically emphasized using `<strong>` tags rather than specific `<code>` tag styling, as the context is more strategic than instructional code.
 
-By adhering to these guidelines, the Bouton application will maintain a clear, consistent, and visually hierarchical presentation of textual information, enhancing readability and user comprehension.
+## 4. List Item Styling
+
+*   Standard `<ul>` or `<ol>` lists are used.
+*   Styling for bullets and spacing is managed by Tailwind CSS utility classes or Tailwind Prose plugin defaults if active.
+*   The `Project_Chimera/index.html` includes adjustments for `.prose ul > li::before` to use a themed color for bullets (`#60a5fa` - blue-400).
+
+By adhering to these guidelines, the Project Chimera presentation maintains a clear, impactful, and visually consistent presentation of its strategic narrative.

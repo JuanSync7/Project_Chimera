@@ -1,100 +1,108 @@
 
-# Formatting Guide for Bouton App Components and Pages
+# Project Chimera: Formatting Guide for Architectural Content
 
-This guide outlines formatting conventions for developing components and potential future subpages for the **Bouton** application. Adhering to these guidelines ensures consistency. Bouton primarily focuses on a main interface for button display and styling, so these guidelines are simplified compared to large multi-page applications.
+This guide outlines formatting conventions for presenting architectural details within the **Project Chimera** application, particularly for sections like "Architectural Blueprint" and its sub-pages (e.g., "MCP Server Details", "Supervisor-Worker Details").
 
-## 1. Overall Page/View Structure (Main App View)
+## 1. Overall Page/Section Structure (e.g., `architectural-blueprint/page.tsx`)
 
-*   **Layout Component**: If multiple views/pages are ever needed, a consistent layout component (e.g., `<AppLayout>`) should wrap content. For the current single-view Bouton app, the main page (`src/app/page.tsx`) will structure the primary components.
+*   **Layout Component**: Content is wrapped in `<SubPageLayout>` which provides consistent header, footer, and a "back" button.
+*   **Main Content Wrapper**: The primary content within `<SubPageLayout>` is typically an `<article>` element styled with Tailwind Prose classes for readability (e.g., `prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6`).
+
+## 2. Main Page/Section Titles (`<h1>`)
+
+*   The main title of a detailed architectural page (e.g., "Architectural Blueprint", "Deep Dive: The MCP Server").
+*   **Structure Example (from `architectural-blueprint/page.tsx`):**
     ```tsx
-    // Example for src/app/page.tsx
-    import BoutonDisplay from '@/components/bouton/BoutonDisplay';
-    import StyleControls from '@/components/bouton/StyleControls';
-    import AiStyler from '@/components/bouton/AiStyler';
-
-    export default function BoutonHomePage() {
-      return (
-        <main className="container mx-auto p-4 flex flex-col md:flex-row gap-8">
-          <div className="md:w-2/3">
-            <BoutonDisplay />
-          </div>
-          <div className="md:w-1/3 space-y-6">
-            <StyleControls />
-            <AiStyler />
-          </div>
-        </main>
-      );
-    }
+    <div className="flex flex-col items-center text-center mb-12">
+      <DraftingCompass className="h-16 w-16 text-primary mb-4" /> {/* Thematic Icon */}
+      <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-2">
+        Section 2: Architectural Blueprint
+      </h1>
+      <p className="text-2xl text-slate-400">A Multi-Agent System for End-to-End Design</p>
+    </div>
     ```
-*   **Component Structure**: Components should be well-defined and reusable. Use ShadCN UI components where appropriate.
+*   **Styling**:
+    *   Icon: `h-16 w-16 text-primary mb-4` (Lucide icon component).
+    *   `<h1>`: `text-4xl md:text-5xl font-bold gradient-text !mb-2`.
+    *   Subtitle `<p>`: `text-2xl text-slate-400`.
 
-## 2. Main Titles (e.g., Section Titles within Components)
+## 3. Major Sub-Section Titles (`<h2>`)
 
-*   If components have distinct sections, use `<h2>` or `<h3>` for titles.
-*   **Structure Example (within a component like `StyleControls.tsx`):**
+*   For distinct parts within an architectural explanation (e.g., "2.1 Foundations...", "2.2 Core Components...").
+*   **Structure Example (from `architectural-blueprint/page.tsx`):**
     ```tsx
-    import { Palette } from 'lucide-react'; // Example icon
-
-    // ... inside a component
-    <div className="mb-4">
-      <h2 className="text-2xl font-semibold text-foreground mb-2 flex items-center">
-        <Palette className="h-6 w-6 text-primary mr-2" />
-        Button Appearance
+    <div className="mt-12 mb-4"> {/* Wrapper for spacing */}
+      <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
+        2.1 Foundations of Multi-Agent Systems...
       </h2>
     </div>
-    {/* Controls for button style */}
+    <p>Paragraph content for the section...</p>
     ```
 *   **Styling**:
-    *   Icon: `h-6 w-6 text-primary mr-2` (or `text-accent`)
-    *   `<h2>`: `text-2xl font-semibold text-foreground mb-2`
-    *   `<h3>`: `text-xl font-medium text-foreground mb-1`
+    *   Wrapper `<div>`: `mt-12 mb-4` (or `mt-16`, `mt-24` for significant breaks).
+    *   `<h2>`: `text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2`.
+    *   Can also use `gradient-text` if it's a top-level title for a new conceptual part as seen in `roadmap-phase-3` sub-components.
 
-## 3. Control Group Labels
+## 4. Topic Titles within Sub-Sections (`<h3>`)
 
-*   For groups of related controls (e.g., color pickers, sliders for border radius), use a clear label, possibly an `<h4>` or styled `<div>`.
-*   **Structure Example (within `StyleControls.tsx`):**
+*   For specific concepts or components within an `<h2>` section (e.g., "Tool Abstraction Layer", "Knowledge Hub (RAG)").
+*   Often accompanied by a thematic Lucide icon.
+*   **Structure Example (from `mcp-server-details/page.tsx`):**
     ```tsx
-    <div>
-      <h4 className="text-lg font-medium text-muted-foreground mb-2">Colors</h4>
-      {/* Color control components */}
+    <div className="mt-8 mb-4 flex items-center">
+      <Settings2 className="h-7 w-7 text-primary mr-3 flex-shrink-0" /> {/* Thematic Icon */}
+      <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
+        Core Functionality:
+      </h3>
     </div>
+    {/* Content, often <ul> or <p> */}
     ```
 *   **Styling**:
-    *   `<h4>`: `text-lg font-medium text-muted-foreground mb-2`
+    *   Wrapper `<div>`: `mt-8 mb-4 flex items-center`.
+    *   Icon: `h-7 w-7 text-primary mr-3 flex-shrink-0`. (Color can vary, e.g. `text-yellow-400`, `text-purple-400`).
+    *   `<h3>`: `text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0`. (Color class can vary).
 
-## 4. Lists (If Used for Options or Features)
+## 5. Lists for Features/Details
 
-*   Use standard `<ul>` or `<ol>` with Tailwind CSS for styling.
-*   **Example for a list of features (if applicable):**
+*   Standard `<ul>` with `list-disc pl-5 space-y-2`.
+*   Nested `<ul>` with `list-circle pl-5 space-y-1 mt-1` or `mt-2`.
+*   List item text color is typically inherited from the parent `<p>` or `<article>` (e.g., `text-slate-300` or `text-slate-400`).
+*   Keywords within list items are often highlighted with `<strong class="text-white font-semibold">`.
     ```tsx
-    <ul className="list-disc pl-5 space-y-2 text-foreground">
-      <li>
-        <strong className="font-semibold">Real-time Preview:</strong> See your button change as you adjust styles.
-      </li>
-      <li>
-        <strong className="font-semibold">AI-Powered Suggestions:</strong> Get unique style recommendations.
+    <ul className="list-disc pl-5 space-y-2">
+      <li><strong className="text-white font-semibold">Standardized API:</strong> The MCP Server provides a unified API endpoint...</li>
+      <li><strong className="text-white font-semibold">Tool Wrappers/Adapters:</strong> For each integrated tool...
+        <ul className="list-circle pl-5 space-y-1 mt-2">
+            <li><strong className="text-white font-semibold">Example for an EDA Tool:</strong> ...</li>
+        </ul>
       </li>
     </ul>
     ```
 
-## 5. General Paragraphs and Descriptions
+## 6. Code Mentions / Technical Terms
 
-*   Use `<p>` tags with appropriate text color (e.g., `text-foreground` or `text-muted-foreground`).
-*   Highlight keywords with `<strong>` for emphasis.
-    ```html
-    <p class="text-muted-foreground">Adjust the <strong>padding</strong> and <strong>margin</strong> to change the button's spacing.</p>
-    ```
+*   Short technical terms, tool names, or parameters are often emphasized with `<strong>` and sometimes `<code>` if they represent actual code/commands.
+*   `<code class="language-json bg-slate-700 p-1 rounded text-sm">...</code>` for JSON examples.
+*   `<code class="language-bash bg-slate-700 p-1 rounded text-sm">...</code>` for shell commands.
+*   The main Python code block in `SymbiosisSection` has more elaborate styling for a terminal-like appearance.
 
-## 6. Lucide Icons
+## 7. Diagrams (SVGs)
 
-*   Utilize icons from `lucide-react` for UI elements like section titles or interactive controls.
+*   Inline SVGs are used for architectural diagrams.
+*   Styling is self-contained within the SVG's `<style>` tag, referencing CSS classes applied to SVG elements.
+*   Diagrams are often wrapped in a `div` for centering and sometimes a `glassmorphism` styled card.
     ```tsx
-    import { Palette, Sparkles } from 'lucide-react';
+    <div className="my-8">
+        <div className="glassmorphism rounded-xl p-6 border-2 border-slate-700 max-w-2xl mx-auto">
+            <OriginalArchitectureDiagram /> {/* Example diagram component */}
+        </div>
+    </div>
     ```
 
-## 7. ShadCN UI Components
+## 8. Section Cards (`SectionCard.tsx`)
 
-*   Prefer using ShadCN UI components (`Button`, `Slider`, `Select`, `Input`, `Card`, etc.) for building the interface. They are pre-styled and accessible.
-*   Customize their appearance using Tailwind utility classes.
+*   The `SectionCard` component is used on overview pages (like `OverviewSection.tsx`) to present distinct points.
+*   It handles its own internal styling for icon, title, and description.
+*   Titles within `SectionCard` might use `gradient-text`.
 
-This simplified guide should help maintain consistency as Bouton evolves. For more complex text formatting (if detailed articles are ever added), the general principles from `ARTICLE_PAGE_FORMATTING_GUIDE.md` can be adapted.
+By following these conventions, the architectural content within Project Chimera maintains a clear, structured, and visually consistent presentation.

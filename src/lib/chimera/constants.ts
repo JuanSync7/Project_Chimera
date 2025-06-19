@@ -193,7 +193,7 @@ export const ROADMAP_PHASES: RoadmapPhase[] = [
         id: 'run',
         period: 'YEAR 3 - 5 (Q1 2029 - Q4 2030)',
         title: 'Phase 3: Run - Full-Stack Autonomy and Market Leadership',
-        narrativeDescription: 'Achieve a <strong>fully integrated, end-to-end agentic design system</strong> that operates with a <strong>high degree of autonomy</strong>, and leverage this unique capability to establish <strong>undisputed market leadership</strong>.',
+        narrativeDescription: 'Achieve <strong>full-stack autonomy</strong> with an end-to-end <strong>agentic design system</strong>. Leverage this unique capability for <strong>market leadership</strong> and design <strong>novel AI chips</strong> using Chimera.',
         objectives: 'Achieve <strong>full-stack autonomy</strong>; Leverage system for <strong>market dominance</strong>.',
         actions: "- Integrate all five pipeline stages (Spec to Post-Silicon) into a <strong>seamless workflow</strong> orchestrated by a <strong>hierarchical supervisor architecture</strong>.\n- Empower system to autonomously suggest <strong>novel architectures/design improvements</strong> from emergent insights.\n- Initiate first projects to design <strong>novel AI accelerator chips</strong> using the Chimera system (closing <strong>AI-silicon loop</strong>).",
         coreTechnologies: '<strong>Hierarchical Supervisor Architecture</strong>; <strong>End-to-end integrated workflow</strong>; <strong>Emergent insight analysis capabilities</strong>.',
@@ -258,6 +258,7 @@ export const PYTHON_CODE_EXAMPLE = HIGH_LEVEL_PYTHON_CODE_EXAMPLE;
     
 
     
+
 
 
 

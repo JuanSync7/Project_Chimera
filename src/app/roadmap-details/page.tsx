@@ -16,7 +16,10 @@ const PhaseCard: React.FC<{ title: string; description: string; href: string; ic
         <p className={`text-sm ${colorClass} opacity-80`}>{period}</p>
       </div>
     </div>
-    <p className="text-slate-400 flex-grow mb-6">{description}</p>
+    <p 
+      className="text-slate-400 flex-grow mb-6"
+      dangerouslySetInnerHTML={{ __html: description }}
+    />
     <Link href={href} passHref>
       <Button variant="outline" className={`w-full mt-auto bg-transparent ${colorClass} border-${colorClass.split('-')[1]}-500 hover:bg-${colorClass.split('-')[1]}-500/20 hover:text-${colorClass.split('-')[1]}-300 hover:border-${colorClass.split('-')[1]}-400`}>
         View Details <ExternalLink className="ml-2 h-4 w-4" />

@@ -367,10 +367,15 @@ const MCPServerOverviewSection: React.FC = () => (
             <OriginalArchitectureDiagram />
         </div>
     </div>
-    <div className="text-center mt-8 mb-4">
+    <div className="text-center mt-8 mb-4 flex flex-col sm:flex-row justify-center items-center gap-4">
       <Link href="/architectural-blueprint/mcp-server-details" passHref>
-        <Button variant="outline" size="lg" className="bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/40">
+        <Button variant="outline" size="lg" className="w-full sm:w-auto bg-transparent text-yellow-400 border-yellow-500 hover:bg-yellow-500/20 hover:text-yellow-300 hover:border-yellow-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/40">
           Deep Dive into the MCP Server &rarr;
+        </Button>
+      </Link>
+      <Link href="/architectural-blueprint/rag-details" passHref>
+        <Button variant="outline" size="lg" className="w-full sm:w-auto bg-transparent text-teal-400 border-teal-500 hover:bg-teal-500/20 hover:text-teal-300 hover:border-teal-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-teal-500/40">
+          Deep Dive into RAG &rarr;
         </Button>
       </Link>
     </div>

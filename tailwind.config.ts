@@ -76,20 +76,23 @@ export default {
       boxShadowColor: { 
         primary: 'hsl(var(--primary))',
         accent: 'hsl(var(--accent))',
-        yellow: { // Assuming Tailwind's yellow-500 is close to #eab308
+        yellow: { 
           500: '#eab308', 
         },
-        lime: { // Assuming Tailwind's lime-500 is close to #84cc16
+        lime: { 
           500: '#84cc16',
         },
-        green: { // Assuming Tailwind's green-600 is close to #16a34a
+        green: { 
             600: '#16a34a',
         },
-        rose: { // Assuming Tailwind's rose-500 is close to #f43f5e
+        rose: { 
             500: '#f43f5e',
         },
-        violet: { // Assuming Tailwind's violet-500 is close to #8b5cf6
+        violet: {
             500: '#8b5cf6',
+        },
+        teal: { // Assuming Tailwind's teal-500 is close to #14b8a6
+            500: '#14b8a6',
         },
       },
       borderRadius: {

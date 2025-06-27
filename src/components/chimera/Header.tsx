@@ -4,6 +4,9 @@ import React from 'react';
 import type { NavLinkItem } from '@/lib/chimera/types';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { Sitemap } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 interface HeaderProps {
   navLinks: NavLinkItem[];
@@ -46,6 +49,13 @@ const Header: React.FC<HeaderProps> = ({ navLinks, activeSection, onMobileMenuTo
               {link.label}
             </a>
           ))}
+          <div className="h-6 w-px bg-slate-700"></div>
+          <Link href="/site-map" passHref>
+            <Button variant="ghost" size="icon" title="Site Map">
+              <Sitemap className="h-5 w-5 text-slate-400 hover:text-white" />
+              <span className="sr-only">Site Map</span>
+            </Button>
+          </Link>
         </div>
         <button 
           id="mobile-menu-button" 

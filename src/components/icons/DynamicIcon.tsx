@@ -1,3 +1,4 @@
+
 // src/components/icons/DynamicIcon.tsx
 "use client";
 import React from 'react';
@@ -20,7 +21,6 @@ const DynamicIcon: React.FC<DynamicIconProps> = ({ name, ...props }) => {
 
   if (!LucideIcon) {
     // Fallback for icons not found or if a generic string was passed that doesn't match
-    // For example, if AI suggests an icon not in lucide-react
     // console.warn(`Icon "${name}" not found in lucide-react. Rendering a default icon.`);
     // return <Icons.HelpCircle {...props} />; // Default/fallback icon
     return null; // Or render nothing

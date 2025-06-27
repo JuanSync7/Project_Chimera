@@ -3,7 +3,7 @@
 import React from 'react';
 import type { NavLinkItem } from '@/lib/chimera/types';
 import { usePathname } from 'next/navigation';
-import { Sitemap } from 'lucide-react';
+import { Network } from 'lucide-react';
 
 interface MobileMenuProps {
   navLinks: NavLinkItem[];
@@ -50,7 +50,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ navLinks, isMobileMenuOpen, onL
             className={`block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700`}
         >
             <div className="flex items-center gap-3">
-              <Sitemap className="h-5 w-5" />
+              <Network className="h-5 w-5" />
               <span>Site Map</span>
             </div>
         </a>

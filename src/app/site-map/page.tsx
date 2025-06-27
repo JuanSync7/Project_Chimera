@@ -4,7 +4,7 @@ import React from 'react';
 import SubPageLayout from '@/components/chimera/SubPageLayout';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Sitemap } from 'lucide-react';
+import { Network } from 'lucide-react';
 import DynamicIcon, { type IconName } from '@/components/icons/DynamicIcon';
 
 interface SiteNode {
@@ -70,7 +70,7 @@ export default function SiteMapPage() {
     return (
         <SubPageLayout>
             <div className="flex flex-col items-center text-center mb-12">
-                <Sitemap className="h-16 w-16 text-primary mb-4" />
+                <Network className="h-16 w-16 text-primary mb-4" />
                 <h1 className="text-4xl md:text-5xl font-bold gradient-text !mb-2">
                     Website Hierarchy
                 </h1>

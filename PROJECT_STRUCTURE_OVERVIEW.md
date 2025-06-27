@@ -1,64 +1,74 @@
 
 # Project Chimera: Project Structure Overview
 
-This document provides an overview of the **Project Chimera** presentation application's directory structure and the purpose of key files and folders. This project is built with React, Vite, and TypeScript, and styled with Tailwind CSS.
+This document provides an overview of the **Project Chimera** presentation application's directory structure and the purpose of key files and folders. This project is built with **Next.js (App Router)** and TypeScript, and styled with **Tailwind CSS** and **ShadCN** components.
 
-The primary codebase for the presentation app is located within the `Project_Chimera/` subdirectory.
+## Root Directory
 
-## Root Directory (Outside `Project_Chimera/`)
+Contains the main configuration files for the Next.js project.
 
-Contains general project files and documentation relevant to the overall Firebase Studio project.
-
-*   **`.env` / `.env.local`**: Environment variable files (though Project Chimera itself, being client-side, might not use these extensively beyond build configurations if any).
-*   **`next.config.ts`**: Not directly used by the Project Chimera Vite app, but part of the broader Firebase Studio Next.js environment.
-*   **`package.json`**: Project dependencies and scripts for the overall Firebase Studio project. The `Project_Chimera` app has its own `package.json`.
-*   **`tailwind.config.ts`**: Tailwind CSS configuration for the overall Firebase Studio project. Project Chimera uses Tailwind via CDN and inline styles.
-*   **`tsconfig.json`**: TypeScript configuration for the overall Firebase Studio project. Project Chimera has its own `tsconfig.json`.
+*   **`next.config.ts`**: Configuration for the Next.js application.
+*   **`package.json`**: Project dependencies and scripts (`dev`, `build`, etc.).
+*   **`tailwind.config.ts`**: Tailwind CSS theme and plugin configuration.
+*   **`tsconfig.json`**: TypeScript configuration for the project.
+*   **`components.json`**: Configuration for the ShadCN UI component library.
 *   **Markdown Documentation Files**: Files like this one, `README.md`, `COLOR_SCHEME.md`, etc., providing guidance and overview for the project.
 
-## `Project_Chimera/` Directory
+## `src/` Directory
 
-This is the main container for the Project Chimera presentation application's source code.
+This is the main container for the application's source code, following standard Next.js conventions.
 
-*   **`index.html`**: The main HTML entry point for the Vite application. It includes:
-    *   Links to Google Fonts (Inter).
-    *   A CDN link for Tailwind CSS.
-    *   Inline `<style>` tags for global CSS, custom classes (e.g., `.gradient-text`, `.glassmorphism`), and theme definitions (dark mode, accent colors).
-    *   The root `<div>` (e.g., `<div id="root"></div>`) where the React application is mounted.
-*   **`package.json`**: Defines dependencies (React, Vite, TypeScript) and scripts (`dev`, `build`) specific to the Project Chimera application.
-*   **`vite.config.ts`**: Vite build tool configuration. May include aliases or environment variable handling.
-*   **`tsconfig.json`**: TypeScript configuration specific to the Project Chimera app.
-*   **`App.tsx`**: The main root React component. It sets up:
-    *   Routing or section display logic for the single-page application.
-    *   State management for global concerns like `activeSection` (for scroll-spy) and `isMobileMenuOpen`.
-    *   Imports and renders various section components.
-    *   Often wrapped by `<PageShell>`.
-*   **`index.tsx`**: The entry point for the React application, typically rendering `<App />` into the root HTML element.
-*   **`constants.ts`**: Defines constant data used throughout the application, such as:
-    *   `NAV_LINKS`: For header and mobile menu navigation.
-    *   `PIPELINE_TABS`: Data for the AI-Powered Design Pipeline section.
-    *   `ROADMAP_PHASES`: Data for the Implementation Roadmap section.
-    *   `PYTHON_CODE_EXAMPLE` / `HIGH_LEVEL_PYTHON_CODE_EXAMPLE`: String constant for code display.
-*   **`types.ts`**: Contains TypeScript type definitions and interfaces (e.g., `NavLinkItem`, `PipelineTab`, `RoadmapPhase`, `SectionCardProps`).
-*   **`components/`**: Directory for React components.
-    *   **`Header.tsx`**: Renders the main site navigation header.
-    *   **`MobileMenu.tsx`**: Renders the navigation menu for mobile devices.
-    *   **`Footer.tsx`**: Renders the site footer.
-    *   **`SectionCard.tsx`**: A reusable card component for displaying summarized information.
-    *   **`KeyStatCard.tsx`**: A specialized card for displaying key statistics or points with an icon.
-    *   **`AnimatedRocket.tsx`**: Component for the animated rocket visual.
-    *   **`StarryBackground.tsx`**: Component for the animated starry background.
-    *   **`PageShell.tsx`**: A layout component that wraps main page content, providing Header and Footer.
-    *   **`SubPageLayout.tsx`**: A layout component for detailed sub-pages, including a back button and PageShell.
-    *   **`sections/`**: Contains components for each major content section of the presentation (e.g., `HomeSection.tsx`, `OverviewSection.tsx`, `ArchitectureSection.tsx`, etc.).
-    *   **`pipeline-stages/`**: Contains components for each detailed stage of the AI Pipeline (e.g., `Stage_3_1_SpecAndArch.tsx`). Used by `/ai-pipeline/page.tsx`.
-    *   **`roadmap-phase-3/`**: Contains components for parts of the detailed Phase 3 roadmap page.
-*   **`app/` (if structured for sub-pages like a Next.js app within Vite, or if sub-pages are conceptual):**
-    *   This directory might exist if Project Chimera is using a client-side routing solution that mimics Next.js App Router for its sub-pages (e.g., `/strategic-imperative/page.tsx`, `/architectural-blueprint/page.tsx`). Each such sub-page would render content typically wrapped in `<SubPageLayout>`. *(The current file listing shows these files directly in `src/app/`, implying a Next.js structure for this part of the project, even if the main `Project_Chimera` is Vite. This guide will assume these are part of the broader project managed by Firebase Studio, distinct from the core `Project_Chimera/` Vite app which is one self-contained presentation).*
+### `src/app/`
 
-    **(Correction based on provided file structure):** The files like `src/app/strategic-imperative/page.tsx` indicate that these "sub-pages" *are* structured using Next.js App Router, residing outside the `Project_Chimera/` Vite application. The Project Chimera Vite app is likely one part of a larger Next.js application managed by Firebase Studio. This `PROJECT_STRUCTURE_OVERVIEW.md` primarily details the Vite app, but acknowledges the Next.js structure for content pages.
+The core of the application, using the Next.js App Router paradigm.
 
-*   **`hooks/`**: Contains custom React hooks, such as `useIsMobile.tsx`.
-*   **`lib/`**: Utility functions (`utils.ts`) and possibly other shared logic for the Project Chimera app.
+*   **`layout.tsx`**: The root layout for the entire application. It defines the main `<html>` and `<body>` tags, loads fonts, and applies global styles.
+*   **`globals.css`**: Global stylesheet containing Tailwind CSS directives, theme variables (CSS custom properties) for light and dark modes, and other global styles like `.gradient-text`.
+*   **`page.tsx`**: The component for the main home page (`/`). It orchestrates the various "Section" components and manages the scroll-spy navigation logic.
+*   **`[route-name]/page.tsx`**: Each sub-page of the application resides in its own folder. For example, `src/app/strategic-imperative/page.tsx` defines the content for the `/strategic-imperative` route.
+    *   **`roadmap-details/`**: Contains sub-pages for each phase of the roadmap (`phase-1-crawl`, `phase-2-walk`, `phase-3-run`).
+    *   **`architectural-blueprint/`**: Contains sub-pages for architectural deep dives (`mcp-server-details`, `supervisor-worker-details`).
+    *   ...and so on for other detailed content pages.
+*   **`site-map/page.tsx`**: The page that displays the visual sitemap of the application.
 
-This structure separates the core presentation logic (Vite/React app) from the surrounding documentation and potentially other Next.js-based content pages, providing a clear organization for the Project Chimera application.
+### `src/components/`
+
+Contains all the React components used throughout the application.
+
+*   **`ui/`**: Houses the collection of **ShadCN UI components** (e.g., `Button`, `Card`, `Dialog`). These are reusable, accessible, and styled with Tailwind CSS.
+*   **`chimera/`**: Contains custom components specific to the Project Chimera presentation.
+    *   **`sections/`**: Components for each major content section on the main page (e.g., `HomeSection.tsx`, `OverviewSection.tsx`, `ArchitectureSection.tsx`).
+    *   **`pipeline-stages/`**: Detailed components for each stage of the AI Pipeline, used on the `/ai-pipeline` page.
+    *   **`roadmap-phase-3/`**: Components used to structure the detailed content for the Phase 3 roadmap page.
+    *   `PageShell.tsx`: A layout component that wraps main page content, providing the Header and Footer and managing mobile menu state.
+    *   `SubPageLayout.tsx`: A layout component for detailed sub-pages, including a back button.
+    *   `Header.tsx`, `Footer.tsx`, `MobileMenu.tsx`: Core navigation and layout components.
+    *   `SectionCard.tsx`, `KeyStatCard.tsx`: Reusable card components for displaying information.
+    *   `AnimatedRocket.tsx`, `StarryBackground.tsx`: Visual flair components.
+*   **`icons/`**: Contains helper components for icons, like `DynamicIcon.tsx`.
+
+### `src/lib/`
+
+Shared libraries, utility functions, and constants.
+
+*   **`utils.ts`**: Contains the `cn` utility from ShadCN for merging Tailwind classes.
+*   **`chimera/`**: Contains files specific to the Project Chimera content.
+    *   `constants.ts`: Defines constant data used throughout the application, such as `NAV_LINKS`, `PIPELINE_TABS`, and `ROADMAP_PHASES`.
+    *   `types.ts`: Contains TypeScript type definitions and interfaces for the data structures used in `constants.ts`.
+
+### `src/hooks/`
+
+Contains custom React hooks.
+
+*   **`use-mobile.tsx`**: A hook to detect if the user is on a mobile device based on screen width.
+*   **`use-toast.ts`**: The hook for managing and displaying toast notifications.
+
+### `src/ai/`
+
+Contains all Generative AI related code, primarily using **Genkit**.
+
+*   **`genkit.ts`**: Initializes and configures the core Genkit instance.
+*   **`dev.ts`**: Development server entry point for Genkit flows.
+*   **`flows/`**: This directory would contain any Genkit flows defined for the application.
+
+This structure leverages the power of the Next.js App Router for clear, file-based routing and organization, while separating concerns into dedicated directories for components, utilities, and application logic.

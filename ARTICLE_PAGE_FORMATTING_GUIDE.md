@@ -3,7 +3,7 @@
 
 This guide outlines formatting conventions for the primary content pages and sections within the **Project Chimera** application. The application itself functions as a detailed, article-style presentation of a strategic blueprint.
 
-## 1. Overall Page Structure (e.g., `/strategic-imperative/page.tsx`)
+## 1. Overall Page Structure (e.g., `/src/app/strategic-imperative/page.tsx`)
 
 *   **Layout Component**: All content pages use `<SubPageLayout>`. This component provides:
     *   A consistent header (from `<PageShell>`).
@@ -28,7 +28,7 @@ This guide outlines formatting conventions for the primary content pages and sec
 
 *   Each content page should have a clear, prominent `<h1>` title.
 *   These titles are typically centered, feature a thematic Lucide icon, and use the `.gradient-text` style.
-*   **Structure Example (from `strategic-imperative/page.tsx`):**
+*   **Structure Example (from `src/app/strategic-imperative/page.tsx`):**
     ```tsx
     <div className="flex flex-col items-center text-center mb-12">
       <TrendingUp className="h-16 w-16 text-primary mb-4" /> {/* Thematic Icon */}
@@ -39,7 +39,7 @@ This guide outlines formatting conventions for the primary content pages and sec
     </div>
     ```
 *   **Styling**:
-    *   Icon: Lucide icon, `h-16 w-16 text-primary mb-4`. (`text-primary` will use the main theme accent, which is effectively the gradient's start color or a related bright color).
+    *   Icon: Lucide icon, `h-16 w-16 text-primary mb-4`. (`text-primary` will use the main theme accent).
     *   `<h1>`: `text-4xl md:text-5xl font-bold gradient-text !mb-2 md:leading-tight`.
     *   Subtitle `<p>`: `text-2xl text-slate-400`.
 
@@ -74,7 +74,7 @@ This guide outlines formatting conventions for the primary content pages and sec
 
 *   For specific topics or components within an `<h2>` section.
 *   Often includes a thematic Lucide icon.
-*   **Structure Example (from `mcp-server-details/page.tsx`):**
+*   **Structure Example (from `src/app/architectural-blueprint/mcp-server-details/page.tsx`):**
     ```tsx
     <div className="mt-8 mb-4 flex items-center">
       <Settings2 className="h-7 w-7 text-primary mr-3 flex-shrink-0" /> {/* Thematic Icon */}
@@ -121,8 +121,8 @@ This guide outlines formatting conventions for the primary content pages and sec
 
 ## 7. Custom Components for Content Display
 
-*   **`KeyStatCard.tsx`**: Used in `strategic-imperative/page.tsx` to highlight key statistics or concepts with an icon, a prominent stat, and a description.
-*   **`SectionCard.tsx`**: Used in overview sections (e.g., `OverviewSection.tsx` on the main page) for a structured presentation of key points.
+*   **`KeyStatCard.tsx`**: Used in `src/app/strategic-imperative/page.tsx` to highlight key statistics or concepts with an icon, a prominent stat, and a description.
+*   **`SectionCard.tsx`**: Used in overview sections (e.g., `OverviewSection` on the main page) for a structured presentation of key points.
 *   Workflow/Pipeline Stages: These often use custom card structures (e.g., `PrimaryWorkflowItemCard`, `NestedDetailCard` in the `/ai-pipeline` stages) for clarity.
 
 By following these conventions, the Project Chimera application ensures its strategic content is presented in a clear, readable, and visually engaging manner.

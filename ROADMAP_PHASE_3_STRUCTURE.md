@@ -5,7 +5,7 @@ The "Run" phase (Years 3-5, Q1 2029 - Q4 2030) of Project Chimera represents the
 
 ## Core Objectives of Phase 3 ("Run")
 
-As detailed in `Project_Chimera/constants.ts` within the `ROADMAP_PHASES` data and visually presented in the application's "Roadmap" section:
+As detailed in `src/lib/chimera/constants.ts` within the `ROADMAP_PHASES` data and visually presented in the application's "Roadmap" section:
 
 1.  **Achieve Full-Stack Autonomy:**
     *   Integrate all five AI-powered pipeline stages (System Specification & Architecture, RTL Design & HLS, Verification & Validation, Physical Design & PPA Optimization, Manufacturing & Post-Silicon Validation) into a seamless, cohesive workflow.

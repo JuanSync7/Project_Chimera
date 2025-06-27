@@ -5,42 +5,44 @@ This document outlines the font family used in the **Project Chimera** presentat
 
 ## 1. Primary Font
 
-The application primarily utilizes one font family sourced from Google Fonts:
+The application primarily utilizes one font family sourced from Google Fonts via the `next/font` package for optimization.
 
 *   **Headlines & Body Text (General UI Text, Section Content):**
     *   **Font Family:** Inter
     *   **Attributes:** A versatile sans-serif font known for its excellent readability on screens, suitable for both headlines and body text. It provides a clean, modern, and professional look.
     *   **Implementation:**
-        *   Imported via a `<link>` tag in the `<head>` section of `Project_Chimera/index.html`:
-            ```html
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+        *   Imported and configured in `src/app/layout.tsx` using `next/font/google`:
+            ```tsx
+            import { Inter } from 'next/font/google';
+
+            const inter = Inter({ 
+              subsets: ['latin'], 
+              variable: '--font-inter' 
+            });
             ```
-        *   Applied as the default font for the `body` element in the inline `<style>` section of `Project_Chimera/index.html`:
-            ```css
-            body {
-                font-family: 'Inter', sans-serif;
-                /* ... other body styles ... */
-            }
+        *   Applied as a CSS variable (`--font-inter`) to the root `<html>` tag.
+        *   The `tailwind.config.ts` file then assigns this variable to the `body` and `headline` font families.
+            ```ts
+            // In tailwind.config.ts theme.extend.fontFamily
+            body: ['var(--font-inter)', 'sans-serif'],
+            headline: ['var(--font-inter)', 'sans-serif'],
             ```
-    *   **Weights Used**: The Google Fonts import requests weights 400 (regular), 500 (medium), 600 (semi-bold), 700 (bold), and 900 (black/extra-bold). These are utilized throughout the application via Tailwind CSS font-weight utility classes (e.g., `font-bold`, `font-black`, `font-medium`).
+    *   **Weights Used**: The application components use various weights through Tailwind CSS font-weight utility classes (e.g., `font-bold`, `font-black`, `font-medium`).
 
 *   **Monospaced Text (for Code Examples):**
     *   **Font Family:** A standard monospace stack is used for displaying code, primarily seen in the Python code example in the "Symbiosis" section.
-    *   **Implementation:** Achieved by applying Tailwind's `font-mono` utility class. This class typically resolves to a system-dependent monospace font stack like Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace.
-    *   **Styling in `SymbiosisSection.tsx` (conceptual):**
+    *   **Implementation:** Achieved by applying Tailwind's `font-mono` utility class, which is defined in `tailwind.config.ts` to use a system-dependent font stack.
+    *   **Styling in Symbiosis section:**
         ```html
         <div class="... font-mono ...">
-          <pre><code class='language-python whitespace-pre-wrap'>${PYTHON_CODE_EXAMPLE}</code></pre>
+          <pre><code class='language-python whitespace-pre-wrap'>${HIGH_LEVEL_PYTHON_CODE_EXAMPLE}</code></pre>
         </div>
         ```
 
 ## 2. Configuration Overview
 
-*   **`Project_Chimera/index.html`**: This is the central point for font loading and base application.
-    *   Google Fonts `<link>` tags for 'Inter'.
-    *   Inline CSS setting `font-family: 'Inter', sans-serif;` on the `body`.
-*   **Tailwind CSS**: While Tailwind is used via CDN and not heavily configured with a custom `tailwind.config.js` in this project, its default sans-serif and monospace font stacks are implicitly used. The primary 'Inter' font overrides the default sans-serif stack due to the `body` styling. Font weight utilities (`font-bold`, `font-medium`, etc.) from Tailwind control the display of the various 'Inter' weights.
+*   **`src/app/layout.tsx`**: The central point for font loading and application via a CSS variable.
+*   **`tailwind.config.ts`**: Configures Tailwind to use the `--font-inter` variable for its default sans-serif font stack.
+*   **`src/app/globals.css`**: Applies the base font styles to the `body` tag.
 
-This setup ensures that the Inter font is loaded efficiently and applied consistently for all primary text within the Project Chimera application, contributing to its modern and readable design.
+This setup ensures that the Inter font is loaded efficiently by Next.js and applied consistently for all primary text within the Project Chimera application, contributing to its modern and readable design.

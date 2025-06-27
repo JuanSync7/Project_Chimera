@@ -1,54 +1,58 @@
 
 # Project Chimera: Styling Overview
 
-This document provides an overview of the styling approach used in the **Project Chimera** presentation application. It focuses on the primary technologies and conventions for maintaining a consistent visual identity.
+This document provides an overview of the styling approach used in the **Project Chimera** Next.js application. It focuses on the primary technologies and conventions for maintaining a consistent visual identity.
 
 ## 1. Core Styling Technologies
 
-*   **Tailwind CSS (via CDN)**: The primary utility-first CSS framework used for styling most components and layout. It's included via a CDN link in `Project_Chimera/index.html`.
-*   **Inline Styles & Custom CSS**: Specific styles, particularly for the overall theme (dark mode, backgrounds), animations, and unique UI elements (like glassmorphism, gradient text), are defined directly within `<style>` tags in `Project_Chimera/index.html`.
-*   **React Component-Scoped Styles**: While Tailwind is dominant, individual React components might encapsulate some specific styling logic if needed, though the preference is utility classes.
+*   **Tailwind CSS**: The primary utility-first CSS framework used for all styling. It is configured in `tailwind.config.ts`.
+*   **CSS Custom Properties (Variables)**: The core theme is defined using HSL-based CSS variables in `src/app/globals.css`. This allows for easy theming and consistency.
+*   **ShadCN UI**: The application uses ShadCN for its base components (Button, Card, etc.). These components are built with Tailwind CSS and Radix UI, and are fully themeable via the CSS variables in `globals.css`.
+*   **`clsx` and `tailwind-merge`**: The `cn` utility function in `src/lib/utils.ts` is used to conditionally apply and merge Tailwind classes without conflicts.
 
-## 2. Theme Configuration (`Project_Chimera/index.html`)
+## 2. Theme Configuration (`src/app/globals.css`)
 
-The core visual theme of Project Chimera is established through CSS within the `<style>` tags in `Project_Chimera/index.html`.
+The core visual theme of Project Chimera is established through CSS custom properties in `src/app/globals.css`.
 
-*   **Color Palette**:
-    *   **Dark Mode Default**: The application uses a dark theme as its base.
-        *   Body Background: `#0a0a0a` (approx. Tailwind `bg-gray-950`).
-        *   Text Color: `#e2e8f0` (approx. Tailwind `text-slate-200`).
-    *   **Gradient Text**: A prominent feature, using a linear gradient: `to right, #38bdf8 (sky-500), #818cf8 (indigo-400), #c084fc (fuchsia-400)`. Applied via the `.gradient-text` class.
-    *   **Accent Colors**: While not strictly defined as theme variables like in a CSS preprocessor setup, accent colors like sky blue, purple, and fuchsia are used for highlights, icons, and borders (e.g., `active-nav` uses `#38bdf8`).
-    *   **Glassmorphism Effect**: Applied to elements like the header and mobile menu using `background: rgba(17, 24, 39, 0.6); backdrop-filter: blur(10px);`.
+*   **Color Palette (Dark Mode)**: The application defaults to a dark theme.
+    *   `--background`: `278 15% 10%` (Deep Indigo)
+    *   `--foreground`: `278 30% 90%` (Light Indigo text)
+    *   `--primary`: `278 100% 65%` (Lighter Strong Indigo for interactive elements)
+    *   `--accent`: `271 76% 60%` (Lighter Blue Violet for hover states)
+    *   And other variables for cards, borders, inputs, etc.
+*   **Light Mode**: A corresponding light mode theme is also defined using the same CSS variable names, allowing for easy theme switching.
 *   **Typography**:
-    *   **Primary Font**: 'Inter' (sans-serif), loaded from Google Fonts. Applied to the `body`.
+    *   **Primary Font**: 'Inter' (sans-serif), loaded via `next/font` in `src/app/layout.tsx` and applied via the `--font-inter` CSS variable.
 
-## 3. Tailwind CSS Usage
+## 3. Tailwind CSS Configuration (`tailwind.config.ts`)
 
-*   Tailwind CSS is used extensively for layout, spacing, typography, colors (where applicable), and responsive design within the React components (`.tsx` files in `Project_Chimera/components/`).
-*   Utility classes are preferred for styling individual elements.
-*   There isn't a `tailwind.config.js` file to customize Tailwind's theme extensively for this project, as it relies on the CDN and inline styles for primary theming.
+*   **Theming**: The `tailwind.config.ts` file is configured to use the CSS variables defined in `globals.css`. For example:
+    ```ts
+    colors: {
+      background: 'hsl(var(--background))',
+      foreground: 'hsl(var(--foreground))',
+      primary: {
+        DEFAULT: 'hsl(var(--primary))',
+        foreground: 'hsl(var(--primary-foreground))',
+      },
+      // ... and so on
+    }
+    ```
+*   **Plugins**: Uses `tailwindcss-animate` for keyframe animations (e.g., for accordion components).
 
 ## 4. Component-Level Styling
 
-*   React components (e.g., `SectionCard.tsx`, `Header.tsx`) are styled using Tailwind CSS utility classes passed via the `className` prop.
-*   The `cn` utility function (if used, typically from `clsx` and `tailwind-merge`) would help in conditionally applying and merging Tailwind classes, though this project might apply classes directly given its structure.
+*   React components are styled using Tailwind CSS utility classes passed via the `className` prop, often with the `cn` utility for conditional classes.
+*   Since the app uses ShadCN, most base component styling (buttons, inputs, cards) is handled automatically by the theme. Custom components build upon these base styles.
 
-## 5. Custom CSS Classes (`Project_Chimera/index.html`)
+## 5. Custom Global CSS Classes (`src/app/globals.css`)
 
-Beyond Tailwind utilities, `Project_Chimera/index.html` defines several custom classes for specific effects and component states:
+Beyond the theme variables, `globals.css` defines several custom utility classes for specific effects:
 
-*   `.glassmorphism`
-*   `.active-nav`, `.nav-link`
-*   `.gradient-text`
-*   `.section-card` (and its hover effects)
-*   `.tab-button-base`, `.tab-button-active`, `.tab-button-inactive` (for the pipeline section)
-*   `.roadmap-line`, `.roadmap-dot` (and phase-specific dot colors)
-*   Tailwind Prose (`prose`) adjustments for list styling.
+*   `.gradient-text`: Creates the signature yellow-to-green gradient text effect.
+*   `.active-nav`: Styles the active link in the main navigation.
+*   `.section-card`: Provides base styles and hover effects for the informational cards used throughout the site.
+*   `.roadmap-dot`, `.phase-crawl`, etc.: Styles for the roadmap timeline component.
+*   `.star-item`, `star-animation`: Keyframes and classes for the animated starry background.
 
-## 6. Text and Keyword Highlighting
-
-*   Keywords and important text snippets are often emphasized using `<strong>` tags.
-*   The `.gradient-text` class is used for high-impact titles and headings to make them stand out.
-
-This styling approach combines the power of Tailwind's utility classes for component-level styling with targeted custom CSS in `index.html` for the overall theme and unique visual effects, creating the distinctive look and feel of the Project Chimera presentation.
+This styling approach combines the power and flexibility of Tailwind CSS with a robust, variable-based theming system provided by ShadCN, creating the modern and consistent look and feel of the Project Chimera presentation.

@@ -1,7 +1,7 @@
 
 # Project Chimera: Guide for Structuring "MCP Server" Content
 
-The **Project Chimera** application features a detailed explanation of its "Multi-Agent Collaboration Protocol (MCP) Server" within the "Architectural Blueprint" section, particularly in the `/architectural-blueprint/mcp-server-details/page.tsx` sub-page. This guide outlines how to structure and format content when detailing such complex components.
+The **Project Chimera** application features a detailed explanation of its "Multi-Agent Collaboration Protocol (MCP) Server" within the "Architectural Blueprint" section, particularly in the `src/app/architectural-blueprint/mcp-server-details/page.tsx` sub-page. This guide outlines how to structure and format content when detailing such complex components.
 
 ## 1. Page Title and Introduction
 
@@ -82,6 +82,6 @@ The **Project Chimera** application features a detailed explanation of its "Mult
 
 ## 7. Linking to Other Relevant Sections/Pages
 
-*   If the content references concepts detailed elsewhere, provide clear links. (e.g., the main Architectural Blueprint page links to the MCP Server details page).
+*   If the content references concepts detailed elsewhere, provide clear links using the Next.js `<Link>` component wrapped around a ShadCN `<Button>`.
 
 By following this structure, detailed technical explanations like that of the MCP Server can be presented in a digestible, organized, and visually appealing manner, consistent with the overall style of the Project Chimera application.

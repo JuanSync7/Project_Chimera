@@ -3,7 +3,7 @@
 
 This guide outlines formatting conventions for presenting architectural details within the **Project Chimera** application, particularly for sections like "Architectural Blueprint" and its sub-pages (e.g., "MCP Server Details", "Supervisor-Worker Details").
 
-## 1. Overall Page/Section Structure (e.g., `architectural-blueprint/page.tsx`)
+## 1. Overall Page/Section Structure (e.g., `src/app/architectural-blueprint/page.tsx`)
 
 *   **Layout Component**: Content is wrapped in `<SubPageLayout>` which provides consistent header, footer, and a "back" button.
 *   **Main Content Wrapper**: The primary content within `<SubPageLayout>` is typically an `<article>` element styled with Tailwind Prose classes for readability (e.g., `prose prose-slate dark:prose-invert lg:prose-xl max-w-none text-slate-300 space-y-6`).
@@ -11,7 +11,7 @@ This guide outlines formatting conventions for presenting architectural details 
 ## 2. Main Page/Section Titles (`<h1>`)
 
 *   The main title of a detailed architectural page (e.g., "Architectural Blueprint", "Deep Dive: The MCP Server").
-*   **Structure Example (from `architectural-blueprint/page.tsx`):**
+*   **Structure Example (from `src/app/architectural-blueprint/page.tsx`):**
     ```tsx
     <div className="flex flex-col items-center text-center mb-12">
       <DraftingCompass className="h-16 w-16 text-primary mb-4" /> {/* Thematic Icon */}
@@ -22,14 +22,14 @@ This guide outlines formatting conventions for presenting architectural details 
     </div>
     ```
 *   **Styling**:
-    *   Icon: `h-16 w-16 text-primary mb-4` (Lucide icon component).
+    *   Icon: Lucide icon component, `h-16 w-16 text-primary mb-4`.
     *   `<h1>`: `text-4xl md:text-5xl font-bold gradient-text !mb-2`.
     *   Subtitle `<p>`: `text-2xl text-slate-400`.
 
 ## 3. Major Sub-Section Titles (`<h2>`)
 
 *   For distinct parts within an architectural explanation (e.g., "2.1 Foundations...", "2.2 Core Components...").
-*   **Structure Example (from `architectural-blueprint/page.tsx`):**
+*   **Structure Example (from `src/app/architectural-blueprint/page.tsx`):**
     ```tsx
     <div className="mt-12 mb-4"> {/* Wrapper for spacing */}
       <h2 className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2">
@@ -47,7 +47,7 @@ This guide outlines formatting conventions for presenting architectural details 
 
 *   For specific concepts or components within an `<h2>` section (e.g., "Tool Abstraction Layer", "Knowledge Hub (RAG)").
 *   Often accompanied by a thematic Lucide icon.
-*   **Structure Example (from `mcp-server-details/page.tsx`):**
+*   **Structure Example (from `src/app/architectural-blueprint/mcp-server-details/page.tsx`):**
     ```tsx
     <div className="mt-8 mb-4 flex items-center">
       <Settings2 className="h-7 w-7 text-primary mr-3 flex-shrink-0" /> {/* Thematic Icon */}
@@ -59,7 +59,7 @@ This guide outlines formatting conventions for presenting architectural details 
     ```
 *   **Styling**:
     *   Wrapper `<div>`: `mt-8 mb-4 flex items-center`.
-    *   Icon: `h-7 w-7 text-primary mr-3 flex-shrink-0`. (Color can vary, e.g. `text-yellow-400`, `text-purple-400`).
+    *   Icon: Lucide icon, `h-7 w-7 text-primary mr-3 flex-shrink-0`. (Color can vary, e.g. `text-yellow-400`, `text-purple-400`).
     *   `<h3>`: `text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0`. (Color class can vary).
 
 ## 5. Lists for Features/Details
@@ -84,12 +84,12 @@ This guide outlines formatting conventions for presenting architectural details 
 *   Short technical terms, tool names, or parameters are often emphasized with `<strong>` and sometimes `<code>` if they represent actual code/commands.
 *   `<code class="language-json bg-slate-700 p-1 rounded text-sm">...</code>` for JSON examples.
 *   `<code class="language-bash bg-slate-700 p-1 rounded text-sm">...</code>` for shell commands.
-*   The main Python code block in `SymbiosisSection` has more elaborate styling for a terminal-like appearance.
+*   The main Python code block in the Symbiosis section has more elaborate styling for a terminal-like appearance.
 
 ## 7. Diagrams (SVGs)
 
 *   Inline SVGs are used for architectural diagrams.
-*   Styling is self-contained within the SVG's `<style>` tag, referencing CSS classes applied to SVG elements.
+*   Styling is self-contained within the SVG's `<style>` tag, referencing CSS variables defined in `src/app/globals.css` for theming (e.g., `fill: hsl(var(--diagram-supervisor-fill));`).
 *   Diagrams are often wrapped in a `div` for centering and sometimes a `glassmorphism` styled card.
     ```tsx
     <div className="my-8">
@@ -101,7 +101,7 @@ This guide outlines formatting conventions for presenting architectural details 
 
 ## 8. Section Cards (`SectionCard.tsx`)
 
-*   The `SectionCard` component is used on overview pages (like `OverviewSection.tsx`) to present distinct points.
+*   The `SectionCard` component is used on overview pages to present distinct points.
 *   It handles its own internal styling for icon, title, and description.
 *   Titles within `SectionCard` might use `gradient-text`.
 

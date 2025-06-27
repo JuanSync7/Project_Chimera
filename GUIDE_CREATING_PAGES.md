@@ -1,31 +1,32 @@
 
-# Project Chimera: Guide for Structuring Content Sections
+# Project Chimera: Guide for Structuring Content
 
-This guide details how content is structured within the **Project Chimera** single-page presentation application. The application is primarily composed of sections within the main `App.tsx` (or `page.tsx` if adapted to Next.js) and detailed sub-pages for specific topics.
+This guide details how content is structured within the **Project Chimera** Next.js application. The application is composed of a main page with multiple sections and several detailed sub-pages.
 
-## Core Application Structure (`Project_Chimera/App.tsx`)
+## Core Application Structure (`src/app/page.tsx`)
 
-The main interface of Project Chimera is built within `Project_Chimera/App.tsx`.
+The main interface of Project Chimera is built within `src/app/page.tsx`.
 
-### Structure of `App.tsx`:
+### Structure of `page.tsx`:
 
-*   It imports and arranges various "Section" components (e.g., `HomeSection.tsx`, `OverviewSection.tsx`).
-*   It manages global state like `activeSection` for scroll-spy navigation and `isMobileMenuOpen` for the mobile menu.
+*   It imports and arranges various "Section" components (e.g., `HomeSection`, `OverviewSection`).
+*   It manages global state like `activeSection` for scroll-spy navigation.
 *   It wraps all content in `<PageShell>` which provides the Header and Footer.
 
-**Example Snippet from `App.tsx` (Conceptual based on its typical structure):**
+**Example Snippet from `page.tsx` (Conceptual):**
 ```tsx
-// Conceptual structure based on Project_Chimera/App.tsx
+// Conceptual structure based on src/app/page.tsx
 import PageShell from '@/components/chimera/PageShell';
 import HomeSection from '@/components/chimera/sections/HomeSection';
 // ... other section imports
 
-export default function App() {
-  // ... state for activeSection, isMobileMenuOpen ...
+export default function HomePage() {
+  const [activeSection, setActiveSection] = useState('home');
+  // ... state logic ...
 
   return (
-    <PageShell activeSection={activeSection} /* ... other props ... */ >
-      <div className="container mx-auto px-6"> {/* Main content container */}
+    <PageShell activeSection={activeSection}>
+      <div className="container mx-auto px-6">
         <HomeSection />
         <OverviewSection />
         {/* ... Other sections ... */}
@@ -38,37 +39,34 @@ export default function App() {
 ## Adding New Sections to the Main Page
 
 1.  **Create a New Section Component**:
-    *   In `Project_Chimera/components/sections/`, create a new `.tsx` file (e.g., `NewStrategicSection.tsx`).
+    *   In `src/components/chimera/sections/`, create a new `.tsx` file (e.g., `NewStrategicSection.tsx`).
     *   Design your component using React and Tailwind CSS. Each section should typically have a root `<section id="your-section-id" className="py-24">` (or similar padding).
     *   Assign a unique `id` to the root `<section>` element. This `id` will be used for navigation.
 2.  **Update Navigation Constants**:
-    *   Add a new entry to the `NAV_LINKS` array in `Project_Chimera/constants.ts` corresponding to your new section.
+    *   Add a new entry to the `NAV_LINKS` array in `src/lib/chimera/constants.ts` corresponding to your new section.
         ```ts
-        // In Project_Chimera/constants.ts
+        // In src/lib/chimera/constants.ts
         export const NAV_LINKS: NavLinkItem[] = [
           // ... existing links ...
           { id: 'your-section-id', href: '#your-section-id', label: 'New Section Label' },
         ];
         ```
-3.  **Import and Use in `App.tsx`**:
-    *   Import your new section component into `App.tsx`.
+3.  **Import and Use in `page.tsx`**:
+    *   Import your new section component into `src/app/page.tsx`.
     *   Place it in the desired order within the main content `div`.
-    *   The scroll-spy logic in `App.tsx` should automatically pick up the new section if it has an `id` attribute.
+    *   The scroll-spy logic in `page.tsx` should automatically pick up the new section if it has an `id` attribute.
 
 ## Creating New Sub-Pages (Detailed Content Pages)
 
-Project Chimera uses a pattern for sub-pages that provide more detailed information (e.g., `/strategic-imperative`, `/architectural-blueprint`). If this were a Next.js App Router application, these would be in `src/app/some-route/page.tsx`. For the current Vite/React setup, routing would be handled by a library like React Router, or it might be simulated if these are actually part of a more complex single-page structure not fully shown.
+Project Chimera uses the Next.js App Router for its sub-pages (e.g., `/strategic-imperative`, `/architectural-blueprint`).
 
-Assuming a conceptual routing setup for sub-pages:
-
-1.  **Create a New Page Component**:
-    *   Place the new page component in a relevant directory, for instance, if it's related to the roadmap, it might be `Project_Chimera/components/chimera/roadmap-details/MyNewRoadmapDetailPage.tsx`.
-    *   For a Next.js App Router structure, this would be, for example: `src/app/roadmap-details/my-new-detail/page.tsx`.
+1.  **Create a New Page Route**:
+    *   In the `src/app/` directory, create a new folder for your route (e.g., `src/app/new-detail-page/`).
+    *   Inside this folder, create a `page.tsx` file. This file will be the entry point for the `/new-detail-page` route.
 2.  **Structure the Sub-Page Content**:
     *   Use the `<SubPageLayout>` component to wrap your page content. This provides consistent header, footer, and a "back" button.
         ```tsx
-        // Example for a new sub-page: src/app/new-detail/page.tsx (Next.js example)
-        // Or Project_Chimera/pages/NewDetailPage.tsx (Vite/React Router example)
+        // Example for a new sub-page: src/app/new-detail-page/page.tsx
         "use client"; // If client-side interactions are needed
         import React from 'react';
         import SubPageLayout from '@/components/chimera/SubPageLayout';
@@ -92,7 +90,7 @@ Assuming a conceptual routing setup for sub-pages:
         }
         ```
 3.  **Link to the New Sub-Page**:
-    *   Add links from the main page sections (e.g., `HomeSection.tsx`, `OverviewSection.tsx`) or other relevant sub-pages to your new detail page using a standard `<a>` tag or a `<Link>` component if using a routing library.
+    *   Add links from the main page sections (e.g., `HomeSection.tsx`, `OverviewSection.tsx`) or other relevant sub-pages to your new detail page using the Next.js `<Link>` component.
 
 ## Styling and Formatting
 

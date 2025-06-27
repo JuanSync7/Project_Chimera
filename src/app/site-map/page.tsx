@@ -41,24 +41,42 @@ const siteStructure: SiteNode[] = [
     ]},
 ];
 
-const TreeNode: React.FC<{ node: SiteNode; isRoot?: boolean }> = ({ node, isRoot = false }) => {
+const TreeNode: React.FC<{ node: SiteNode; isLast?: boolean; isRoot?: boolean }> = ({ node, isRoot = false, isLast = false }) => {
     return (
-        <li className={isRoot ? '' : 'ml-6 mt-4 relative'}>
-            {!isRoot && (
-                <span className="absolute -left-6 top-[1.125rem] h-px w-5 bg-slate-600" aria-hidden="true" />
-            )}
+        <li className="relative">
             <div className="flex items-center">
+                {/* Connector lines for non-root nodes */}
+                {!isRoot && (
+                    <>
+                        {/* Vertical line connecting to siblings. For the last child, it stops at the connection point. */}
+                        <span
+                            className="absolute -left-5 top-0 w-px bg-slate-600"
+                            style={{ height: isLast ? '1.375rem' : '100%' }}
+                            aria-hidden="true"
+                        />
+                        {/* Horizontal line connecting to the node text/button */}
+                        <span
+                            className="absolute -left-5 top-[1.375rem] h-px w-5 bg-slate-600"
+                            aria-hidden="true"
+                        />
+                    </>
+                )}
                 <Link href={node.href} passHref>
-                    <Button variant="ghost" className="text-lg hover:bg-primary/10 h-11 px-4">
+                    <Button variant="ghost" className="text-lg hover:bg-primary/10 h-11 px-3">
                         <DynamicIcon name={node.icon} className="mr-3 h-5 w-5 text-primary" />
                         {node.name}
                     </Button>
                 </Link>
             </div>
+            
             {node.children && node.children.length > 0 && (
-                <ul className="mt-2 pl-6 border-l-2 border-slate-700">
-                    {node.children.map((childNode) => (
-                        <TreeNode key={childNode.href} node={childNode} />
+                <ul className="mt-2 pl-8 space-y-2">
+                    {node.children.map((childNode, index) => (
+                        <TreeNode 
+                            key={childNode.href} 
+                            node={childNode} 
+                            isLast={index === node.children.length - 1} 
+                        />
                     ))}
                 </ul>
             )}
@@ -77,9 +95,14 @@ export default function SiteMapPage() {
                 <p className="text-2xl text-slate-400">A complete map of the Project Chimera presentation.</p>
             </div>
             <div className="w-full max-w-4xl mx-auto bg-slate-900/50 p-8 rounded-xl border border-slate-700">
-                <ul className="space-y-4">
-                    {siteStructure.map((rootNode) => (
-                        <TreeNode key={rootNode.href} node={rootNode} isRoot />
+                <ul className="space-y-2">
+                    {siteStructure.map((rootNode, index) => (
+                        <TreeNode 
+                            key={rootNode.href} 
+                            node={rootNode} 
+                            isRoot 
+                            isLast={index === siteStructure.length - 1}
+                        />
                     ))}
                 </ul>
             </div>

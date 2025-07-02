@@ -177,7 +177,7 @@ export default function RequirementsAgentPlanPage() {
             <li><strong>Sentence-Based Splitting:</strong> For long prose sections, such as the introduction of a white paper or an application note, a sentence-based splitter (e.g., splitting on periods) is preferable to a character-based one, as it preserves the integrity of individual statements.</li>
             <li><strong>Recursive Splitting as a Fallback:</strong> A recursive character splitter can be used as a final fallback for unstructured text blocks that are still too large after applying the above methods, but it should be a last resort.</li>
         </ul>
-        <p><strong className="text-white font-semibold">Chunk Enrichment:</strong> Raw text chunks are not enough. Each chunk must be enriched with a comprehensive set of metadata. This metadata is not optional; it is the mechanism that enables the powerful, filtered retrieval necessary for a production system. Every chunk should be associated with metadata fields such as: `document_id`, `document_title`, `document_type`, `product_name`, `section_hierarchy`, `page_number`, `security_level`.</p>
+        <p><strong className="text-white font-semibold">Chunk Enrichment:</strong> Raw text chunks are not enough. Each chunk must be enriched with a comprehensive set of metadata. This metadata is not optional; it is the mechanism that enables the powerful, filtered retrieval necessary for a production system. Every chunk should be associated with metadata fields such as: <code className="language-json bg-slate-700 p-1 rounded text-sm">{`{ "document_id": "...", "document_title": "...", "document_type": "...", "product_name": "...", "section_hierarchy": "...", "page_number": "...", "security_level": "..." }`}</code>.</p>
         <h3 className="text-2xl font-semibold text-white !mb-2 mt-8">3.3 Vectorization: Choosing the Right Embedding Model</h3>
         <p>Vectorization is the process of using an embedding model to convert the text content of each enriched chunk into a high-dimensional numerical vector. These vectors capture the semantic meaning of the text, allowing the vector database to find chunks that are conceptually similar, not just those that share keywords.</p>
         <p>The choice of embedding model is a critical decision, especially for a domain like semiconductors, which is rich with specialized jargon and acronyms (e.g., "SerDes," "FinFET," "ASIL-D"). A general-purpose model may struggle to understand the subtle distinctions between these terms. Therefore, the selection process must be data-driven and tailored to the domain. An effective evaluation strategy involves:</p>
@@ -498,16 +498,63 @@ for event in agent_graph.stream({"messages": [("user", user_input)]}, config):
 
         {/* Section 7 */}
         <SectionHeader icon={<Milestone />} title="Section 7: Production Readiness: Evaluation, Security, and Scalability" />
-        <p>Deploying the agent into a production environment requires addressing evaluation, security, and scalability.</p>
+        <p>Deploying the Customer Requirements Translation Agent into a production environment requires moving beyond a functional prototype to address the critical non-functional requirements of evaluation, security, and scalability. A production-grade system must be reliable, trustworthy, and capable of handling enterprise-level demands.</p>
+
         <h3 className="text-2xl font-semibold text-white !mb-2 mt-8">7.1 A Multi-Faceted Evaluation Framework</h3>
-        <p>A comprehensive evaluation framework must assess the entire process from retrieval to generation, including retrieval quality, syntactic correctness, semantic faithfulness, completeness, and traceability accuracy.</p>
+        <p>Evaluating the performance of this agent is more complex than measuring standard RAG metrics like context precision and recall, although those are important foundational checks. The ultimate measure of success is the quality and accuracy of the final translated output. A comprehensive evaluation framework must therefore be multi-faceted, assessing the entire process from retrieval to generation.</p>
+        <ul className="list-disc pl-5 space-y-2">
+            <li><strong className="text-white font-semibold">Retrieval Quality:</strong> This is the first gate. Standard RAG evaluation tools like Ragas can be used to measure context_recall and context_precision. This ensures that the agent is fetching the correct and most relevant document chunks to inform its reasoning process.</li>
+            <li><strong className="text-white font-semibold">Generation Quality (Structured Output):</strong> This is the most critical evaluation stage and requires a combination of automated and human-in-the-loop assessments.
+                <ul className="list-circle pl-5 mt-1 space-y-1">
+                    <li><strong className="text-white font-semibold">Syntactic Correctness:</strong> This is a simple pass/fail test. Does the generated JSON output successfully validate against the predefined schema? Any output that fails this check is an automatic failure.</li>
+                    <li><strong className="text-white font-semibold">Semantic Faithfulness:</strong> This metric assesses whether the content of the JSON accurately reflects the information present in the source documents and the user's query. For example, if the datasheet says 5mW and the JSON says 50mW, it is a failure of faithfulness. This is challenging to automate perfectly and often requires human review or the use of a more powerful LLM as an evaluator (an "LLM-as-a-judge" approach) to compare the generated output against the source text.</li>
+                    <li><strong className="text-white font-semibold">Completeness:</strong> Did the agent capture all the necessary requirements from the user's request and the relevant documents? This metric measures whether any key information was omitted from the final translation.</li>
+                    <li><strong className="text-white font-semibold">Traceability Accuracy:</strong> Are the source fields in the generated JSON correct? This can be verified by checking if the cited document and page number actually contain the information used to generate the requirement.</li>
+                </ul>
+            </li>
+        </ul>
+
         <h3 className="text-2xl font-semibold text-white !mb-2 mt-8">7.2 Enterprise-Grade Security</h3>
-        <p>A robust security model using role-based access control (RBAC) and metadata filtering ensures users only access authorized information. Data privacy with third-party LLM APIs is also a major consideration.</p>
+        <p>In an enterprise environment, the knowledge base will inevitably contain sensitive, confidential, or proprietary information. The agent must be designed with security as a core principle, ensuring that users can only access information they are authorized to see.</p>
+        <p>A robust security model can be implemented using a role-based access control (RBAC) pattern that leverages the metadata filtering capabilities of the vector database:</p>
+        <ul className="list-disc pl-5 space-y-2">
+            <li><strong className="text-white font-semibold">User Authentication:</strong> The agent application must integrate with the organization's existing identity provider (e.g., via OAuth 2.0 or SAML). Every request to the agent must be associated with an authenticated user identity.</li>
+            <li><strong className="text-white font-semibold">Role-Based Metadata Tagging:</strong> During the data ingestion (build time) phase, every document chunk must be tagged with metadata that defines its access level. For example, a chunk could be tagged with <code className="language-json bg-slate-700 p-1 rounded text-sm">{`"allowed_roles": ["automotive_eng", "admin"]`}</code> or <code className="language-json bg-slate-700 p-1 rounded text-sm">{`"security_level": "confidential"`}</code>.</li>
+            <li><strong className="text-white font-semibold">Dynamically Filtered Retrieval:</strong> The agent's retriever tool must be modified to be security-aware. When a user makes a request, the retriever fetches the user's roles from the authentication system. It then automatically injects a metadata filter into every single query sent to the vector database. For a user with the automotive_eng role, the filter would be <code className="language-json bg-slate-700 p-1 rounded text-sm">{`{'must': [{'key': 'allowed_roles', 'match': {'value': 'automotive_eng'}}]}`}</code>. This ensures, at the database level, that the retrieval process can never return chunks of documents that the user is not permitted to view.</li>
+        </ul>
+        <p>Additionally, if using a third-party LLM API, data privacy is a major concern. Organizations must carefully review the provider's policies regarding data retention, training on customer data, and security measures to prevent data leakage. For highly sensitive applications, deploying a self-hosted open-source LLM within the organization's private network may be the only acceptable solution.</p>
+
         <h3 className="text-2xl font-semibold text-white !mb-2 mt-8">7.3 Strategies for Scalability and Cost Management</h3>
-        <p>A production agent must handle many concurrent users efficiently. Strategies include choosing the right LLM hosting model (Managed APIs vs. Self-Hosting), scaling the vector database, implementing caching layers, and comprehensive monitoring.</p>
-        <p>Finally, it is crucial to recognize that the agent itself becomes a new and valuable source of enterprise data. The logs of its interactions form an incredibly rich dataset that can provide profound business intelligence and create a powerful feedback loop for continuous improvement.</p>
+        <p>A production agent must be able to handle requests from many concurrent users efficiently and cost-effectively.</p>
+        <ul className="list-disc pl-5 space-y-2">
+            <li><strong className="text-white font-semibold">LLM Hosting Strategy:</strong>
+                <ul className="list-circle pl-5 mt-1 space-y-1">
+                    <li><strong className="text-white font-semibold">Managed APIs (e.g., OpenAI, Anthropic):</strong> Offer the simplest path to production with zero maintenance overhead. The cost is typically based on token usage. This model is ideal for getting started quickly and for applications with variable traffic.</li>
+                    <li><strong className="text-white font-semibold">Self-Hosting Open-Source Models:</strong> For applications with high, consistent traffic, self-hosting a model like Qwen or Llama using tools like Docker and an inference server (e.g., Triton Inference Server, vLLM) can be more cost-effective in the long run. This approach provides greater control over latency and data privacy but requires significant MLOps expertise and infrastructure investment.</li>
+                </ul>
+            </li>
+            <li><strong className="text-white font-semibold">Vector Database Scaling:</strong> The choice of vector database in Section 3.4 directly impacts scalability. Managed services like Pinecone or Zilliz Cloud handle scaling automatically. Self-hosted solutions like Milvus or Qdrant require careful capacity planning, including sharding and replication strategies, to maintain performance as the data and query volume grows.</li>
+            <li><strong className="text-white font-semibold">Caching Layers:</strong> Caching is a powerful technique for reducing both latency and cost.
+                <ul className="list-circle pl-5 mt-1 space-y-1">
+                    <li><strong className="text-white font-semibold">Retrieval Cache:</strong> A cache can be implemented at the retrieval layer. If multiple users ask questions that result in the same embedding query, the cached list of retrieved documents can be returned instantly without hitting the vector database.</li>
+                    <li><strong className="text-white font-semibold">Generation Cache:</strong> A semantic cache can be placed at the final generation layer. If a user asks a question that is semantically identical to a previous one, the final generated JSON object can be served directly from the cache, bypassing the expensive LLM generation step entirely.</li>
+                </ul>
+            </li>
+            <li><strong className="text-white font-semibold">Comprehensive Monitoring:</strong> A robust monitoring stack is essential for managing a production system. Using tools like Prometheus and Grafana, the team should track key performance indicators (KPIs) such as:
+                <ul className="list-circle pl-5 mt-1 space-y-1">
+                    <li>End-to-end query latency.</li>
+                    <li>Queries Per Second (QPS).</li>
+                    <li>LLM API costs and token usage per query.</li>
+                    <li>Vector database query latency.</li>
+                    <li>Cache hit/miss rates.</li>
+                    <li>Error rates for each component of the agent.</li>
+                </ul>
+            </li>
+        </ul>
+        <p>Finally, it is crucial to recognize that the agent itself becomes a new and valuable source of enterprise data. The logs of its interactions—the questions users ask, the documents they are interested in, the ambiguities the agent detects, and the requirements it successfully translates—form an incredibly rich dataset. Analyzing these logs can provide profound business intelligence. For example, if the agent frequently asks for clarification about the power specifications of a particular IP block, it is a clear signal that the datasheet for that block is poorly written and needs improvement. If multiple product managers begin asking for requirements related to a new industry standard (e.g., UCIe for chiplets), it serves as a leading indicator of an emerging market trend. Therefore, the production readiness plan must include a strategy for ingesting and analyzing the agent's interaction logs. This creates a powerful feedback loop, transforming the agent from a static automation tool into a dynamic, learning system that not only streamlines the requirements process but also helps improve the very documentation it relies on and provides invaluable strategic insights to the entire organization.</p>
       </article>
     </SubPageLayout>
   );
 }
 
+the page name will be "requirements-agent-plan" and it is nested under /ai-pipeline/. remove the citation as well.

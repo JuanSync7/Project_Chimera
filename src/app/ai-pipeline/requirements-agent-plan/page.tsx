@@ -90,11 +90,18 @@ export default function RequirementsAgentPlanPage() {
 
         <h3 className="text-2xl font-semibold text-white !mb-2 mt-8">2.3 Detailed Workflow Diagram (Runtime)</h3>
         <p>The runtime logic of the agent is a non-linear, cyclical process that can be visualized as a state graph. The following diagram illustrates the flow of data and control during a typical interaction, showcasing the decision-making capabilities that define an agentic system.</p>
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4 my-6">
-            <pre><code className="language-mermaid">
+        <div className="bg-black rounded-lg shadow-xl overflow-hidden my-6 border border-slate-700 not-prose">
+            <div className="bg-slate-800 px-4 py-2 flex items-center">
+                <div className="w-3 h-3 bg-red-500 rounded-full mr-1.5"></div>
+                <div className="w-3 h-3 bg-yellow-500 rounded-full mr-1.5"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span className="ml-auto text-xs text-slate-400 font-mono">Mermaid Diagram -- Agent Workflow</span>
+            </div>
+            <div className="p-4 text-sm font-mono text-slate-300 overflow-x-auto bg-slate-900">
+              <pre><code className="language-mermaid">
 {`graph TD
     A[User Input] --> B{Update State};
-    B --> C;
+    B --> C[Contextualizer Node];
     C --> D{Router Node: Plan Next Action};
     D -- Need More Info --> E[Retrieval Node];
     E --> F[Synthesis & Generation Node];
@@ -113,7 +120,8 @@ export default function RequirementsAgentPlanPage() {
     subgraph User Interaction
         A; H; I;
     end`}
-            </code></pre>
+              </code></pre>
+            </div>
         </div>
         <p><strong className="text-white font-semibold">Workflow Steps:</strong></p>
         <ol className="list-decimal pl-5 space-y-2">
@@ -253,30 +261,174 @@ export default function RequirementsAgentPlanPage() {
         <SectionHeader icon={<Code2 />} title="Section 5: A Step-by-Step Implementation with LangGraph" />
         <p>This section provides a practical guide to implementing the agent using Python and LangGraph, chosen for its ability to model complex, stateful, and cyclical workflows.</p>
         <h3 className="text-2xl font-semibold text-white !mb-2 mt-8">5.1 Setting Up the Environment</h3>
-        <pre><code className="language-bash">{`pip install langchain langgraph langchain-openai qdrant-client beautifulsoup4`}</code></pre>
+        <div className="bg-black rounded-lg shadow-xl overflow-hidden my-6 border border-slate-700 not-prose">
+            <div className="bg-slate-800 px-4 py-2 flex items-center">
+                <div className="w-3 h-3 bg-red-500 rounded-full mr-1.5"></div>
+                <div className="w-3 h-3 bg-yellow-500 rounded-full mr-1.5"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span className="ml-auto text-xs text-slate-400 font-mono">Bash -- ~</span>
+            </div>
+            <div className="p-4 text-sm font-mono text-slate-300 overflow-x-auto bg-slate-900">
+                <pre><code className="language-bash">{`pip install langchain langgraph langchain-openai qdrant-client beautifulsoup4`}</code></pre>
+            </div>
+        </div>
         <p>Configure API keys and set up LangSmith for tracing and debugging.</p>
+        <div className="bg-black rounded-lg shadow-xl overflow-hidden my-6 border border-slate-700 not-prose">
+            <div className="bg-slate-800 px-4 py-2 flex items-center">
+                <div className="w-3 h-3 bg-red-500 rounded-full mr-1.5"></div>
+                <div className="w-3 h-3 bg-yellow-500 rounded-full mr-1.5"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span className="ml-auto text-xs text-slate-400 font-mono">Python -- setup.py</span>
+            </div>
+            <div className="p-4 text-sm font-mono text-slate-300 overflow-x-auto bg-slate-900">
+                <pre><code className="language-python">{`import os
+import getpass
+
+os.environ["OPENAI_API_KEY"] = getpass.getpass("Enter your OpenAI API key: ")
+os.environ["LANGCHAIN_API_KEY"] = getpass.getpass("Enter your LangSmith API key: ")
+os.environ["LANGCHAIN_TRACING_V2"] = "true"`}</code></pre>
+            </div>
+        </div>
         <h3 className="text-2xl font-semibold text-white !mb-2 mt-8">5.2 Defining the Agent's State</h3>
         <p>Use LangGraph's `MessagesState` to manage the conversation history.</p>
-        <pre><code className="language-python">{`from typing import Annotated
+        <div className="bg-black rounded-lg shadow-xl overflow-hidden my-6 border border-slate-700 not-prose">
+            <div className="bg-slate-800 px-4 py-2 flex items-center">
+                <div className="w-3 h-3 bg-red-500 rounded-full mr-1.5"></div>
+                <div className="w-3 h-3 bg-yellow-500 rounded-full mr-1.5"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span className="ml-auto text-xs text-slate-400 font-mono">Python -- agent_state.py</span>
+            </div>
+            <div className="p-4 text-sm font-mono text-slate-300 overflow-x-auto bg-slate-900">
+                <pre><code className="language-python">{`from typing import Annotated
 from typing_extensions import TypedDict
 from langgraph.graph.message import add_messages
 
 class AgentState(TypedDict):
     messages: Annotated[list, add_messages]`}</code></pre>
+            </div>
+        </div>
         <h3 className="text-2xl font-semibold text-white !mb-2 mt-8">5.3 Implementing the Graph Nodes</h3>
         <p>The agent's logic is encapsulated in nodes: Contextualizer, Retrieval, and Generation nodes.</p>
+        <div className="bg-black rounded-lg shadow-xl overflow-hidden my-6 border border-slate-700 not-prose">
+            <div className="bg-slate-800 px-4 py-2 flex items-center">
+                <div className="w-3 h-3 bg-red-500 rounded-full mr-1.5"></div>
+                <div className="w-3 h-3 bg-yellow-500 rounded-full mr-1.5"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span className="ml-auto text-xs text-slate-400 font-mono">Python -- nodes.py</span>
+            </div>
+            <div className="p-4 text-sm font-mono text-slate-300 overflow-x-auto bg-slate-900">
+                <pre><code className="language-python">{`from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(model="gpt-4o-mini")
+
+# Contextualizer Node Logic
+contextualize_q_system_prompt = """Given a chat history and the latest user question which might reference context in the chat history, formulate a standalone question which can be understood without the chat history. Do NOT answer the question, just reformulate it if needed and otherwise return it as is."""
+contextualize_q_prompt = ChatPromptTemplate.from_messages(
+    [
+        ("system", contextualize_q_system_prompt),
+        MessagesPlaceholder("messages"),
+    ]
+)
+contextualize_q_chain = contextualize_q_prompt | llm
+def contextualize_query_node(state: AgentState):
+    # This is a placeholder for actual contextualization logic
+    return {"messages": state["messages"]}
+
+# Generation Node Logic
+master_prompt_template = """...""" # Master prompt from Section 4.2
+generation_prompt = ChatPromptTemplate.from_template(master_prompt_template)
+generation_chain = generation_prompt | llm
+def generation_node(state: AgentState):
+    response = generation_chain.invoke({"messages": state["messages"]})
+    return {"messages": [response]}
+
+# Router Node Logic
+from langchain_core.messages import AIMessage
+def router_node(state: AgentState):
+    last_message = state["messages"][-1]
+    if isinstance(last_message, AIMessage) and last_message.tool_calls:
+        return "retrieve"
+    else:
+        return "end"`}</code></pre>
+            </div>
+        </div>
+        <p>And defining the retriever tool:</p>
+        <div className="bg-black rounded-lg shadow-xl overflow-hidden my-6 border border-slate-700 not-prose">
+            <div className="bg-slate-800 px-4 py-2 flex items-center">
+                <div className="w-3 h-3 bg-red-500 rounded-full mr-1.5"></div>
+                <div className="w-3 h-3 bg-yellow-500 rounded-full mr-1.5"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span className="ml-auto text-xs text-slate-400 font-mono">Python -- tools.py</span>
+            </div>
+            <div className="p-4 text-sm font-mono text-slate-300 overflow-x-auto bg-slate-900">
+                <pre><code className="language-python">{`from langchain_core.tools import tool
+from langchain_community.vectorstores import Qdrant
+from langchain_openai import OpenAIEmbeddings
+# Assume vector_store is initialized
+retriever = vector_store.as_retriever()
+@tool
+def retrieve_documents(query: str) -> str:
+    """Retrieve relevant documents from the knowledge base."""
+    docs = retriever.invoke(query)
+    return "\\n\\n".join([doc.page_content for doc in docs])`}</code></pre>
+            </div>
+        </div>
         <h3 className="text-2xl font-semibold text-white !mb-2 mt-8">5.4 Managing Conversational Memory</h3>
         <p>Use a LangGraph checkpointer (e.g., `MemorySaver`) to save and load the state of the graph for a given conversation thread.</p>
+        <div className="bg-black rounded-lg shadow-xl overflow-hidden my-6 border border-slate-700 not-prose">
+            <div className="bg-slate-800 px-4 py-2 flex items-center">
+                <div className="w-3 h-3 bg-red-500 rounded-full mr-1.5"></div>
+                <div className="w-3 h-3 bg-yellow-500 rounded-full mr-1.5"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span className="ml-auto text-xs text-slate-400 font-mono">Python -- memory.py</span>
+            </div>
+            <div className="p-4 text-sm font-mono text-slate-300 overflow-x-auto bg-slate-900">
+                <pre><code className="language-python">{`from langgraph.checkpoint.memory import MemorySaver
+memory = MemorySaver()`}</code></pre>
+            </div>
+        </div>
         <h3 className="text-2xl font-semibold text-white !mb-2 mt-8">5.5 Compiling and Running the Agent</h3>
         <p>Define the graph structure by adding nodes and edges, then compile it with the checkpointer.</p>
-        <pre><code className="language-python">{`from langgraph.graph import StateGraph, END
+        <div className="bg-black rounded-lg shadow-xl overflow-hidden my-6 border border-slate-700 not-prose">
+            <div className="bg-slate-800 px-4 py-2 flex items-center">
+                <div className="w-3 h-3 bg-red-500 rounded-full mr-1.5"></div>
+                <div className="w-3 h-3 bg-yellow-500 rounded-full mr-1.5"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span className="ml-auto text-xs text-slate-400 font-mono">Python -- main.py</span>
+            </div>
+            <div className="p-4 text-sm font-mono text-slate-300 overflow-x-auto bg-slate-900">
+                <pre><code className="language-python">{`from langgraph.graph import StateGraph, END
+from langgraph.prebuilt import ToolNode
+
+retrieval_node = ToolNode([retrieve_documents])
 
 graph_builder = StateGraph(AgentState)
-# ... add nodes and edges ...
+graph_builder.add_node("contextualizer", contextualize_query_node)
+graph_builder.add_node("generator", generation_node)
+graph_builder.add_node("retriever", retrieval_node)
+
+graph_builder.set_entry_point("contextualizer")
+graph_builder.add_edge("contextualizer", "generator")
+graph_builder.add_conditional_edges(
+    "generator",
+    router_node,
+    {"retrieve": "retriever", "end": END}
+)
+graph_builder.add_edge("retriever", "generator")
+
 agent_graph = graph_builder.compile(checkpointer=memory)
 
-# ... run the agent ...`}</code></pre>
+# Running the agent
+import uuid
+config = {"configurable": {"thread_id": str(uuid.uuid4())}}
+user_input = "We need a new processor core for our ADAS platform."
 
+for event in agent_graph.stream({"messages": [("user", user_input)]}, config):
+    for value in event.values():
+        print(value["messages"][-1].content)`}</code></pre>
+            </div>
+        </div>
         {/* Section 6 */}
         <SectionHeader icon={<Beaker />} title="Section 6: Case Study: Translating a Requirement for a Semiconductor IP Core" />
         <p>This section demonstrates the agent's end-to-end functionality in a realistic semiconductor industry scenario.</p>
@@ -308,7 +460,15 @@ agent_graph = graph_builder.compile(checkpointer=memory)
         <p>A transcript of the simulated interaction demonstrates the agent's conversational disambiguation and knowledge synthesis capabilities, culminating in the generation of a precise, machine-readable JSON object.</p>
         <h3 className="text-2xl font-semibold text-white !mb-2 mt-8">6.4 The Final Output: The Structured JSON</h3>
         <p>The culmination of the agent's work is the generation of a precise, machine-readable JSON object that translates the user's initial ambiguous request into concrete, verifiable engineering specifications.</p>
-        <pre><code className="language-json">{`{
+        <div className="bg-black rounded-lg shadow-xl overflow-hidden my-6 border border-slate-700 not-prose">
+            <div className="bg-slate-800 px-4 py-2 flex items-center">
+                <div className="w-3 h-3 bg-red-500 rounded-full mr-1.5"></div>
+                <div className="w-3 h-3 bg-yellow-500 rounded-full mr-1.5"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span className="ml-auto text-xs text-slate-400 font-mono">JSON -- output.json</span>
+            </div>
+            <div className="p-4 text-sm font-mono text-slate-300 overflow-x-auto bg-slate-900">
+                <pre><code className="language-json">{`{
   "component_name": "ADAS Processor Core",
   "project": "Next-Gen Automotive ADAS SoC",
   "requirements_summary": "A high-performance, power-efficient, ASIL-D compliant RISC-V processor core for sensor fusion workloads.",
@@ -331,7 +491,9 @@ agent_graph = graph_builder.compile(checkpointer=memory)
   },
   "interface_recommendations": ["PCIe 5.0", "USB 3.2"]
 }`}
-        </code></pre>
+                </code></pre>
+            </div>
+        </div>
 
         {/* Section 7 */}
         <SectionHeader icon={<Milestone />} title="Section 7: Production Readiness: Evaluation, Security, and Scalability" />

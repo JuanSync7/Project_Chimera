@@ -556,5 +556,3 @@ for event in agent_graph.stream({"messages": [("user", user_input)]}, config):
     </SubPageLayout>
   );
 }
-
-the page name will be "requirements-agent-plan" and it is nested under /ai-pipeline/. remove the citation as well.

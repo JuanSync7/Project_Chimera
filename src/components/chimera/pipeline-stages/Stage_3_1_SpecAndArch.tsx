@@ -33,37 +33,35 @@ const Stage_3_1_SpecAndArch: React.FC = () => {
       id: 'supervisor',
       icon: <Focus />,
       title: 'Supervisor agent',
-      description: 'Acts as the <strong>grand conductor</strong>, intelligently orchestrates this entire exploration process. It continuously monitors the PPA estimations, manages the trade-offs, and ultimately presents the top 3-5 candidate architectures to our human architects and product leadership. These candidates are accompanied by comprehensive, AI-generated trade-off analyses, enabling informed, strategic decisions that directly impact the chip&apos;s market competitiveness and alignment with business objectives.'
-    },
+      description: 'Acts as the <strong>grand conductor</strong>, intelligently orchestrates this entire exploration process. It continuously monitors the PPA estimations, manages the trade-offs, and ultimately presents the top 3-5 candidate architectures to our human architects and product leadership. These candidates are accompanied by comprehensive, AI-generated trade-off analyses, enabling informed, strategic decisions that directly impact the final product.'
+    }
   ];
 
   return (
     <div className="section-card p-6 rounded-2xl mt-12">
       <h2 id="stage-3-1" className="text-3xl font-semibold text-white !m-0 border-b border-slate-700 pb-2 mb-6">
-        3.1 Stage 1: System Specification &amp; Architecture
+        3.1 Stage 1: AI-Driven Specification &amp; Architectural Exploration
       </h2>
       <div className="mt-6 mb-4 flex items-center">
         <AlertTriangle className="h-7 w-7 text-yellow-400 mr-3 flex-shrink-0" />
         <h3 className="text-2xl font-semibold text-yellow-400 !m-0 !border-b-0 !pb-0">Challenge:</h3>
       </div>
-      <p>The critical initial phase of chip design is often hampered by <strong className="text-yellow-500">ambiguous</strong>,
-        high-level customer requirements expressed in natural language. Compounding this, designers face an <strong className="text-yellow-500">
-        impossibly vast, multi-dimensional labyrinth</strong> of potential high-level architectures. Traditional manual exploration
-        through this maze is painstakingly slow, inherently sub-optimal, and all too often prone to overlooking truly innovative,
-        game-changing solutions.
-      </p>
+      <p>The very beginning of the chip design process is often where the most critical and costly errors are introduced. This initial phase is frequently hampered by <strong>ambiguous requirements</strong> expressed in natural language, and compounded by the <strong>impossibly vast search space</strong> of potential high-level architectures. A misstep here can cascade through the entire design flow, leading to massive downstream rework.</p>
+
       <div className="mt-8 mb-4 flex items-center">
         <Zap className="h-7 w-7 text-primary mr-3 flex-shrink-0" />
         <h3 className="text-2xl font-semibold text-primary !m-0 !border-b-0 !pb-0">
-          Agentic Workflow: AI-Driven Strategic Design &amp; Holistic Architecture Exploration
+          Agentic Workflow: Disambiguation, Formalization, and Accelerated Exploration
         </h3>
       </div>
-      <p>Our workflow begins with <strong>precision and foresight</strong>, a symphony of specialized AI acting in concert:</p>
+      <p>Our agentic system tackles this head-on by transforming ambiguous natural language requirements into formal, optimized architectural blueprints. This stage creates a <strong>&quot;digital thread&quot;</strong> of intent and context that flows from the initial concept to the final silicon:</p>
+      
       <ul className="list-none pl-0 space-y-6 !my-6">
         {workflowItems.map(item => (
           <PrimaryWorkflowItemCard key={item.id} icon={item.icon} title={item.title} description={item.description} />
         ))}
       </ul>
+      <p>This initial agentic stage ensures that all subsequent design and verification efforts are built upon a foundation of clarity, formal correctness, and PPA optimization from day one, dramatically reducing project risk and accelerating time-to-market.</p>
     </div>
   );
 };

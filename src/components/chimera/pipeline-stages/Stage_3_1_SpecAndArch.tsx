@@ -2,6 +2,8 @@
 import React from 'react';
 import { PrimaryWorkflowItemCard } from './WorkflowCardHelpers';
 import { AlertTriangle, Zap, UserRoundSearch, FileText, Cpu, Network, Focus } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const Stage_3_1_SpecAndArch: React.FC = () => {
   const workflowItems = [
@@ -58,7 +60,17 @@ const Stage_3_1_SpecAndArch: React.FC = () => {
       
       <ul className="list-none pl-0 space-y-6 !my-6">
         {workflowItems.map(item => (
-          <PrimaryWorkflowItemCard key={item.id} icon={item.icon} title={item.title} description={item.description} />
+          <PrimaryWorkflowItemCard key={item.id} icon={item.icon} title={item.title} description={item.description}>
+            {item.id === 'custReq' && (
+              <div className="mt-4">
+                <Link href="/ai-pipeline/requirements-agent-plan" passHref>
+                  <Button variant="outline" size="sm" className="bg-transparent text-lime-400 border-lime-500 hover:bg-lime-500/20 hover:text-lime-300 hover:border-lime-400 transition-all duration-200">
+                    Step-by-step Implementation Plan &rarr;
+                  </Button>
+                </Link>
+              </div>
+            )}
+          </PrimaryWorkflowItemCard>
         ))}
       </ul>
       <p>This initial agentic stage ensures that all subsequent design and verification efforts are built upon a foundation of clarity, formal correctness, and PPA optimization from day one, dramatically reducing project risk and accelerating time-to-market.</p>

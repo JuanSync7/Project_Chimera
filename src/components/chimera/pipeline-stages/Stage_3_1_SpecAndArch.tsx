@@ -61,6 +61,15 @@ const Stage_3_1_SpecAndArch: React.FC = () => {
       <ul className="list-none pl-0 space-y-6 !my-6">
         {workflowItems.map(item => (
           <PrimaryWorkflowItemCard key={item.id} icon={item.icon} title={item.title} description={item.description}>
+            {item.id === 'custReq' && (
+              <div className="mt-4">
+                <Link href="/ai-pipeline/requirements-agent-plan" passHref>
+                  <Button variant="outline" size="sm" className="bg-transparent text-lime-400 border-lime-500 hover:bg-lime-500/20 hover:text-lime-300 hover:border-lime-400 transition-all duration-200">
+                    Step-by-step Implementation Plan &rarr;
+                  </Button>
+                </Link>
+              </div>
+            )}
             {item.id === 'specAgent' && (
               <div className="mt-4">
                 <Link href="/ai-pipeline/specification-agent-plan" passHref>

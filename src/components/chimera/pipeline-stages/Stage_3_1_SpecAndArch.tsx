@@ -79,6 +79,15 @@ const Stage_3_1_SpecAndArch: React.FC = () => {
                 </Link>
               </div>
             )}
+            {item.id === 'sysInterconnect' && (
+              <div className="mt-4">
+                <Link href="/ai-pipeline/interconnect-agent-plan" passHref>
+                  <Button variant="outline" size="sm" className="bg-transparent text-lime-400 border-lime-500 hover:bg-lime-500/20 hover:text-lime-300 hover:border-lime-400 transition-all duration-200">
+                    Step-by-step Implementation Plan &rarr;
+                  </Button>
+                </Link>
+              </div>
+            )}
           </PrimaryWorkflowItemCard>
         ))}
       </ul>

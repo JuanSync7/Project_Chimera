@@ -198,13 +198,7 @@ const coreComponentsData: AgentCategoryInfo[] = [
       { 
         name: 'System-Level Interconnect Agent', 
         details: 'As chip complexity grows with numerous <strong>IP blocks and heterogeneous components</strong>, efficient communication becomes paramount. This agent focuses on designing and optimizing the chip\'s <strong>internal communication fabric</strong>, such as <strong>Network-on-Chip (NoC) topologies, bus architectures, and memory interfaces</strong>. It intelligently leverages and orchestrates <strong>system-level exploration tools</strong> like <strong>Synopsys Platform Architect</strong> to model and simulate <strong>complex traffic scenarios</strong>, analyze <strong>bandwidth and latency</strong> across the entire system. Its AI enables it to evaluate and propose <strong>optimal interconnect configurations</strong>, ensuring <strong>seamless and high-performance data flow</strong> between all functional blocks, even across <strong>multi-die systems and chiplets</strong>.',
-        actionButton: (
-          <Link href="/ai-pipeline/interconnect-agent-plan" passHref>
-            <Button variant="outline" size="sm" className="bg-transparent text-lime-400 border-lime-500 hover:bg-lime-500/20 hover:text-lime-300 hover:border-lime-400 transition-all duration-200">
-              Step-by-step Implementation Plan &rarr;
-            </Button>
-          </Link>
-        )
+        // NOTE: The button was removed from here as it's being moved to the AI Pipeline page.
       },
     ],
   },

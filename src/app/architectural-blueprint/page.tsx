@@ -21,7 +21,7 @@ import {
   MessagesSquare,
   FileSearch2,
   BrainCog,
-  SearchCode, // Kept as it was in the original file
+  SearchCode,
   GitFork,
   Inspect,
   Award
@@ -145,7 +145,8 @@ const FoundationsSection: React.FC = () => (
 // --- Component for Section 2.2: Core Components ---
 interface AgentDetail {
   name: string;
-  details: string; // HTML string
+  details: string; // Keep as HTML string
+  actionButton?: React.ReactNode; // Optional React node for a button
 }
 interface AgentCategoryInfo {
   id: string;
@@ -167,7 +168,9 @@ const AgentCategoryDisplay: React.FC<Omit<AgentCategoryInfo, 'id'>> = ({ icon, t
     <ul className="list-disc pl-5 space-y-2">
       {agents.map((agent, index) => (
         <li key={index}>
-          <strong className="text-white font-semibold">{agent.name}:</strong> <span dangerouslySetInnerHTML={{ __html: agent.details }} />
+          <strong className="text-white font-semibold">{agent.name}:</strong>{' '}
+          <span dangerouslySetInnerHTML={{ __html: agent.details }} />
+          {agent.actionButton && <div className="mt-4">{agent.actionButton}</div>}
         </li>
       ))}
     </ul>
@@ -192,7 +195,17 @@ const coreComponentsData: AgentCategoryInfo[] = [
     description: 'These agents specialize in the abstract, high-level structural and functional design of the chip. They utilize advanced AI techniques to explore vast architectural landscapes, identify optimal configurations, and make foundational decisions that profoundly impact the final chip\'s performance, power, and area (PPA).',
     agents: [
       { name: 'Microarchitecture Optimization Agent', details: 'This agent is adept at designing the <strong>internal structure and organization</strong> of core components (e.g., <strong>CPU cores, DSPs, custom accelerators</strong>). Employing sophisticated <strong>reinforcement learning</strong> and <strong>multi-objective optimization algorithms</strong>, it autonomously explores myriad <strong>pipeline stages, cache hierarchies, memory access patterns, and functional unit configurations</strong>. Its intelligence lies in predicting <strong>complex PPA trade-offs</strong> at the earliest stages, identifying the <strong>most efficient microarchitectures</strong> for specific workloads and performance targets, and generating <strong>detailed architectural specifications</strong> that feed into RTL generation.' },
-      { name: 'System-Level Interconnect Agent', details: 'As chip complexity grows with numerous <strong>IP blocks and heterogeneous components</strong>, efficient communication becomes paramount. This agent focuses on designing and optimizing the chip\'s <strong>internal communication fabric</strong>, such as <strong>Network-on-Chip (NoC) topologies, bus architectures, and memory interfaces</strong>. It intelligently leverages and orchestrates <strong>system-level exploration tools</strong> like <strong>Synopsys Platform Architect</strong> to model and simulate <strong>complex traffic scenarios</strong>, analyze <strong>bandwidth and latency</strong> across the entire system. Its AI enables it to evaluate and propose <strong>optimal interconnect configurations</strong>, ensuring <strong>seamless and high-performance data flow</strong> between all functional blocks, even across <strong>multi-die systems and chiplets</strong>.' },
+      { 
+        name: 'System-Level Interconnect Agent', 
+        details: 'As chip complexity grows with numerous <strong>IP blocks and heterogeneous components</strong>, efficient communication becomes paramount. This agent focuses on designing and optimizing the chip\'s <strong>internal communication fabric</strong>, such as <strong>Network-on-Chip (NoC) topologies, bus architectures, and memory interfaces</strong>. It intelligently leverages and orchestrates <strong>system-level exploration tools</strong> like <strong>Synopsys Platform Architect</strong> to model and simulate <strong>complex traffic scenarios</strong>, analyze <strong>bandwidth and latency</strong> across the entire system. Its AI enables it to evaluate and propose <strong>optimal interconnect configurations</strong>, ensuring <strong>seamless and high-performance data flow</strong> between all functional blocks, even across <strong>multi-die systems and chiplets</strong>.',
+        actionButton: (
+          <Link href="/ai-pipeline/interconnect-agent-plan" passHref>
+            <Button variant="outline" size="sm" className="bg-transparent text-lime-400 border-lime-500 hover:bg-lime-500/20 hover:text-lime-300 hover:border-lime-400 transition-all duration-200">
+              Step-by-step Implementation Plan &rarr;
+            </Button>
+          </Link>
+        )
+      },
     ],
   },
   {

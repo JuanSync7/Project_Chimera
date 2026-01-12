@@ -1,6 +1,8 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme {
+@layer base {
   :root {
     --background: 278 32% 90%; /* Light Indigo #E6E0EB */
     --foreground: 278 100% 10%; /* Dark contrast for text */
@@ -121,24 +123,26 @@
   }
 }
 
-* {
-  @apply border-border;
-}
-html.dark body {
-  font-family: var(--font-inter), sans-serif; /* Ensure body uses Inter */
-  background-color: #0a0a0a; 
-  color: #e2e8f0; 
-  font-feature-settings: "rlig" 1, "calt" 1; /* Common OpenType features */
-}
-body {
-  font-family: var(--font-inter), sans-serif; /* Ensure body uses Inter */
-  background-color: hsl(var(--background)); /* Use CSS var for light mode too */
-  color: hsl(var(--foreground)); /* Use CSS var for light mode too */
-  font-feature-settings: "rlig" 1, "calt" 1; /* Common OpenType features */
-}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html.dark body {
+    font-family: var(--font-inter), sans-serif; /* Ensure body uses Inter */
+    background-color: #0a0a0a; 
+    color: #e2e8f0; 
+    font-feature-settings: "rlig" 1, "calt" 1; /* Common OpenType features */
+  }
+  body {
+    font-family: var(--font-inter), sans-serif; /* Ensure body uses Inter */
+    background-color: hsl(var(--background)); /* Use CSS var for light mode too */
+    color: hsl(var(--foreground)); /* Use CSS var for light mode too */
+    font-feature-settings: "rlig" 1, "calt" 1; /* Common OpenType features */
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-inter), sans-serif; /* Ensure headings use Inter */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-inter), sans-serif; /* Ensure headings use Inter */
+  }
 }
 
 /* Styles from Project Chimera index.html */

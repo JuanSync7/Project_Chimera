@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ navLinks, activeSection, onMobileMenuTo
   return (
     <header id="header" className={headerClasses}>
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <a href={isMainPage ? "#home" : "/"} className="text-2xl font-bold tracking-tighter">
+        <a href="/" className="text-2xl font-bold tracking-tighter">
           <span className="gradient-text">Project Chimera</span>
         </a>
         <div className="hidden md:flex items-center space-x-8">

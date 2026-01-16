@@ -16,12 +16,12 @@ import {
 } from 'lucide-react';
 
 export const NAV_LINKS: NavLinkItem[] = [
-  { id: 'overview', href: '#overview', label: 'Overview' },
-  { id: 'architecture', href: '#architecture', label: 'Architecture' },
-  { id: 'pipeline', href: '#pipeline', label: 'Pipeline' },
-  { id: 'symbiosis', href: '#symbiosis', label: 'Symbiosis' },
-  { id: 'risks', href: '#risks', label: 'Risks & Vision' },
-  { id: 'roadmap', href: '#roadmap', label: 'Roadmap' },
+  { id: 'overview', href: '/strategic-imperative', label: 'Overview' },
+  { id: 'architecture', href: '/architectural-blueprint', label: 'Architecture' },
+  { id: 'pipeline', href: '/ai-pipeline', label: 'Pipeline' },
+  { id: 'symbiosis', href: '/human-ai-symbiosis', label: 'Symbiosis' },
+  { id: 'risks', href: '/risk-mitigation', label: 'Risks & Vision' },
+  { id: 'roadmap', href: '/roadmap-details', label: 'Roadmap' },
 ];
 
 // PIPELINE_TABS is the single source for stage data.
@@ -262,6 +262,7 @@ export const PYTHON_CODE_EXAMPLE = HIGH_LEVEL_PYTHON_CODE_EXAMPLE;
     
 
     
+
 
 
 

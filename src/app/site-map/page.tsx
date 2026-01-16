@@ -16,22 +16,22 @@ interface SiteNode {
 
 const siteStructure: SiteNode[] = [
     { name: 'Home Page', href: '/', icon: 'Home', children: [
-        { name: 'Overview Section', href: '/#overview', icon: 'LayoutDashboard' },
+        { name: 'Overview Section', href: '/strategic-imperative', icon: 'LayoutDashboard' },
         { name: 'Strategic Imperative', href: '/strategic-imperative', icon: 'TrendingUp' },
-        { name: 'Architecture Section', href: '/#architecture', icon: 'Layers' },
+        { name: 'Architecture Section', href: '/architectural-blueprint/supervisor-worker-details', icon: 'Layers' },
         { name: 'Architectural Blueprint', href: '/architectural-blueprint', icon: 'DraftingCompass', children: [
             { name: 'Supervisor-Worker Details', href: '/architectural-blueprint/supervisor-worker-details', icon: 'Workflow' },
             { name: 'MCP Server Details', href: '/architectural-blueprint/mcp-server-details', icon: 'ServerCog' },
             { name: 'RAG Details', href: '/architectural-blueprint/rag-details', icon: 'DatabaseZap' },
         ]},
-        { name: 'AI Pipeline Section', href: '/#pipeline', icon: 'Cpu' },
+        { name: 'AI Pipeline Section', href: '/ai-pipeline/specification-agent-plan', icon: 'Cpu' },
         { name: 'AI-Powered Pipeline Details', href: '/ai-pipeline', icon: 'Cpu' },
-        { name: 'Human-AI Symbiosis Section', href: '/#symbiosis', icon: 'BrainCircuit' },
+        { name: 'Human-AI Symbiosis Section', href: '/human-ai-symbiosis', icon: 'BrainCircuit' },
         { name: 'Human-AI Symbiosis Details', href: '/human-ai-symbiosis', icon: 'BrainCircuit' },
-        { name: 'Risks & Vision Section', href: '/#risks', icon: 'ShieldCheck' },
+        { name: 'Risks & Vision Section', href: '/risk-mitigation', icon: 'ShieldCheck' },
         { name: 'Risk Mitigation Details', href: '/risk-mitigation', icon: 'ShieldAlert' },
         { name: 'AGI Horizon Details', href: '/agi-horizon', icon: 'Telescope' },
-        { name: 'Roadmap Section', href: '/#roadmap', icon: 'GanttChartSquare' },
+        { name: 'Roadmap Section', href: '/roadmap-details/phase-1-crawl', icon: 'GanttChartSquare' },
         { name: 'Roadmap Details', href: '/roadmap-details', icon: 'GanttChartSquare', children: [
             { name: 'Phase 1: Crawl', href: '/roadmap-details/phase-1-crawl', icon: 'Milestone' },
             { name: 'Phase 2: Walk', href: '/roadmap-details/phase-2-walk', icon: 'TrendingUp' },
